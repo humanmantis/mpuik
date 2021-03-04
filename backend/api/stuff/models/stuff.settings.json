@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stuffs",
+  "info": {
+    "name": "Stuff",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "fullname": {
+      "type": "string"
+    },
+    "position": {
+      "type": "string"
+    },
+    "photo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "email": {
+      "type": "email"
+    },
+    "googleScholar": {
+      "type": "string"
+    },
+    "bio": {
+      "type": "richtext"
+    },
+    "publication": {
+      "type": "component",
+      "repeatable": true,
+      "component": "publication.publication"
+    }
+  }
+}

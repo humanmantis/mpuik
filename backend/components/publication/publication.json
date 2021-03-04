@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_publication_publications",
+  "info": {
+    "name": "Publication",
+    "icon": "list-alt"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    }
+  }
+}
