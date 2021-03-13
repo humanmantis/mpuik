@@ -1,0 +1,43 @@
+{
+  "kind": "singleType",
+  "collectionName": "histories",
+  "info": {
+    "name": "History",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "location": {
+      "type": "component",
+      "repeatable": false,
+      "component": "location.location"
+    },
+    "gallery": {
+      "type": "component",
+      "repeatable": false,
+      "component": "gallery.gallery"
+    }
+  }
+}

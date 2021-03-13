@@ -18,7 +18,7 @@
     "path": {
       "type": "string"
     },
-    "submenu": {
+    "items": {
       "type": "component",
       "repeatable": true,
       "component": "link.link"

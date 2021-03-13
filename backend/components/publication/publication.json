@@ -2,12 +2,14 @@
   "collectionName": "components_publication_publications",
   "info": {
     "name": "Publication",
-    "icon": "list-alt"
+    "icon": "list-alt",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "title": {
-      "type": "text"
+      "type": "string",
+      "maxLength": 800
     }
   }
 }

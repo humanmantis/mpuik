@@ -1,0 +1,41 @@
+{
+  "kind": "singleType",
+  "collectionName": "indices",
+  "info": {
+    "name": "Index",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "link.link"
+    },
+    "partnershipText": {
+      "type": "string"
+    },
+    "partnershipIcons": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "videoLink": {
+      "type": "string"
+    }
+  }
+}
