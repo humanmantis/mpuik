@@ -1,0 +1,12 @@
+query GetNav {
+  navigations {
+    id
+    title
+    path
+    items {
+      id
+      title
+      path
+    }
+  }
+}
