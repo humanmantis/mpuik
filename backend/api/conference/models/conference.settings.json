@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "conferences",
+  "info": {
+    "name": "Conference",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "article": {
+      "type": "component",
+      "repeatable": false,
+      "component": "article.article",
+      "required": true
+    },
+    "gallery": {
+      "type": "component",
+      "repeatable": false,
+      "component": "gallery.gallery"
+    }
+  }
+}

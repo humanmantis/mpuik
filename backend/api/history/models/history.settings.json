@@ -12,10 +12,11 @@
   },
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "subtitle": {
-      "type": "string"
+      "type": "text"
     },
     "image": {
       "model": "file",
@@ -27,7 +28,8 @@
       "required": false
     },
     "content": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     },
     "location": {
       "type": "component",

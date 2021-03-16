@@ -1,0 +1,23 @@
+query GetCooperationPage {
+  internationalCooperation {
+    article {
+      title
+      subtitle
+      content
+      photos {
+        id
+        url
+        alternativeText
+      }
+    }
+    gallery {
+      title
+      subtitle
+      photos {
+        id
+        url
+        alternativeText
+      }
+    }
+  }
+}

@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function WideGallery({ title, subtitle, gallery }) {
+function GalleryV1({ title, subtitle, gallery }) {
   const classes = useStyles();
   return (
     <Container className={classes.galleryContainer} fixed>
@@ -86,12 +86,12 @@ function WideGallery({ title, subtitle, gallery }) {
   );
 }
 
-Location.defaultProps = {
+GalleryV1.defaultProps = {
   title: 'Галерея',
   gallery: [],
 };
 
-Location.propTypes = {
+GalleryV1.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string.isRequired,
   gallery: PropTypes.arrayOf(
@@ -103,4 +103,4 @@ Location.propTypes = {
   ).isRequired,
 };
 
-export default WideGallery;
+export default GalleryV1;

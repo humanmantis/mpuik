@@ -1,9 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'markdown-to-jsx';
-import { Typography } from '@material-ui/core';
+import { Typography, Link, makeStyles } from '@material-ui/core';
+
+const useStyles = makeStyles((theme) => ({
+  blockquote: {
+    marginLeft: 0,
+    paddingLeft: '1rem',
+    borderLeft: `5px solid ${theme.palette.primary.main}`,
+  },
+}));
 
 function Markdown({ content }) {
+  const classes = useStyles();
   return (
     <ReactMarkdown
       options={{
@@ -40,7 +49,38 @@ function Markdown({ content }) {
           },
           p: {
             component: (props) => (
-              <Typography variant="body1" paragraph align="justify" {...props} />
+              <Typography
+                variant="body1"
+                paragraph
+                align="justify"
+                {...props}
+              />
+            ),
+          },
+          li: {
+            component: (props) => (
+              <Typography
+                variant="body1"
+                align="justify"
+                component="li"
+                {...props}
+              />
+            ),
+          },
+          blockquote: {
+            props: {
+              className: classes.blockquote,
+            },
+          },
+          a: {
+            component: (props) => <Link {...props} />,
+          },
+          img: {
+            component: (props) => (
+              <img
+                src={process.env.REACT_APP_IMAGE_URI + props.src}
+                alt={props.alt}
+              />
             ),
           },
         },

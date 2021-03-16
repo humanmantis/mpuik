@@ -2,12 +2,19 @@
   "collectionName": "components_list_lists",
   "info": {
     "name": "List",
-    "icon": "align-justify"
+    "icon": "align-justify",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "text",
+      "required": true
+    },
+    "short": {
+      "type": "string",
+      "private": true,
+      "required": true
     }
   }
 }
