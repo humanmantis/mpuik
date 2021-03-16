@@ -1,0 +1,16 @@
+query GetStaffPage {
+  teacher {
+    title
+    subtitle
+  }
+  employees {
+    id
+    slug
+    fullname
+    position
+    photo {
+      url
+      alternativeText
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "teachers",
+  "info": {
+    "name": "Teachers",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "text"
+    }
+  }
+}

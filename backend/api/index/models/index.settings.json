@@ -12,18 +12,22 @@
   },
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "subtitle": {
-      "type": "string"
+      "type": "text",
+      "required": true
     },
     "button": {
       "type": "component",
       "repeatable": false,
-      "component": "link.link"
+      "component": "link.link",
+      "required": true
     },
     "partnershipText": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "partnershipIcons": {
       "collection": "file",
@@ -32,10 +36,11 @@
         "images"
       ],
       "plugin": "upload",
-      "required": false
+      "required": true
     },
     "videoLink": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }

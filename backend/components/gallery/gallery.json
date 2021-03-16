@@ -2,15 +2,17 @@
   "collectionName": "components_gallery_galleries",
   "info": {
     "name": "Gallery",
-    "icon": "images"
+    "icon": "images",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "subtitle": {
-      "type": "string"
+      "type": "text"
     },
     "photos": {
       "collection": "file",
@@ -19,7 +21,7 @@
         "images"
       ],
       "plugin": "upload",
-      "required": false
+      "required": true
     }
   }
 }

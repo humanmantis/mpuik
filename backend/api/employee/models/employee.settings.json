@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "stuffs",
+  "collectionName": "employees",
   "info": {
-    "name": "Stuff",
+    "name": "Employee",
     "description": ""
   },
   "options": {
@@ -12,10 +12,16 @@
   },
   "attributes": {
     "fullname": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "position": {
-      "type": "string"
+      "type": "string",
+      "required": true
+    },
+    "bio": {
+      "type": "richtext",
+      "required": true
     },
     "photo": {
       "model": "file",
@@ -26,19 +32,18 @@
       "plugin": "upload",
       "required": false
     },
+    "publications": {
+      "type": "component",
+      "repeatable": true,
+      "component": "list.list"
+    },
     "email": {
       "type": "email"
     },
-    "googleScholar": {
-      "type": "string"
-    },
-    "bio": {
-      "type": "richtext"
-    },
-    "publication": {
-      "type": "component",
-      "repeatable": true,
-      "component": "publication.publication"
+    "slug": {
+      "type": "uid",
+      "targetField": "fullname",
+      "required": true
     }
   }
 }

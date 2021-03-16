@@ -22,12 +22,12 @@ function Header(props) {
 
   useEffect(() => {
     const setView = () =>
-      setDesktopView(window.innerWidth >= theme.breakpoints.values.md);
+      setDesktopView(window.innerWidth >= theme.breakpoints.values.lg);
 
     setView();
 
     window.addEventListener('resize', () => setView());
-  }, [theme.breakpoints.values.md]);
+  }, [theme.breakpoints.values.lg]);
 
   return (
     <HideOnScroll>

@@ -2,18 +2,12 @@ import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { loader } from 'graphql.macro';
 import { makeStyles } from '@material-ui/core';
-import {
-  Container,
-  Grid,
-  Typography,
-  Paper,
-  Collapse,
-  Button,
-} from '@material-ui/core';
+import { Container, Grid, Paper, Collapse, Button } from '@material-ui/core';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import GalleryV1 from '../../components/Gallery/GalleryV1';
 import Location from '../../components/Location/Location';
+import PageTitle from '../../components/common/PageTitle';
 import Markdown from '../../components/common/Markdown';
 import TopWaves from '../../components/background/PageWaves';
 
@@ -35,16 +29,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.only('xs')]: {
       height: '150px',
     },
-  },
-  top: {
-    maxWidth: '800px',
-  },
-  title: {
-    fontWeight: 'bold',
-    color: theme.palette.primary.main,
-  },
-  subtitle: {
-    marginBottom: '3rem',
   },
   content: {
     margin: '0 auto',
@@ -102,6 +86,8 @@ function History() {
 
   const handleChange = () => setChecked((prev) => !prev);
 
+  const history = data?.history;
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
@@ -115,24 +101,7 @@ function History() {
           alignContent="center"
           justify="center"
         >
-          <Grid item xs={12} className={classes.top}>
-            <Typography
-              variant="h3"
-              align="center"
-              className={classes.title}
-              gutterBottom
-            >
-              {data.history.title}
-            </Typography>
-            <Typography
-              variant="subtitle1"
-              align="center"
-              className={classes.subtitle}
-              paragraph
-            >
-              {data.history.subtitle}
-            </Typography>
-          </Grid>
+          <PageTitle title={history.title} subtitle={history.subtitle} />
           <Grid item xs={12}>
             <Paper component="article" className={classes.content}>
               <Collapse
@@ -143,7 +112,7 @@ function History() {
                   entered: classes.enteredrCollapse,
                 }}
               >
-                <Markdown content={data.history.content} />
+                <Markdown content={history?.content} />
               </Collapse>
               <Button
                 onClick={handleChange}
@@ -156,30 +125,33 @@ function History() {
           </Grid>
         </Grid>
       </Container>
-      <div className={classes.container}>
-        <img
-          src={process.env.REACT_APP_IMAGE_URI + data.history.image.url}
-          alt={data.history.alternativeText}
-          className={classes.mainMedia}
-        />
-      </div>
-      {data.history.gallery && (
+      {history?.image && (
+        <div className={classes.container}>
+          <img
+            src={process.env.REACT_APP_IMAGE_URI + data.history.image.url}
+            alt={history.alternativeText}
+            className={classes.mainMedia}
+          />
+        </div>
+      )}
+
+      {history?.gallery && (
         <GalleryV1
-          title={data.history.gallery.title}
-          subtitle={data.history.gallery.subtitle}
-          gallery={data.history.gallery.photos}
+          title={history.gallery.title}
+          subtitle={history.gallery.subtitle}
+          gallery={history.gallery.photos}
         />
       )}
 
-      {data.history.location && (
+      {history?.location && (
         <Location
-          title={data.history.location.title}
-          address={data.history.location.address}
-          phone={data.history.location.phone}
-          email={data.history.location.email}
-          list={data.history.location.list}
-          latitude={data.history.location.latitude}
-          longitude={data.history.location.longitude}
+          title={history.location.title}
+          address={history.location.address}
+          phone={history.location.phone}
+          email={history.location.email}
+          list={history.location.list}
+          latitude={history.location.latitude}
+          longitude={history.location.longitude}
           className={classes.margin}
         />
       )}
