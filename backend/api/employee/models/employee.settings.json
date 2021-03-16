@@ -44,6 +44,9 @@
       "type": "uid",
       "targetField": "fullname",
       "required": true
+    },
+    "googleScholarLink": {
+      "type": "string"
     }
   }
 }

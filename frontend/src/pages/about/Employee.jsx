@@ -46,8 +46,8 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: '500px',
     objectFit: 'cover',
     marginBottom: '3rem',
-    [theme.breakpoints.down('md')]: {
-      maxHeight: '300px',
+    [theme.breakpoints.only('sm')]: {
+      objectFit: 'contain',
     },
   },
   subitem: {
