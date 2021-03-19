@@ -7,6 +7,9 @@ import Employee from './pages/about/Employee';
 import ScientificWork from './pages/about/ScientificWork';
 import Cooperation from './pages/about/Cooperation';
 import Conference from './pages/about/Conference';
+import Contacts from "./pages/contacts";
+import EducationalLevels from "./pages/about/EducationalLevels";
+import Syllabus from "./pages/about/Syllabus";
 
 function AppRouter() {
   return (
@@ -26,6 +29,13 @@ function AppRouter() {
       />
       <Route exact path="/about/cooperation" render={() => <Cooperation />} />
       <Route exact path="/about/conference" render={() => <Conference />} />
+      <Route exact path="/contacts" render={() => <Contacts />} />
+      <Route exact path="/student/syllabi" render={() => <Syllabus />} />
+      <Route
+        exact
+        path="/entrant"
+        render={() => <EducationalLevels />}
+      />
     </Switch>
   );
 }

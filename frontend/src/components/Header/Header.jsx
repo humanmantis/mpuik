@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { AppBar, makeStyles } from '@material-ui/core';
-import { useTheme } from '@material-ui/styles';
-import DesktopHeader from './DesktopHeader/DesktopHeader';
-import MobileHeader from './MobileHeader/MobileHeader';
-import HideOnScroll from '../common/HideOnScroll';
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import { AppBar, makeStyles } from "@material-ui/core";
+import { useTheme } from "@material-ui/styles";
+import DesktopHeader from "./DesktopHeader/DesktopHeader";
+import MobileHeader from "./MobileHeader/MobileHeader";
+import HideOnScroll from "../common/HideOnScroll";
 
 const useStyles = makeStyles((theme) => ({
   header: {
-    padding: '0.5rem 0',
+    padding: "0.5rem 0",
     backgroundColor: theme.palette.primary.light,
-    borderBottom: '1px solid #98b8cd',
-    boxShadow: 'none',
+    borderBottom: "1px solid #98b8cd",
+    boxShadow: "none",
   },
 }));
 
@@ -28,7 +28,6 @@ function Header(props) {
 
     window.addEventListener('resize', () => setView());
   }, [theme.breakpoints.values.lg]);
-
   return (
     <HideOnScroll>
       <AppBar className={classes.header}>
