@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "syllabi",
+  "info": {
+    "name": "Syllabus",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "discipline": {
+      "type": "string",
+      "required": true
+    },
+    "link": {
+      "type": "string",
+      "required": true
+    },
+    "employee": {
+      "model": "employee"
+    },
+    "year": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

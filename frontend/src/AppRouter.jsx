@@ -9,6 +9,7 @@ import Cooperation from './pages/about/Cooperation';
 import Conference from './pages/about/Conference';
 import Entrant from './pages/entrant/Entrant';
 import Program from './pages/entrant/Program';
+import Competition from './pages/student/Competition';
 
 function AppRouter() {
   return (
@@ -33,6 +34,11 @@ function AppRouter() {
         exact
         path="/entrant/:program"
         render={(props) => <Program params={props.match.params} />}
+      />
+      <Route
+        exact
+        path="/student/competitions"
+        render={() => <Competition />}
       />
     </Switch>
   );

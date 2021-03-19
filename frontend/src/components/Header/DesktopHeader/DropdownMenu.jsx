@@ -119,6 +119,7 @@ function DropdownMenu({
                         key={item.id}
                         onClick={handleClose}
                         component={NavLink}
+                        activeClassName={classes.selected}
                         className={classes.navSubItem}
                         to={path + item.path}
                       >
