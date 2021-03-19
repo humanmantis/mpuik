@@ -4,7 +4,7 @@ import { loader } from 'graphql.macro';
 import AppRouter from './AppRouter';
 import Header from './components/Header/Header';
 
-const GetNav = loader('./graphql/getNav.graphql');
+const GetNav = loader(__dirname + '/graphql/getNav.graphql');
 
 function App() {
   const { loading, error, data } = useQuery(GetNav);
