@@ -1,4 +1,4 @@
-import { Grid, makeStyles, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from "@material-ui/core";
+import { makeStyles, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from "@material-ui/core";
 import React from "react";
 import Layout from "../../components/common/Layout";
 
