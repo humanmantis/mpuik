@@ -1,19 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { MapContainer, TileLayer, Marker } from 'react-leaflet';
-import { makeStyles } from '@material-ui/core';
-import Leaflet from 'leaflet';
-import 'leaflet/dist/leaflet.css';
-import PinSvg from '../../assets/icons/pin.svg';
-import config from '../../config/map.config';
+import React from "react";
+import PropTypes from "prop-types";
+import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import { makeStyles } from "@material-ui/core";
+import Leaflet from "leaflet";
+import "leaflet/dist/leaflet.css";
+import PinSvg from "../../assets/icons/pin.svg";
+import config from "../../config/map.config";
 
 const useStyles = makeStyles((theme) => ({
   map: {
-    height: '500px',
-    borderRadius: '1rem',
-    overflow: 'hidden',
-    [theme.breakpoints.down('md')]: {
-      height: '300px',
+    height: "500px",
+    borderRadius: "1rem",
+    overflow: "hidden",
+    [theme.breakpoints.down("md")]: {
+      height: "300px",
     },
   },
 }));

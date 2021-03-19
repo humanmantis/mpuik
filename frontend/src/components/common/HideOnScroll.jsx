@@ -1,10 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { useScrollTrigger, Slide } from '@material-ui/core';
+import React from "react";
+import PropTypes from "prop-types";
+import { useScrollTrigger, Slide } from "@material-ui/core";
 
-function HideOnScroll({ children, window }) {
-  const trigger = useScrollTrigger({ target: window ? window() : undefined });
-
+function HideOnScroll({ children }) {
+  const trigger = useScrollTrigger({
+    target: document.querySelector('body'),
+    disableHysteresis: true,
+  });
   return (
     <Slide appear={false} direction="down" in={!trigger}>
       {children}
@@ -14,7 +16,6 @@ function HideOnScroll({ children, window }) {
 
 HideOnScroll.propTypes = {
   children: PropTypes.element.isRequired,
-  window: PropTypes.func,
 };
 
 export default HideOnScroll;

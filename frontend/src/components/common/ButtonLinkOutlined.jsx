@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { Button, makeStyles } from '@material-ui/core';
+import React from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import { Button, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    padding: '0.5rem 2rem',
-    fontWeight: 'bold',
-    borderRadius: '0.875rem',
+    padding: "0.5rem 2rem",
+    fontWeight: "bold",
+    borderRadius: "0.875rem",
   },
 }));
 

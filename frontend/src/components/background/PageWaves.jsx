@@ -1,7 +1,7 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core';
-import topWavesSvg from '../../assets/topWaves.svg';
-import rightWavesSvg from '../../assets/rightWaves.svg';
+import React from "react";
+import { makeStyles } from "@material-ui/core";
+import topWavesSvg from "../../assets/topWaves.svg";
+import rightWavesSvg from "../../assets/rightWaves.svg";
 
 const useStyles = makeStyles((theme) => ({
   background: {},
@@ -11,22 +11,23 @@ const useStyles = makeStyles((theme) => ({
     left: '-100px',
     width: '842px',
     height: '1109px',
+    filter: 'blur(2px) opacity(0.5)',
     backgroundImage: `url(${topWavesSvg})`,
-    backgroundRepeat: 'no-repeat',
-    transform: 'scale(0.8)',
+    backgroundRepeat: "no-repeat",
+    transform: "scale(0.8)",
     zIndex: -10,
-    overflowX: 'hidden',
-    [theme.breakpoints.only('md')]: {
-      top: '-120px',
-      left: '-250px',
+    overflowX: "hidden",
+    [theme.breakpoints.only("md")]: {
+      top: "-120px",
+      left: "-250px",
     },
-    [theme.breakpoints.only('sm')]: {
-      top: '-180px',
-      left: '-300px',
+    [theme.breakpoints.only("sm")]: {
+      top: "-180px",
+      left: "-300px",
     },
-    [theme.breakpoints.only('xs')]: {
-      top: '-200px',
-      left: '-300px',
+    [theme.breakpoints.only("xs")]: {
+      top: "-200px",
+      left: "-300px",
     },
   },
   rightWaves: {
@@ -35,22 +36,23 @@ const useStyles = makeStyles((theme) => ({
     right: '-150px',
     width: '1358px',
     height: '1082px',
+    filter: 'blur(2px) opacity(0.5)',
     backgroundImage: `url(${rightWavesSvg})`,
-    backgroundRepeat: 'no-repeat',
-    transform: 'scale(0.8)',
+    backgroundRepeat: "no-repeat",
+    transform: "scale(0.8)",
     zIndex: -10,
-    overflowX: 'hidden',
-    [theme.breakpoints.down('lg')]: {
-      top: '-170px',
-      right: '-150px',
+    overflowX: "hidden",
+    [theme.breakpoints.down("lg")]: {
+      top: "-170px",
+      right: "-150px",
     },
-    [theme.breakpoints.only('sm')]: {
-      top: '-160px',
-      right: '-500px',
+    [theme.breakpoints.only("sm")]: {
+      top: "-160px",
+      right: "-500px",
     },
-    [theme.breakpoints.only('xs')]: {
-      top: '-130px',
-      right: '-600px',
+    [theme.breakpoints.only("xs")]: {
+      top: "-130px",
+      right: "-600px",
     },
   },
 }));

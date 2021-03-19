@@ -1,0 +1,40 @@
+query GetEntrantPage {
+  entrant {
+    title
+    subtitle
+    programs {
+      id
+      slug
+      name
+      level
+      form
+      specialization
+      term
+      program
+      cards {
+        ... on ComponentCardCardBlock {
+          id
+          title
+          slug
+        }
+        ... on ComponentArticleArticle {
+          id
+          title
+          slug
+        }
+      }
+    }
+    location {
+      title
+      address
+      phone
+      email
+      list {
+        id
+        title
+      }
+      latitude
+      longitude
+    }
+  }
+}
