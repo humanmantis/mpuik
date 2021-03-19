@@ -11,6 +11,11 @@ import Entrant from './pages/entrant/Entrant';
 import Program from './pages/entrant/Program';
 import Competition from './pages/student/Competition';
 
+import Contacts from "./pages/contacts";
+import EducationalLevels from "./pages/about/EducationalLevels";
+import Syllabus from "./pages/about/Syllabus";
+
+
 function AppRouter() {
   return (
     <Switch>
@@ -39,7 +44,13 @@ function AppRouter() {
         exact
         path="/student/competitions"
         render={() => <Competition />}
-      />
+      <Route exact path="/contacts" render={() => <Contacts />} />
+      <Route exact path="/student/syllabi" render={() => <Syllabus />} />
+      /* <Route
+        exact
+        path="/entrant"
+        render={() => <EducationalLevels />}
+      /> */
     </Switch>
   );
 }

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { loader } from 'graphql.macro';
@@ -6,7 +7,7 @@ import ScrollToTop from './components/common/ScrollToTop';
 import BackToTop from './components/BackToTop/BackToTop';
 import Header from './components/Header/Header';
 
-const GetNav = loader('./graphql/getNav.graphql');
+const GetNav = loader("./graphql/getNav.graphql");
 
 function App() {
   const { loading, error, data } = useQuery(GetNav);

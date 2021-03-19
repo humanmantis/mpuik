@@ -9,16 +9,16 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 const useStyles = makeStyles((theme) => ({
   navSubItem: {
     color: theme.palette.info.main,
-    fontWeight: '600',
-    fontSize: '0.875rem',
-    overflowWrap: 'break-word',
-    '&:hover': {
+    fontWeight: "600",
+    fontSize: "0.875rem",
+    overflowWrap: "break-word",
+    "&:hover": {
       backgroundColor: theme.palette.info.main,
       color: theme.palette.background.default,
     },
   },
   collapse: {
-    '&:hover': {
+    "&:hover": {
       backgroundColor: theme.palette.primary.light,
       color: theme.palette.info.main,
     },

@@ -1,17 +1,17 @@
 query GetIndexPage {
   index {
-    title,
-    subtitle,
+    title
+    subtitle
     button {
-      title,
-      path,
-    },
-    videoLink,
-    partnershipText,
+      title
+      path
+    }
+    videoLink
+    partnershipText
     partnershipIcons {
-      id, 
-      url,
-      alternativeText,
+      id
+      url
+      alternativeText
     }
   }
 }
