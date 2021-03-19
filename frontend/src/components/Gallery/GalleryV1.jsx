@@ -70,7 +70,7 @@ function GalleryV1({ title, subtitle, gallery }) {
       </Grid>
       <Carousel
         animation="slide"
-        indicators={false}
+        navButtonsAlwaysInvisible={true}
         className={classes.mobileGallery}
       >
         {gallery.map((item) => (

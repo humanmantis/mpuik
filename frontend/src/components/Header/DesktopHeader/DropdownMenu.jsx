@@ -10,9 +10,10 @@ import {
   Grow,
   Paper,
   ClickAwayListener,
-} from "@material-ui/core";
-import ExpandLessIcon from "@material-ui/icons/ExpandLess";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+  Link,
+} from '@material-ui/core';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -101,18 +102,31 @@ function DropdownMenu({
             <Paper className={classes.paper}>
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList autoFocusItem={open} onKeyDown={handleListKeyDown}>
-                  {items.map((item) => (
-                    <MenuItem
-                      key={item.id}
-                      onClick={handleClose}
-                      component={NavLink}
-                      activeClassName={classes.selected}
-                      className={classes.navSubItem}
-                      to={path + item.path}
-                    >
-                      {item.title.toUpperCase()}
-                    </MenuItem>
-                  ))}
+                  {items.map((item) =>
+                    item.path.includes('http') ? (
+                      <MenuItem
+                        key={item.id}
+                        onClick={handleClose}
+                        component={Link}
+                        className={classes.navSubItem}
+                        href={item.path}
+                        target="_blank"
+                      >
+                        {item.title.toUpperCase()}
+                      </MenuItem>
+                    ) : (
+                      <MenuItem
+                        key={item.id}
+                        onClick={handleClose}
+                        component={NavLink}
+                        activeClassName={classes.selected}
+                        className={classes.navSubItem}
+                        to={path + item.path}
+                      >
+                        {item.title.toUpperCase()}
+                      </MenuItem>
+                    )
+                  )}
                 </MenuList>
               </ClickAwayListener>
             </Paper>

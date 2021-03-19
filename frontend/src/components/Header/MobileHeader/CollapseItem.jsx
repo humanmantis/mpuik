@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { NavLink, useLocation } from "react-router-dom";
-import { makeStyles } from "@material-ui/core";
-import { List, ListItem, Collapse } from "@material-ui/core";
-import ExpandLessIcon from "@material-ui/icons/ExpandLess";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { NavLink, useLocation } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core';
+import { List, ListItem, Collapse, Link } from '@material-ui/core';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles((theme) => ({
   navSubItem: {
@@ -58,18 +58,31 @@ function CollapseItem({
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          {items.map((item) => (
-            <ListItem
-              key={item.id}
-              component={NavLink}
-              activeClassName={classes.selected}
-              className={classes.navSubItem}
-              to={path + item.path}
-              button
-            >
-              {item.title.toUpperCase()}
-            </ListItem>
-          ))}
+          {items.map((item) =>
+            item.path.includes('http') ? (
+              <ListItem
+                key={item.id}
+                component={Link}
+                className={classes.navSubItem}
+                href={item.path}
+                target="_blank"
+                button
+              >
+                {item.title.toUpperCase()}
+              </ListItem>
+            ) : (
+              <ListItem
+                key={item.id}
+                component={NavLink}
+                activeClassName={classes.selected}
+                className={classes.navSubItem}
+                to={path + item.path}
+                button
+              >
+                {item.title.toUpperCase()}
+              </ListItem>
+            )
+          )}
         </List>
       </Collapse>
     </>
