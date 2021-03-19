@@ -7,6 +7,8 @@ import Employee from './pages/about/Employee';
 import ScientificWork from './pages/about/ScientificWork';
 import Cooperation from './pages/about/Cooperation';
 import Conference from './pages/about/Conference';
+import Entrant from './pages/entrant/Entrant';
+import Program from './pages/entrant/Program';
 
 function AppRouter() {
   return (
@@ -26,6 +28,12 @@ function AppRouter() {
       />
       <Route exact path="/about/cooperation" render={() => <Cooperation />} />
       <Route exact path="/about/conference" render={() => <Conference />} />
+      <Route exact path="/entrant" render={() => <Entrant />} />
+      <Route
+        exact
+        path="/entrant/:program"
+        render={(props) => <Program params={props.match.params} />}
+      />
     </Switch>
   );
 }

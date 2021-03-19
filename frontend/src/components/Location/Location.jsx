@@ -93,45 +93,51 @@ function Location({ title, address, phone, email, list, latitude, longitude }) {
           </Grid>
           <Grid item md={6}>
             <Grid container direction="column">
-              <Grid item className={classes.subitem}>
-                <div className={classes.iconContainer}>
-                  <RoomOutlinedIcon className={classes.icon} />
-                </div>
-                <Typography
-                  variant="body1"
-                  className={classes.link}
-                  component={Link}
-                  href={`https://www.google.com/maps?q=${address}`}
-                >
-                  {address}
-                </Typography>
-              </Grid>
-              <Grid item className={classes.subitem}>
-                <div className={classes.iconContainer}>
-                  <PhoneOutlinedIcon className={classes.icon} />
-                </div>
-                <Typography
-                  variant="body1"
-                  className={classes.link}
-                  component={Link}
-                  href={`tel:${phone}`}
-                >
-                  {phone}
-                </Typography>
-              </Grid>
-              <Grid item className={classes.subitem}>
-                <div className={classes.iconContainer}>
-                  <EmailOutlinedIcon className={classes.icon} />
-                </div>
-                <Typography
-                  variant="body1"
-                  className={classes.link}
-                  component={Link}
-                  href={`mailto:${email}`}
-                >
-                  {email}
-                </Typography>
-              </Grid>
+              {address && (
+                <Grid item className={classes.subitem}>
+                  <div className={classes.iconContainer}>
+                    <RoomOutlinedIcon className={classes.icon} />
+                  </div>
+                  <Typography
+                    variant="body1"
+                    className={classes.link}
+                    component={Link}
+                    href={`https://www.google.com/maps?q=${address}`}
+                  >
+                    {address}
+                  </Typography>
+                </Grid>
+              )}
+              {phone && (
+                <Grid item className={classes.subitem}>
+                  <div className={classes.iconContainer}>
+                    <PhoneOutlinedIcon className={classes.icon} />
+                  </div>
+                  <Typography
+                    variant="body1"
+                    className={classes.link}
+                    component={Link}
+                    href={`tel:${phone}`}
+                  >
+                    {phone}
+                  </Typography>
+                </Grid>
+              )}
+              {email && (
+                <Grid item className={classes.subitem}>
+                  <div className={classes.iconContainer}>
+                    <EmailOutlinedIcon className={classes.icon} />
+                  </div>
+                  <Typography
+                    variant="body1"
+                    className={classes.link}
+                    component={Link}
+                    href={`mailto:${email}`}
+                  >
+                    {email}
+                  </Typography>
+                </Grid>
+              )}
             </Grid>
           </Grid>
         </Grid>

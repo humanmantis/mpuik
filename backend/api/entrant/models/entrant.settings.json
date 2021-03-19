@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "entrants",
+  "info": {
+    "name": "Entrant",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "programs": {
+      "collection": "program"
+    },
+    "location": {
+      "model": "location"
+    }
+  }
+}

@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     width: '2389px',
     height: '1700px',
-
+    filter: 'blur(2px) opacity(0.5)',
     backgroundImage: `url(${waveElementSvg})`,
     backgroundRepeat: 'no-repeat',
     transform: 'scale(0.8)',
