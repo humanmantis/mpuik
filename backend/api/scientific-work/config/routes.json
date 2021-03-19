@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/scientific-work",
+      "handler": "scientific-work.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/scientific-work",
+      "handler": "scientific-work.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/scientific-work",
+      "handler": "scientific-work.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

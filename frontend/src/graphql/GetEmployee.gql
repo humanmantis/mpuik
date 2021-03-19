@@ -1,0 +1,17 @@
+query GetEmployee($slug: String!) {
+  employees(where: { slug: $slug }) {
+    fullname
+    position
+    bio
+    email
+    googleScholarLink
+    publications {
+      id
+      title
+    }
+    photo {
+      url
+      alternativeText
+    }
+  }
+}

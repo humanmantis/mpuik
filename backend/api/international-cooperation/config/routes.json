@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/international-cooperation",
+      "handler": "international-cooperation.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/international-cooperation",
+      "handler": "international-cooperation.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/international-cooperation",
+      "handler": "international-cooperation.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

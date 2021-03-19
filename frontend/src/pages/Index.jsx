@@ -82,6 +82,9 @@ const useStyles = makeStyles((theme) => ({
       top: '30px',
       left: '-70px',
     },
+    [theme.breakpoints.only('md')]: {
+      top: '60px',
+    },
   },
 }));
 
