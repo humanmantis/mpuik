@@ -87,7 +87,7 @@ function Contacts() {
       <AddressComponent justify="space-between" />
       <div className={classes.relativeContainer}>
         <div className={classes.imgContainer}>
-          <img src="lala" alt="image" className={classes.img} />
+          <img src="lala" alt="" className={classes.img} />
         </div>
         <form className={classes.form} noValidate autoComplete="off">
           <Typography className={classes.title}>Напишіть нам</Typography>
