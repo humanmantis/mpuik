@@ -1,13 +1,13 @@
-import React from 'react';
-import { useQuery } from '@apollo/client';
-import { loader } from 'graphql.macro';
-import { Container } from '@material-ui/core';
-import Article from '../../components/Article/Article';
-import Gallery from '../../components/Gallery/Gallery';
-import PageWaves from '../../components/background/PageWaves';
+import React from "react";
+import { useQuery } from "@apollo/client";
+import { loader } from "graphql.macro";
+import { Container } from "@material-ui/core";
+import Article from "../../components/Article/Article";
+import Gallery from "../../components/Gallery/Gallery";
+import PageWaves from "../../components/background/PageWaves";
 
 const GetConferencePage = loader(
-  '../../graphql/pages/about/GetConferencePage.gql'
+  "../../graphql/pages/about/GetConferencePage.gql"
 );
 
 function Conference() {
@@ -23,7 +23,7 @@ function Conference() {
       <PageWaves />
       <Container
         className="main-container"
-        style={{ marginBottom: '3rem' }}
+        style={{ marginBottom: "3rem" }}
         fixed
       >
         <Article {...article} />

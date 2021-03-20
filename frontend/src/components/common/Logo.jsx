@@ -5,7 +5,7 @@ import logo from "../../assets/logo.png";
 
 const useStyles = makeStyles((theme) => ({
   logo: {
-    maxHeight: '3.5rem',
+    maxHeight: "3.5rem",
   },
   logoLink: {
     textDecoration: "none",

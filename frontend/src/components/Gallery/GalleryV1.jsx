@@ -87,7 +87,7 @@ function GalleryV1({ title, subtitle, gallery }) {
 }
 
 GalleryV1.defaultProps = {
-  title: 'Галерея',
+  title: "Галерея",
   gallery: [],
 };
 

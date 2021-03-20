@@ -1,24 +1,24 @@
-import { Grid, makeStyles, Typography } from '@material-ui/core';
-import React from 'react';
-import AddressComponent from '../../components/common/AddressComponent';
-import Layout from '../../components/common/Layout';
+import { Grid, makeStyles, Typography } from "@material-ui/core";
+import React from "react";
+import AddressComponent from "../../components/common/AddressComponent";
+import Layout from "../../components/common/Layout";
 
-import Tick from '../../assets/icons/tick.png';
+import Tick from "../../assets/icons/tick.png";
 
 const items = [
-  'Освітня програма',
-  'Освітня програма',
-  'Освітня програма',
-  'Освітня програма',
-  'Освітня програма',
+  "Освітня програма",
+  "Освітня програма",
+  "Освітня програма",
+  "Освітня програма",
+  "Освітня програма",
 ];
 
 const items2 = [
-  'Текст Текст1',
-  'Текст Текст2',
-  'Текст Текст3',
-  'Текст Текст4',
-  'Текст Текст5',
+  "Текст Текст1",
+  "Текст Текст2",
+  "Текст Текст3",
+  "Текст Текст4",
+  "Текст Текст5",
 ];
 
 const useStyles = makeStyles({
@@ -26,9 +26,9 @@ const useStyles = makeStyles({
     borderRadius: 14,
     maxWidth: 380,
     minWidth: 300,
-    flexBasis: 'auto',
-    background: '#ffffff',
-    margin: '20px 10px',
+    flexBasis: "auto",
+    background: "#ffffff",
+    margin: "20px 10px",
     padding: 0,
   },
   infoItemInner: {
@@ -37,66 +37,66 @@ const useStyles = makeStyles({
   infoItemTitle: {
     fontWeight: 600,
     fontSize: 30,
-    lineHeight: '42px',
-    color: '#ffffff',
+    lineHeight: "42px",
+    color: "#ffffff",
   },
   infoItemSubtitle: {
     fontWeight: 600,
   },
   infoItemSubtitleValue: {
     fontSize: 16,
-    lineHeight: '28px',
-    color: '#FFFFFF',
+    lineHeight: "28px",
+    color: "#FFFFFF",
   },
   infoItemTop: {
-    background: '#0D6F93',
-    borderRadius: '14px 14px 0 0',
+    background: "#0D6F93",
+    borderRadius: "14px 14px 0 0",
   },
   infoItemBottomText: {
     fontWeight: 600,
     fontSize: 20,
-    lineHeight: '28px',
-    color: '#0D6F93',
+    lineHeight: "28px",
+    color: "#0D6F93",
   },
   location: {
     marginTop: 100,
   },
   locationTextContainer: {
-    display: 'flex',
-    alignItems: 'center',
-    padding: '10px 0',
+    display: "flex",
+    alignItems: "center",
+    padding: "10px 0",
   },
   tick: {
     width: 20,
     height: 20,
   },
   locationItem: {
-    flexBasis: 'auto',
+    flexBasis: "auto",
     margin: 10,
   },
   locationTitle: {
     fontWeight: 600,
     fontSize: 48,
-    lineHeight: '65px',
-    color: '#06040A',
+    lineHeight: "65px",
+    color: "#06040A",
     marginBottom: 20,
   },
   locationText: {
     fontWeight: 600,
     fontSize: 18,
-    lineHeight: '32px',
-    color: '#06040A',
+    lineHeight: "32px",
+    color: "#06040A",
     marginLeft: 40,
   },
   bottomImgContainer: {
-    margin: '80px 0',
+    margin: "80px 0",
   },
   bottomImg: {
-    minWidth: '100%',
+    minWidth: "100%",
     maxHeight: 600,
     minHeight: 300,
-    height: '100%',
-    background: 'gray',
+    height: "100%",
+    background: "gray",
     borderRadius: 14,
   },
 });
@@ -210,7 +210,7 @@ function EducationalLevels() {
             ))}
           </Grid>
           <Grid item sm={12} className={styles.locationItem}>
-            <AddressComponent style={{ display: 'block' }} />
+            <AddressComponent style={{ display: "block" }} />
           </Grid>
         </Grid>
       </div>

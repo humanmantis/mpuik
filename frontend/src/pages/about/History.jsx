@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { useQuery } from '@apollo/client';
-import { loader } from 'graphql.macro';
-import { makeStyles } from '@material-ui/core';
-import { Container, Grid, Paper, Collapse, Button } from '@material-ui/core';
-import ExpandLessIcon from '@material-ui/icons/ExpandLess';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import GalleryV1 from '../../components/Gallery/GalleryV1';
-import Location from '../../components/Location/Location';
-import PageTitle from '../../components/common/PageTitle';
-import Markdown from '../../components/common/Markdown';
-import TopWaves from '../../components/background/PageWaves';
+import React, { useState } from "react";
+import { useQuery } from "@apollo/client";
+import { loader } from "graphql.macro";
+import { makeStyles } from "@material-ui/core";
+import { Container, Grid, Paper, Collapse, Button } from "@material-ui/core";
+import ExpandLessIcon from "@material-ui/icons/ExpandLess";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import GalleryV1 from "../../components/Gallery/GalleryV1";
+import Location from "../../components/Location/Location";
+import PageTitle from "../../components/common/PageTitle";
+import Markdown from "../../components/common/Markdown";
+import TopWaves from "../../components/background/PageWaves";
 const GetHistoryPage = loader("../../graphql/pages/about/GetHistoryPage.gql");
 
 const useStyles = makeStyles((theme) => ({

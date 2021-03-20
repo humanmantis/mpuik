@@ -4,7 +4,7 @@ import { useScrollTrigger, Slide } from "@material-ui/core";
 
 function HideOnScroll({ children }) {
   const trigger = useScrollTrigger({
-    target: document.querySelector('body'),
+    target: document.querySelector("body"),
     disableHysteresis: true,
   });
   return (

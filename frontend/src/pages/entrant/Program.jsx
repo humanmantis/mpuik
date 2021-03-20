@@ -1,55 +1,55 @@
-import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { loader } from 'graphql.macro';
-import { makeStyles } from '@material-ui/core';
-import { Container, Grid, Typography, Link } from '@material-ui/core';
-import Carousel from 'react-material-ui-carousel';
-import TopWaves from '../../components/background/PageWaves';
-import CardBlock from '../../components/CardBlock/CardBlock';
-import ArticleSmall from '../../components/Article/ArticleSmall';
-import Location from '../../components/Location/Location';
-import circlesSvg from '../../assets/icons/circles.svg';
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { loader } from "graphql.macro";
+import { makeStyles } from "@material-ui/core";
+import { Container, Grid, Typography, Link } from "@material-ui/core";
+import Carousel from "react-material-ui-carousel";
+import TopWaves from "../../components/background/PageWaves";
+import CardBlock from "../../components/CardBlock/CardBlock";
+import ArticleSmall from "../../components/Article/ArticleSmall";
+import Location from "../../components/Location/Location";
+import circlesSvg from "../../assets/icons/circles.svg";
 
-const GetProgram = loader('../../graphql/GetProgram.gql');
+const GetProgram = loader("../../graphql/GetProgram.gql");
 
 const useStyles = makeStyles((theme) => ({
   title: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: theme.palette.info.main,
   },
   boldText: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   text: {
-    fontWeight: 'normal',
+    fontWeight: "normal",
   },
   img: {
-    width: '100%',
-    height: '300px',
-    objectFit: 'cover',
+    width: "100%",
+    height: "300px",
+    objectFit: "cover",
     backgroundColor: theme.palette.grey[300],
-    borderRadius: '0.5rem',
-    [theme.breakpoints.only('xs')]: {
-      height: '250px',
+    borderRadius: "0.5rem",
+    [theme.breakpoints.only("xs")]: {
+      height: "250px",
     },
   },
   carouselButton: {
     opacity: 0,
-    transition: '0.5s',
-    '&:hover': {
+    transition: "0.5s",
+    "&:hover": {
       opacity: 1,
     },
   },
   circles: {
-    position: 'absolute',
+    position: "absolute",
     zIndex: -5,
-    top: '-23px',
-    left: '-42px',
-    transform: 'scale(0.8)',
+    top: "-23px",
+    left: "-42px",
+    transform: "scale(0.8)",
   },
   textBlock: {
-    position: 'relative',
+    position: "relative",
   },
 }));
 
@@ -69,7 +69,7 @@ function Program({ params }) {
     if (!loading && data && windowLocation.hash) {
       document
         .querySelector(windowLocation.hash)
-        ?.scrollIntoView({ behavior: 'smooth' });
+        ?.scrollIntoView({ behavior: "smooth" });
     }
   }, [loading, data, windowLocation.hash]);
 
@@ -92,7 +92,7 @@ function Program({ params }) {
               className={classes.text}
               paragraph
             >
-              Освітній рівень:{' '}
+              Освітній рівень:{" "}
               <span className={classes.boldText}>
                 {program.level} {program.form && `(${program.form})`}
               </span>
@@ -103,7 +103,7 @@ function Program({ params }) {
               className={classes.text}
               paragraph
             >
-              Спеціалізація:{' '}
+              Спеціалізація:{" "}
               <span className={classes.boldText}>{program.specialization}</span>
             </Typography>
             <Typography
@@ -112,7 +112,7 @@ function Program({ params }) {
               className={classes.text}
               paragraph
             >
-              Термін навчання:{' '}
+              Термін навчання:{" "}
               <span className={classes.boldText}>{program.term}</span>
             </Typography>
             <Typography
@@ -121,7 +121,7 @@ function Program({ params }) {
               className={classes.text}
               paragraph
             >
-              Варість навчання:{' '}
+              Варість навчання:{" "}
               <span className={classes.boldText}>
                 {program.price} грн / рік
               </span>

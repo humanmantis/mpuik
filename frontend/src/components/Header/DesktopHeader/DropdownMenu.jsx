@@ -11,9 +11,9 @@ import {
   Paper,
   ClickAwayListener,
   Link,
-} from '@material-ui/core';
-import ExpandLessIcon from '@material-ui/icons/ExpandLess';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+} from "@material-ui/core";
+import ExpandLessIcon from "@material-ui/icons/ExpandLess";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -103,7 +103,7 @@ function DropdownMenu({
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList autoFocusItem={open} onKeyDown={handleListKeyDown}>
                   {items.map((item) =>
-                    item.path.includes('http') ? (
+                    item.path.includes("http") ? (
                       <MenuItem
                         key={item.id}
                         onClick={handleClose}
