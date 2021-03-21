@@ -10,8 +10,8 @@ import Conference from "./pages/about/Conference";
 import Entrant from "./pages/entrant/Entrant";
 import Program from "./pages/entrant/Program";
 import Competition from "./pages/student/Competition";
-import Contacts from "./pages/contacts";
-import Syllabus from "./pages/about/Syllabus";
+import Contacts from "./pages/Contacts";
+import Syllabus from "./pages/student/Syllabus";
 import News from "./pages/news";
 import NewsDetail from "./pages/news/NewsDetail";
 
