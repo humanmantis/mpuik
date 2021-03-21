@@ -2,6 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 import { loader } from 'graphql.macro';
 import { makeStyles } from '@material-ui/core';
+import Obfuscate from 'react-obfuscate';
 import {
   Container,
   Paper,
@@ -160,13 +161,12 @@ function Employee({ params }) {
                     <div className={classes.iconContainer}>
                       <EmailOutlinedIcon className={classes.icon} />
                     </div>
-                    <Typography
-                      variant="body1"
-                      className={classes.link}
-                      component={Link}
-                      href={`mailto:${employee.email}`}
-                    >
-                      {employee.email}
+                    <Typography variant="body1">
+                      <Link
+                        className={classes.link}
+                        component={Obfuscate}
+                        email={employee.email}
+                      />
                     </Typography>
                   </div>
                 )}

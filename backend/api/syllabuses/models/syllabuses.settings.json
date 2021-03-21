@@ -1,8 +1,8 @@
 {
   "kind": "singleType",
-  "collectionName": "entrants",
+  "collectionName": "syllabuses",
   "info": {
-    "name": "Entrant",
+    "name": "Syllabuses",
     "description": ""
   },
   "options": {
@@ -17,12 +17,6 @@
     },
     "subtitle": {
       "type": "text"
-    },
-    "programs": {
-      "collection": "program"
-    },
-    "location": {
-      "model": "location"
     }
   }
 }

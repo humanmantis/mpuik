@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/syllabuses",
+      "handler": "syllabuses.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/syllabuses",
+      "handler": "syllabuses.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/syllabuses",
+      "handler": "syllabuses.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+mutation createMessage($email: String!, $sender: String!, $message: String!) {
+  createMessage(
+    input: { data: { sender: $sender, email: $email, message: $message } }
+  ) {
+    message {
+      createdAt
+    }
+  }
+}
