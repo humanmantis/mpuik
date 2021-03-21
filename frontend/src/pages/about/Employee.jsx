@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/client';
 import { loader } from 'graphql.macro';
 import { makeStyles } from '@material-ui/core';
 import Obfuscate from 'react-obfuscate';
+
 import {
   Container,
   Paper,

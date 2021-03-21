@@ -1,39 +1,39 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core';
-import { Container, Grid, Typography } from '@material-ui/core';
-import Carousel from 'react-material-ui-carousel';
+import React from "react";
+import PropTypes from "prop-types";
+import { makeStyles } from "@material-ui/core";
+import { Container, Grid, Typography } from "@material-ui/core";
+import Carousel from "react-material-ui-carousel";
 
 const useStyles = makeStyles((theme) => ({
   galleryContainer: {
-    marginTop: '3rem',
-    marginBottom: '3rem',
+    marginTop: "3rem",
+    marginBottom: "3rem",
   },
   desktopGallery: {
-    display: 'flex',
-    [theme.breakpoints.down('sm')]: {
-      display: 'none',
+    display: "flex",
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
     },
   },
   mobileGallery: {
-    display: 'none',
-    [theme.breakpoints.down('sm')]: {
-      display: 'block',
+    display: "none",
+    [theme.breakpoints.down("sm")]: {
+      display: "block",
     },
   },
   carouselImage: {
-    width: '100%',
-    height: '300px',
-    objectFit: 'cover',
+    width: "100%",
+    height: "300px",
+    objectFit: "cover",
     backgroundColor: theme.palette.grey[300],
-    borderRadius: '0.5rem',
+    borderRadius: "0.5rem",
   },
   title: {
-    fontWeight: '600',
+    fontWeight: "600",
     color: theme.palette.primary.main,
   },
   subtitle: {
-    maxWidth: '600px',
+    maxWidth: "600px",
   },
 }));
 
@@ -87,7 +87,7 @@ function GalleryV2({ title, subtitle, gallery }) {
 }
 
 GalleryV2.defaultProps = {
-  title: 'Галерея',
+  title: "Галерея",
   gallery: [],
 };
 

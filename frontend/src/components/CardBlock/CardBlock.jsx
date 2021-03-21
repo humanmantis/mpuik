@@ -1,21 +1,21 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles, Grid, Typography } from '@material-ui/core';
-import Card from '../Card/Card';
+import React from "react";
+import PropTypes from "prop-types";
+import { makeStyles, Grid, Typography } from "@material-ui/core";
+import Card from "../Card/Card";
 
 const useStyles = makeStyles((theme) => ({
   section: {
-    margin: '5rem 0',
+    margin: "5rem 0",
   },
   sectionHeader: {
-    margin: '0 auto',
-    maxWidth: '800px',
+    margin: "0 auto",
+    maxWidth: "800px",
   },
   title: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   subtitle: {
-    marginBottom: '2rem',
+    marginBottom: "2rem",
   },
 }));
 
@@ -48,8 +48,8 @@ function CardBlock({ slug, title, subtitle, cards }) {
             key={card.id}
             item
             xs={12}
-            sm={card.variant === 'big' ? 12 : 6}
-            md={card.variant === 'big' ? 6 : 4}
+            sm={card.variant === "big" ? 12 : 6}
+            md={card.variant === "big" ? 6 : 4}
           >
             <Card
               variant={card.variant}
@@ -65,7 +65,7 @@ function CardBlock({ slug, title, subtitle, cards }) {
 }
 
 CardBlock.defaultProps = {
-  subtitle: '',
+  subtitle: "",
 };
 
 CardBlock.propTypes = {
@@ -75,7 +75,7 @@ CardBlock.propTypes = {
   cards: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      variant: PropTypes.oneOf(['small', 'middle', 'big']),
+      variant: PropTypes.oneOf(["small", "middle", "big"]),
       title: PropTypes.string.isRequired,
       description: PropTypes.string,
       icon: PropTypes.shape({

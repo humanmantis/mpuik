@@ -1,39 +1,39 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core';
-import { Grid } from '@material-ui/core';
-import PageTitle from '../common/PageTitle';
-import Markdown from '../common/Markdown';
+import React from "react";
+import PropTypes from "prop-types";
+import { makeStyles } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
+import PageTitle from "../common/PageTitle";
+import Markdown from "../common/Markdown";
 
 const useStyles = makeStyles((theme) => ({
   top: {
-    maxWidth: '800px',
+    maxWidth: "800px",
   },
   article: {
-    padding: '3rem 4rem',
+    padding: "3rem 4rem",
     backgroundColor: theme.palette.common.white,
-    borderRadius: '1rem',
-    boxShadow: '0px 14px 36px rgba(0, 0, 0, 0.04)',
-    [theme.breakpoints.down('md')]: {
-      padding: '2rem 1rem',
+    borderRadius: "1rem",
+    boxShadow: "0px 14px 36px rgba(0, 0, 0, 0.04)",
+    [theme.breakpoints.down("md")]: {
+      padding: "2rem 1rem",
     },
   },
   title: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: theme.palette.primary.main,
   },
   subtitle: {
-    marginBottom: '3rem',
+    marginBottom: "3rem",
   },
   img: {
-    marginBottom: '1rem',
-    width: '100%',
-    maxHeight: '300px',
-    aspectRatio: '16/9',
-    objectFit: 'cover',
-    borderRadius: '0.5rem',
+    marginBottom: "1rem",
+    width: "100%",
+    maxHeight: "300px",
+    aspectRatio: "16/9",
+    objectFit: "cover",
+    borderRadius: "0.5rem",
     backgroundColor: theme.palette.grey[300],
-    '&:last-child': {
+    "&:last-child": {
       marginBottom: 0,
     },
   },
@@ -78,7 +78,7 @@ function Article({ title, subtitle, content, photos }) {
 }
 
 Article.defaultProps = {
-  subtitle: '',
+  subtitle: "",
   photos: [],
 };
 

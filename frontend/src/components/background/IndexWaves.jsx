@@ -5,10 +5,10 @@ import waveElementSvg from "../../assets/waveElement.svg";
 const useStyles = makeStyles((theme) => ({
   background: {},
   waves: {
-    position: 'absolute',
-    width: '2389px',
-    height: '1700px',
-    filter: 'blur(2px) opacity(0.5)',
+    position: "absolute",
+    width: "2389px",
+    height: "1700px",
+    filter: "blur(2px) opacity(0.5)",
     backgroundImage: `url(${waveElementSvg})`,
     backgroundRepeat: "no-repeat",
     transform: "scale(0.8)",

@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import GalleryV1 from './GalleryV1';
-import GalleryV2 from './GalleryV2';
+import React from "react";
+import PropTypes from "prop-types";
+import GalleryV1 from "./GalleryV1";
+import GalleryV2 from "./GalleryV2";
 
 function Gallery({ title, subtitle, gallery }) {
   return gallery.length > 6 ? (
@@ -12,7 +12,7 @@ function Gallery({ title, subtitle, gallery }) {
 }
 
 Gallery.defaultProps = {
-  title: 'Галерея',
+  title: "Галерея",
   gallery: [],
 };
 

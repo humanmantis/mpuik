@@ -1,13 +1,13 @@
-import React from 'react';
-import { useQuery } from '@apollo/client';
-import { loader } from 'graphql.macro';
-import { Container, Grid } from '@material-ui/core';
-import PageTitle from '../../components/common/PageTitle';
-import PageWaves from '../../components/background/PageWaves';
-import ProgramCard from '../../components/ProgramCard/ProgramCard';
-import Location from '../../components/Location/Location';
+import React from "react";
+import { useQuery } from "@apollo/client";
+import { loader } from "graphql.macro";
+import { Container, Grid } from "@material-ui/core";
+import PageTitle from "../../components/common/PageTitle";
+import PageWaves from "../../components/background/PageWaves";
+import ProgramCard from "../../components/ProgramCard/ProgramCard";
+import Location from "../../components/Location/Location";
 
-const GetEntrantPage = loader('../../graphql/pages/GetEntrantPage.gql');
+const GetEntrantPage = loader("../../graphql/pages/GetEntrantPage.gql");
 
 function Entrant() {
   const { loading, error, data } = useQuery(GetEntrantPage);
@@ -23,7 +23,7 @@ function Entrant() {
       <PageWaves />
       <Container
         className="main-container"
-        style={{ marginBottom: '3rem' }}
+        style={{ marginBottom: "3rem" }}
         component="section"
         fixed
       >

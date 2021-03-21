@@ -1,17 +1,19 @@
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import Index from './pages/Index';
-import History from './pages/about/History';
-import Staff from './pages/about/Staff';
-import Employee from './pages/about/Employee';
-import ScientificWork from './pages/about/ScientificWork';
-import Cooperation from './pages/about/Cooperation';
-import Conference from './pages/about/Conference';
-import Entrant from './pages/entrant/Entrant';
-import Program from './pages/entrant/Program';
-import Competition from './pages/student/Competition';
-import Syllabus from './pages/student/Syllabus';
-import Contacts from './pages/Contacts';
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import Index from "./pages/Index";
+import History from "./pages/about/History";
+import Staff from "./pages/about/Staff";
+import Employee from "./pages/about/Employee";
+import ScientificWork from "./pages/about/ScientificWork";
+import Cooperation from "./pages/about/Cooperation";
+import Conference from "./pages/about/Conference";
+import Entrant from "./pages/entrant/Entrant";
+import Program from "./pages/entrant/Program";
+import Competition from "./pages/student/Competition";
+import Contacts from "./pages/contacts";
+import Syllabus from "./pages/about/Syllabus";
+import News from "./pages/news";
+import NewsDetail from "./pages/news/NewsDetail";
 
 
 function AppRouter() {
@@ -33,6 +35,12 @@ function AppRouter() {
       <Route exact path="/about/cooperation" render={() => <Cooperation />} />
       <Route exact path="/about/conference" render={() => <Conference />} />
       <Route exact path="/entrant" render={() => <Entrant />} />
+      <Route exact path="/news" render={() => <News />} />
+      <Route
+        exact
+        path="/news/:id"
+        render={(props) => <NewsDetail params={props.match.params} />}
+      />
       <Route
         exact
         path="/entrant/:program"

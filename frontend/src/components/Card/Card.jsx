@@ -1,16 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import CardSmall from './CardSmall';
-import CardMiddle from './CardMiddle';
-import CardBig from './CardBig';
+import React from "react";
+import PropTypes from "prop-types";
+import CardSmall from "./CardSmall";
+import CardMiddle from "./CardMiddle";
+import CardBig from "./CardBig";
 
 function Card({ variant, title, description, icon }) {
   switch (variant) {
-    case 'small':
+    case "small":
       return <CardSmall title={title} description={description} icon={icon} />;
-    case 'middle':
+    case "middle":
       return <CardMiddle title={title} description={description} icon={icon} />;
-    case 'big':
+    case "big":
       return <CardBig title={title} description={description} icon={icon} />;
     default:
       return <CardMiddle title={title} description={description} icon={icon} />;
@@ -18,12 +18,12 @@ function Card({ variant, title, description, icon }) {
 }
 
 Card.defaultProps = {
-  variant: 'middle',
-  description: '',
+  variant: "middle",
+  description: "",
 };
 
 Card.propTypes = {
-  variant: PropTypes.oneOf(['small', 'middle', 'big']),
+  variant: PropTypes.oneOf(["small", "middle", "big"]),
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
   icon: PropTypes.shape({

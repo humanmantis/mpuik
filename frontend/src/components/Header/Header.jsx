@@ -26,7 +26,7 @@ function Header(props) {
 
     setView();
 
-    window.addEventListener('resize', () => setView());
+    window.addEventListener("resize", () => setView());
   }, [theme.breakpoints.values.lg]);
   return (
     <HideOnScroll>
