@@ -1,66 +1,118 @@
-import React from "react";
-import { Grid, Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core";
-
-import MsgIcon from "../../assets/icons/msg.png";
-import PhoneIcon from "../../assets/icons/phone.png";
-import LocationIcon from "../../assets/icons/location.png";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Obfuscate from 'react-obfuscate';
+import { Grid, Typography, Link } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
+import RoomOutlinedIcon from '@material-ui/icons/RoomOutlined';
+import PhoneOutlinedIcon from '@material-ui/icons/PhoneOutlined';
+import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
 
 const useStyles = makeStyles((theme) => ({
-  addressItem: {
-    // flexBasis: "auto",
-  },
-  itemTypography: {
-    marginLeft: 10,
-  },
-  typography: {
-    fontWeight: 600,
-    [theme.breakpoints.down("xs")]: {
-      fontSize: 14,
+  subitem: {
+    display: 'flex',
+    alignItems: 'center',
+    marginBottom: '2.5rem',
+    [theme.breakpoints.down('md')]: {
+      marginBottom: '1.5rem',
     },
+  },
+  iconContainer: {
+    width: '2.5rem',
+    height: '2.5rem',
+    padding: '.5rem',
+    marginRight: '2rem',
+    backgroundColor: theme.palette.primary.main,
+    borderRadius: '50%',
+    transform: 'scale(1.5)',
+    [theme.breakpoints.down('sm')]: {
+      transform: 'scale(1)',
+    },
+  },
+  icon: {
+    color: theme.palette.common.white,
+  },
+  link: {
+    fontSize: '1.1rem',
+    fontWeight: '600',
   },
 }));
 
-function AddressComponent(props) {
+function AddressComponent({ direction, phone, email, address }) {
   const classes = useStyles();
   return (
-    <Grid container spacing={3} {...props}>
-      <Grid item className={classes.addressItem} xs={12}>
-        <Grid container alignItems="center">
-          <Grid>
-            <img src={LocationIcon} alt="location" />
-          </Grid>
-          <Grid className={classes.itemTypography}>
-            <Typography className={classes.typography}>Адреса</Typography>
-          </Grid>
+    <Grid container direction={direction} spacing={2}>
+      {address && (
+        <Grid
+          item
+          xs={12}
+          lg={direction.includes('column') ? 12 : 4}
+          className={classes.subitem}
+        >
+          <div className={classes.iconContainer}>
+            <RoomOutlinedIcon className={classes.icon} />
+          </div>
+          <Typography
+            variant="body1"
+            className={classes.link}
+            component={Link}
+            href={`https://www.google.com/maps?q=${address}`}
+          >
+            {address}
+          </Typography>
         </Grid>
-      </Grid>
-      <Grid item className={classes.addressItem} xs={12}>
-        <Grid container alignItems="center">
-          <Grid>
-            <img src={MsgIcon} alt="location" />
-          </Grid>
-          <Grid className={classes.itemTypography}>
-            <Typography className={classes.typography}>
-              mpuik.support@chnu.edu.ua
-            </Typography>
-          </Grid>
+      )}
+      {email && (
+        <Grid
+          item
+          xs={12}
+          lg={direction.includes('column') ? 12 : 4}
+          className={classes.subitem}
+        >
+          <div className={classes.iconContainer}>
+            <EmailOutlinedIcon className={classes.icon} />
+          </div>
+          <Typography variant="body1">
+            <Link
+              className={classes.link}
+              component={Obfuscate}
+              email={email}
+            />
+          </Typography>
         </Grid>
-      </Grid>
-      <Grid item className={classes.addressItem} xs={12}>
-        <Grid container alignItems="center">
-          <Grid>
-            <img src={PhoneIcon} alt="location" />
-          </Grid>
-          <Grid className={classes.itemTypography}>
-            <Typography className={classes.typography}>
-              +38 012 34 56 789
-            </Typography>
-          </Grid>
+      )}
+      {phone && (
+        <Grid
+          item
+          xs={12}
+          lg={direction.includes('column') ? 12 : 4}
+          className={classes.subitem}
+        >
+          <div className={classes.iconContainer}>
+            <PhoneOutlinedIcon className={classes.icon} />
+          </div>
+          <Typography variant="body1">
+            <Link className={classes.link} component={Obfuscate} tel={phone} />
+          </Typography>
         </Grid>
-      </Grid>
+      )}
     </Grid>
   );
 }
+
+AddressComponent.defaultProps = {
+  direction: 'column',
+};
+
+AddressComponent.propTypes = {
+  direction: PropTypes.oneOf([
+    'row',
+    'row-reverse',
+    'column',
+    'column-reverse',
+  ]),
+  email: PropTypes.string,
+  phone: PropTypes.string,
+  address: PropTypes.string,
+};
 
 export default AddressComponent;

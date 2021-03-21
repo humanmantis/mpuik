@@ -1,8 +1,8 @@
 {
   "kind": "singleType",
-  "collectionName": "entrants",
+  "collectionName": "contacts",
   "info": {
-    "name": "Entrant",
+    "name": "Contacts",
     "description": ""
   },
   "options": {
@@ -16,10 +16,7 @@
       "required": true
     },
     "subtitle": {
-      "type": "text"
-    },
-    "programs": {
-      "collection": "program"
+      "type": "string"
     },
     "location": {
       "model": "location"

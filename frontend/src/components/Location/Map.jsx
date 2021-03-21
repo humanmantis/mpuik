@@ -9,12 +9,10 @@ import config from "../../config/map.config";
 
 const useStyles = makeStyles((theme) => ({
   map: {
-    height: "500px",
+    height: "100%",
     borderRadius: "1rem",
     overflow: "hidden",
-    [theme.breakpoints.down("md")]: {
-      height: "300px",
-    },
+   
   },
 }));
 

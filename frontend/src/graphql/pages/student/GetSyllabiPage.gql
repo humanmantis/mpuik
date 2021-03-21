@@ -1,0 +1,16 @@
+query GetSyllabiPage {
+  syllabi {
+    id
+    discipline
+    link
+    year
+    employee {
+      slug
+      fullname
+    }
+  }
+  syllabuse {
+    title
+    subtitle
+  }
+}

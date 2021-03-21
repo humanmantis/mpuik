@@ -1,0 +1,13 @@
+query GetContactPage {
+  contact {
+    title
+    subtitle
+    location {
+      phone
+      email
+      address
+      latitude
+      longitude
+    }
+  }
+}
