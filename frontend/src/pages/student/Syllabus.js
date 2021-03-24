@@ -45,7 +45,7 @@ function Syllabus() {
   if (error) return <Redirect to="/error" />;
   return (
     <Layout title={page.title} subtitle={page.subtitle}>
-      {syllabi && (
+      {syllabi?.length > 0 && (
         <TableContainer component={Paper} className={styles.root}>
           <Table className={styles.table} size="small">
             <TableHead>

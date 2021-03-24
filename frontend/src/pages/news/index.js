@@ -64,21 +64,23 @@ function News({ search, params }) {
             <Loader />
           </div>
         ) : (
-          <>
-            <NewsContainer
-              title={
-                params.category
-                  ? `Новини за категорією ${posts[0]?.category?.name}`
-                  : 'Останні новини'
-              }
-              items={posts}
-            />
-            <Pagination
-              totalItems={count}
-              currentPage={+currentPage}
-              itemsPerPage={constants.itemsPerPage}
-            />
-          </>
+          posts.length > 0 && (
+            <>
+              <NewsContainer
+                title={
+                  params.category
+                    ? `Новини за категорією ${posts[0]?.category?.name}`
+                    : 'Останні новини'
+                }
+                items={posts}
+              />
+              <Pagination
+                totalItems={count}
+                currentPage={+currentPage}
+                itemsPerPage={constants.itemsPerPage}
+              />
+            </>
+          )
         )}
       </Container>
     </>
