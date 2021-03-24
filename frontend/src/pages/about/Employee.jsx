@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { loader } from 'graphql.macro';
 import { makeStyles } from '@material-ui/core';
@@ -17,6 +18,7 @@ import SchoolOutlinedIcon from '@material-ui/icons/SchoolOutlined';
 import Markdown from '../../components/common/Markdown';
 import TopWaves from '../../components/background/PageWaves';
 import defaultProfileImage from '../../assets/default-profile.jpg';
+import Loader from '../../components/common/Loader';
 
 const GetEmployee = loader('../../graphql/GetEmployee.gql');
 
@@ -92,8 +94,9 @@ function Employee({ params }) {
 
   const employee = data?.employees[0];
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+  if (loading) return <Loader />;
+  if (error) return <Redirect to="/error" />;
+  if (!employee) return <Redirect to="/404" />;
 
   return (
     <>

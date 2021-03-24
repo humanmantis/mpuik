@@ -1,28 +1,29 @@
 {
-  "kind": "singleType",
-  "collectionName": "entrants",
-  "info": {
-    "name": "Entrant",
-    "description": ""
-  },
-  "options": {
-    "increments": true,
-    "timestamps": true,
-    "draftAndPublish": false
-  },
-  "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
+    "kind": "singleType",
+    "collectionName": "entrants",
+    "info": {
+        "name": "Entrant",
+        "description": "",
+        "displayName": "Абітурієнту"
     },
-    "subtitle": {
-      "type": "text"
+    "options": {
+        "increments": true,
+        "timestamps": true,
+        "draftAndPublish": false
     },
-    "programs": {
-      "collection": "program"
-    },
-    "location": {
-      "model": "location"
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "subtitle": {
+            "type": "text"
+        },
+        "programs": {
+            "collection": "program"
+        },
+        "location": {
+            "model": "location"
+        }
     }
-  }
 }

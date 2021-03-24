@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { loader } from 'graphql.macro';
 import { useForm } from 'react-hook-form';
@@ -10,6 +11,7 @@ import Layout from '../components/common/Layout';
 import Map from '../components/Location/Map';
 import AddressComponent from '../components/common/AddressComponent';
 import { contactFromSchema } from '../utils/validation';
+import Loader from '../components/common/Loader';
 
 const GetContactPage = loader('../graphql/pages/GetContactPage.gql');
 const CreateMessage = loader('../graphql/mutations/CreateMessage.gql');
@@ -120,8 +122,8 @@ function Contacts() {
     reset(getValues());
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+  if (loading) return <Loader />;
+  if (error) return <Redirect to="/error" />;
 
   return (
     <Layout title={contact.title} subtitle={contact.subtitle}>

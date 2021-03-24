@@ -1,59 +1,92 @@
-import React from "react";
-import { Switch, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import History from "./pages/about/History";
-import Staff from "./pages/about/Staff";
-import Employee from "./pages/about/Employee";
-import ScientificWork from "./pages/about/ScientificWork";
-import Cooperation from "./pages/about/Cooperation";
-import Conference from "./pages/about/Conference";
-import Entrant from "./pages/entrant/Entrant";
-import Program from "./pages/entrant/Program";
-import Competition from "./pages/student/Competition";
-import Contacts from "./pages/Contacts";
-import Syllabus from "./pages/student/Syllabus";
-import News from "./pages/news";
-import NewsDetail from "./pages/news/NewsDetail";
+import React, { Suspense, lazy } from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import ErrorBoundary from './components/error/ErrorBoundary';
+import Loader from './components/common/Loader';
 
+const Index = lazy(() => import('./pages/Index'));
+const History = lazy(() => import('./pages/about/History'));
+const Staff = lazy(() => import('./pages/about/Staff'));
+const Employee = lazy(() => import('./pages/about/Employee'));
+const ScientificWork = lazy(() => import('./pages/about/ScientificWork'));
+const Cooperation = lazy(() => import('./pages/about/Cooperation'));
+const Conference = lazy(() => import('./pages/about/Conference'));
+const Entrant = lazy(() => import('./pages/entrant/Entrant'));
+const Program = lazy(() => import('./pages/entrant/Program'));
+const Competition = lazy(() => import('./pages/student/Competition'));
+const Contacts = lazy(() => import('./pages/Contacts'));
+const Syllabus = lazy(() => import('./pages/student/Syllabus'));
+const News = lazy(() => import('./pages/news'));
+const NewsDetail = lazy(() => import('./pages/news/NewsDetail'));
+const PageNotFound = lazy(() => import('./components/error/PageNotFound'));
+const ErrorPage = lazy(() => import('./components/error/ErrorPage'));
+const EducationalProgramms = lazy(() =>
+  import('./pages/student/EducationalProgramms')
+);
 
 function AppRouter() {
   return (
-    <Switch>
-      <Route exact path="/" render={() => <Index />} />
-      <Route exact path="/about/history" render={() => <History />} />
-      <Route exact path="/about/staff" render={() => <Staff />} />
-      <Route
-        exact
-        path="/about/staff/:slug"
-        render={(props) => <Employee params={props.match.params} />}
-      />
-      <Route
-        exact
-        path="/about/scientific-work"
-        render={() => <ScientificWork />}
-      />
-      <Route exact path="/about/cooperation" render={() => <Cooperation />} />
-      <Route exact path="/about/conference" render={() => <Conference />} />
-      <Route exact path="/entrant" render={() => <Entrant />} />
-      <Route exact path="/news" render={() => <News />} />
-      <Route
-        exact
-        path="/news/:id"
-        render={(props) => <NewsDetail params={props.match.params} />}
-      />
-      <Route
-        exact
-        path="/entrant/:program"
-        render={(props) => <Program params={props.match.params} />}
-      />
-      <Route
-        exact
-        path="/student/competitions"
-        render={() => <Competition />}
-      />
-      <Route exact path="/contacts" render={() => <Contacts />} />
-      <Route exact path="/student/syllabi" render={() => <Syllabus />} />
-    </Switch>
+    <ErrorBoundary>
+      <Suspense fallback={Loader}>
+        <Switch>
+          <Route exact path="/" render={() => <Index />} />
+          <Route exact path="/about/history" render={() => <History />} />
+          <Route exact path="/about/staff" render={() => <Staff />} />
+          <Route
+            exact
+            path="/about/staff/:slug"
+            render={(props) => <Employee params={props.match.params} />}
+          />
+          <Route
+            exact
+            path="/about/scientific-work"
+            render={() => <ScientificWork />}
+          />
+          <Route
+            exact
+            path="/about/cooperation"
+            render={() => <Cooperation />}
+          />
+          <Route exact path="/about/conference" render={() => <Conference />} />
+          <Route exact path="/entrant" render={() => <Entrant />} />
+          <Route
+            exact
+            path="/news/:category?"
+            render={(props) => (
+              <News
+                search={props.location.search}
+                params={props.match.params}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/news/:category/:slug"
+            render={(props) => <NewsDetail params={props.match.params} />}
+          />
+          <Route
+            exact
+            path="/entrant/:program"
+            render={(props) => <Program params={props.match.params} />}
+          />
+          <Route
+            exact
+            path="/student/competitions"
+            render={() => <Competition />}
+          />
+
+          <Route
+            exact
+            path="/student/educational-programs"
+            render={() => <EducationalProgramms />}
+          />
+          <Route exact path="/student/syllabi" render={() => <Syllabus />} />
+          <Route exact path="/contacts" render={() => <Contacts />} />
+          <Route exact path="/error" render={() => <ErrorPage />} />
+          <Route exact path="/404" render={() => <PageNotFound />} />
+          <Route path="*" render={() => <Redirect to="/404" />} />
+        </Switch>
+      </Suspense>
+    </ErrorBoundary>
   );
 }
 

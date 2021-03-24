@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Redirect } from 'react-router-dom';
 import { useLocation } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { loader } from "graphql.macro";
@@ -10,6 +11,7 @@ import CardBlock from "../../components/CardBlock/CardBlock";
 import ArticleSmall from "../../components/Article/ArticleSmall";
 import Location from "../../components/Location/Location";
 import circlesSvg from "../../assets/icons/circles.svg";
+import Loader from '../../components/common/Loader';
 
 const GetProgram = loader("../../graphql/GetProgram.gql");
 
@@ -73,8 +75,9 @@ function Program({ params }) {
     }
   }, [loading, data, windowLocation.hash]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+  if (loading) return <Loader />;
+  if (!program) return <Redirect to="/404" />;
+  if (error) return <Redirect to="/error" />;
 
   return (
     <>

@@ -1,22 +1,23 @@
 {
-  "kind": "singleType",
-  "collectionName": "teachers",
-  "info": {
-    "name": "Teachers",
-    "description": ""
-  },
-  "options": {
-    "increments": true,
-    "timestamps": true,
-    "draftAndPublish": false
-  },
-  "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
+    "kind": "singleType",
+    "collectionName": "teachers",
+    "info": {
+        "name": "Teachers",
+        "description": "",
+        "displayName": "Співробітники"
     },
-    "subtitle": {
-      "type": "text"
+    "options": {
+        "increments": true,
+        "timestamps": true,
+        "draftAndPublish": false
+    },
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "subtitle": {
+            "type": "text"
+        }
     }
-  }
 }

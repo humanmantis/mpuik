@@ -1,18 +1,20 @@
-import React from "react";
-import { useQuery } from "@apollo/client";
-import { loader } from "graphql.macro";
-import AppRouter from "./AppRouter";
-import ScrollToTop from "./components/common/ScrollToTop";
-import BackToTop from "./components/BackToTop/BackToTop";
-import Header from "./components/Header/Header";
+import React from 'react';
+import { Redirect } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { loader } from 'graphql.macro';
+import AppRouter from './AppRouter';
+import ScrollToTop from './components/common/ScrollToTop';
+import BackToTop from './components/BackToTop/BackToTop';
+import Header from './components/Header/Header';
+import Loader from './components/common/Loader';
 
-const GetNav = loader("./graphql/GetNav.gql");
+const GetNav = loader('./graphql/GetNav.gql');
 
 function App() {
   const { loading, error, data } = useQuery(GetNav);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+  if (loading) return <Loader />;
+  if (error) return <Redirect to="/error" />;
 
   return (
     <>

@@ -1,52 +1,53 @@
 {
-  "kind": "collectionType",
-  "collectionName": "employees",
-  "info": {
-    "name": "Employee",
-    "description": ""
-  },
-  "options": {
-    "increments": true,
-    "timestamps": true,
-    "draftAndPublish": true
-  },
-  "attributes": {
-    "fullname": {
-      "type": "string",
-      "required": true
+    "kind": "collectionType",
+    "collectionName": "employees",
+    "info": {
+        "name": "Employee",
+        "description": "",
+        "displayName": "Співробітники"
     },
-    "position": {
-      "type": "string",
-      "required": true
+    "options": {
+        "increments": true,
+        "timestamps": true,
+        "draftAndPublish": true
     },
-    "bio": {
-      "type": "richtext",
-      "required": true
-    },
-    "photo": {
-      "model": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images"
-      ],
-      "plugin": "upload",
-      "required": false
-    },
-    "publications": {
-      "type": "component",
-      "repeatable": true,
-      "component": "list.list"
-    },
-    "email": {
-      "type": "email"
-    },
-    "slug": {
-      "type": "uid",
-      "targetField": "fullname",
-      "required": true
-    },
-    "googleScholarLink": {
-      "type": "string"
+    "attributes": {
+        "fullname": {
+            "type": "string",
+            "required": true
+        },
+        "position": {
+            "type": "string",
+            "required": true
+        },
+        "bio": {
+            "type": "richtext",
+            "required": true
+        },
+        "photo": {
+            "model": "file",
+            "via": "related",
+            "allowedTypes": [
+                "images"
+            ],
+            "plugin": "upload",
+            "required": false
+        },
+        "publications": {
+            "type": "component",
+            "repeatable": true,
+            "component": "list.list"
+        },
+        "email": {
+            "type": "email"
+        },
+        "slug": {
+            "type": "uid",
+            "targetField": "fullname",
+            "required": true
+        },
+        "googleScholarLink": {
+            "type": "string"
+        }
     }
-  }
 }

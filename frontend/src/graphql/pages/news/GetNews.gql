@@ -1,0 +1,32 @@
+query get($slug: String!, $limit: Int = 3) {
+  relatedPosts: posts(
+    where: { slug_ne: $slug }
+    limit: $limit
+    sort: "published_at:desc"
+  ) {
+    id
+    slug
+    title
+    description
+    category {
+      name
+      slug
+    }
+    photo {
+      url
+    }
+  }
+
+  posts(where: { slug: $slug }) {
+    title
+    slug
+    content
+    category {
+      name
+      slug
+    }
+    photo {
+      url
+    }
+  }
+}

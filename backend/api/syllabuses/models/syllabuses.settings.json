@@ -1,22 +1,23 @@
 {
-  "kind": "singleType",
-  "collectionName": "syllabuses",
-  "info": {
-    "name": "Syllabuses",
-    "description": ""
-  },
-  "options": {
-    "increments": true,
-    "timestamps": true,
-    "draftAndPublish": false
-  },
-  "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
+    "kind": "singleType",
+    "collectionName": "syllabuses",
+    "info": {
+        "name": "Syllabuses",
+        "description": "",
+        "displayName": "Силабуси"
     },
-    "subtitle": {
-      "type": "text"
+    "options": {
+        "increments": true,
+        "timestamps": true,
+        "draftAndPublish": false
+    },
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "subtitle": {
+            "type": "text"
+        }
     }
-  }
 }

@@ -1,26 +1,27 @@
 {
-  "kind": "singleType",
-  "collectionName": "scientific_works",
-  "info": {
-    "name": "Scientific Work",
-    "description": ""
-  },
-  "options": {
-    "increments": true,
-    "timestamps": true,
-    "draftAndPublish": false
-  },
-  "attributes": {
-    "article": {
-      "type": "component",
-      "repeatable": false,
-      "component": "article.article",
-      "required": true
+    "kind": "singleType",
+    "collectionName": "scientific_works",
+    "info": {
+        "name": "Scientific Work",
+        "description": "",
+        "displayName": "Наукова робота"
     },
-    "gallery": {
-      "type": "component",
-      "repeatable": false,
-      "component": "gallery.gallery"
+    "options": {
+        "increments": true,
+        "timestamps": true,
+        "draftAndPublish": false
+    },
+    "attributes": {
+        "article": {
+            "type": "component",
+            "repeatable": false,
+            "component": "article.article",
+            "required": true
+        },
+        "gallery": {
+            "type": "component",
+            "repeatable": false,
+            "component": "gallery.gallery"
+        }
     }
-  }
 }

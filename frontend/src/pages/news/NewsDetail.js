@@ -1,150 +1,85 @@
-import React from "react";
-import {
-  Button,
-  Container,
-  Grid,
-  makeStyles,
-  Typography,
-} from "@material-ui/core";
-import NewsCard from "../../components/NewsCard";
+import React from 'react';
+import { Redirect } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { loader } from 'graphql.macro';
+import { Container, makeStyles, Typography } from '@material-ui/core';
+import NewsContainer from '../../components/NewsContainer/NewsContainer';
+import Loader from '../../components/common/Loader';
+import Markdown from '../../components/common/Markdown';
+import defaultPostImg from '../../assets/default-post.jpg';
+
+const GetNews = loader('../../graphql/pages/news/GetNews.gql');
 
 const useStyles = makeStyles((theme) => ({
-  readMore: {
-    marginTop: 80,
-    marginBottom: 60,
-    fontWeight: 600,
-    fontSize: 32,
-    lineHeight: "44px",
-    color: "#0D6F93",
-    [theme.breakpoints.down("md")]: {
-      textAlign: "center",
-    },
-  },
   img: {
-    marginTop: 80,
-    height: "100%",
-    minHeight: 500, //disable it if there will be a real photo
-    background: "gray",
-    minWidth: "100%",
+    marginTop: '5rem',
+    height: '500px',
+    background: theme.palette.grey[300],
+    width: '100%',
+    objectFit: 'cover',
+    [theme.breakpoints.only('md')]: {
+      height: '450px',
+    },
+    [theme.breakpoints.only('sm')]: {
+      height: '400px',
+    },
+    [theme.breakpoints.only('xs')]: {
+      height: '300px',
+    },
   },
-  subtitle: {
-    marginTop: 60,
+  title: {
     fontWeight: 600,
-    fontSize: 26,
-    lineHeight: "38px",
-    color: "#06040A",
+    color: theme.palette.primary.main,
+    marginBottom: '3rem',
   },
-  text: {
-    marginTop: 20,
-    fontSize: 18,
-    lineHeight: "28px",
-    color: "#06040A",
-  },
-  mainTitle: {
-    fontWeight: 600,
-    fontSize: 60,
-    lineHeight: "80px",
-    color: "#0D6F93",
-    [theme.breakpoints.down("md")]: {
-      fontSize: 40,
-      lineHeight: "60px",
+  news: {
+    background: theme.palette.common.white,
+    padding: '3rem',
+    marginBottom: '5rem',
+    [theme.breakpoints.down('md')]: {
+      padding: '2rem',
     },
-    [theme.breakpoints.down("sm")]: {
-      fontSize: 30,
-      lineHeight: "40px",
+    [theme.breakpoints.down('sm')]: {
+      padding: '1rem',
     },
   },
-  newsItem: {
-    background: "#ffffff",
-    padding: 80,
-    [theme.breakpoints.down("md")]: {
-      padding: 40,
-    },
-    [theme.breakpoints.down("sm")]: {
-      padding: 20,
-    },
-  },
-  mb: {
-    marginBottom: 80,
+  container: {
+    marginTop: '-4px',
   },
 }));
 
-const data = [
-  {
-    id: 1,
-    category: "Категорія",
-    title: "Заголовок",
-    text:
-      "Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст",
-    img: "",
-  },
-  {
-    id: 2,
-    category: "Категорія",
-    title: "Заголовок",
-    text:
-      "Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст",
-    img: "",
-  },
-  {
-    id: 3,
-    category: "Категорія",
-    title: "Заголовок",
-    text:
-      "Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст",
-    img: "",
-  },
-];
-
-const newsDetail = [
-  {
-    subtitle: "Параграф 1 Параграф 1 ",
-    text:
-      "Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст ",
-  },
-  {
-    subtitle:
-      "Параграф 2 Параграф 2 Параграф 2 Параграф 2 Параграф 2 Параграф 2 Параграф 2 Параграф 2 Параграф 2 Параграф 2 Параграф 2 Параграф 2  ",
-    text:
-      "Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст ",
-  },
-  {
-    subtitle: "Параграф 3 Параграф 3 Параграф 3 ",
-    text:
-      "Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст Текст ",
-  },
-];
-
 const NewsDetail = ({ params }) => {
   const styles = useStyles();
+  const { loading, error, data } = useQuery(GetNews, {
+    variables: { slug: params.slug },
+  });
+
+  const relatedPosts = data?.relatedPosts;
+  const post = data?.posts[0];
+
+  if (loading) return <Loader />;
+  if (!post) return <Redirect to="/news" />;
+  if (error) return <Redirect to="/error" />;
+
   return (
     <>
-      <div>
-        <img src="la" alt="img" className={styles.img} />
-      </div>
-      <Container fixed>
-        <div className={styles.newsItem}>
-          <Typography className={styles.mainTitle}>
-            Заголовок на кілька рядків Заголовок на кілька рядків Заголовок на
-            кілька рядків
+      <img
+        src={
+          post?.photo?.url
+            ? process.env.REACT_APP_IMAGE_URI + post?.photo?.url
+            : defaultPostImg
+        }
+        alt={post.tile}
+        className={styles.img}
+      />
+      <Container fixed className={styles.container}>
+        <section className={styles.news}>
+          <Typography variant="h3" className={styles.title} gutterBottom>
+            {post.title}
           </Typography>
-          {newsDetail.map((item) => (
-            <div key={item.subtitle}>
-              <Typography className={styles.subtitle}>
-                {item.subtitle}
-              </Typography>
-              <Typography className={styles.text}>{item.text}</Typography>
-            </div>
-          ))}
-        </div>
-        <Typography className={styles.readMore}>Читайте також</Typography>
-        <Grid container justify="center" className={styles.mb}>
-          {data.map((item) => (
-            <Grid item key={item.id}>
-              <NewsCard item={item} />
-            </Grid>
-          ))}
-        </Grid>
+          <Markdown content={post.content} />
+        </section>
+        <NewsContainer title="Читайте також" items={relatedPosts} />
       </Container>
     </>
   );

@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
-import { makeStyles } from "@material-ui/core";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core';
 import {
   Toolbar,
   IconButton,
   SwipeableDrawer,
   List,
   ListItem,
-} from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
-import Logo from "../../common/Logo";
-import CollapseItem from "./CollapseItem";
+} from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
+import Logo from '../../common/Logo';
+import CollapseItem from './CollapseItem';
 
 const useStyles = makeStyles((theme) => ({
   iconButton: {
@@ -19,8 +19,8 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   icon: {
-    width: "2rem",
-    height: "2rem",
+    width: '2rem',
+    height: '2rem',
   },
   paper: {
     backgroundColor: theme.palette.primary.light,
@@ -30,8 +30,8 @@ const useStyles = makeStyles((theme) => ({
   },
   navItem: {
     color: theme.palette.info.main,
-    fontWeight: "bold",
-    "&:hover": {
+    fontWeight: 'bold',
+    '&:hover': {
       backgroundColor: theme.palette.info.main,
       color: theme.palette.background.default,
     },
@@ -88,7 +88,7 @@ function MobileHeader({ navigation }) {
                   to={item.path}
                   activeClassName={classes.active}
                   className={classes.navItem}
-                  exact
+                  exact={item.path === '/'}
                   button
                 >
                   {item.title.toUpperCase()}

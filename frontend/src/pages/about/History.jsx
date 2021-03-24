@@ -1,89 +1,92 @@
-import React, { useState } from "react";
-import { useQuery } from "@apollo/client";
-import { loader } from "graphql.macro";
-import { makeStyles } from "@material-ui/core";
-import { Container, Grid, Paper, Collapse, Button } from "@material-ui/core";
-import ExpandLessIcon from "@material-ui/icons/ExpandLess";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import GalleryV1 from "../../components/Gallery/GalleryV1";
-import Location from "../../components/Location/Location";
-import PageTitle from "../../components/common/PageTitle";
-import Markdown from "../../components/common/Markdown";
-import TopWaves from "../../components/background/PageWaves";
-const GetHistoryPage = loader("../../graphql/pages/about/GetHistoryPage.gql");
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { loader } from 'graphql.macro';
+import { makeStyles } from '@material-ui/core';
+import { Container, Grid, Paper, Collapse, Button } from '@material-ui/core';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import GalleryV1 from '../../components/Gallery/GalleryV1';
+import Location from '../../components/Location/Location';
+import PageTitle from '../../components/common/PageTitle';
+import Markdown from '../../components/common/Markdown';
+import TopWaves from '../../components/background/PageWaves';
+import Loader from '../../components/common/Loader';
+
+const GetHistoryPage = loader('../../graphql/pages/about/GetHistoryPage.gql');
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    position: "relative",
-    height: "600px",
-    [theme.breakpoints.only("lg")]: {
-      height: "550px",
+    position: 'relative',
+    height: '600px',
+    [theme.breakpoints.only('lg')]: {
+      height: '550px',
     },
-    [theme.breakpoints.only("md")]: {
-      height: "550px",
+    [theme.breakpoints.only('md')]: {
+      height: '550px',
     },
-    [theme.breakpoints.only("sm")]: {
-      height: "300px",
+    [theme.breakpoints.only('sm')]: {
+      height: '300px',
     },
-    [theme.breakpoints.only("xs")]: {
-      height: "150px",
+    [theme.breakpoints.only('xs')]: {
+      height: '150px',
     },
   },
   top: {
-    maxWidth: "800px",
+    maxWidth: '800px',
   },
   title: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
     color: theme.palette.primary.main,
   },
   subtitle: {
-    marginBottom: "3rem",
+    marginBottom: '3rem',
   },
   content: {
-    margin: "0 auto",
-    padding: "5rem 7rem",
-    paddingBottom: "4rem",
-    maxWidth: "1000px",
-    background: "#fff",
-    boxShadow: "0px 14px 36px rgba(0, 0, 0, 0.04)",
-    borderRadius: "1rem",
-    textAlign: "center",
-    [theme.breakpoints.down("md")]: {
-      padding: "3rem 4rem",
+    margin: '0 auto',
+    padding: '5rem 7rem',
+    paddingBottom: '4rem',
+    maxWidth: '1000px',
+    background: '#fff',
+    boxShadow: '0px 14px 36px rgba(0, 0, 0, 0.04)',
+    borderRadius: '1rem',
+    textAlign: 'center',
+    [theme.breakpoints.down('md')]: {
+      padding: '3rem 4rem',
     },
-    [theme.breakpoints.only("xs")]: {
-      padding: "2rem 1rem",
+    [theme.breakpoints.only('xs')]: {
+      padding: '2rem 1rem',
     },
   },
   mainMedia: {
-    position: "absolute",
-    width: "100%",
-    maxHeight: "800px",
-    objectFit: "cover",
-    borderRadius: "1rem",
+    position: 'absolute',
+    width: '100%',
+    maxHeight: '800px',
+    objectFit: 'cover',
+    borderRadius: '1rem',
     backgroundColor: theme.palette.grey[300],
     left: 0,
-    bottom: "50px",
+    bottom: '50px',
     zIndex: -5,
-    [theme.breakpoints.only("xs")]: {
-      bottom: "30px",
+    [theme.breakpoints.only('xs')]: {
+      bottom: '30px',
     },
   },
   button: {
-    marginTop: "1rem",
+    marginTop: '1rem',
     color: theme.palette.primary.main,
-    fontWeight: "bold",
-    borderRadius: "1rem",
+    fontWeight: 'bold',
+    borderRadius: '1rem',
   },
   containerCollapse: {
     backgroundImage:
-      "linear-gradient(180deg, transparent 0%, transparent 80%, rgba(0,0,0,0.2) 100%)",
+      'linear-gradient(180deg, transparent 0%, transparent 80%, rgba(0,0,0,0.2) 100%)',
   },
   enteredrCollapse: {
-    backgroundImage: "none",
+    backgroundImage: 'none',
   },
   margin: {
-    marginTop: "5rem",
+    marginTop: '5rem',
   },
 }));
 
@@ -97,8 +100,8 @@ function History() {
 
   const history = data?.history;
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+  if (loading) return <Loader />;
+  if (error) return <Redirect to="/error" />;
 
   return (
     <>
@@ -128,7 +131,7 @@ function History() {
                 endIcon={checked ? <ExpandLessIcon /> : <ExpandMoreIcon />}
                 className={classes.button}
               >
-                Показати {checked ? "менше" : "більше"}
+                Показати {checked ? 'менше' : 'більше'}
               </Button>
             </Paper>
           </Grid>
