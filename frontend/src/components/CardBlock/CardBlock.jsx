@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     fontWeight: "bold",
-    color: theme.palett.primary.main,
+    color: theme.palette.primary.main,
   },
   subtitle: {
     marginBottom: "2rem",
