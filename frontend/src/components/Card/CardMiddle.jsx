@@ -7,7 +7,8 @@ const useStyles = makeStyles((theme) => ({
   card: {
     padding: '1rem',
     height: '100%',
-    alignItems: 'center',
+    alignItems: 'flex-start',
+    alignContent: 'flex-start',
     backgroundColor: theme.palette.common.white,
     borderRadius: '1rem',
     boxShadow: '0px 7px 25px rgba(143, 134, 196, 0.03)',
@@ -57,19 +58,21 @@ function CardMiddle({ title, description, icon }) {
 
   return (
     <Grid container spacing={1} className={classes.card}>
-      <Grid item xs={3} sm={4} lg={3}>
-        <div className={classes.iconContainer}>
-          <img
-            src={process.env.REACT_APP_IMAGE_URI + icon.url}
-            alt={icon.alternativeText}
-            className={classes.icon}
-          />
-        </div>
-      </Grid>
-      <Grid item xs={9} sm={8} lg={9}>
-        <Typography variant="h6" className={classes.title}>
-          {title}
-        </Typography>
+      <Grid container xs={12} alignItems="center">
+        <Grid item xs={3} sm={4} lg={3}>
+          <div className={classes.iconContainer}>
+            <img
+              src={process.env.REACT_APP_IMAGE_URI + icon.url}
+              alt={icon.alternativeText}
+              className={classes.icon}
+            />
+          </div>
+        </Grid>
+        <Grid item xs={9} sm={8} lg={9}>
+          <Typography variant="h6" className={classes.title}>
+            {title}
+          </Typography>
+        </Grid>
       </Grid>
       <Grid item xs={12}>
         <Markdown content={description} />
