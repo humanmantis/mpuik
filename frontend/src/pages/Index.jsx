@@ -130,7 +130,7 @@ function Index() {
                 <Grid item key={icon.id} xs={4}>
                   <img
                     src={process.env.REACT_APP_IMAGE_URI + icon.url}
-                    alt={icon.alternativeTex}
+                    alt={icon.alternativeText}
                     className={classes.partnerImage}
                   />
                 </Grid>
