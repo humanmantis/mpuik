@@ -1,28 +1,29 @@
 {
-  "kind": "collectionType",
-  "collectionName": "navigations",
-  "info": {
-    "name": "Navigation",
-    "description": ""
-  },
-  "options": {
-    "increments": true,
-    "timestamps": true,
-    "draftAndPublish": true
-  },
-  "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
+    "kind": "collectionType",
+    "collectionName": "navigations",
+    "info": {
+        "name": "Navigation",
+        "description": "",
+        "displayName": "Навігація"
     },
-    "path": {
-      "type": "string",
-      "required": true
+    "options": {
+        "increments": true,
+        "timestamps": true,
+        "draftAndPublish": true
     },
-    "items": {
-      "type": "component",
-      "repeatable": true,
-      "component": "link.link"
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "path": {
+            "type": "string",
+            "required": true
+        },
+        "items": {
+            "type": "component",
+            "repeatable": true,
+            "component": "link.link"
+        }
     }
-  }
 }

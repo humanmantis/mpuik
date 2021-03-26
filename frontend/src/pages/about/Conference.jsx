@@ -1,13 +1,15 @@
-import React from "react";
-import { useQuery } from "@apollo/client";
-import { loader } from "graphql.macro";
-import { Container } from "@material-ui/core";
-import Article from "../../components/Article/Article";
-import Gallery from "../../components/Gallery/Gallery";
-import PageWaves from "../../components/background/PageWaves";
+import React from 'react';
+import { Redirect } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { loader } from 'graphql.macro';
+import { Container } from '@material-ui/core';
+import Article from '../../components/Article/Article';
+import Gallery from '../../components/Gallery/Gallery';
+import PageWaves from '../../components/background/PageWaves';
+import Loader from '../../components/common/Loader';
 
 const GetConferencePage = loader(
-  "../../graphql/pages/about/GetConferencePage.gql"
+  '../../graphql/pages/about/GetConferencePage.gql'
 );
 
 function Conference() {
@@ -15,15 +17,15 @@ function Conference() {
   const article = data?.conference?.article;
   const gallery = data?.conference?.gallery;
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+  if (loading) return <Loader />;
+  if (error) return <Redirect to="/error" />;
 
   return (
     <>
       <PageWaves />
       <Container
         className="main-container"
-        style={{ marginBottom: "3rem" }}
+        style={{ marginBottom: '3rem' }}
         fixed
       >
         <Article {...article} />

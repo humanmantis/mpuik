@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Card,
   CardActionArea,
@@ -6,80 +7,122 @@ import {
   CardMedia,
   Typography,
   makeStyles,
-} from "@material-ui/core";
-import { Link } from "react-router-dom";
+  Link,
+} from '@material-ui/core';
+import { Link as RouterLink } from 'react-router-dom';
+import defaultPostImg from '../../assets/default-post.jpg';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
-    margin: "20px 10px",
-    maxWidth: 380,
+    height: '100%',
+    borderRadius: '1rem',
+    boxShadow: '0px 7px 22px rgba(143, 134, 196, 0.02);',
+    transition: '0.5s',
+    '&:hover': {
+      boxShadow: ' 0px 19px 35px rgba(62, 53, 120, 0.07)',
+    },
+  },
+  content: {
+    height: '100%',
   },
   media: {
-    height: 140,
+    height: '300px',
+    backgroundColor: theme.palette.grey[300],
+    [theme.breakpoints.down('md')]: {
+      height: '200px',
+    },
   },
   link: {
-    textDecoration: "none",
+    textDecoration: 'none',
+    '&:hover': {
+      textDecoration: 'none',
+    },
   },
   category: {
-    marginTop: 30,
     fontWeight: 600,
-    fontSize: 18,
-    lineHeight: "28px",
-    letterSpacing: "2px",
-    textTransform: "uppercase",
-    color: "#0D6F93",
+    letterSpacing: '1px',
+    textTransform: 'uppercase',
+    color: theme.palette.primary.main,
   },
   title: {
-    marginTop: 10,
     fontWeight: 600,
-    fontSize: 20,
-    lineHeight: "27px",
-    color: "#06040A",
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    display: '-webkit-box',
+    lineClamp: 2,
+    boxOrient: 'vertical',
   },
   text: {
-    marginTop: 10,
-    fontSize: 16,
-    lineHeight: "28px",
-    color: "#06040A",
-    marginBottom: 30,
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    display: '-webkit-box',
+    lineClamp: 3,
+    boxOrient: 'vertical',
   },
-});
+}));
 
 const NewsCard = ({ item }) => {
   const styles = useStyles();
   return (
-    <Link to={`/news/${item.id}`} className={styles.link}>
+    <Link
+      component={RouterLink}
+      to={`/news/${item.category?.slug}/${item.slug}`}
+      className={styles.link}
+    >
       <Card className={styles.root}>
-        <CardActionArea>
+        <CardActionArea className={styles.content}>
           <CardMedia
             className={styles.media}
-            image="/static/images/cards/contemplative-reptile.jpg"
-            title="Contemplative Reptile"
+            image={
+              item?.photo?.url
+                ? process.env.REACT_APP_IMAGE_URI + item?.photo?.url
+                : defaultPostImg
+            }
+            title={item.title}
           />
-          <CardContent>
-            <Typography className={styles.category}>Категорія</Typography>
+          <CardContent className={styles.content}>
+            <Typography variant="body1" className={styles.category} paragraph>
+              <Link component={RouterLink} to={`/news/${item.category?.slug}`}>
+                {item.category?.name}
+              </Link>
+            </Typography>
             <Typography
               gutterBottom
-              variant="h5"
+              variant="h6"
               component="h2"
               className={styles.title}
             >
-              Lizard
+              {item.title}
             </Typography>
             <Typography
-              variant="body2"
-              color="textSecondary"
+              variant="body1"
+              color="textPrimary"
               component="p"
               className={styles.text}
+              paragraph
             >
-              Lizards are a widespread group of squamate reptiles, with over
-              6,000 species, ranging across all continents except Antarctica
+              {item.description}
             </Typography>
           </CardContent>
         </CardActionArea>
       </Card>
     </Link>
   );
+};
+
+NewsCard.propTypes = {
+  item: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    category: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      slug: PropTypes.string.isRequired,
+    }).isRequired,
+    photo: PropTypes.shape({
+      url: PropTypes.string.isRequired,
+    }),
+  }),
 };
 
 export default NewsCard;

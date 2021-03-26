@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { loader } from 'graphql.macro';
 import { Link as RouterLink } from 'react-router-dom';
@@ -15,6 +16,7 @@ import {
   Link,
 } from '@material-ui/core';
 import Layout from '../../components/common/Layout';
+import Loader from '../../components/common/Loader';
 
 const GetSyllabiPage = loader('../../graphql/pages/student/GetSyllabiPage.gql');
 
@@ -39,11 +41,11 @@ function Syllabus() {
   const page = data?.syllabuse;
   const syllabi = data?.syllabi;
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+  if (loading) return <Loader />;
+  if (error) return <Redirect to="/error" />;
   return (
     <Layout title={page.title} subtitle={page.subtitle}>
-      {syllabi && (
+      {syllabi?.length > 0 && (
         <TableContainer component={Paper} className={styles.root}>
           <Table className={styles.table} size="small">
             <TableHead>

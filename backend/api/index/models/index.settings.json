@@ -1,46 +1,47 @@
 {
-  "kind": "singleType",
-  "collectionName": "indices",
-  "info": {
-    "name": "Index",
-    "description": ""
-  },
-  "options": {
-    "increments": true,
-    "timestamps": true,
-    "draftAndPublish": false
-  },
-  "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
+    "kind": "singleType",
+    "collectionName": "indices",
+    "info": {
+        "name": "Index",
+        "description": "",
+        "displayName": "Головна"
     },
-    "subtitle": {
-      "type": "text",
-      "required": true
+    "options": {
+        "increments": true,
+        "timestamps": true,
+        "draftAndPublish": false
     },
-    "button": {
-      "type": "component",
-      "repeatable": false,
-      "component": "link.link",
-      "required": true
-    },
-    "partnershipText": {
-      "type": "string",
-      "required": true
-    },
-    "partnershipIcons": {
-      "collection": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images"
-      ],
-      "plugin": "upload",
-      "required": true
-    },
-    "videoLink": {
-      "type": "string",
-      "required": true
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "subtitle": {
+            "type": "text",
+            "required": true
+        },
+        "button": {
+            "type": "component",
+            "repeatable": false,
+            "component": "link.link",
+            "required": true
+        },
+        "partnershipText": {
+            "type": "string",
+            "required": true
+        },
+        "partnershipIcons": {
+            "collection": "file",
+            "via": "related",
+            "allowedTypes": [
+                "images"
+            ],
+            "plugin": "upload",
+            "required": true
+        },
+        "videoLink": {
+            "type": "string",
+            "required": true
+        }
     }
-  }
 }

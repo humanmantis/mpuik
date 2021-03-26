@@ -1,0 +1,11 @@
+query GetEducationalProgramsPage {
+  educationalProgram {
+    title
+    subtitle
+    programs {
+      id
+      title
+      path
+    }
+  }
+}

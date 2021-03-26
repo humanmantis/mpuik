@@ -1,0 +1,28 @@
+{
+    "kind": "singleType",
+    "collectionName": "educational_programs",
+    "info": {
+        "name": "Educational Programs",
+        "displayName": "Навчальні плани"
+    },
+    "options": {
+        "increments": true,
+        "timestamps": true,
+        "draftAndPublish": false
+    },
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "subtitle": {
+            "type": "text"
+        },
+        "programs": {
+            "type": "component",
+            "repeatable": true,
+            "component": "link.link",
+            "required": true
+        }
+    }
+}

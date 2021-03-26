@@ -1,0 +1,19 @@
+query getNewsPage {
+  article {
+    title
+    subtitle
+  }
+  pinnedPosts: posts(where: { pinned: true }, sort: "published_at:desc") {
+    id
+    title
+    description
+    slug
+    category {
+      name
+      slug
+    }
+    photo {
+      url
+    }
+  }
+}

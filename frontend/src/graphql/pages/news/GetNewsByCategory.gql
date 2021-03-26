@@ -1,0 +1,25 @@
+query getNewsPage($start: Int = 0, $limit: Int = 9, $category: String!) {
+  postsConnection(where: { category: { slug: $category } }) {
+    aggregate {
+      count
+    }
+  }
+  posts(
+    where: { category: { slug: $category } }
+    start: $start
+    limit: $limit
+    sort: "published_at:desc"
+  ) {
+    id
+    title
+    description
+    slug
+    category {
+      name
+      slug
+    }
+    photo {
+      url
+    }
+  }
+}

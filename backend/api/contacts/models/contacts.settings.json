@@ -1,25 +1,26 @@
 {
-  "kind": "singleType",
-  "collectionName": "contacts",
-  "info": {
-    "name": "Contacts",
-    "description": ""
-  },
-  "options": {
-    "increments": true,
-    "timestamps": true,
-    "draftAndPublish": false
-  },
-  "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
+    "kind": "singleType",
+    "collectionName": "contacts",
+    "info": {
+        "name": "Contacts",
+        "description": "",
+        "displayName": "Контакти"
     },
-    "subtitle": {
-      "type": "string"
+    "options": {
+        "increments": true,
+        "timestamps": true,
+        "draftAndPublish": false
     },
-    "location": {
-      "model": "location"
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "subtitle": {
+            "type": "string"
+        },
+        "location": {
+            "model": "location"
+        }
     }
-  }
 }
