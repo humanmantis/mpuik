@@ -28,10 +28,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Logo() {
+function Logo({ mobileStyle }) {
   const classes = useStyles();
   return (
-    <Grid container alignItems="center" spacing={1}>
+    <Grid container alignItems="center" spacing={1} className={mobileStyle}>
       <Grid item>
         <NavLink to="/">
           <img src={logo} className={classes.logo} alt="МПУіК" />

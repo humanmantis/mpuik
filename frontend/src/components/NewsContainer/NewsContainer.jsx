@@ -1,20 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Grid, Typography, makeStyles } from '@material-ui/core';
-import NewsCard from '../NewsCard';
+import React from "react";
+import PropTypes from "prop-types";
+import { Grid, Typography, makeStyles } from "@material-ui/core";
+import NewsCard from "../NewsCard";
 
 const useStyles = makeStyles((theme) => ({
   title: {
-    marginTop: '3rem',
-    marginBottom: '3rem',
+    marginTop: "3rem",
+    marginBottom: "3rem",
     fontWeight: 600,
     color: theme.palette.primary.main,
-    [theme.breakpoints.down('md')]: {
-      textAlign: 'center',
+    [theme.breakpoints.down("md")]: {
+      textAlign: "center",
     },
   },
   newsContainer: {
-    marginBottom: '3rem',
+    marginBottom: "3rem",
   },
 }));
 

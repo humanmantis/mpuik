@@ -4,11 +4,7 @@ query getNewsPage($start: Int = 0, $limit: Int = 9) {
       count
     }
   }
-  posts(
-    start: $start
-    limit: $limit
-    sort: "published_at:desc"
-  ) {
+  posts(start: $start, limit: $limit, sort: "published_at:desc") {
     id
     title
     description

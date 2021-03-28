@@ -1,8 +1,8 @@
-import React from 'react';
-import { Redirect } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { loader } from 'graphql.macro';
-import { Link as RouterLink } from 'react-router-dom';
+import React from "react";
+import { Redirect } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { loader } from "graphql.macro";
+import { Link as RouterLink } from "react-router-dom";
 import {
   makeStyles,
   Table,
@@ -14,17 +14,17 @@ import {
   Paper,
   Typography,
   Link,
-} from '@material-ui/core';
-import Layout from '../../components/common/Layout';
-import Loader from '../../components/common/Loader';
+} from "@material-ui/core";
+import Layout from "../../components/common/Layout";
+import Loader from "../../components/common/Loader";
 
-const GetSyllabiPage = loader('../../graphql/pages/student/GetSyllabiPage.gql');
+const GetSyllabiPage = loader("../../graphql/pages/student/GetSyllabiPage.gql");
 
 const useStyles = makeStyles({
   root: {
-    margin: '80px 0',
-    boxShadow: '0px 14px 36px rgb(0 0 0 / 4%)',
-    borderRadius: '1rem',
+    margin: "80px 0",
+    boxShadow: "0px 14px 36px rgb(0 0 0 / 4%)",
+    borderRadius: "1rem",
   },
   table: {
     minWidth: 600,

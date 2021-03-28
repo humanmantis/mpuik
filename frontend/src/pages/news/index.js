@@ -1,32 +1,32 @@
-import React from 'react';
-import { Redirect } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { loader } from 'graphql.macro';
-import { Container, makeStyles } from '@material-ui/core';
-import Pagination from '../../components/Pagination';
-import NewsContainer from '../../components/NewsContainer/NewsContainer';
-import constants from '../../config/constants';
-import Loader from '../../components/common/Loader';
-import NewsCarousel from '../../components/NewsCarousel/NewsCarousel';
-import PageTitle from '../../components/common/PageTitle';
-import PageWaves from '../../components/background/PageWaves';
+import React from "react";
+import { Redirect } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { loader } from "graphql.macro";
+import { Container, makeStyles } from "@material-ui/core";
+import Pagination from "../../components/Pagination";
+import NewsContainer from "../../components/NewsContainer/NewsContainer";
+import constants from "../../config/constants";
+import Loader from "../../components/common/Loader";
+import NewsCarousel from "../../components/NewsCarousel/NewsCarousel";
+import PageTitle from "../../components/common/PageTitle";
+import PageWaves from "../../components/background/PageWaves";
 
-const GetNewsPage = loader('../../graphql/pages/news/GetNewsPage.gql');
-const GetLatestNews = loader('../../graphql/pages/news/GetLatestNews.gql');
+const GetNewsPage = loader("../../graphql/pages/news/GetNewsPage.gql");
+const GetLatestNews = loader("../../graphql/pages/news/GetLatestNews.gql");
 const GetNewsByCategory = loader(
-  '../../graphql/pages/news/GetNewsByCategory.gql'
+  "../../graphql/pages/news/GetNewsByCategory.gql"
 );
 
 const useStyles = makeStyles((theme) => ({
   loadingContainer: {
-    marginTop: '3rem',
-    height: '500px',
+    marginTop: "3rem",
+    height: "500px",
   },
 }));
 
 function News({ search, params }) {
   const classes = useStyles();
-  const currentPage = new URLSearchParams(search).get('page') ?? 1;
+  const currentPage = new URLSearchParams(search).get("page") ?? 1;
 
   const { loading, error, data } = useQuery(GetNewsPage);
 
@@ -70,7 +70,7 @@ function News({ search, params }) {
                 title={
                   params.category
                     ? `Новини за категорією ${posts[0]?.category?.name}`
-                    : 'Останні новини'
+                    : "Останні новини"
                 }
                 items={posts}
               />

@@ -1,39 +1,39 @@
-import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
-import { makeStyles, Grid, Typography, Button } from '@material-ui/core';
-import Carousel from 'react-material-ui-carousel';
-import defaultPostImg from '../../assets/default-post.jpg';
+import React from "react";
+import { Link as RouterLink } from "react-router-dom";
+import { makeStyles, Grid, Typography, Button } from "@material-ui/core";
+import Carousel from "react-material-ui-carousel";
+import defaultPostImg from "../../assets/default-post.jpg";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    position: 'relative',
-    height: '500px',
+    position: "relative",
+    height: "500px",
   },
   img: {
-    display: 'block',
-    width: '100%',
-    height: '500px',
-    objectFit: 'cover',
-    [theme.breakpoints.only('sm')]: {
-      height: '400px',
+    display: "block",
+    width: "100%",
+    height: "500px",
+    objectFit: "cover",
+    [theme.breakpoints.only("sm")]: {
+      height: "400px",
     },
-    [theme.breakpoints.only('xs')]: {
-      height: '300px',
+    [theme.breakpoints.only("xs")]: {
+      height: "300px",
     },
   },
   textContainer: {
-    position: 'relative',
+    position: "relative",
     backgroundColor: theme.palette.primary.main,
-    padding: '2rem',
+    padding: "2rem",
   },
   categoryButton: {
-    padding: '0.5rem 2rem',
-    marginBottom: '1rem',
+    padding: "0.5rem 2rem",
+    marginBottom: "1rem",
     color: theme.palette.common.white,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    borderRadius: '1rem',
+    backgroundColor: "rgba(255, 255, 255, 0.2)",
+    borderRadius: "1rem",
     fontWeight: 600,
-    '&:hover': {
+    "&:hover": {
       color: theme.palette.info.main,
       backgroundColor: theme.palette.primary.light,
     },
@@ -41,63 +41,63 @@ const useStyles = makeStyles((theme) => ({
   title: {
     color: theme.palette.common.white,
     fontWeight: 600,
-    maxWidth: '700px',
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-    display: '-webkit-box',
+    maxWidth: "700px",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    display: "-webkit-box",
     lineClamp: 2,
-    boxOrient: 'vertical',
+    boxOrient: "vertical",
   },
   text: {
     color: theme.palette.common.white,
-    maxWidth: '700px',
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-    display: '-webkit-box',
+    maxWidth: "700px",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    display: "-webkit-box",
     lineClamp: 4,
-    boxOrient: 'vertical',
-    [theme.breakpoints.only('xs')]: {
+    boxOrient: "vertical",
+    [theme.breakpoints.only("xs")]: {
       lineClamp: 2,
     },
   },
   readButton: {
-    position: 'absolute',
-    bottom: '2rem',
-    left: '2rem',
-    padding: '0.7rem 3rem',
+    position: "absolute",
+    bottom: "2rem",
+    left: "2rem",
+    padding: "0.7rem 3rem",
     color: theme.palette.common.black,
     backgroundColor: theme.palette.common.white,
-    borderRadius: '1rem',
-    fontWeight: 'bold',
+    borderRadius: "1rem",
+    fontWeight: "bold",
     zIndex: 7,
-    '&:hover': {
+    "&:hover": {
       color: theme.palette.info.main,
       backgroundColor: theme.palette.primary.light,
     },
-    [theme.breakpoints.down('sm')]: {
-      marginTop: '1rem',
-      position: 'unset',
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "1rem",
+      position: "unset",
     },
   },
   indicators: {
-    position: 'absolute',
-    left: '-4rem',
-    bottom: '3rem',
-    textAlign: 'right',
-    [theme.breakpoints.down('sm')]: {
-      position: 'unset',
-      textAlign: 'center',
+    position: "absolute",
+    left: "-4rem",
+    bottom: "3rem",
+    textAlign: "right",
+    [theme.breakpoints.down("sm")]: {
+      position: "unset",
+      textAlign: "center",
     },
   },
   indicatorButton: {
     color: theme.palette.common.white,
-    '&:hover': {
+    "&:hover": {
       color: theme.palette.info.light,
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down("sm")]: {
       color: theme.palette.primary.light,
-      margin: '0.3rem',
-      fontSize: '1.5rem',
+      margin: "0.3rem",
+      fontSize: "1.5rem",
     },
   },
   activeIndicatorButton: {

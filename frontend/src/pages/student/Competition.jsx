@@ -1,12 +1,12 @@
 import React from "react";
-import { Redirect } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { loader } from "graphql.macro";
 import { Container } from "@material-ui/core";
 import Article from "../../components/Article/Article";
 import Gallery from "../../components/Gallery/Gallery";
 import PageWaves from "../../components/background/PageWaves";
-import Loader from '../../components/common/Loader';
+import Loader from "../../components/common/Loader";
 
 const GetCompetitionPage = loader(
   "../../graphql/pages/student/GetCompetitionPage.gql"

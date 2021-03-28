@@ -1,15 +1,15 @@
-import React from 'react';
-import { Redirect } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { loader } from 'graphql.macro';
-import { Container } from '@material-ui/core';
-import Article from '../../components/Article/Article';
-import Gallery from '../../components/Gallery/Gallery';
-import PageWaves from '../../components/background/PageWaves';
-import Loader from '../../components/common/Loader';
+import React from "react";
+import { Redirect } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { loader } from "graphql.macro";
+import { Container } from "@material-ui/core";
+import Article from "../../components/Article/Article";
+import Gallery from "../../components/Gallery/Gallery";
+import PageWaves from "../../components/background/PageWaves";
+import Loader from "../../components/common/Loader";
 
 const GetScientificWorkPage = loader(
-  '../../graphql/pages/about/GetScientificWorkPage.gql'
+  "../../graphql/pages/about/GetScientificWorkPage.gql"
 );
 
 function ScientificWork() {
@@ -25,7 +25,7 @@ function ScientificWork() {
       <PageWaves />
       <Container
         className="main-container"
-        style={{ marginBottom: '3rem' }}
+        style={{ marginBottom: "3rem" }}
         fixed
       >
         <Article {...article} />

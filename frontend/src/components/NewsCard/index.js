@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 import {
   Card,
   CardActionArea,
@@ -8,56 +8,56 @@ import {
   Typography,
   makeStyles,
   Link,
-} from '@material-ui/core';
-import { Link as RouterLink } from 'react-router-dom';
-import defaultPostImg from '../../assets/default-post.jpg';
+} from "@material-ui/core";
+import { Link as RouterLink } from "react-router-dom";
+import defaultPostImg from "../../assets/default-post.jpg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: '100%',
-    borderRadius: '1rem',
-    boxShadow: '0px 7px 22px rgba(143, 134, 196, 0.02);',
-    transition: '0.5s',
-    '&:hover': {
-      boxShadow: ' 0px 19px 35px rgba(62, 53, 120, 0.07)',
+    height: "100%",
+    borderRadius: "1rem",
+    boxShadow: "0px 7px 22px rgba(143, 134, 196, 0.02);",
+    transition: "0.5s",
+    "&:hover": {
+      boxShadow: " 0px 19px 35px rgba(62, 53, 120, 0.07)",
     },
   },
   content: {
-    height: '100%',
+    height: "100%",
   },
   media: {
-    height: '300px',
+    height: "300px",
     backgroundColor: theme.palette.grey[300],
-    [theme.breakpoints.down('md')]: {
-      height: '200px',
+    [theme.breakpoints.down("md")]: {
+      height: "200px",
     },
   },
   link: {
-    textDecoration: 'none',
-    '&:hover': {
-      textDecoration: 'none',
+    textDecoration: "none",
+    "&:hover": {
+      textDecoration: "none",
     },
   },
   category: {
     fontWeight: 600,
-    letterSpacing: '1px',
-    textTransform: 'uppercase',
+    letterSpacing: "1px",
+    textTransform: "uppercase",
     color: theme.palette.primary.main,
   },
   title: {
     fontWeight: 600,
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-    display: '-webkit-box',
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    display: "-webkit-box",
     lineClamp: 2,
-    boxOrient: 'vertical',
+    boxOrient: "vertical",
   },
   text: {
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-    display: '-webkit-box',
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    display: "-webkit-box",
     lineClamp: 3,
-    boxOrient: 'vertical',
+    boxOrient: "vertical",
   },
 }));
 

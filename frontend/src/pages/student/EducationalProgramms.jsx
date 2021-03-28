@@ -1,23 +1,23 @@
-import React from 'react';
-import { Redirect } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { loader } from 'graphql.macro';
-import { makeStyles, Typography, Link } from '@material-ui/core';
-import Layout from '../../components/common/Layout';
-import Loader from '../../components/common/Loader';
+import React from "react";
+import { Redirect } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { loader } from "graphql.macro";
+import { makeStyles, Typography, Link } from "@material-ui/core";
+import Layout from "../../components/common/Layout";
+import Loader from "../../components/common/Loader";
 
 const GetEducationalProgramsPage = loader(
-  '../../graphql/pages/student/GetEducationalProgramsPage.gql'
+  "../../graphql/pages/student/GetEducationalProgramsPage.gql"
 );
 
 const useStyles = makeStyles({
   link: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   alignCenter: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
 });
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { loader } from "graphql.macro";
 import { Container, Grid } from "@material-ui/core";
@@ -7,7 +7,7 @@ import PageTitle from "../../components/common/PageTitle";
 import PageWaves from "../../components/background/PageWaves";
 import ProgramCard from "../../components/ProgramCard/ProgramCard";
 import Location from "../../components/Location/Location";
-import Loader from '../../components/common/Loader';
+import Loader from "../../components/common/Loader";
 
 const GetEntrantPage = loader("../../graphql/pages/GetEntrantPage.gql");
 

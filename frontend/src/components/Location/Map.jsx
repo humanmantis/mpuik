@@ -12,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
     borderRadius: "1rem",
     overflow: "hidden",
-   
   },
 }));
 

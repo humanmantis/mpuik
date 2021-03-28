@@ -1,18 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link as RouterLink } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core';
-import { Pagination, PaginationItem } from '@material-ui/lab';
+import React from "react";
+import PropTypes from "prop-types";
+import { Link as RouterLink } from "react-router-dom";
+import { makeStyles } from "@material-ui/core";
+import { Pagination, PaginationItem } from "@material-ui/lab";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
-    justifyContent: 'center',
-    marginBottom: '3rem',
+    display: "flex",
+    justifyContent: "center",
+    marginBottom: "3rem",
   },
   ul: {
-    '& > li': {
-      display: 'block',
+    "& > li": {
+      display: "block",
     },
   },
 }));
@@ -34,7 +34,7 @@ const StyledPagination = ({ currentPage, itemsPerPage, totalItems }) => {
         <PaginationItem
           component={RouterLink}
           classes={{ root: classes.paginateItem, selected: classes.selected }}
-          to={`/news${item.page === 1 ? '' : `?page=${item.page}`}`}
+          to={`/news${item.page === 1 ? "" : `?page=${item.page}`}`}
           {...item}
         />
       )}

@@ -1,14 +1,14 @@
-import React from 'react';
-import { Redirect } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { loader } from 'graphql.macro';
-import { Container, Grid } from '@material-ui/core';
-import PageTitle from '../../components/common/PageTitle';
-import TopWaves from '../../components/background/PageWaves';
-import TeacherCard from '../../components/TeacherCard/TeacherCard';
-import Loader from '../../components/common/Loader';
+import React from "react";
+import { Redirect } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { loader } from "graphql.macro";
+import { Container, Grid } from "@material-ui/core";
+import PageTitle from "../../components/common/PageTitle";
+import TopWaves from "../../components/background/PageWaves";
+import TeacherCard from "../../components/TeacherCard/TeacherCard";
+import Loader from "../../components/common/Loader";
 
-const GetStaffPage = loader('../../graphql/pages/about/GetStaffPage.gql');
+const GetStaffPage = loader("../../graphql/pages/about/GetStaffPage.gql");
 
 function Teachers() {
   const { loading, error, data } = useQuery(GetStaffPage);
@@ -21,7 +21,7 @@ function Teachers() {
       <TopWaves />
       <Container
         className="main-container"
-        style={{ marginBottom: '3rem' }}
+        style={{ marginBottom: "3rem" }}
         fixed
         component="section"
       >
