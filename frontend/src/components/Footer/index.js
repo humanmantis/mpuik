@@ -146,6 +146,8 @@ function Footer({ footer }) {
                   <Grid item>
                     <a
                       href={footer.facebookLink}
+                      target="_blank"
+                      rel="noreferrer"
                       className={styles.socialNetwork}
                     >
                       <FacebookIcon className={styles.socialNetworkImg} />
@@ -156,6 +158,8 @@ function Footer({ footer }) {
                   <Grid item>
                     <a
                       href={footer.instagramLink}
+                      target="_blank"
+                      rel="noreferrer"
                       className={styles.socialNetwork}
                     >
                       <InstagramIcon className={styles.socialNetworkImg} />
@@ -166,6 +170,8 @@ function Footer({ footer }) {
                   <Grid item>
                     <a
                       href={footer.telegramLink}
+                      target="_blank"
+                      rel="noreferrer"
                       className={styles.socialNetwork}
                     >
                       <TelegramIcon className={styles.socialNetworkImg} />
@@ -176,6 +182,8 @@ function Footer({ footer }) {
                   <Grid item>
                     <a
                       href={footer.twitterLink}
+                      target="_blank"
+                      rel="noreferrer"
                       className={styles.socialNetwork}
                     >
                       <TwitterIcon className={styles.socialNetworkImg} />
@@ -186,6 +194,8 @@ function Footer({ footer }) {
                   <Grid item>
                     <a
                       href={footer.youtubeLink}
+                      target="_blank"
+                      rel="noreferrer"
                       className={styles.socialNetwork}
                     >
                       <YoutubeIcon className={styles.socialNetworkImg} />
@@ -211,15 +221,26 @@ function Footer({ footer }) {
                             <Typography className={styles.categoryTitle}>
                               {section.title}
                             </Typography>
-                            {section.links.map((link) => (
-                              <Link
-                                to={link.path}
-                                key={link.id}
-                                className={styles.link}
-                              >
-                                {link.title}
-                              </Link>
-                            ))}
+                            {section.links.map((link) =>
+                              link.path.includes('http') ? (
+                                <a
+                                  href={link.path}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className={styles.link}
+                                >
+                                  {link.title}
+                                </a>
+                              ) : (
+                                <Link
+                                  to={link.path}
+                                  key={link.id}
+                                  className={styles.link}
+                                >
+                                  {link.title}
+                                </Link>
+                              )
+                            )}
                           </Grid>
                         ))}
                       </Grid>
