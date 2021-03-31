@@ -1,0 +1,43 @@
+{
+  "kind": "singleType",
+  "collectionName": "footers",
+  "info": {
+    "name": "Footer",
+    "displayName": "Футер",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "additionalText": {
+      "type": "text"
+    },
+    "sections": {
+      "type": "component",
+      "repeatable": true,
+      "component": "section.section",
+      "required": true
+    },
+    "location": {
+      "model": "location"
+    },
+    "facebookLink": {
+      "type": "string"
+    },
+    "instagramLink": {
+      "type": "string"
+    },
+    "telegramLink": {
+      "type": "string"
+    },
+    "youtubeLink": {
+      "type": "string"
+    },
+    "twitterLink": {
+      "type": "string"
+    }
+  }
+}

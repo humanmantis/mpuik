@@ -27,7 +27,7 @@ function AppRouter() {
   return (
     <div style={{ minHeight: "100vh" }}>
       <ErrorBoundary>
-        <Suspense fallback={Loader}>
+        <Suspense fallback={<Loader />}>
           <Switch>
             <Route exact path="/" render={() => <Index />} />
             <Route exact path="/about/history" render={() => <History />} />

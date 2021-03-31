@@ -1,0 +1,35 @@
+query GetSkeleton {
+  navigations {
+    id
+    title
+    path
+    items {
+      id
+      title
+      path
+    }
+  }
+  footer {
+    additionalText
+    facebookLink
+    instagramLink
+    telegramLink
+    youtubeLink
+    twitterLink
+    sections {
+      id
+      title
+      links {
+        id
+        title
+        path
+      }
+    }
+    location {
+      title
+      address
+      phone
+      email
+    }
+  }
+}

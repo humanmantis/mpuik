@@ -1,18 +1,18 @@
-import React from "react";
-import { Redirect } from "react-router-dom";
-import { useQuery } from "@apollo/client";
-import { loader } from "graphql.macro";
-import AppRouter from "./AppRouter";
-import ScrollToTop from "./components/common/ScrollToTop";
-import BackToTop from "./components/BackToTop/BackToTop";
-import Header from "./components/Header/Header";
-import Loader from "./components/common/Loader";
-import Footer from "./components/Footer";
+import React from 'react';
+import { Redirect } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { loader } from 'graphql.macro';
+import AppRouter from './AppRouter';
+import ScrollToTop from './components/common/ScrollToTop';
+import BackToTop from './components/BackToTop/BackToTop';
+import Header from './components/Header/Header';
+import Loader from './components/common/Loader';
+import Footer from './components/Footer';
 
-const GetNav = loader("./graphql/GetNav.gql");
+const GetSkeleton = loader('./graphql/GetSkeleton.gql');
 
 function App() {
-  const { loading, error, data } = useQuery(GetNav);
+  const { loading, error, data } = useQuery(GetSkeleton);
 
   if (loading) return <Loader />;
   if (error) return <Redirect to="/error" />;
@@ -23,7 +23,7 @@ function App() {
       <Header navigation={data.navigations} />
       <AppRouter />
       <BackToTop />
-      <Footer />
+      <Footer footer={data.footer} />
     </>
   );
 }

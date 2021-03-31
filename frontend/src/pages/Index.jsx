@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "3rem",
   },
   partnerImage: {
-    maxWidth: "90%",
+    maxWidth: "100%",
     pointerEvents: "none",
   },
   circles: {
@@ -122,10 +122,10 @@ function Index() {
               path={data.index.button.path}
               icon={ArrowRightAltIcon}
             />
-            <Typography variant="subtitle1" className={classes.partnership}>
+            <Typography variant="subtitle1" className={classes.partnership} gutterBottom>
               {data.index.partnershipText}
             </Typography>
-            <Grid container alignItems="center">
+            <Grid container alignItems="center" spacing={5}>
               {data.index.partnershipIcons.map((icon) => (
                 <Grid item key={icon.id} xs={4}>
                   <img
