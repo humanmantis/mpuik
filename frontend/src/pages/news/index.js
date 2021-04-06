@@ -45,7 +45,6 @@ function News({ search, params }) {
   const pinnedPosts = data?.pinnedPosts;
   const posts = newsData?.posts;
   const count = newsData?.postsConnection?.aggregate?.count;
-  console.log(error);
 
   if (loading) return <Loader />;
   if (newsError || posts?.length === 0) return <Redirect to="/news" />;

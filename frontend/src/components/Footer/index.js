@@ -123,7 +123,6 @@ const useStyles = makeStyles((theme) => ({
 
 function Footer({ footer }) {
   const styles = useStyles();
-  console.log(footer);
   const sections = footer.sections;
   const location = footer.location;
 
@@ -134,13 +133,15 @@ function Footer({ footer }) {
           <Grid container spacing={3} justify="center">
             <Grid item xs={12} md={5} lg={4}>
               <Logo mobileStyle={styles.flex} />
-              <Typography
-                variant="body1"
-                paragraph
-                className={styles.description}
-              >
-                {footer.additionalText}
-              </Typography>
+              {footer.additionalText && (
+                <Typography
+                  variant="body1"
+                  paragraph
+                  className={styles.description}
+                >
+                  {footer.additionalText}
+                </Typography>
+              )}
               <Grid container spacing={1} className={styles.socialNetworks}>
                 {footer.facebookLink && (
                   <Grid item>
