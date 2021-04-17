@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/brochures",
+      "handler": "brochures.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/brochures",
+      "handler": "brochures.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/brochures",
+      "handler": "brochures.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

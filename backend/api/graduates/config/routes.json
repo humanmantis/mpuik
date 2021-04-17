@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/graduates",
+      "handler": "graduates.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/graduates",
+      "handler": "graduates.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/graduates",
+      "handler": "graduates.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

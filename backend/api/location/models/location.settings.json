@@ -3,7 +3,8 @@
   "collectionName": "locations",
   "info": {
     "name": "Location",
-    "displayName": "Розташування"
+    "displayName": "Контакти",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -38,6 +39,12 @@
     },
     "longitude": {
       "type": "string",
+      "required": true
+    },
+    "social": {
+      "type": "component",
+      "repeatable": false,
+      "component": "social.social",
       "required": true
     }
   }

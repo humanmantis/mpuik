@@ -142,68 +142,70 @@ function Footer({ footer }) {
                   {footer.additionalText}
                 </Typography>
               )}
-              <Grid container spacing={1} className={styles.socialNetworks}>
-                {footer.facebookLink && (
-                  <Grid item>
-                    <a
-                      href={footer.facebookLink}
-                      target="_blank"
-                      rel="noreferrer"
-                      className={styles.socialNetwork}
-                    >
-                      <FacebookIcon className={styles.socialNetworkImg} />
-                    </a>
-                  </Grid>
-                )}
-                {footer.instagramLink && (
-                  <Grid item>
-                    <a
-                      href={footer.instagramLink}
-                      target="_blank"
-                      rel="noreferrer"
-                      className={styles.socialNetwork}
-                    >
-                      <InstagramIcon className={styles.socialNetworkImg} />
-                    </a>
-                  </Grid>
-                )}
-                {footer.telegramLink && (
-                  <Grid item>
-                    <a
-                      href={footer.telegramLink}
-                      target="_blank"
-                      rel="noreferrer"
-                      className={styles.socialNetwork}
-                    >
-                      <TelegramIcon className={styles.socialNetworkImg} />
-                    </a>
-                  </Grid>
-                )}
-                {footer.twitterLink && (
-                  <Grid item>
-                    <a
-                      href={footer.twitterLink}
-                      target="_blank"
-                      rel="noreferrer"
-                      className={styles.socialNetwork}
-                    >
-                      <TwitterIcon className={styles.socialNetworkImg} />
-                    </a>
-                  </Grid>
-                )}
-                {footer.youtubeLink && (
-                  <Grid item>
-                    <a
-                      href={footer.youtubeLink}
-                      target="_blank"
-                      rel="noreferrer"
-                      className={styles.socialNetwork}
-                    >
-                      <YoutubeIcon className={styles.socialNetworkImg} />
-                    </a>
-                  </Grid>
-                )}
-              </Grid>
+              {location?.social && (
+                <Grid container spacing={1} className={styles.socialNetworks}>
+                  {location.social?.facebook && (
+                    <Grid item>
+                      <a
+                        href={location.social?.facebook}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={styles.socialNetwork}
+                      >
+                        <FacebookIcon className={styles.socialNetworkImg} />
+                      </a>
+                    </Grid>
+                  )}
+                  {location.social?.instagram && (
+                    <Grid item>
+                      <a
+                        href={location.social?.instagram}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={styles.socialNetwork}
+                      >
+                        <InstagramIcon className={styles.socialNetworkImg} />
+                      </a>
+                    </Grid>
+                  )}
+                  {location.social?.telegram && (
+                    <Grid item>
+                      <a
+                        href={location.social?.telegram}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={styles.socialNetwork}
+                      >
+                        <TelegramIcon className={styles.socialNetworkImg} />
+                      </a>
+                    </Grid>
+                  )}
+                  {location.social?.twitter && (
+                    <Grid item>
+                      <a
+                        href={location.social?.twitter}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={styles.socialNetwork}
+                      >
+                        <TwitterIcon className={styles.socialNetworkImg} />
+                      </a>
+                    </Grid>
+                  )}
+                  {location.social?.youtube && (
+                    <Grid item>
+                      <a
+                        href={location.social?.youtube}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={styles.socialNetwork}
+                      >
+                        <YoutubeIcon className={styles.socialNetworkImg} />
+                      </a>
+                    </Grid>
+                  )}
+                </Grid>
+              )}
             </Grid>
             <Grid item xs={12} md={7} lg={8}>
               <Grid container spacing={3}>
@@ -225,6 +227,7 @@ function Footer({ footer }) {
                             {section.links.map((link) =>
                               link.path.includes('http') ? (
                                 <a
+                                  key={link.id}
                                   href={link.path}
                                   target="_blank"
                                   rel="noreferrer"

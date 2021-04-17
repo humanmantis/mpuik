@@ -1,0 +1,36 @@
+query GetWhyWePage {
+  whyWe {
+    title
+    subtitle
+    cards {
+      ... on ComponentCardCardBlock {
+        id
+        slug
+        title
+        subtitle
+        cards {
+          id
+          variant
+          title
+          description
+          icon {
+            url
+            alternativeText
+          }
+        }
+      }
+      ... on ComponentArticleArticle {
+        id
+        slug
+        title
+        subtitle
+        content
+        photos {
+          id
+          url
+          alternativeText
+        }
+      }
+    }
+  }
+}

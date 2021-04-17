@@ -48,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     fontWeight: "bold",
+    color: theme.palette.info.main,
     [theme.breakpoints.only("xs")]: {
       marginLeft: "0.3rem",
     },

@@ -1,0 +1,10 @@
+query GetBrochuresPage {
+  brochure {
+    title
+    subtitle
+    brochures {
+      url
+      alternativeText
+    }
+  }
+}

@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect } from "react";
-import PropTypes from "prop-types";
-import { NavLink, useLocation } from "react-router-dom";
-import { makeStyles } from "@material-ui/core";
+import React, { useState, useRef, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { NavLink, useLocation } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core';
 import {
   Button,
   MenuList,
@@ -11,9 +11,9 @@ import {
   Paper,
   ClickAwayListener,
   Link,
-} from "@material-ui/core";
-import ExpandLessIcon from "@material-ui/icons/ExpandLess";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+} from '@material-ui/core';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -21,9 +21,9 @@ const useStyles = makeStyles((theme) => ({
   },
   navSubItem: {
     color: theme.palette.info.main,
-    fontWeight: "600",
-    fontSize: "0.875rem",
-    "&:hover": {
+    fontWeight: '600',
+    fontSize: '0.875rem',
+    '&:hover': {
       color: theme.palette.info.main,
     },
   },
@@ -56,7 +56,7 @@ function DropdownMenu({
   };
 
   function handleListKeyDown(event) {
-    if (event.key === "Tab") {
+    if (event.key === 'Tab') {
       event.preventDefault();
       setOpen(false);
     }
@@ -96,14 +96,14 @@ function DropdownMenu({
             {...TransitionProps}
             style={{
               transformOrigin:
-                placement === "bottom" ? "center top" : "center bottom",
+                placement === 'bottom' ? 'center top' : 'center bottom',
             }}
           >
             <Paper className={classes.paper}>
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList autoFocusItem={open} onKeyDown={handleListKeyDown}>
                   {items.map((item) =>
-                    item.path.includes("http") ? (
+                    item.path.includes('http') ? (
                       <MenuItem
                         key={item.id}
                         onClick={handleClose}
@@ -119,6 +119,7 @@ function DropdownMenu({
                         key={item.id}
                         onClick={handleClose}
                         component={NavLink}
+                        exact
                         activeClassName={classes.selected}
                         className={classes.navSubItem}
                         to={path + item.path}

@@ -1,16 +1,20 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { makeStyles, Typography } from "@material-ui/core";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { makeStyles, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   title: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
     color: theme.palette.primary.main,
   },
+  subtitle: {
+    fontWeight: 'bold',
+    color: theme.palette.info.main,
+  },
   pageHead: {
-    maxWidth: "800px",
-    margin: "0 auto",
-    marginBottom: "3rem",
+    maxWidth: '800px',
+    margin: '0 auto',
+    marginBottom: '3rem',
   },
 }));
 
@@ -26,7 +30,13 @@ function PageTitle({ title, subtitle }) {
       >
         {title}
       </Typography>
-      <Typography variant="subtitle1" align="center" paragraph>
+      <Typography
+        variant="h6"
+        align="center"
+        component="p"
+        className={classes.subtitle}
+        paragraph
+      >
         {subtitle}
       </Typography>
     </div>
@@ -34,7 +44,7 @@ function PageTitle({ title, subtitle }) {
 }
 
 PageTitle.defaultProps = {
-  subtitle: "",
+  subtitle: '',
 };
 
 PageTitle.propTypes = {

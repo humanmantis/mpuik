@@ -23,21 +23,6 @@
     },
     "location": {
       "model": "location"
-    },
-    "facebookLink": {
-      "type": "string"
-    },
-    "instagramLink": {
-      "type": "string"
-    },
-    "telegramLink": {
-      "type": "string"
-    },
-    "youtubeLink": {
-      "type": "string"
-    },
-    "twitterLink": {
-      "type": "string"
     }
   }
 }

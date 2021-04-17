@@ -1,43 +1,46 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { makeStyles } from "@material-ui/core";
-import { Grid, Typography, Box } from "@material-ui/core";
-import Markdown from "../common/Markdown";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core';
+import { Grid, Typography, Box } from '@material-ui/core';
+import Markdown from '../common/Markdown';
 
 const useStyles = makeStyles((theme) => ({
   section: {
-    margin: "5rem 0",
+    margin: '5rem 0',
   },
   sectionHeader: {
-    margin: "0 auto",
-    maxWidth: "800px",
+    margin: '0 auto',
+    maxWidth: '800px',
   },
   article: {
-    maxWidth: "1000px",
-    margin: "0 auto",
-    padding: "1rem",
+    maxWidth: '1000px',
+    margin: '0 auto',
+    padding: '1rem',
     backgroundColor: theme.palette.common.white,
-    borderRadius: "1rem",
-    boxShadow: "0px 14px 36px rgba(0, 0, 0, 0.04)",
-    [theme.breakpoints.down("md")]: {
-      padding: "2rem 1rem",
+    borderRadius: '1rem',
+    boxShadow: '0px 14px 36px rgba(0, 0, 0, 0.04)',
+    [theme.breakpoints.down('md')]: {
+      padding: '2rem 1rem',
     },
   },
   title: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
+    color: theme.palette.primary.main,
   },
   subtitle: {
-    marginBottom: "2rem",
+    marginBottom: '2rem',
+    fontWeight: 'bold',
+    color: theme.palette.info.main,
   },
   img: {
-    marginBottom: "1rem",
-    width: "100%",
-    maxHeight: "300px",
-    aspectRatio: "16/9",
-    objectFit: "cover",
-    borderRadius: "0.5rem",
+    marginBottom: '1rem',
+    width: '100%',
+    maxHeight: '300px',
+    aspectRatio: '16/9',
+    objectFit: 'cover',
+    borderRadius: '0.5rem',
     backgroundColor: theme.palette.grey[300],
-    "&:last-child": {
+    '&:last-child': {
       marginBottom: 0,
     },
   },
@@ -57,8 +60,9 @@ function ArticleSmall({ slug, title, subtitle, content, photos }) {
           {title}
         </Typography>
         <Typography
-          variant="subtitle1"
+          variant="h6"
           align="center"
+          component="p"
           className={classes.subtitle}
           paragraph
         >
@@ -98,7 +102,7 @@ function ArticleSmall({ slug, title, subtitle, content, photos }) {
 }
 
 ArticleSmall.defaultProps = {
-  subtitle: "",
+  subtitle: '',
   photos: [],
 };
 

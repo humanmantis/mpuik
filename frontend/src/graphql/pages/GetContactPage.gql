@@ -8,6 +8,13 @@ query GetContactPage {
       address
       latitude
       longitude
+      social {
+        facebook
+        instagram
+        telegram
+        twitter
+        youtube
+      }
     }
   }
 }

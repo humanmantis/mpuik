@@ -11,13 +11,7 @@ query GetSkeleton {
   }
   footer {
     additionalText
-    facebookLink
-    instagramLink
-    telegramLink
-    youtubeLink
-    twitterLink
     sections {
-      id
       title
       links {
         id
@@ -30,6 +24,13 @@ query GetSkeleton {
       address
       phone
       email
+      social {
+        facebook
+        instagram
+        twitter
+        telegram
+        youtube
+      }
     }
   }
 }
