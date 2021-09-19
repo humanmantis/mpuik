@@ -14,7 +14,7 @@
     "short": {
       "type": "string",
       "private": true,
-      "required": true
+      "required": false
     }
   }
 }
