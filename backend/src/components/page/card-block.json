@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_page_card_blocks",
+  "info": {
+    "displayName": "CardBlock",
+    "icon": "window-restore",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cards.card"
+    }
+  }
+}

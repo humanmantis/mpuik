@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_page_galleries",
+  "info": {
+    "displayName": "Gallery",
+    "icon": "file-image",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "photos": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": ["default", "slider"],
+      "default": "slider"
+    }
+  }
+}

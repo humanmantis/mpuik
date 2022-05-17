@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_section_sections",
+  "info": {
+    "displayName": "section",
+    "icon": "border-all"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "links": {
+      "displayName": "link",
+      "type": "component",
+      "repeatable": true,
+      "component": "list.link"
+    }
+  }
+}

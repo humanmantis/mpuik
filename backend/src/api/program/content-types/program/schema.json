@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "programs",
+  "info": {
+    "singularName": "program",
+    "pluralName": "programs",
+    "displayName": "Program",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "level": {
+      "type": "string"
+    },
+    "form": {
+      "type": "string"
+    },
+    "specialization": {
+      "type": "string"
+    },
+    "term": {
+      "type": "string"
+    },
+    "program": {
+      "type": "string"
+    },
+    "price": {
+      "type": "float"
+    },
+    "photos": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images", "videos"]
+    },
+    "cards": {
+      "type": "dynamiczone",
+      "components": ["page.article", "page.card-block"]
+    },
+    "page": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::page.page",
+      "inversedBy": "programs"
+    },
+    "location": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::location.location"
+    }
+  }
+}

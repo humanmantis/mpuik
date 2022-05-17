@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "syllabi",
+  "info": {
+    "singularName": "syllabus",
+    "pluralName": "syllabi",
+    "displayName": "Syllabus"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "discipline": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "year": {
+      "type": "string"
+    },
+    "isinternal": {
+      "type": "boolean",
+      "default": true
+    },
+    "employees": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::employee.employee",
+      "mappedBy": "syllabi"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_page_list_blocks",
+  "info": {
+    "displayName": "ListBlock",
+    "icon": "th-list"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "list.item"
+    }
+  }
+}
