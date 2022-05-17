@@ -2,10 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
-import PageTitle from "../common/PageTitle";
+import BlockTitle from "../common/BlockTitle";
 import Markdown from "../common/Markdown";
 
 const useStyles = makeStyles((theme) => ({
+  section: {
+    margin: "5rem 0",
+  },
   top: {
     maxWidth: "800px",
   },
@@ -42,37 +45,39 @@ const useStyles = makeStyles((theme) => ({
 function Article({ title, subtitle, content, photos }) {
   const classes = useStyles();
   return (
-    <section>
-      <PageTitle title={title} subtitle={subtitle} />
-      <Grid
-        container
-        component="article"
-        alignContent="center"
-        justify="space-between"
-        spacing={3}
-        className={classes.article}
-      >
+    <section id={title} className={classes.section}>
+      <BlockTitle title={title} subtitle={subtitle} />
+      {content && (
         <Grid
-          item
-          xs={12}
-          md={photos.length > 0 ? 8 : 12}
-          lg={photos.length > 0 ? 7 : 12}
+          container
+          component="article"
+          alignContent="center"
+          justify="space-between"
+          spacing={3}
+          className={classes.article}
         >
-          <Markdown content={content} />
-        </Grid>
-        {photos.length > 0 && (
-          <Grid item xs={12} md={4} lg={4}>
-            {photos.map((photo) => (
-              <img
-                key={photo.id}
-                src={process.env.REACT_APP_IMAGE_URI + photo.url}
-                alt={photo.alternativeText}
-                className={classes.img}
-              />
-            ))}
+          <Grid
+            item
+            xs={12}
+            md={!!photos.length ? 8 : 12}
+            lg={!!photos.length ? 7 : 12}
+          >
+            <Markdown content={content} />
           </Grid>
-        )}
-      </Grid>
+          {photos.length > 0 && (
+            <Grid item xs={12} md={4} lg={4}>
+              {photos.map((photo) => (
+                <img
+                  key={photo.attributes.hash}
+                  src={photo.attributes.url}
+                  alt={photo.attributes.alternativeText}
+                  className={classes.img}
+                />
+              ))}
+            </Grid>
+          )}
+        </Grid>
+      )}
     </section>
   );
 }
@@ -83,14 +88,16 @@ Article.defaultProps = {
 };
 
 Article.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   content: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
   photos: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-      alternativeText: PropTypes.string.isRequired,
+      attributes: PropTypes.shape({
+        hash: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired,
+        alternativeText: PropTypes.string.isRequired,
+      }),
     })
   ),
 };

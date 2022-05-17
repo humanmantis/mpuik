@@ -30,24 +30,26 @@ function News({ search, params }) {
 
   const { loading, error, data } = useQuery(GetNewsPage);
 
-  const { loading: newsLoading, error: newsError, data: newsData } = useQuery(
-    params.category ? GetNewsByCategory : GetLatestNews,
-    {
-      variables: {
-        start: (currentPage - 1) * constants.itemsPerPage,
-        limit: constants.itemsPerPage,
-        category: params.category,
-      },
-    }
-  );
+  const {
+    loading: newsLoading,
+    error: newsError,
+    data: newsData,
+  } = useQuery(params.category ? GetNewsByCategory : GetLatestNews, {
+    variables: {
+      start: (currentPage - 1) * constants.itemsPerPage,
+      limit: constants.itemsPerPage,
+      category: params.category,
+    },
+  });
 
-  const article = data?.article;
-  const pinnedPosts = data?.pinnedPosts;
-  const posts = newsData?.posts;
-  const count = newsData?.postsConnection?.aggregate?.count;
+  const article = data?.page.data?.attributes;
+  const pinnedPosts = data?.pinnedPosts.data;
+  const posts = newsData?.posts.data;
+  const count = newsData?.posts?.meta?.pagination?.total;
 
   if (loading) return <Loader />;
-  if (newsError || posts?.length === 0) return <Redirect to="/news" />;
+  if (newsError || (posts?.length === 0 && !params.category))
+    return <Redirect to="/news" />;
   if (error) return <Redirect to="/error" />;
 
   return (
@@ -56,19 +58,19 @@ function News({ search, params }) {
       <Container fixed className="main-container">
         <PageTitle title={article.title} subtitle={article.subtitle} />
       </Container>
-      {pinnedPosts && <NewsCarousel items={data?.pinnedPosts} />}
+      {pinnedPosts?.length && <NewsCarousel items={pinnedPosts} />}
       <Container fixed className="main-container">
         {newsLoading ? (
           <div className={classes.loadingContainer}>
             <Loader />
           </div>
         ) : (
-          posts.length > 0 && (
+          !!posts?.length && (
             <>
               <NewsContainer
                 title={
                   params.category
-                    ? `Новини за категорією ${posts[0]?.category?.name}`
+                    ? `Новини за категорією ${posts[0]?.attributes.category?.data?.attributes.name}`
                     : "Останні новини"
                 }
                 items={posts}

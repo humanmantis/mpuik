@@ -1,31 +1,31 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles, Grid, Typography } from '@material-ui/core';
-import Card from '../Card/Card';
+import React from "react";
+import PropTypes from "prop-types";
+import { makeStyles, Grid, Typography } from "@material-ui/core";
+import Card from "../Card/Card";
 
 const useStyles = makeStyles((theme) => ({
   section: {
-    margin: '5rem 0',
+    margin: "5rem 0",
   },
   sectionHeader: {
-    margin: '0 auto',
-    maxWidth: '800px',
+    margin: "0 auto",
+    maxWidth: "800px",
   },
   title: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: theme.palette.primary.main,
   },
   subtitle: {
-    marginBottom: '2rem',
-    fontWeight: 'bold',
+    marginBottom: "2rem",
+    fontWeight: "bold",
     color: theme.palette.info.main,
   },
 }));
 
-function CardBlock({ slug, title, subtitle, cards }) {
+function CardBlock({ title, subtitle, cards }) {
   const classes = useStyles();
   return (
-    <section id={slug} className={classes.section}>
+    <section id={title.split(" ").join("")} className={classes.section}>
       <div className={classes.sectionHeader}>
         <Typography
           variant="h4"
@@ -52,14 +52,14 @@ function CardBlock({ slug, title, subtitle, cards }) {
             key={card.id}
             item
             xs={12}
-            sm={card.variant === 'big' ? 12 : 6}
-            md={card.variant === 'big' ? 6 : 4}
+            sm={card.variant === "big" ? 12 : 6}
+            md={card.variant === "big" ? 6 : 4}
           >
             <Card
               variant={card.variant}
               title={card.title}
               description={card.description}
-              icon={card.icon}
+              icon={card.icon.data}
             />
           </Grid>
         ))}
@@ -69,22 +69,26 @@ function CardBlock({ slug, title, subtitle, cards }) {
 }
 
 CardBlock.defaultProps = {
-  subtitle: '',
+  subtitle: "",
 };
 
 CardBlock.propTypes = {
-  slug: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
   cards: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      variant: PropTypes.oneOf(['small', 'middle', 'big']),
+      variant: PropTypes.oneOf(["small", "middle", "big"]),
       title: PropTypes.string.isRequired,
       description: PropTypes.string,
       icon: PropTypes.shape({
-        url: PropTypes.string.isRequired,
-        alternativeText: PropTypes.string.isRequired,
+        data: PropTypes.shape({
+          attributes: PropTypes.shape({
+            hash: PropTypes.string.isRequired,
+            url: PropTypes.string.isRequired,
+            alternativeText: PropTypes.string.isRequired,
+          }),
+        }),
       }).isRequired,
     })
   ),

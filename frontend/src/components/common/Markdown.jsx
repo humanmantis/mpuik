@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactMarkdown from "markdown-to-jsx";
-import { Typography, Link, makeStyles } from "@material-ui/core";
+import { Typography, makeStyles } from "@material-ui/core";
+import Link from "./Link";
 
 const useStyles = makeStyles((theme) => ({
   blockquote: {
@@ -78,15 +79,18 @@ function Markdown({ content }) {
             },
           },
           a: {
-            component: (props) => <Link {...props} />,
+            component: (props) => (
+              <Link
+                {...props}
+                title={props.children[0]}
+                link={props.href}
+                target={props.target}
+              />
+            ),
           },
           img: {
             component: (props) => (
-              <img
-                src={process.env.REACT_APP_IMAGE_URI + props.src}
-                alt={props.alt}
-                className={classes.img}
-              />
+              <img src={props.src} alt={props.alt} className={classes.img} />
             ),
           },
         },

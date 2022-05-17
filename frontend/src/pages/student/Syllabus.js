@@ -38,14 +38,14 @@ const useStyles = makeStyles({
 function Syllabus() {
   const styles = useStyles();
   const { loading, error, data } = useQuery(GetSyllabiPage);
-  const page = data?.syllabuse;
-  const syllabi = data?.syllabi;
+  const page = data?.page.data?.attributes;
+  const syllabi = data?.syllabi.data;
 
   if (loading) return <Loader />;
   if (error) return <Redirect to="/error" />;
   return (
     <Layout title={page.title} subtitle={page.subtitle}>
-      {syllabi?.length > 0 && (
+      {!!syllabi?.length > 0 && (
         <TableContainer component={Paper} className={styles.root}>
           <Table className={styles.table} size="small">
             <TableHead>
@@ -81,28 +81,36 @@ function Syllabus() {
             </TableHead>
             <TableBody>
               {syllabi.map((syllabus) => (
-                <TableRow key={syllabus.id} hover>
+                <TableRow key={syllabus.attributes.discipline} hover>
                   <TableCell component="th" scope="row" align="left">
                     <Typography
                       variant="body1"
                       component={Link}
-                      href={syllabus.link}
+                      href={syllabus.attributes.link}
                     >
-                      {syllabus?.discipline}
+                      {syllabus?.attributes.discipline}
                     </Typography>
+                  </TableCell>
+                  <TableCell align="center">
+                    {!!syllabus?.attributes.employees.data?.length &&
+                      syllabus.attributes.employees.data.map((employee) => (
+                        <Typography
+                          variant="body1"
+                          key={employee.attributes.slug}
+                        >
+                          <Link
+                            component={RouterLink}
+                            to={`/about/staff/${employee.attributes.slug}`}
+                          >
+                            {employee.attributes.fullname}
+                          </Link>
+                        </Typography>
+                      ))}
                   </TableCell>
                   <TableCell align="center">
                     <Typography variant="body1">
-                      <Link
-                        component={RouterLink}
-                        to={`/about/staff/${syllabus?.employee?.slug}`}
-                      >
-                        {syllabus?.employee?.fullname}
-                      </Link>
+                      {syllabus?.attributes.year}
                     </Typography>
-                  </TableCell>
-                  <TableCell align="center">
-                    <Typography variant="body1">{syllabus?.year}</Typography>
                   </TableCell>
                 </TableRow>
               ))}

@@ -45,23 +45,23 @@ function GalleryV2({ title, subtitle, gallery }) {
         {title}
       </Typography>
       <Typography variant="subtitle1" className={classes.subtitle} paragraph>
-        {title}
+        {subtitle}
       </Typography>
       <Grid container className={classes.desktopGallery} spacing={2}>
         {gallery.map((item, index) =>
           index % 6 === 0 || (index - 1) % 6 === 0 ? (
-            <Grid item key={item.id} md={6}>
+            <Grid item key={item.attributes.hash} md={6}>
               <img
-                src={process.env.REACT_APP_IMAGE_URI + item.url}
-                alt={item.alternativeText}
+                src={item.attributes.url}
+                alt={item.attributes.alternativeText}
                 className={classes.carouselImage}
               />
             </Grid>
           ) : (
-            <Grid item key={item.id} md={3}>
+            <Grid item key={item.attributes.hash} md={3}>
               <img
-                src={process.env.REACT_APP_IMAGE_URI + item.url}
-                alt={item.alternativeText}
+                src={item.attributes.url}
+                alt={item.attributes.alternativeText}
                 className={classes.carouselImage}
               />
             </Grid>
@@ -75,9 +75,9 @@ function GalleryV2({ title, subtitle, gallery }) {
       >
         {gallery.map((item) => (
           <img
-            key={item.id}
-            src={process.env.REACT_APP_IMAGE_URI + item.url}
-            alt={item.alternativeText}
+            key={item.attributes.hash}
+            src={item.attributes.url}
+            alt={item.attributes.alternativeText}
             className={classes.carouselImage}
           />
         ))}
@@ -87,18 +87,19 @@ function GalleryV2({ title, subtitle, gallery }) {
 }
 
 GalleryV2.defaultProps = {
-  title: "Галерея",
   gallery: [],
 };
 
 GalleryV2.propTypes = {
   title: PropTypes.string,
-  subtitle: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
   gallery: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-      alternativeText: PropTypes.string.isRequired,
+      attributes: PropTypes.shape({
+        hash: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired,
+        alternativeText: PropTypes.string.isRequired,
+      }),
     })
   ).isRequired,
 };

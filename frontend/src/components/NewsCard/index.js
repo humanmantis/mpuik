@@ -66,7 +66,7 @@ const NewsCard = ({ item }) => {
   return (
     <Link
       component={RouterLink}
-      to={`/news/${item.category?.slug}/${item.slug}`}
+      to={`/news/${item.category.data?.attributes.slug}/${item.slug}`}
       className={styles.link}
     >
       <Card className={styles.root}>
@@ -74,16 +74,19 @@ const NewsCard = ({ item }) => {
           <CardMedia
             className={styles.media}
             image={
-              item?.photo?.url
-                ? process.env.REACT_APP_IMAGE_URI + item?.photo?.url
+              item?.photo.data?.attributes.url
+                ? item?.photo.data?.attributes.url
                 : defaultPostImg
             }
             title={item.title}
           />
           <CardContent className={styles.content}>
             <Typography variant="body1" className={styles.category} paragraph>
-              <Link component={RouterLink} to={`/news/${item.category?.slug}`}>
-                {item.category?.name}
+              <Link
+                component={RouterLink}
+                to={`/news/${item.category.data?.attributes.slug}`}
+              >
+                {item.category.data?.attributes.name}
               </Link>
             </Typography>
             <Typography
@@ -116,11 +119,19 @@ NewsCard.propTypes = {
     slug: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     category: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
+      data: PropTypes.shape({
+        attributes: PropTypes.shape({
+          name: PropTypes.string.isRequired,
+          slug: PropTypes.string.isRequired,
+        }),
+      }),
     }).isRequired,
     photo: PropTypes.shape({
-      url: PropTypes.string.isRequired,
+      data: PropTypes.shape({
+        attributes: PropTypes.shape({
+          url: PropTypes.string.isRequired,
+        }),
+      }),
     }),
   }),
 };

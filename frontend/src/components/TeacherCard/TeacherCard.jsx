@@ -41,11 +41,7 @@ function TeacherCard({ route, photo, fullname, position }) {
     <Paper className={classes.card}>
       <Link className={classes.link} component={RouterLink} to={route}>
         <img
-          src={
-            photo?.url
-              ? process.env.REACT_APP_IMAGE_URI + photo?.url
-              : defaultProfileImage
-          }
+          src={photo?.url ? photo?.url : defaultProfileImage}
           alt={photo?.alternativeText ?? "Default Photo"}
           className={classes.img}
         />

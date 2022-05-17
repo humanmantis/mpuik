@@ -27,8 +27,11 @@ Card.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
   icon: PropTypes.shape({
-    url: PropTypes.string.isRequired,
-    alternativeText: PropTypes.string.isRequired,
+    attributes: PropTypes.shape({
+      hash: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+      alternativeText: PropTypes.string.isRequired,
+    }),
   }).isRequired,
 };
 

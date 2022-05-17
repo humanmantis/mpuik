@@ -1,19 +1,27 @@
 query GetContactPage {
-  contact {
-    title
-    subtitle
-    location {
-      phone
-      email
-      address
-      latitude
-      longitude
-      social {
-        facebook
-        instagram
-        telegram
-        twitter
-        youtube
+  page(id: 14) {
+    data {
+      attributes {
+        title
+        subtitle
+        location {
+          data {
+            attributes {
+              phone
+              email
+              address
+              latitude
+              longitude
+              social {
+                facebook
+                instagram
+                telegram
+                twitter
+                youtube
+              }
+            }
+          }
+        }
       }
     }
   }

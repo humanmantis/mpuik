@@ -62,8 +62,8 @@ function Program({ params }) {
     variables: { slug: params.program },
   });
 
-  const program = data?.programs[0];
-  const location = program?.location;
+  const program = data?.programs.data[0]?.attributes;
+  const location = program?.location.data?.attributes;
 
   const windowLocation = useLocation();
 
@@ -146,11 +146,11 @@ function Program({ params }) {
               fullHeightHover={false}
               navButtonsWrapperProps={{ className: classes.carouselButton }}
             >
-              {program?.photos?.map((p) => (
+              {program?.photos.data?.map((p) => (
                 <img
-                  key={p.id}
-                  src={process.env.REACT_APP_IMAGE_URI + p.url}
-                  alt={p.alternativeText}
+                  key={p.attributes.hash}
+                  src={p.attributes.url}
+                  alt={p.attributes.alternativeText}
                   className={classes.img}
                 />
               ))}
@@ -161,7 +161,6 @@ function Program({ params }) {
           card.cards ? (
             <CardBlock
               key={card.id}
-              slug={card.slug}
               title={card.title}
               subtitle={card.subtitle}
               cards={card.cards}
@@ -169,11 +168,10 @@ function Program({ params }) {
           ) : (
             <ArticleSmall
               key={card.id}
-              slug={card.slug}
               title={card.title}
               subtitle={card.subtitle}
               content={card.content}
-              photos={card.photos}
+              photos={card.photos.data}
             />
           )
         )}

@@ -80,30 +80,32 @@ function MobileHeader({ navigation }) {
           }}
         >
           <List component="nav" className={classes.nav}>
-            {navigation.map((item) =>
-              item.items.length === 0 ? (
-                <ListItem
-                  key={item.id}
-                  component={NavLink}
-                  to={item.path}
-                  activeClassName={classes.active}
-                  className={classes.navItem}
-                  exact={item.path === "/"}
-                  button
-                >
-                  {item.title.toUpperCase()}
-                </ListItem>
-              ) : (
-                <CollapseItem
-                  key={item.id}
-                  path={item.path}
-                  title={item.title}
-                  items={item.items}
-                  buttonClassName={classes.navItem}
-                  activeClassName={classes.active}
-                />
-              )
-            )}
+            {navigation
+              .sort((a, b) => a.order - b.order)
+              .map((item) =>
+                item.children.length === 0 ? (
+                  <ListItem
+                    key={item.id}
+                    component={NavLink}
+                    to={item.url}
+                    activeClassName={classes.active}
+                    className={classes.navItem}
+                    exact={item.url === "/"}
+                    button
+                  >
+                    {item.title.toUpperCase()}
+                  </ListItem>
+                ) : (
+                  <CollapseItem
+                    key={item.id}
+                    url={item.url}
+                    title={item.title}
+                    children={item.children.sort((a, b) => a.order - b.order)}
+                    buttonClassName={classes.navItem}
+                    activeClassName={classes.active}
+                  />
+                )
+              )}
           </List>
         </div>
       </SwipeableDrawer>
@@ -114,16 +116,20 @@ function MobileHeader({ navigation }) {
 MobileHeader.propTypes = {
   navigation: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
-      path: PropTypes.string.isRequired,
-      items: PropTypes.arrayOf(
+      order: PropTypes.number.isRequired,
+      target: PropTypes.string,
+      url: PropTypes.string.isRequired,
+      children: PropTypes.arrayOf(
         PropTypes.shape({
-          id: PropTypes.string,
+          id: PropTypes.number,
           title: PropTypes.string.isRequired,
-          path: PropTypes.string.isRequired,
+          order: PropTypes.number.isRequired,
+          target: PropTypes.string,
+          url: PropTypes.string.isRequired,
         })
-      ).isRequired,
+      ),
     })
   ).isRequired,
 };

@@ -26,18 +26,18 @@ function Teachers() {
         component="section"
       >
         <PageTitle
-          title={data.teacher.title}
-          subtitle={data.teacher.subtitle}
+          title={data.page.data.attributes.title}
+          subtitle={data.page.data.attributes.subtitle}
         />
 
         <Grid container spacing={3} justify="center">
-          {data?.employees.map((emp) => (
-            <Grid item xs={12} sm={6} md={4} lg={3} key={emp.id}>
+          {data?.employees?.data?.map((emp) => (
+            <Grid item xs={12} sm={6} md={4} lg={3} key={emp.attributes.slug}>
               <TeacherCard
-                route={`/about/staff/${emp.slug}`}
-                fullname={emp.fullname}
-                position={emp.position}
-                photo={emp.photo}
+                route={`/about/staff/${emp.attributes.slug}`}
+                fullname={emp.attributes.fullname}
+                position={emp.attributes.position}
+                photo={emp.attributes.photo.data?.attributes}
               />
             </Grid>
           ))}

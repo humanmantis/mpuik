@@ -32,8 +32,8 @@ function NewsContainer({ title, items }) {
         className={classes.newsContainer}
       >
         {items.map((item) => (
-          <Grid item xs={12} sm={6} md={4} lg={4} key={item.id}>
-            <NewsCard item={item} />
+          <Grid item xs={12} sm={6} md={4} lg={4} key={item.attributes.slug}>
+            <NewsCard item={item.attributes} />
           </Grid>
         ))}
       </Grid>
@@ -45,15 +45,25 @@ NewsContainer.propTypes = {
   title: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      category: PropTypes.shape({
-        name: PropTypes.string.isRequired,
+      attributes: PropTypes.shape({
+        title: PropTypes.string.isRequired,
         slug: PropTypes.string.isRequired,
-      }).isRequired,
-      photo: PropTypes.shape({
-        url: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        category: PropTypes.shape({
+          data: PropTypes.shape({
+            attributes: PropTypes.shape({
+              name: PropTypes.string.isRequired,
+              slug: PropTypes.string.isRequired,
+            }),
+          }),
+        }).isRequired,
+        photo: PropTypes.shape({
+          data: PropTypes.shape({
+            attributes: PropTypes.shape({
+              url: PropTypes.string.isRequired,
+            }),
+          }),
+        }),
       }),
     })
   ).isRequired,

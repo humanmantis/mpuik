@@ -92,7 +92,7 @@ function Employee({ params }) {
     variables: { slug: params.slug },
   });
 
-  const employee = data?.employees[0];
+  const employee = data?.employees.data[0].attributes;
 
   if (loading) return <Loader />;
   if (error) return <Redirect to="/error" />;
@@ -122,7 +122,7 @@ function Employee({ params }) {
                 >
                   {employee.position}
                 </Typography>
-                <Markdown content={employee.bio} />
+                {!!employee.bio && <Markdown content={employee.bio} />}
 
                 {employee.publications.length > 0 && (
                   <>
@@ -153,11 +153,14 @@ function Employee({ params }) {
               <Grid item xs={12} md={4} lg={4}>
                 <img
                   src={
-                    employee.photo?.url
-                      ? process.env.REACT_APP_IMAGE_URI + employee.photo?.url
+                    employee.photo.data?.attributes.url
+                      ? employee.photo.data.attributes.url
                       : defaultProfileImage
                   }
-                  alt={employee.photo?.alternativeText ?? "Default Photo"}
+                  alt={
+                    employee.photo.data?.attributes.alternativeText ??
+                    "Default Photo"
+                  }
                   className={classes.img}
                 />
                 {employee.email && (

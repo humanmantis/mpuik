@@ -1,58 +1,77 @@
 query GetProgram($slug: String!) {
-  programs(where: { slug: $slug }) {
-    name
-    level
-    form
-    specialization
-    term
-    price
-    program
-    photos {
-      id
-      url
-      alternativeText
-    }
-    cards {
-      ... on ComponentCardCardBlock {
-        id
-        slug
-        title
-        subtitle
+  programs(filters: { slug: { eq: $slug } }) {
+    data {
+      attributes {
+        name
+        level
+        form
+        specialization
+        term
+        price
+        program
+        photos {
+          data {
+            attributes {
+              hash
+              url
+              alternativeText
+            }
+          }
+        }
         cards {
-          id
-          variant
-          title
-          description
-          icon {
-            url
-            alternativeText
+          ... on ComponentPageCardBlock {
+            id
+            title
+            subtitle
+            cards {
+              id
+              variant
+              title
+              description
+              icon {
+                data {
+                  attributes {
+                    hash
+                    url
+                    alternativeText
+                  }
+                }
+              }
+            }
+          }
+          ... on ComponentPageArticle {
+            id
+            title
+            subtitle
+            content
+            photos {
+              data {
+                attributes {
+                  hash
+                  url
+                  alternativeText
+                }
+              }
+            }
+          }
+        }
+        location {
+          data {
+            attributes {
+              title
+              address
+              phone
+              email
+              list {
+                id
+                title
+              }
+              latitude
+              longitude
+            }
           }
         }
       }
-      ... on ComponentArticleArticle {
-        id
-        slug
-        title
-        subtitle
-        content
-        photos {
-          id
-          url
-          alternativeText
-        }
-      }
-    }
-    location {
-      title
-      address
-      phone
-      email
-      list {
-        id
-        title
-      }
-      latitude
-      longitude
     }
   }
 }

@@ -1,16 +1,28 @@
 query GetSyllabiPage {
   syllabi(sort: "year:asc") {
-    id
-    discipline
-    link
-    year
-    employee {
-      slug
-      fullname
+    data {
+      attributes {
+        discipline
+        link
+        year
+        employees {
+          data {
+            attributes {
+              slug
+              fullname
+            }
+          }
+        }
+      }
     }
+    
   }
-  syllabuse {
-    title
-    subtitle
+  page(id: 11) {
+    data {
+      attributes {
+        title
+        subtitle
+      }
+    }
   }
 }

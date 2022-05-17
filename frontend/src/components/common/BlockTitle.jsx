@@ -3,35 +3,35 @@ import PropTypes from "prop-types";
 import { makeStyles, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
-  title: {
-    fontWeight: "bold",
-    color: theme.palette.primary.main,
+  sectionHeader: {
+    margin: "0 auto",
+    maxWidth: "800px",
   },
-  subtitle: {
+  title: {
     fontWeight: "bold",
     color: theme.palette.info.main,
   },
-  pageHead: {
-    maxWidth: "800px",
-    margin: "0 auto",
-    marginBottom: "3rem",
+  subtitle: {
+    marginBottom: "2rem",
+    fontWeight: "bold",
+    color: theme.palette.text.primary,
   },
 }));
 
-function PageTitle({ title, subtitle }) {
+function BlockTitle({ title, subtitle }) {
   const classes = useStyles();
   return (
-    <div className={classes.pageHead}>
+    <div className={classes.sectionHeader}>
       <Typography
-        variant="h3"
-        align="center"
+        variant="h4"
         className={classes.title}
+        align="center"
         gutterBottom
       >
         {title}
       </Typography>
       <Typography
-        variant="h6"
+        variant="subtitle1"
         align="center"
         component="p"
         className={classes.subtitle}
@@ -43,13 +43,13 @@ function PageTitle({ title, subtitle }) {
   );
 }
 
-PageTitle.defaultProps = {
+BlockTitle.defaultProps = {
   subtitle: "",
 };
 
-PageTitle.propTypes = {
-  title: PropTypes.string.isRequired,
+BlockTitle.propTypes = {
+  title: PropTypes.string,
   subtitle: PropTypes.string,
 };
 
-export default PageTitle;
+export default BlockTitle;

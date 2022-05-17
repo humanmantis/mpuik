@@ -6,14 +6,15 @@ import { makeStyles } from "@material-ui/core";
 import { Container, Grid, Paper, Collapse, Button } from "@material-ui/core";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import GalleryV1 from "../../components/Gallery/GalleryV1";
+import Gallery from "../../components/Gallery/Gallery";
 import Location from "../../components/Location/Location";
 import PageTitle from "../../components/common/PageTitle";
 import Markdown from "../../components/common/Markdown";
 import TopWaves from "../../components/background/PageWaves";
 import Loader from "../../components/common/Loader";
+import constants from "../../config/constants";
 
-const GetHistoryPage = loader("../../graphql/pages/about/GetHistoryPage.gql");
+const GetPage = loader("../../graphql/pages/GetPage.gql");
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -92,16 +93,25 @@ const useStyles = makeStyles((theme) => ({
 
 function History() {
   const classes = useStyles();
+  const { contentType } = constants;
 
-  const { loading, error, data } = useQuery(GetHistoryPage);
+  const { loading, error, data } = useQuery(GetPage, {
+    variables: { slug: "history" },
+  });
   const [checked, setChecked] = useState(false);
 
   const handleChange = () => setChecked((prev) => !prev);
 
-  const history = data?.history;
+  const history = data?.pages?.data[0]?.attributes;
+  const article = history?.content.find(
+    (content) => content.__typename === contentType.article
+  );
+  const gallery = history?.content.find(
+    (content) => content.__typename === contentType.gallery
+  );
 
   if (loading) return <Loader />;
-  if (error) return <Redirect to="/error" />;
+  if (!history || error) return <Redirect to="/error" />;
 
   return (
     <>
@@ -124,7 +134,7 @@ function History() {
                   entered: classes.enteredrCollapse,
                 }}
               >
-                <Markdown content={history?.content} />
+                <Markdown content={article?.content} />
               </Collapse>
               <Button
                 onClick={handleChange}
@@ -137,33 +147,34 @@ function History() {
           </Grid>
         </Grid>
       </Container>
-      {history?.image && (
+      {article?.photos?.data?.length && (
         <div className={classes.container}>
           <img
-            src={process.env.REACT_APP_IMAGE_URI + data.history.image.url}
-            alt={history.alternativeText}
+            src={article?.photos?.data[0].attributes.url}
+            alt={article?.photos?.data[0].attributes}
             className={classes.mainMedia}
           />
         </div>
       )}
 
-      {history?.gallery && (
-        <GalleryV1
-          title={history.gallery.title}
-          subtitle={history.gallery.subtitle}
-          gallery={history.gallery.photos}
+      {gallery && (
+        <Gallery
+          title={gallery.title}
+          subtitle={gallery.subtitle}
+          type={gallery.type}
+          gallery={gallery.photos?.data}
         />
       )}
 
-      {history?.location && (
+      {history?.location?.data?.attributes && (
         <Location
-          title={history.location.title}
-          address={history.location.address}
-          phone={history.location.phone}
-          email={history.location.email}
-          list={history.location.list}
-          latitude={history.location.latitude}
-          longitude={history.location.longitude}
+          title={history.location.data.attributes.title}
+          address={history.location.data.attributes.address}
+          phone={history.location.data.attributes.phone}
+          email={history.location.data.attributes.email}
+          list={history.location.data.attributes.list}
+          latitude={history.location.data.attributes.latitude}
+          longitude={history.location.data.attributes.longitude}
           className={classes.margin}
         />
       )}

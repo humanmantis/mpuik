@@ -104,7 +104,7 @@ function Index() {
           <Grid item xs={12} sm={8} md={6} lg={5} className={classes.container}>
             <img src={circlesSvg} alt="circles" className={classes.circles} />
             <Typography variant="h2" className={classes.title} gutterBottom>
-              {data.index.title.split(" ").map((word) => (
+              {data.home.data?.attributes?.title.split(" ").map((word) => (
                 <span key={word} className={classes.word}>
                   {word + " "}
                 </span>
@@ -115,26 +115,32 @@ function Index() {
               paragraph
               className={classes.subtitle}
             >
-              {data.index.subtitle}
+              {data.home.data?.attributes?.subtitle}
             </Typography>
             <ButtonLinkOutlined
-              title={data.index.button.title}
-              path={data.index.button.path}
+              title={data.home.data?.attributes?.button.title}
+              path={data.home.data?.attributes?.button.link}
               icon={ArrowRightAltIcon}
             />
-            <Typography variant="subtitle1" className={classes.partnership} gutterBottom>
-              {data.index.partnershipText}
+            <Typography
+              variant="subtitle1"
+              className={classes.partnership}
+              gutterBottom
+            >
+              {data.home.data?.attributes?.partnershipText}
             </Typography>
             <Grid container alignItems="center" spacing={5}>
-              {data.index.partnershipIcons.map((icon) => (
-                <Grid item key={icon.id} xs={4}>
-                  <img
-                    src={process.env.REACT_APP_IMAGE_URI + icon.url}
-                    alt={icon.alternativeText}
-                    className={classes.partnerImage}
-                  />
-                </Grid>
-              ))}
+              {data.home.data?.attributes?.partnershipIcons?.data.map(
+                (icon) => (
+                  <Grid item key={icon.attributes.hash} xs={4}>
+                    <img
+                      src={icon.attributes.url}
+                      alt={icon.attributes.alternativeText}
+                      className={classes.partnerImage}
+                    />
+                  </Grid>
+                )
+              )}
             </Grid>
           </Grid>
         </Box>
@@ -146,7 +152,7 @@ function Index() {
           <Grid item xs={12} md={6} lg={6} className={classes.container}>
             <div className={classes.mainMedia}>
               <ReactPlayer
-                url={data.index.videoLink}
+                url={data.home.data?.attributes?.videoLink}
                 controls
                 width="100%"
                 height="100%"
