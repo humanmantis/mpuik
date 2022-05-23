@@ -42,10 +42,10 @@ function App() {
   return (
     <ErrorBoundary>
       <ScrollToTop />
-      <Header navigation={navData.menus[0].items} />
+      {navData?.menus?.length && <Header navigation={navData.menus[0].items} />}
       <AppRouter />
       <BackToTop />
-      <Footer footer={data.footer} />
+      {data?.footer && <Footer footer={data.footer} />}
     </ErrorBoundary>
   );
 }

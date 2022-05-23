@@ -43,7 +43,7 @@ function DesktopHeader({ navigation }) {
           {navigation
             .sort((a, b) => a.order - b.order)
             .map((item) =>
-              item.children.length === 0 ? (
+              !item.children.length ? (
                 <Button
                   key={item.id}
                   component={NavLink}

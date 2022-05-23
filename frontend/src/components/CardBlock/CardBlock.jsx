@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { makeStyles, Grid, Typography } from "@material-ui/core";
+import { makeStyles, Grid } from "@material-ui/core";
 import Card from "../Card/Card";
+import BlockTitle from "../common/BlockTitle";
 
 const useStyles = makeStyles((theme) => ({
   section: {
@@ -26,26 +27,7 @@ function CardBlock({ title, subtitle, cards }) {
   const classes = useStyles();
   return (
     <section id={title.split(" ").join("")} className={classes.section}>
-      <div className={classes.sectionHeader}>
-        <Typography
-          variant="h4"
-          className={classes.title}
-          align="center"
-          gutterBottom
-        >
-          {title}
-        </Typography>
-        <Typography
-          variant="h6"
-          align="center"
-          component="p"
-          className={classes.subtitle}
-          paragraph
-        >
-          {subtitle}
-        </Typography>
-      </div>
-
+      <BlockTitle title={title} subtitle={subtitle} />
       <Grid container spacing={3} justify="center">
         {cards.map((card, i) => (
           <Grid

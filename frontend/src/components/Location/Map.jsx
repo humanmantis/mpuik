@@ -44,7 +44,7 @@ Map.defaultProps = {
 };
 
 Map.propTypes = {
-  position: PropTypes.arrayOf(PropTypes.string),
+  position: PropTypes.arrayOf(PropTypes.number),
 };
 
 export default Map;

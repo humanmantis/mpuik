@@ -70,7 +70,7 @@ function Program({ params }) {
   useEffect(() => {
     if (!loading && data && windowLocation.hash) {
       document
-        .querySelector(windowLocation.hash)
+        .querySelector(decodeURI(windowLocation.hash))
         ?.scrollIntoView({ behavior: "smooth" });
     }
   }, [loading, data, windowLocation.hash]);

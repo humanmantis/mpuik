@@ -109,7 +109,6 @@ ProgramCard.propTypes = {
   links: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
     })
   ).isRequired,

@@ -37,8 +37,8 @@ const useStyles = makeStyles((theme) => ({
 function ArticleSmall({ title, subtitle, content, photos }) {
   const classes = useStyles();
   return (
-    <section id={title} className={classes.section}>
-      <BlockTitle title={title.split(" ").join("")} subtitle={subtitle} />
+    <section id={title.split(" ").join("")} className={classes.section}>
+      <BlockTitle title={title} subtitle={subtitle} />
       <Grid
         container
         component="article"

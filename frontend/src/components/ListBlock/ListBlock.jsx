@@ -13,6 +13,9 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: "0",
     listStylePosition: "inside",
   },
+  listLink: {
+    fontWeight: 600,
+  },
 }));
 
 function ListBlock({ title, subtitle, list }) {
@@ -22,7 +25,13 @@ function ListBlock({ title, subtitle, list }) {
       <BlockTitle title={title} subtitle={subtitle} />
       <ol className={classes.list}>
         {list?.map((l) => (
-          <Typography key={l.id} variant="h6" align="justify" component="li">
+          <Typography
+            key={l.id}
+            className={classes.listLink}
+            variant="h6"
+            align="justify"
+            component="li"
+          >
             <Link title={l.title} link={l.link} />
           </Typography>
         ))}
