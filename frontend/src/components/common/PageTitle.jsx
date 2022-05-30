@@ -30,7 +30,7 @@ function PageTitle({ title, subtitle }) {
       >
         {title}
       </Typography>
-      <Typography
+      {subtitle && (<Typography
         variant="h6"
         align="center"
         component="p"
@@ -38,7 +38,7 @@ function PageTitle({ title, subtitle }) {
         paragraph
       >
         {subtitle}
-      </Typography>
+      </Typography>)}
     </div>
   );
 }

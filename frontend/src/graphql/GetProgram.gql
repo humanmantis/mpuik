@@ -23,9 +23,9 @@ query GetProgram($slug: String!) {
             id
             title
             subtitle
+            variant
             cards {
               id
-              variant
               title
               description
               icon {

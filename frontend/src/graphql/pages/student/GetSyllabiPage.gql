@@ -5,6 +5,8 @@ query GetSyllabiPage {
         discipline
         link
         year
+        altemployee
+        isinternal
         employees {
           data {
             attributes {

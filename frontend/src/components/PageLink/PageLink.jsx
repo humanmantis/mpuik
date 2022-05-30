@@ -1,5 +1,6 @@
 import React from "react";
-import { makeStyles, Typography, Link } from "@material-ui/core";
+import { makeStyles, Typography } from "@material-ui/core";
+import Link from "../common/Link";
 
 const useStyles = makeStyles({
   link: {
@@ -21,11 +22,9 @@ function PageLink({ title, link }) {
         variant="h5"
         align="center"
         paragraph
-        component={Link}
-        href={link}
         className={classes.link}
       >
-        {link ? <Link to={link}>{title}</Link> : title}
+        <Link title={title} link={link}/>
       </Typography>
     </div>
   );

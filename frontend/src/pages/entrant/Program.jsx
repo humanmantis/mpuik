@@ -163,6 +163,7 @@ function Program({ params }) {
               key={card.id}
               title={card.title}
               subtitle={card.subtitle}
+              variant={card.variant}
               cards={card.cards}
             />
           ) : (

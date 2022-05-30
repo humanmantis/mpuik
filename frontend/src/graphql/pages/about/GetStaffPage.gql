@@ -13,6 +13,7 @@ query GetStaffPage {
         slug
         fullname
         position
+        academiclevel
         photo {
           data {
             attributes {

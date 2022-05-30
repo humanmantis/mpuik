@@ -1,47 +1,50 @@
 import React from 'react';
 import { Box, Grid, Typography } from '@material-ui/core';
-import clsx from 'clsx';
+import Link from './../common/Link';
 
 import { useStyles } from './semesterBlock.styles';
 
-// const disciplines = [
-//   { name: 'Дисципліна 1', link: 'https://google.com', isExam: true, cred: 3 }, 
-//   { name: 'Дисципліна 2', link: 'https://google.com', isExam: true, cred: 3 },
-//   { name: 'Дисципліна 3', link: 'https://google.com', isExam: true, cred: 3 }
-// ];
-
-const SemesterBlock = ({ semester, disciplines, formLink }) => {
+const SemesterBlock = ({ semester, silabusis, form }) => {
   const classes = useStyles();
 
   return (
     <Box className={classes.root}>
-      <Typography className={classes.title}>{semester} семестр</Typography>
+      <Typography className={classes.title}>{semester}</Typography>
       <Box className={classes.gridWrapper}>
-        {disciplines.map((discipline, index) => (
-          <Grid container key={discipline.name}>
-            <Grid xs={12} sm={4} item>
-              <Typography className={classes.text}>{index + 1}.{' '} 
-                <a href={discipline.link} target="_blank" rel="noreferrer" className={classes.link}>
-                  {discipline.name}
-                </a>
-              </Typography>
+        {!!silabusis.length &&
+          silabusis.map((silabus, index) => (
+            <Grid container alignItems="center" key={silabus.attributes.discipline}>
+              <Grid xs={6} sm={8} item>
+                <Typography className={classes.text}>
+                  {index + 1}.{' '}
+                  <Link
+                    title={silabus.attributes.discipline}
+                    link={silabus.attributes.link}
+                    target="_blank"
+                  />
+                </Typography>
+              </Grid>
+              <Grid xs={3} sm={2} item>
+                <Typography align="center" className={classes.text}>
+                  {silabus.attributes.credits} кред.
+                </Typography>
+              </Grid>
+              <Grid xs={3} sm={2} item>
+                <Typography align="center" className={classes.text}>
+                  {silabus.attributes.isexam ? 'Іспит' : 'Залік'}
+                </Typography>
+              </Grid>
             </Grid>
-            <Grid xs={6} sm={4} item>
-              <Typography align="center" className={classes.text}>
-                {discipline.cred} кред
-              </Typography>
-            </Grid>
-            <Grid xs={6} sm={4} item>
-              <Typography align="center" className={classes.text}>
-                {discipline.isExam ? 'Іспит' : 'Залік'}
-              </Typography>
-            </Grid>
-          </Grid>
-        ))}
+          ))}
       </Box>
-      <a href={formLink} target="_blank" rel="noreferrer" className={clsx(classes.link, classes.boldLink)}>
-        Заповнити форму
-      </a>
+      <Typography className={classes.boldLink}>
+        <Link
+          title="Заповнити форму"
+          link={form}
+          target="_blank"
+          className={classes.boldLink}
+        />
+      </Typography>
     </Box>
   );
 };

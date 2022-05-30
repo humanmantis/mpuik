@@ -37,6 +37,7 @@ function Teachers() {
                 route={`/about/staff/${emp.attributes.slug}`}
                 fullname={emp.attributes.fullname}
                 position={emp.attributes.position}
+                academiclevel={emp.attributes.academiclevel}
                 photo={emp.attributes.photo.data?.attributes}
               />
             </Grid>

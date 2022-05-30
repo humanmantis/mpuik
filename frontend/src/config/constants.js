@@ -7,6 +7,7 @@ const cardType = {
   small: "small",
   middle: "middle",
   big: "big",
+  fullwidth: "fullwidth",
 };
 
 const contentType = {
@@ -15,6 +16,7 @@ const contentType = {
   gallery: "ComponentPageGallery",
   link: "ComponentListLink",
   list: "ComponentPageListBlock",
+  electiveDisciplines: "ComponentPageElectiveDisciplinesCardBlock",
 };
 
 const constants = {

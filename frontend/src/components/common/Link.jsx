@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link as MatLink } from "@material-ui/core";
-import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import { NavLink } from "react-router-dom";
 
 function Link({ title, link, target }) {
-  if (!link) return title;
+  if (!link) return <>{title}</>;
 
   return link.includes("http") ? (
     <MatLink href={link} target={target}>

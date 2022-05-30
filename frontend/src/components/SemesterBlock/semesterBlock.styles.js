@@ -20,11 +20,11 @@ export const useStyles = makeStyles((theme) => ({
   title: {
     fontWeight: "bold",
     color: theme.palette.info.main,
-    fontSize: "30px"
+    fontSize: "20px"
   },
   gridWrapper: {
     margin: "1rem 30px 10px",
-    width: '100%'
+    width: '100%',
   },
   link: {
     textDecoration: "none",
@@ -32,10 +32,11 @@ export const useStyles = makeStyles((theme) => ({
   },
   boldLink: {
     fontWeight: 700,
-    fontSize: '28px',
-    lineHeight: '38px'
+    fontSize: '20px',
+    lineHeight: '38px',
+    marginTop: 'auto'
   },
   text: {
-    fontSize: '24px'
+    fontSize: '16px'
   }
 }));

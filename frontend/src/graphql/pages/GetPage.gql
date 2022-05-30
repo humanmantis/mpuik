@@ -1,4 +1,4 @@
-query GetPage($slug: String!) {
+query GetPage($slug: String! = "elective-disciplines") {
   pages(filters: { slug: { eq: $slug } }) {
     data {
       attributes {
@@ -53,17 +53,37 @@ query GetPage($slug: String!) {
           ... on ComponentPageCardBlock {
             title
             subtitle
+            variant
             cards {
               id
               title
               description
-              variant
               icon {
                 data {
                   attributes {
                     hash
                     url
                     alternativeText
+                  }
+                }
+              }
+            }
+          }
+          ... on ComponentPageElectiveDisciplinesCardBlock {
+            id
+            title
+            subtitle
+            semesters {
+              id
+              semester
+              form
+              silabusis {
+                data {
+                  attributes {
+                    discipline
+                    link
+                    isexam
+                    credits
                   }
                 }
               }

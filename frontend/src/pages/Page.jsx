@@ -11,6 +11,7 @@ import Article from "../components/Article/Article";
 import Gallery from "../components/Gallery/Gallery";
 import PageLink from "../components/PageLink/PageLink";
 import ListBlock from "../components/ListBlock/ListBlock";
+import ElectiveDisciplinesBlock from "../components/ElectiveDisciplinesBlock/ElectiveDisciplinesBlock";
 
 const GetPage = loader("../graphql/pages/GetPage.gql");
 
@@ -40,6 +41,7 @@ function Page({ params }) {
             key={item.title}
             title={item.title}
             subtitle={item.subtitle}
+            variant={item.variant}
             cards={item.cards}
           />
         );
@@ -67,6 +69,15 @@ function Page({ params }) {
             list={item.list}
           />
         );
+      case contentType.electiveDisciplines:
+        return (
+          <ElectiveDisciplinesBlock
+            key={item.title}
+            title={item.title}
+            subtitle={item.subtitle}
+            semesters={item.semesters}
+          />
+        )
       default:
         return <></>;
     }

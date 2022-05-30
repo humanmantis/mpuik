@@ -4,12 +4,18 @@ query GetEmployee($slug: String!) {
       attributes {
         fullname
         position
+        academiclevel
+        academicstatus
+        interests
+        sefleducation
+        awards
         bio
         email
         googleScholarLink
         publications {
           id
           title
+          link
         }
         photo {
           data {
@@ -17,6 +23,14 @@ query GetEmployee($slug: String!) {
               hash
               url
               alternativeText
+            }
+          }
+        }
+        syllabi {
+          data {
+            attributes {
+              discipline
+              link
             }
           }
         }
