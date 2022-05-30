@@ -4,7 +4,8 @@
   "info": {
     "singularName": "home",
     "pluralName": "homes",
-    "displayName": "Home"
+    "displayName": "Головна",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -26,9 +27,10 @@
       "type": "string"
     },
     "partnershipIcons": {
-      "allowedTypes": ["images"],
       "type": "media",
-      "multiple": true
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images"]
     },
     "videoLink": {
       "type": "string"

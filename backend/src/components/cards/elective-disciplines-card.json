@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_cards_elective_disciplines_cards",
+  "info": {
+    "displayName": "electiveDisciplinesCard",
+    "icon": "chess-knight"
+  },
+  "options": {},
+  "attributes": {
+    "semester": {
+      "type": "string"
+    },
+    "form": {
+      "type": "string"
+    },
+    "silabusis": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::syllabus.syllabus"
+    }
+  }
+}

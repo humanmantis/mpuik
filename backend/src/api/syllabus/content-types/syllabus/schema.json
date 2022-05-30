@@ -4,7 +4,8 @@
   "info": {
     "singularName": "syllabus",
     "pluralName": "syllabi",
-    "displayName": "Syllabus"
+    "displayName": "Силабуси",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -29,6 +30,16 @@
       "relation": "manyToMany",
       "target": "api::employee.employee",
       "mappedBy": "syllabi"
+    },
+    "altemployee": {
+      "type": "string"
+    },
+    "credits": {
+      "type": "integer"
+    },
+    "isexam": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

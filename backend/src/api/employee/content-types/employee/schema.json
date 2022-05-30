@@ -4,7 +4,7 @@
   "info": {
     "singularName": "employee",
     "pluralName": "employees",
-    "displayName": "Employee",
+    "displayName": "Співробітники",
     "description": ""
   },
   "options": {
@@ -64,6 +64,9 @@
     "order": {
       "type": "integer",
       "default": 10
+    },
+    "awards": {
+      "type": "string"
     }
   }
 }

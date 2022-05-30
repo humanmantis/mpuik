@@ -4,7 +4,7 @@
   "info": {
     "singularName": "page",
     "pluralName": "pages",
-    "displayName": "Page",
+    "displayName": "Сторінки",
     "description": ""
   },
   "options": {
@@ -29,7 +29,8 @@
         "page.card-block",
         "page.gallery",
         "page.list-block",
-        "list.link"
+        "list.link",
+        "page.elective-disciplines-card-block"
       ]
     },
     "programs": {

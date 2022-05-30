@@ -11,15 +11,14 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "@strapi/plugin-graphql": "^4.1.11",
-    "@strapi/plugin-i18n": "4.1.11",
-    "@strapi/plugin-users-permissions": "4.1.11",
-    "@strapi/provider-email-sendgrid": "^4.1.11",
-    "@strapi/provider-upload-cloudinary": "^4.1.11",
-    "@strapi/strapi": "4.1.11",
+    "@strapi/plugin-graphql": "^4.1.12",
+    "@strapi/plugin-i18n": "4.1.12",
+    "@strapi/plugin-users-permissions": "4.1.12",
+    "@strapi/provider-email-sendgrid": "^4.1.12",
+    "@strapi/provider-upload-cloudinary": "^4.1.12",
+    "@strapi/strapi": "4.1.12",
     "pg": "8.6.0",
     "slugify": "^1.6.5",
-    "strapi-plugin-entity-relationship-chart": "^4.1.0",
     "strapi-plugin-menus": "^0.3.0"
   },
   "author": {

@@ -1,8 +1,8 @@
 {
-  "collectionName": "components_page_list_blocks",
+  "collectionName": "components_page_elective_disciplines_card_blocks",
   "info": {
-    "displayName": "Список",
-    "icon": "th-list",
+    "displayName": "Вибіркові дисципліни",
+    "icon": "list-alt",
     "description": ""
   },
   "options": {},
@@ -13,10 +13,10 @@
     "subtitle": {
       "type": "text"
     },
-    "list": {
+    "semesters": {
       "type": "component",
       "repeatable": true,
-      "component": "list.item"
+      "component": "cards.elective-disciplines-card"
     }
   }
 }
