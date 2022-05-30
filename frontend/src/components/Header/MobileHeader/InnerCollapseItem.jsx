@@ -5,11 +5,11 @@ import { makeStyles } from "@material-ui/core";
 import { List, ListItem, Collapse, Link } from "@material-ui/core";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import InnerCollapseItem from "./InnerCollapseItem";
 
 const useStyles = makeStyles((theme) => ({
   navSubItem: {
     color: theme.palette.info.main,
+    paddingLeft: '30px !important',
     fontWeight: "600",
     fontSize: "0.875rem",
     overflowWrap: "break-word",
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function CollapseItem({
+function InnerCollapseItem({
   title,
   url,
   children,
@@ -44,33 +44,6 @@ function CollapseItem({
   const handleClick = () => setOpen(!open);
 
   const checkActive = () => location.pathname.includes(url);
-
-  const renderMenuItem = (item) => (
-    item.url.includes("http") ? (
-      <ListItem
-        key={item.id}
-        component={Link}
-        className={classes.navSubItem}
-        href={item.url}
-        target={item.target}
-        button
-      >
-        {item.title.toUpperCase()}
-      </ListItem>
-    ) : (
-      <ListItem
-        key={item.id}
-        component={NavLink}
-        exact
-        activeClassName={classes.selected}
-        className={classes.navSubItem}
-        to={url + item.url}
-        button
-      >
-        {item.title.toUpperCase()}
-      </ListItem>
-    )
-  );
 
   return (
     <>
@@ -87,17 +60,29 @@ function CollapseItem({
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           {children.map((item) =>
-            !item.children.length ? (
-              renderMenuItem(item)
-            ) : (
-              <InnerCollapseItem
+            item.url.includes("http") ? (
+              <ListItem
                 key={item.id}
-                url={item.url}
-                title={item.title}
-                children={item.children.sort((a, b) => a.order - b.order)}
-                buttonClassName={classes.navSubItem}
-                activeClassName={classes.active}
-            />
+                component={Link}
+                className={classes.navSubItem}
+                href={item.url}
+                target={item.target}
+                button
+              >
+                {item.title.toUpperCase()}
+              </ListItem>
+            ) : (
+              <ListItem
+                key={item.id}
+                component={NavLink}
+                exact
+                activeClassName={classes.selected}
+                className={classes.navSubItem}
+                to={url + item.url}
+                button
+              >
+                {item.title.toUpperCase()}
+              </ListItem>
             )
           )}
         </List>
@@ -106,7 +91,7 @@ function CollapseItem({
   );
 }
 
-CollapseItem.propTypes = {
+InnerCollapseItem.propTypes = {
   title: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
   children: PropTypes.arrayOf(
@@ -122,4 +107,4 @@ CollapseItem.propTypes = {
   activeClassName: PropTypes.string,
 };
 
-export default CollapseItem;
+export default InnerCollapseItem;

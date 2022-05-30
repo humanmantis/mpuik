@@ -14,7 +14,6 @@ import {
 } from "@material-ui/core";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import InnerMenu from "./InnerMenu";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -22,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
   },
   navSubItem: {
     color: theme.palette.info.main,
-    width: '100%',
     fontWeight: "600",
     fontSize: "0.875rem",
     "&:hover": {
@@ -33,14 +31,18 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.info.main,
     color: theme.palette.background.default,
   },
+  popper: {
+    left: '85% !important'
+  }
 }));
 
-function DropdownMenu({
+function InnerMenu({
   title,
   url,
   children,
   buttonClassName,
   activeClassName,
+  closeParent
 }) {
   const classes = useStyles();
   const location = useLocation();
@@ -55,6 +57,7 @@ function DropdownMenu({
     }
 
     setOpen(false);
+    closeParent();
   };
 
   function handleListKeyDown(event) {
@@ -75,37 +78,6 @@ function DropdownMenu({
 
   const checkActive = () => location.pathname.includes(url);
 
-  const renderMenuItem = (item) => {
-    return item.url.includes("http") ? (
-        <MenuItem
-          key={item.id}
-          onClick={handleClose}
-          component={Link}
-          className={classes.navSubItem}
-          href={item.url}
-          target={item.target}
-        >
-          {item.title.toUpperCase()}
-        </MenuItem>
-      ) : (
-        <MenuItem
-          key={item.id}
-          onClick={handleClose}
-          component={NavLink}
-          exact
-          activeClassName={classes.selected}
-          className={classes.navSubItem}
-          to={url + item.url}
-        >
-          {item.title.toUpperCase()}
-        </MenuItem>
-    );
-  };
-
-  const handleCloseParent = () => {
-    setOpen(false);
-  };
-
   return (
     <>
       <Button
@@ -121,6 +93,7 @@ function DropdownMenu({
         open={open}
         anchorEl={anchorRef.current}
         role={undefined}
+        className={classes.popper}
         transition
         disablePortal
       >
@@ -136,18 +109,29 @@ function DropdownMenu({
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList autoFocusItem={open} onKeyDown={handleListKeyDown}>
                   {children.map((item) => 
-                    !item.children.length ? (
-                      renderMenuItem(item)
-                    ) : (
-                      <InnerMenu
+                    item.url.includes("http") ? (
+                      <MenuItem
                         key={item.id}
-                        url={item.url}
-                        title={item.title}
-                        children={item.children.sort((a, b) => a.order - b.order)}
-                        buttonClassName={classes.navSubItem}
-                        activeClassName={classes.active}
-                        closeParent={handleCloseParent}
-                    />
+                        onClick={handleClose}
+                        component={Link}
+                        className={classes.navSubItem}
+                        href={item.url}
+                        target={item.target}
+                      >
+                        {item.title.toUpperCase()}
+                      </MenuItem>
+                    ) : (
+                      <MenuItem
+                        key={item.id}
+                        onClick={handleClose}
+                        component={NavLink}
+                        exact
+                        activeClassName={classes.selected}
+                        className={classes.navSubItem}
+                        to={url + item.url}
+                      >
+                        {item.title.toUpperCase()}
+                      </MenuItem>
                     )
                   )}
                 </MenuList>
@@ -160,7 +144,7 @@ function DropdownMenu({
   );
 }
 
-DropdownMenu.propTypes = {
+InnerMenu.propTypes = {
   title: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
   children: PropTypes.arrayOf(
@@ -176,4 +160,4 @@ DropdownMenu.propTypes = {
   activeClassName: PropTypes.string,
 };
 
-export default DropdownMenu;
+export default InnerMenu;
