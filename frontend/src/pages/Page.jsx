@@ -17,7 +17,7 @@ const GetPage = loader("../graphql/pages/GetPage.gql");
 
 function Page({ params }) {
   const { loading, error, data } = useQuery(GetPage, {
-    variables: { slug: params.path || params.slug },
+    variables: { slug: params.subpath || params.path || params.slug },
   });
 
   const { contentType } = constants;

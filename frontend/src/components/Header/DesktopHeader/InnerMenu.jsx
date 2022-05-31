@@ -32,7 +32,8 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.background.default,
   },
   popper: {
-    left: '85% !important'
+    left: '85% !important',
+    zIndex: '10'
   }
 }));
 

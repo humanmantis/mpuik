@@ -25,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     fontWeight: "600",
     fontSize: "0.875rem",
+    justifyContent: 'space-between',
+    paddingLeft: '1rem',
+    paddingRight: '1rem',
     "&:hover": {
       color: theme.palette.info.main,
     },
@@ -141,7 +144,7 @@ function DropdownMenu({
                     ) : (
                       <InnerMenu
                         key={item.id}
-                        url={item.url}
+                        url={url + item.url}
                         title={item.title}
                         children={item.children.sort((a, b) => a.order - b.order)}
                         buttonClassName={classes.navSubItem}

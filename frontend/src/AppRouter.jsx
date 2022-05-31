@@ -68,7 +68,7 @@ function AppRouter() {
             <Route exact path="/404" render={() => <PageNotFound />} />
             <Route
               exact
-              path="/:slug/:path?"
+              path="/:slug/:path?/:subpath?"
               render={(props) => <Page params={props.match.params} />}
             />
             <Route path="*" render={() => <Redirect to="/404" />} />
