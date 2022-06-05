@@ -63,8 +63,8 @@ function CardMiddle({ title, description, icon }) {
         <Grid item xs={3} sm={4} lg={3}>
           <div className={classes.iconContainer}>
             <img
-              src={icon.attributes.url}
-              alt={icon.attributes.alternativeText || icon.attributes.hash}
+              src={icon?.attributes?.url}
+              alt={icon?.attributes?.alternativeText || icon?.attributes?.hash}
               className={classes.icon}
             />
           </div>
