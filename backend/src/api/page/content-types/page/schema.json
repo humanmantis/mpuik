@@ -25,12 +25,12 @@
     "content": {
       "type": "dynamiczone",
       "components": [
+        "list.link",
         "page.article",
         "page.card-block",
+        "page.elective-disciplines-card-block",
         "page.gallery",
-        "page.list-block",
-        "list.link",
-        "page.elective-disciplines-card-block"
+        "page.list-block"
       ]
     },
     "programs": {

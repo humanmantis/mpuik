@@ -7,7 +7,8 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "postinstall": "patch-package"
   },
   "devDependencies": {},
   "dependencies": {
@@ -17,7 +18,9 @@
     "@strapi/provider-email-sendgrid": "^4.1.12",
     "@strapi/provider-upload-cloudinary": "^4.1.12",
     "@strapi/strapi": "4.1.12",
+    "patch-package": "^6.4.7",
     "pg": "8.6.0",
+    "postinstall-postinstall": "^2.1.0",
     "slugify": "^1.6.5",
     "strapi-plugin-menus": "^0.3.0"
   },
