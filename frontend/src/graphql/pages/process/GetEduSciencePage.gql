@@ -1,0 +1,26 @@
+query GetEduSciencePage {
+  eduSciencePrograms(sort: "program:desc") {
+    data {
+      attributes {
+        program 
+        programlink
+        reviews {
+          title
+          link
+        }
+        feedbacks {
+          title
+          link
+        }
+      }
+    }
+  }
+  page(id: 17) {
+    data {
+      attributes {
+        title
+        subtitle
+      }
+    }
+  }
+}

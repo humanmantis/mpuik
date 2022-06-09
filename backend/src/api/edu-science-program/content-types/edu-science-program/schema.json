@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "edu_science_programs",
+  "info": {
+    "singularName": "edu-science-program",
+    "pluralName": "edu-science-programs",
+    "displayName": "Освітньо-наукові програми",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "reviews": {
+      "type": "component",
+      "repeatable": true,
+      "component": "list.link"
+    },
+    "feedbacks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "list.link"
+    },
+    "program": {
+      "type": "string"
+    },
+    "programlink": {
+      "type": "string"
+    }
+  }
+}

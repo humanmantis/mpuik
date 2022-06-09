@@ -21,7 +21,7 @@ import defaultProfileImage from '../../assets/default-profile.jpg';
 import Loader from '../../components/common/Loader';
 import PageLink from '../../components/common/Link';
 
-const GetEmployee = loader('../../graphql/GetEmployee.gql');
+const GetEmployee = loader('../../graphql/pages/about/GetEmployee.gql');
 
 const useStyles = makeStyles((theme) => ({
   container: {

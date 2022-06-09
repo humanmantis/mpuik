@@ -5,7 +5,7 @@ index 0000000..c9e726a
 +++ b/node_modules/strapi-plugin-menus/admin/src/translations/uk.json
 @@ -0,0 +1,38 @@
 +{
-+  "plugin.name": "Menus",
++  "plugin.name": "Меню",
 +
 +  "ui.add.menuItem": "Додати пункт меню",
 +  "ui.cancel": "Скасувати",

@@ -13,7 +13,7 @@ import Location from "../../components/Location/Location";
 import circlesSvg from "../../assets/icons/circles.svg";
 import Loader from "../../components/common/Loader";
 
-const GetProgram = loader("../../graphql/GetProgram.gql");
+const GetProgram = loader("../../graphql/pages/entrant/GetProgram.gql");
 
 const useStyles = makeStyles((theme) => ({
   title: {

@@ -11,6 +11,7 @@ const Entrant = lazy(() => import("./pages/entrant/Entrant"));
 const Program = lazy(() => import("./pages/entrant/Program"));
 const Contacts = lazy(() => import("./pages/Contacts"));
 const Syllabus = lazy(() => import("./pages/student/Syllabus"));
+const EduSciencePage = lazy(() => import("./pages/process/EduSciencePage"));
 const News = lazy(() => import("./pages/news"));
 const NewsDetail = lazy(() => import("./pages/news/NewsDetail"));
 const PageNotFound = lazy(() => import("./components/error/PageNotFound"));
@@ -63,6 +64,7 @@ function AppRouter() {
               render={(props) => <NewsDetail params={props.match.params} />}
             />
             <Route exact path="/student/syllabi" render={() => <Syllabus />} />
+            <Route exact path="/educational-process/educational-scientific-programs" render={() => <EduSciencePage />} />
             <Route exact path="/contacts" render={() => <Contacts />} />
             <Route exact path="/error" render={() => <ErrorPage />} />
             <Route exact path="/404" render={() => <PageNotFound />} />

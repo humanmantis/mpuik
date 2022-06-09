@@ -5,7 +5,7 @@ import { loader } from 'graphql.macro';
 import Layout from '../../components/common/Layout';
 import Loader from '../../components/common/Loader';
 import BlockTitle from '../../components/common/BlockTitle';
-import SyllabiTable from '../../components/SyllabiTable/SyllabiTable';
+import SyllabiTable from '../../components/Tables/SyllabiTable';
 
 const GetSyllabiPage = loader('../../graphql/pages/student/GetSyllabiPage.gql');
 
