@@ -69,12 +69,12 @@ export default {
         "Auth.form.lastname.placeholder": "напр., Шевченко",
         "Auth.form.password.hide-password": "Приховати пароль",
         "Auth.form.password.hint":
-          "Повинен містити як мінімум 8 символі, 1 літеру у верхньому регістрі, 1 літеру в нижньому регістрі та 1 цифру",
+          "Повинен містити як мінімум 8 символів, 1 літеру у верхньому регістрі, 1 літеру в нижньому регістрі та 1 цифру",
         "Auth.form.password.show-password": "Показати пароль",
         "Auth.form.register.news.label":
           "Тримайте мене в курсі нових функцій і майбутніх покращень (таким чином ви приймаєте {terms} і {policy})",
         "Auth.form.register.subtitle":
-          "Облікові дані використовуються лише для аутентифікації в адмін. панель. Усі збережені дані будуть збережені у вашій базі даних.",
+          "Облікові дані використовуються лише для аутентифікації в адмін. панель. Усі дані будуть збережені у базі даних.",
         "Auth.form.rememberMe.label": "Запам'ятати мене",
         "Auth.form.username.label": "Ім'я користувача",
         "Auth.form.username.placeholder": "напр., Kai_Doe",
@@ -436,7 +436,7 @@ export default {
         "content-manager.components.DynamicZone.move-up-label":
           "Перемістити компонент вгору",
         "content-manager.components.DynamicZone.required":
-          "Обов♥9язковий компонент",
+          "Обов'язковий компонент",
         "content-manager.components.FieldSelect.label": "Додати поле",
         "content-manager.components.LeftMenu.Search.label":
           "Знайти тип контенту",
