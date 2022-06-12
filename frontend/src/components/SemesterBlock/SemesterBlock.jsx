@@ -1,8 +1,8 @@
-import React from 'react';
-import { Box, Grid, Typography } from '@material-ui/core';
-import Link from './../common/Link';
+import React from "react";
+import { Box, Grid, Typography } from "@material-ui/core";
+import Link from "./../common/Link";
 
-import { useStyles } from './semesterBlock.styles';
+import { useStyles } from "./semesterBlock.styles";
 
 const SemesterBlock = ({ semester, silabusis, form }) => {
   const classes = useStyles();
@@ -13,10 +13,14 @@ const SemesterBlock = ({ semester, silabusis, form }) => {
       <Box className={classes.gridWrapper}>
         {!!silabusis.length &&
           silabusis.map((silabus, index) => (
-            <Grid container alignItems="center" key={silabus.attributes.discipline}>
+            <Grid
+              container
+              alignItems="center"
+              key={silabus.attributes.discipline}
+            >
               <Grid xs={6} sm={8} item>
                 <Typography className={classes.text}>
-                  {index + 1}.{' '}
+                  {index + 1}.{" "}
                   <Link
                     title={silabus.attributes.discipline}
                     link={silabus.attributes.link}
@@ -31,7 +35,7 @@ const SemesterBlock = ({ semester, silabusis, form }) => {
               </Grid>
               <Grid xs={3} sm={2} item>
                 <Typography align="center" className={classes.text}>
-                  {silabus.attributes.isexam ? 'Іспит' : 'Залік'}
+                  {silabus.attributes.isexam ? "Іспит" : "Залік"}
                 </Typography>
               </Grid>
             </Grid>

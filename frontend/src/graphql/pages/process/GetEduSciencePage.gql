@@ -2,7 +2,7 @@ query GetEduSciencePage {
   eduSciencePrograms(sort: "program:desc") {
     data {
       attributes {
-        program 
+        program
         programlink
         reviews {
           title

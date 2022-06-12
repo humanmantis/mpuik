@@ -49,7 +49,10 @@ function TeacherCard({ route, photo, fullname, position, academiclevel }) {
         <Typography variant="h5" className={classes.title}>
           {fullname}
         </Typography>
-        <Typography variant="subtitle2">{position}{ position && academiclevel && ','} {academiclevel}</Typography>
+        <Typography variant="subtitle2">
+          {position}
+          {position && academiclevel && ","} {academiclevel}
+        </Typography>
       </Link>
     </Paper>
   );

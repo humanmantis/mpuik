@@ -1,19 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import ReactMarkdown from 'markdown-to-jsx';
-import { Typography, makeStyles } from '@material-ui/core';
-import Link from './Link';
+import React from "react";
+import PropTypes from "prop-types";
+import ReactMarkdown from "markdown-to-jsx";
+import { Typography, makeStyles } from "@material-ui/core";
+import Link from "./Link";
 
 const useStyles = makeStyles((theme) => ({
   blockquote: {
     marginLeft: 0,
-    paddingLeft: '1rem',
+    paddingLeft: "1rem",
     borderLeft: `5px solid ${theme.palette.primary.main}`,
   },
   img: {
-    display: 'block',
-    margin: '0 auto',
-    maxWidth: '100%',
+    display: "block",
+    margin: "0 auto",
+    maxWidth: "100%",
   },
 }));
 
@@ -55,11 +55,7 @@ function Markdown({ content, noMargin }) {
           },
           p: {
             component: (props) => (
-              <Typography
-                paragraph={!noMargin}
-                align="justify"
-                {...props}
-              />
+              <Typography paragraph={!noMargin} align="justify" {...props} />
             ),
           },
           li: {

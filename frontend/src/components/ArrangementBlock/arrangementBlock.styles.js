@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core';
+import { makeStyles } from "@material-ui/core";
 
 export const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,26 +14,26 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   img: {
-    maxWidth: '240px',
-    width: '100%'
+    maxWidth: "240px",
+    width: "100%",
   },
   title: {
     fontWeight: 600,
-    fontSize: '1.4rem',
-    lineHeight: '1.5rem',
-    color: theme.palette.info.main
+    fontSize: "1.4rem",
+    lineHeight: "1.5rem",
+    color: theme.palette.info.main,
   },
   description: {
-    marginTop: '20px'
+    marginTop: "20px",
   },
   imgWrapper: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'flex-start',
-    paddingTop: '40px',
-    [theme.breakpoints.down('xs')]: {
-      paddingBottom: '40px',
-      paddingTop: 0
-    }
-  }
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "flex-start",
+    paddingTop: "40px",
+    [theme.breakpoints.down("xs")]: {
+      paddingBottom: "40px",
+      paddingTop: 0,
+    },
+  },
 }));

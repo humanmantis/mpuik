@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import React from "react";
+import { Link as RouterLink } from "react-router-dom";
 import {
   makeStyles,
   Table,
@@ -11,13 +11,13 @@ import {
   Paper,
   Typography,
   Link,
-} from '@material-ui/core';
+} from "@material-ui/core";
 
 const useStyles = makeStyles({
   root: {
-    margin: '40px 0',
-    boxShadow: '0px 14px 36px rgb(0 0 0 / 4%)',
-    borderRadius: '1rem',
+    margin: "40px 0",
+    boxShadow: "0px 14px 36px rgb(0 0 0 / 4%)",
+    borderRadius: "1rem",
   },
   table: {
     minWidth: 600,

@@ -1,4 +1,4 @@
-query GetPage($slug: String! = "elective-disciplines") {
+query GetPage($slug: String!) {
   pages(filters: { slug: { eq: $slug } }) {
     data {
       attributes {

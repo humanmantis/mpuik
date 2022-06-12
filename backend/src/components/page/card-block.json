@@ -20,12 +20,7 @@
     },
     "variant": {
       "type": "enumeration",
-      "enum": [
-        "small",
-        "middle",
-        "big",
-        "fullwidth"
-      ],
+      "enum": ["small", "middle", "big", "fullwidth"],
       "default": "middle",
       "required": true
     }

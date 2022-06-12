@@ -20,23 +20,23 @@ export const useStyles = makeStyles((theme) => ({
   title: {
     fontWeight: "bold",
     color: theme.palette.info.main,
-    fontSize: "20px"
+    fontSize: "20px",
   },
   gridWrapper: {
     margin: "1rem 30px 10px",
-    width: '100%',
+    width: "100%",
   },
   link: {
     textDecoration: "none",
-    color: theme.palette.primary.main
+    color: theme.palette.primary.main,
   },
   boldLink: {
     fontWeight: 700,
-    fontSize: '20px',
-    lineHeight: '38px',
-    marginTop: 'auto'
+    fontSize: "20px",
+    lineHeight: "38px",
+    marginTop: "auto",
   },
   text: {
-    fontSize: '16px'
-  }
+    fontSize: "16px",
+  },
 }));

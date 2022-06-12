@@ -24,7 +24,7 @@ function PageLink({ title, link }) {
         paragraph
         className={classes.link}
       >
-        <Link title={title} link={link}/>
+        <Link title={title} link={link} />
       </Typography>
     </div>
   );

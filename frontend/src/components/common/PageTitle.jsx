@@ -30,15 +30,17 @@ function PageTitle({ title, subtitle }) {
       >
         {title}
       </Typography>
-      {subtitle && (<Typography
-        variant="h6"
-        align="center"
-        component="p"
-        className={classes.subtitle}
-        paragraph
-      >
-        {subtitle}
-      </Typography>)}
+      {subtitle && (
+        <Typography
+          variant="h6"
+          align="center"
+          component="p"
+          className={classes.subtitle}
+          paragraph
+        >
+          {subtitle}
+        </Typography>
+      )}
     </div>
   );
 }

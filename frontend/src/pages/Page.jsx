@@ -77,7 +77,7 @@ function Page({ params }) {
             subtitle={item.subtitle}
             semesters={item.semesters}
           />
-        )
+        );
       default:
         return <></>;
     }

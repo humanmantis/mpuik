@@ -1,1 +1,1 @@
-export { default } from './ArrangementBlock';
+export { default } from "./ArrangementBlock";

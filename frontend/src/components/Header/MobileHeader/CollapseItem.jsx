@@ -45,7 +45,7 @@ function CollapseItem({
 
   const checkActive = () => location.pathname.includes(url);
 
-  const renderMenuItem = (item) => (
+  const renderMenuItem = (item) =>
     item.url.includes("http") ? (
       <ListItem
         key={item.id}
@@ -69,8 +69,7 @@ function CollapseItem({
       >
         {item.title.toUpperCase()}
       </ListItem>
-    )
-  );
+    );
 
   return (
     <>
@@ -97,7 +96,7 @@ function CollapseItem({
                 children={item.children.sort((a, b) => a.order - b.order)}
                 buttonClassName={classes.navSubItem}
                 activeClassName={classes.active}
-            />
+              />
             )
           )}
         </List>

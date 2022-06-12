@@ -32,9 +32,9 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.background.default,
   },
   popper: {
-    left: '85% !important',
-    zIndex: '10'
-  }
+    left: "85% !important",
+    zIndex: "10",
+  },
 }));
 
 function InnerMenu({
@@ -43,7 +43,7 @@ function InnerMenu({
   children,
   buttonClassName,
   activeClassName,
-  closeParent
+  closeParent,
 }) {
   const classes = useStyles();
   const location = useLocation();
@@ -109,7 +109,7 @@ function InnerMenu({
             <Paper className={classes.paper}>
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList autoFocusItem={open} onKeyDown={handleListKeyDown}>
-                  {children.map((item) => 
+                  {children.map((item) =>
                     item.url.includes("http") ? (
                       <MenuItem
                         key={item.id}

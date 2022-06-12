@@ -22,12 +22,12 @@ const useStyles = makeStyles((theme) => ({
   },
   navSubItem: {
     color: theme.palette.info.main,
-    width: '100%',
+    width: "100%",
     fontWeight: "600",
     fontSize: "0.875rem",
-    justifyContent: 'space-between',
-    paddingLeft: '1rem',
-    paddingRight: '1rem',
+    justifyContent: "space-between",
+    paddingLeft: "1rem",
+    paddingRight: "1rem",
     "&:hover": {
       color: theme.palette.info.main,
     },
@@ -80,28 +80,28 @@ function DropdownMenu({
 
   const renderMenuItem = (item) => {
     return item.url.includes("http") ? (
-        <MenuItem
-          key={item.id}
-          onClick={handleClose}
-          component={Link}
-          className={classes.navSubItem}
-          href={item.url}
-          target={item.target}
-        >
-          {item.title.toUpperCase()}
-        </MenuItem>
-      ) : (
-        <MenuItem
-          key={item.id}
-          onClick={handleClose}
-          component={NavLink}
-          exact
-          activeClassName={classes.selected}
-          className={classes.navSubItem}
-          to={url + item.url}
-        >
-          {item.title.toUpperCase()}
-        </MenuItem>
+      <MenuItem
+        key={item.id}
+        onClick={handleClose}
+        component={Link}
+        className={classes.navSubItem}
+        href={item.url}
+        target={item.target}
+      >
+        {item.title.toUpperCase()}
+      </MenuItem>
+    ) : (
+      <MenuItem
+        key={item.id}
+        onClick={handleClose}
+        component={NavLink}
+        exact
+        activeClassName={classes.selected}
+        className={classes.navSubItem}
+        to={url + item.url}
+      >
+        {item.title.toUpperCase()}
+      </MenuItem>
     );
   };
 
@@ -138,7 +138,7 @@ function DropdownMenu({
             <Paper className={classes.paper}>
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList autoFocusItem={open} onKeyDown={handleListKeyDown}>
-                  {children.map((item) => 
+                  {children.map((item) =>
                     !item.children.length ? (
                       renderMenuItem(item)
                     ) : (
@@ -146,11 +146,13 @@ function DropdownMenu({
                         key={item.id}
                         url={url + item.url}
                         title={item.title}
-                        children={item.children.sort((a, b) => a.order - b.order)}
+                        children={item.children.sort(
+                          (a, b) => a.order - b.order
+                        )}
                         buttonClassName={classes.navSubItem}
                         activeClassName={classes.active}
                         closeParent={handleCloseParent}
-                    />
+                      />
                     )
                   )}
                 </MenuList>

@@ -9,7 +9,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 const useStyles = makeStyles((theme) => ({
   navSubItem: {
     color: theme.palette.info.main,
-    paddingLeft: '30px !important',
+    paddingLeft: "30px !important",
     fontWeight: "600",
     fontSize: "0.875rem",
     overflowWrap: "break-word",

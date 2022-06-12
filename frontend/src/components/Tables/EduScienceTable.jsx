@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   makeStyles,
   Table,
@@ -9,14 +9,14 @@ import {
   TableRow,
   Paper,
   Typography,
-} from '@material-ui/core';
-import Link from '../common/Link';
+} from "@material-ui/core";
+import Link from "../common/Link";
 
 const useStyles = makeStyles({
   root: {
-    margin: '40px 0',
-    boxShadow: '0px 14px 36px rgb(0 0 0 / 4%)',
-    borderRadius: '1rem',
+    margin: "40px 0",
+    boxShadow: "0px 14px 36px rgb(0 0 0 / 4%)",
+    borderRadius: "1rem",
   },
   table: {
     minWidth: 600,

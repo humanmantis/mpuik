@@ -1,6 +1,6 @@
 diff --git a/node_modules/strapi-plugin-menus/admin/src/translations/uk.json b/node_modules/strapi-plugin-menus/admin/src/translations/uk.json
 new file mode 100644
-index 0000000..c9e726a
+index 0000000..1c30bf1
 --- /dev/null
 +++ b/node_modules/strapi-plugin-menus/admin/src/translations/uk.json
 @@ -0,0 +1,38 @@

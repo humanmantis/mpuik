@@ -64,7 +64,11 @@ function AppRouter() {
               render={(props) => <NewsDetail params={props.match.params} />}
             />
             <Route exact path="/student/syllabi" render={() => <Syllabus />} />
-            <Route exact path="/educational-process/educational-scientific-programs" render={() => <EduSciencePage />} />
+            <Route
+              exact
+              path="/educational-process/educational-scientific-programs"
+              render={() => <EduSciencePage />}
+            />
             <Route exact path="/contacts" render={() => <Contacts />} />
             <Route exact path="/error" render={() => <ErrorPage />} />
             <Route exact path="/404" render={() => <PageNotFound />} />

@@ -1,9 +1,9 @@
-import React from 'react';
-import { Redirect } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { loader } from 'graphql.macro';
-import { makeStyles } from '@material-ui/core';
-import Obfuscate from 'react-obfuscate';
+import React from "react";
+import { Redirect } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { loader } from "graphql.macro";
+import { makeStyles } from "@material-ui/core";
+import Obfuscate from "react-obfuscate";
 
 import {
   Container,
@@ -12,90 +12,90 @@ import {
   Box,
   Typography,
   Link,
-} from '@material-ui/core';
-import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
-import SchoolOutlinedIcon from '@material-ui/icons/SchoolOutlined';
-import Markdown from '../../components/common/Markdown';
-import TopWaves from '../../components/background/PageWaves';
-import defaultProfileImage from '../../assets/default-profile.jpg';
-import Loader from '../../components/common/Loader';
-import PageLink from '../../components/common/Link';
+} from "@material-ui/core";
+import EmailOutlinedIcon from "@material-ui/icons/EmailOutlined";
+import SchoolOutlinedIcon from "@material-ui/icons/SchoolOutlined";
+import Markdown from "../../components/common/Markdown";
+import TopWaves from "../../components/background/PageWaves";
+import defaultProfileImage from "../../assets/default-profile.jpg";
+import Loader from "../../components/common/Loader";
+import PageLink from "../../components/common/Link";
 
-const GetEmployee = loader('../../graphql/pages/about/GetEmployee.gql');
+const GetEmployee = loader("../../graphql/pages/about/GetEmployee.gql");
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    marginBottom: '3rem',
+    marginBottom: "3rem",
   },
   content: {
-    padding: '3rem 4rem',
-    boxShadow: '0px 14px 36px rgba(0, 0, 0, 0.04)',
-    borderRadius: '1rem',
-    [theme.breakpoints.down('md')]: {
-      padding: '2rem 1rem',
+    padding: "3rem 4rem",
+    boxShadow: "0px 14px 36px rgba(0, 0, 0, 0.04)",
+    borderRadius: "1rem",
+    [theme.breakpoints.down("md")]: {
+      padding: "2rem 1rem",
     },
   },
   title: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: theme.palette.primary.main,
   },
   subtitle: {
-    marginBottom: '3rem',
+    marginBottom: "3rem",
   },
   nomargin: {
-    marginBottom: '0',
+    marginBottom: "0",
   },
   list: {
-    paddingLeft: '0',
-    listStylePosition: 'inside',
+    paddingLeft: "0",
+    listStylePosition: "inside",
   },
   listCompact: {
-    paddingLeft: '0',
-    marginTop: '0',
-    marginBottom: '2rem',
-    listStylePosition: 'inside',
+    paddingLeft: "0",
+    marginTop: "0",
+    marginBottom: "2rem",
+    listStylePosition: "inside",
   },
   marginTop: {
-    marginTop: '1rem',
-    marginBottom: '0',
+    marginTop: "1rem",
+    marginBottom: "0",
   },
   img: {
-    width: '100%',
-    maxHeight: '500px',
-    objectFit: 'cover',
-    marginBottom: '3rem',
-    [theme.breakpoints.only('sm')]: {
-      objectFit: 'contain',
+    width: "100%",
+    maxHeight: "500px",
+    objectFit: "cover",
+    marginBottom: "3rem",
+    [theme.breakpoints.only("sm")]: {
+      objectFit: "contain",
     },
   },
   subitem: {
-    display: 'flex',
-    alignItems: 'center',
-    marginBottom: '2.5rem',
-    [theme.breakpoints.down('md')]: {
-      marginBottom: '1.5rem',
+    display: "flex",
+    alignItems: "center",
+    marginBottom: "2.5rem",
+    [theme.breakpoints.down("md")]: {
+      marginBottom: "1.5rem",
     },
   },
   iconContainer: {
-    width: '2.5rem',
-    height: '2.5rem',
-    padding: '.5rem',
-    marginRight: '1.5rem',
+    width: "2.5rem",
+    height: "2.5rem",
+    padding: ".5rem",
+    marginRight: "1.5rem",
     backgroundColor: theme.palette.primary.main,
-    borderRadius: '50%',
-    transform: 'scale(1.2)',
-    [theme.breakpoints.down('md')]: {
-      marginRight: '1rem',
-      transform: 'scale(1)',
+    borderRadius: "50%",
+    transform: "scale(1.2)",
+    [theme.breakpoints.down("md")]: {
+      marginRight: "1rem",
+      transform: "scale(1)",
     },
   },
   icon: {
     color: theme.palette.common.white,
   },
   link: {
-    fontSize: '1.1rem',
-    fontWeight: '600',
-    overflowWrap: 'anywhere',
+    fontSize: "1.1rem",
+    fontWeight: "600",
+    overflowWrap: "anywhere",
   },
 }));
 
@@ -168,7 +168,7 @@ function Employee({ params }) {
                     <b>
                       <PageLink
                         title={
-                          'Стажування, підвищення кваліфікації, самоосвіта'
+                          "Стажування, підвищення кваліфікації, самоосвіта"
                         }
                         link={employee.sefleducation}
                         target="_blank"
@@ -184,7 +184,7 @@ function Employee({ params }) {
                   >
                     <b>
                       <PageLink
-                        title={'Відзнаки, подяки'}
+                        title={"Відзнаки, подяки"}
                         link={employee.awards}
                         target="_blank"
                       />
@@ -263,7 +263,7 @@ function Employee({ params }) {
                   }
                   alt={
                     employee.photo.data?.attributes.alternativeText ??
-                    'Default Photo'
+                    "Default Photo"
                   }
                   className={classes.img}
                 />

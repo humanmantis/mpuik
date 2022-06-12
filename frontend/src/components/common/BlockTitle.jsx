@@ -1,19 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles, Typography } from '@material-ui/core';
+import React from "react";
+import PropTypes from "prop-types";
+import { makeStyles, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   sectionHeader: {
-    margin: '0 auto',
-    maxWidth: '800px',
+    margin: "0 auto",
+    maxWidth: "800px",
   },
   title: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: theme.palette.info.main,
   },
   subtitle: {
-    marginBottom: '2rem',
-    fontWeight: 'bold',
+    marginBottom: "2rem",
+    fontWeight: "bold",
     color: theme.palette.text.primary,
   },
 }));
@@ -48,7 +48,7 @@ function BlockTitle({ title, subtitle }) {
 }
 
 BlockTitle.defaultProps = {
-  subtitle: '',
+  subtitle: "",
 };
 
 BlockTitle.propTypes = {

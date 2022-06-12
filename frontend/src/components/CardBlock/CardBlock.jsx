@@ -1,25 +1,25 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles, Grid } from '@material-ui/core';
-import Card from '../Card/Card';
-import BlockTitle from '../common/BlockTitle';
-import constants from '../../config/constants';
+import React from "react";
+import PropTypes from "prop-types";
+import { makeStyles, Grid } from "@material-ui/core";
+import Card from "../Card/Card";
+import BlockTitle from "../common/BlockTitle";
+import constants from "../../config/constants";
 
 const useStyles = makeStyles((theme) => ({
   section: {
-    margin: '5rem 0',
+    margin: "5rem 0",
   },
   sectionHeader: {
-    margin: '0 auto',
-    maxWidth: '800px',
+    margin: "0 auto",
+    maxWidth: "800px",
   },
   title: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: theme.palette.primary.main,
   },
   subtitle: {
-    marginBottom: '2rem',
-    fontWeight: 'bold',
+    marginBottom: "2rem",
+    fontWeight: "bold",
     color: theme.palette.info.main,
   },
 }));
@@ -31,8 +31,13 @@ function CardBlock({ title, subtitle, cards, variant }) {
     variant === cardType.big || variant === cardType.fullwidth ? 12 : 6;
   const mdSize =
     variant === cardType.fullwidth ? 12 : variant === cardType.big ? 6 : 4;
+
+  if (variant === cardType.fullwidth) {
+    cards = [...cards].reverse();
+  }
+
   return (
-    <section id={title.split(' ').join('')} className={classes.section}>
+    <section id={title?.split(" ").join("")} className={classes.section}>
       <BlockTitle title={title} subtitle={subtitle} />
       <Grid container spacing={3} justify="center">
         {cards.map((card, i) => (
@@ -51,13 +56,13 @@ function CardBlock({ title, subtitle, cards, variant }) {
 }
 
 CardBlock.defaultProps = {
-  subtitle: '',
+  subtitle: "",
 };
 
 CardBlock.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
-  variant: PropTypes.oneOf(['small', 'middle', 'big', 'fullwidth']),
+  variant: PropTypes.oneOf(["small", "middle", "big", "fullwidth"]),
   cards: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
