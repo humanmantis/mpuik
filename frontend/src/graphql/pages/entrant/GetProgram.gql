@@ -1,0 +1,77 @@
+query GetProgram($slug: String!) {
+  programs(filters: { slug: { eq: $slug } }) {
+    data {
+      attributes {
+        name
+        level
+        form
+        specialization
+        term
+        price
+        program
+        photos {
+          data {
+            attributes {
+              hash
+              url
+              alternativeText
+            }
+          }
+        }
+        cards {
+          ... on ComponentPageCardBlock {
+            id
+            title
+            subtitle
+            variant
+            cards {
+              id
+              title
+              description
+              icon {
+                data {
+                  attributes {
+                    hash
+                    url
+                    alternativeText
+                  }
+                }
+              }
+            }
+          }
+          ... on ComponentPageArticle {
+            id
+            title
+            subtitle
+            content
+            photos {
+              data {
+                attributes {
+                  hash
+                  url
+                  alternativeText
+                }
+              }
+            }
+          }
+        }
+        location {
+          data {
+            attributes {
+              title
+              address
+              phone
+              email
+              list {
+                id
+                title
+              }
+              latitude
+              longitude
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "footers",
+  "info": {
+    "singularName": "footer",
+    "pluralName": "footers",
+    "displayName": "Футер",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "additionalText": {
+      "type": "text"
+    },
+    "sections": {
+      "displayName": "section",
+      "type": "component",
+      "repeatable": true,
+      "component": "section.section"
+    },
+    "location": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::location.location"
+    }
+  }
+}

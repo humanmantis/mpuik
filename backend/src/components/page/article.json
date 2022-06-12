@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_page_articles",
+  "info": {
+    "displayName": "Стаття",
+    "icon": "file-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "photos": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}

@@ -75,8 +75,8 @@ function CardBig({ title, description, icon }) {
       <Grid item xs={3} lg={2}>
         <div className={classes.iconContainer}>
           <img
-            src={process.env.REACT_APP_IMAGE_URI + icon.url}
-            alt={icon.alternativeText}
+            src={icon.attributes.url}
+            alt={icon.attributes.alternativeText || icon.attributes.hash}
             className={classes.icon}
           />
         </div>
@@ -108,8 +108,11 @@ CardBig.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
   icon: PropTypes.shape({
-    url: PropTypes.string.isRequired,
-    alternativeText: PropTypes.string.isRequired,
+    attributes: PropTypes.shape({
+      hash: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+      alternativeText: PropTypes.string.isRequired,
+    }),
   }).isRequired,
 };
 

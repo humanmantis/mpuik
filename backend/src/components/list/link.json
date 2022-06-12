@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_list_links",
+  "info": {
+    "displayName": "Посилання",
+    "icon": "link",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false
+    },
+    "link": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { NavLink, useLocation } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core';
+import React, { useState, useRef, useEffect } from "react";
+import PropTypes from "prop-types";
+import { NavLink, useLocation } from "react-router-dom";
+import { makeStyles } from "@material-ui/core";
 import {
   Button,
   MenuList,
@@ -11,9 +11,10 @@ import {
   Paper,
   ClickAwayListener,
   Link,
-} from '@material-ui/core';
-import ExpandLessIcon from '@material-ui/icons/ExpandLess';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+} from "@material-ui/core";
+import ExpandLessIcon from "@material-ui/icons/ExpandLess";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import InnerMenu from "./InnerMenu";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -21,9 +22,13 @@ const useStyles = makeStyles((theme) => ({
   },
   navSubItem: {
     color: theme.palette.info.main,
-    fontWeight: '600',
-    fontSize: '0.875rem',
-    '&:hover': {
+    width: "100%",
+    fontWeight: "600",
+    fontSize: "0.875rem",
+    justifyContent: "space-between",
+    paddingLeft: "1rem",
+    paddingRight: "1rem",
+    "&:hover": {
       color: theme.palette.info.main,
     },
   },
@@ -35,8 +40,8 @@ const useStyles = makeStyles((theme) => ({
 
 function DropdownMenu({
   title,
-  path,
-  items,
+  url,
+  children,
   buttonClassName,
   activeClassName,
 }) {
@@ -56,7 +61,7 @@ function DropdownMenu({
   };
 
   function handleListKeyDown(event) {
-    if (event.key === 'Tab') {
+    if (event.key === "Tab") {
       event.preventDefault();
       setOpen(false);
     }
@@ -71,7 +76,38 @@ function DropdownMenu({
     prevOpen.current = open;
   }, [open]);
 
-  const checkActive = () => location.pathname.includes(path);
+  const checkActive = () => location.pathname.includes(url);
+
+  const renderMenuItem = (item) => {
+    return item.url.includes("http") ? (
+      <MenuItem
+        key={item.id}
+        onClick={handleClose}
+        component={Link}
+        className={classes.navSubItem}
+        href={item.url}
+        target={item.target}
+      >
+        {item.title.toUpperCase()}
+      </MenuItem>
+    ) : (
+      <MenuItem
+        key={item.id}
+        onClick={handleClose}
+        component={NavLink}
+        exact
+        activeClassName={classes.selected}
+        className={classes.navSubItem}
+        to={url + item.url}
+      >
+        {item.title.toUpperCase()}
+      </MenuItem>
+    );
+  };
+
+  const handleCloseParent = () => {
+    setOpen(false);
+  };
 
   return (
     <>
@@ -96,36 +132,27 @@ function DropdownMenu({
             {...TransitionProps}
             style={{
               transformOrigin:
-                placement === 'bottom' ? 'center top' : 'center bottom',
+                placement === "bottom" ? "center top" : "center bottom",
             }}
           >
             <Paper className={classes.paper}>
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList autoFocusItem={open} onKeyDown={handleListKeyDown}>
-                  {items.map((item) =>
-                    item.path.includes('http') ? (
-                      <MenuItem
-                        key={item.id}
-                        onClick={handleClose}
-                        component={Link}
-                        className={classes.navSubItem}
-                        href={item.path}
-                        target="_blank"
-                      >
-                        {item.title.toUpperCase()}
-                      </MenuItem>
+                  {children.map((item) =>
+                    !item.children.length ? (
+                      renderMenuItem(item)
                     ) : (
-                      <MenuItem
+                      <InnerMenu
                         key={item.id}
-                        onClick={handleClose}
-                        component={NavLink}
-                        exact
-                        activeClassName={classes.selected}
-                        className={classes.navSubItem}
-                        to={path + item.path}
-                      >
-                        {item.title.toUpperCase()}
-                      </MenuItem>
+                        url={url + item.url}
+                        title={item.title}
+                        children={item.children.sort(
+                          (a, b) => a.order - b.order
+                        )}
+                        buttonClassName={classes.navSubItem}
+                        activeClassName={classes.active}
+                        closeParent={handleCloseParent}
+                      />
                     )
                   )}
                 </MenuList>
@@ -140,12 +167,14 @@ function DropdownMenu({
 
 DropdownMenu.propTypes = {
   title: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(
+  url: PropTypes.string.isRequired,
+  children: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string,
+      id: PropTypes.number,
       title: PropTypes.string.isRequired,
-      path: PropTypes.string.isRequired,
+      order: PropTypes.number.isRequired,
+      target: PropTypes.string,
+      url: PropTypes.string.isRequired,
     })
   ).isRequired,
   buttonClassName: PropTypes.string,

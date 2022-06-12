@@ -1,17 +1,25 @@
 query GetIndexPage {
-  index {
-    title
-    subtitle
-    button {
-      title
-      path
-    }
-    videoLink
-    partnershipText
-    partnershipIcons {
-      id
-      url
-      alternativeText
+  home {
+    data {
+      attributes {
+        title
+        subtitle
+        button {
+          title
+          link
+        }
+        videoLink
+        partnershipText
+        partnershipIcons {
+          data {
+            attributes {
+              hash
+              url
+              alternativeText
+            }
+          }
+        }
+      }
     }
   }
 }

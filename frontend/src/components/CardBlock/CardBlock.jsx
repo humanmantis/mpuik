@@ -1,65 +1,52 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles, Grid, Typography } from '@material-ui/core';
-import Card from '../Card/Card';
+import React from "react";
+import PropTypes from "prop-types";
+import { makeStyles, Grid } from "@material-ui/core";
+import Card from "../Card/Card";
+import BlockTitle from "../common/BlockTitle";
+import constants from "../../config/constants";
 
 const useStyles = makeStyles((theme) => ({
   section: {
-    margin: '5rem 0',
+    margin: "5rem 0",
   },
   sectionHeader: {
-    margin: '0 auto',
-    maxWidth: '800px',
+    margin: "0 auto",
+    maxWidth: "800px",
   },
   title: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: theme.palette.primary.main,
   },
   subtitle: {
-    marginBottom: '2rem',
-    fontWeight: 'bold',
+    marginBottom: "2rem",
+    fontWeight: "bold",
     color: theme.palette.info.main,
   },
 }));
 
-function CardBlock({ slug, title, subtitle, cards }) {
+function CardBlock({ title, subtitle, cards, variant }) {
   const classes = useStyles();
-  return (
-    <section id={slug} className={classes.section}>
-      <div className={classes.sectionHeader}>
-        <Typography
-          variant="h4"
-          className={classes.title}
-          align="center"
-          gutterBottom
-        >
-          {title}
-        </Typography>
-        <Typography
-          variant="h6"
-          align="center"
-          component="p"
-          className={classes.subtitle}
-          paragraph
-        >
-          {subtitle}
-        </Typography>
-      </div>
+  const { cardType } = constants;
+  const smSize =
+    variant === cardType.big || variant === cardType.fullwidth ? 12 : 6;
+  const mdSize =
+    variant === cardType.fullwidth ? 12 : variant === cardType.big ? 6 : 4;
 
+  if (variant === cardType.fullwidth) {
+    cards = [...cards].reverse();
+  }
+
+  return (
+    <section id={title?.split(" ").join("")} className={classes.section}>
+      <BlockTitle title={title} subtitle={subtitle} />
       <Grid container spacing={3} justify="center">
         {cards.map((card, i) => (
-          <Grid
-            key={card.id}
-            item
-            xs={12}
-            sm={card.variant === 'big' ? 12 : 6}
-            md={card.variant === 'big' ? 6 : 4}
-          >
+          <Grid key={card.id} item xs={12} sm={smSize} md={mdSize}>
             <Card
-              variant={card.variant}
+              variant={variant}
               title={card.title}
               description={card.description}
-              icon={card.icon}
+              icon={card.icon.data}
             />
           </Grid>
         ))}
@@ -69,22 +56,26 @@ function CardBlock({ slug, title, subtitle, cards }) {
 }
 
 CardBlock.defaultProps = {
-  subtitle: '',
+  subtitle: "",
 };
 
 CardBlock.propTypes = {
-  slug: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
+  variant: PropTypes.oneOf(["small", "middle", "big", "fullwidth"]),
   cards: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      variant: PropTypes.oneOf(['small', 'middle', 'big']),
       title: PropTypes.string.isRequired,
       description: PropTypes.string,
       icon: PropTypes.shape({
-        url: PropTypes.string.isRequired,
-        alternativeText: PropTypes.string.isRequired,
+        data: PropTypes.shape({
+          attributes: PropTypes.shape({
+            hash: PropTypes.string.isRequired,
+            url: PropTypes.string.isRequired,
+            alternativeText: PropTypes.string.isRequired,
+          }),
+        }),
       }).isRequired,
     })
   ),

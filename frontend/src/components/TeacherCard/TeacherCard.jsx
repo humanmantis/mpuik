@@ -35,17 +35,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function TeacherCard({ route, photo, fullname, position }) {
+function TeacherCard({ route, photo, fullname, position, academiclevel }) {
   const classes = useStyles();
   return (
     <Paper className={classes.card}>
       <Link className={classes.link} component={RouterLink} to={route}>
         <img
-          src={
-            photo?.url
-              ? process.env.REACT_APP_IMAGE_URI + photo?.url
-              : defaultProfileImage
-          }
+          src={photo?.url ? photo?.url : defaultProfileImage}
           alt={photo?.alternativeText ?? "Default Photo"}
           className={classes.img}
         />
@@ -53,7 +49,10 @@ function TeacherCard({ route, photo, fullname, position }) {
         <Typography variant="h5" className={classes.title}>
           {fullname}
         </Typography>
-        <Typography variant="subtitle2">{position}</Typography>
+        <Typography variant="subtitle2">
+          {position}
+          {position && academiclevel && ","} {academiclevel}
+        </Typography>
       </Link>
     </Paper>
   );
@@ -61,7 +60,8 @@ function TeacherCard({ route, photo, fullname, position }) {
 
 TeacherCard.propTypes = {
   fullname: PropTypes.string.isRequired,
-  position: PropTypes.string.isRequired,
+  position: PropTypes.string,
+  academiclevel: PropTypes.string,
   route: PropTypes.string.isRequired,
   photo: PropTypes.shape({
     url: PropTypes.string.isRequired,

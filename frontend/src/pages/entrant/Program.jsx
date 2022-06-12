@@ -13,7 +13,7 @@ import Location from "../../components/Location/Location";
 import circlesSvg from "../../assets/icons/circles.svg";
 import Loader from "../../components/common/Loader";
 
-const GetProgram = loader("../../graphql/GetProgram.gql");
+const GetProgram = loader("../../graphql/pages/entrant/GetProgram.gql");
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -62,15 +62,15 @@ function Program({ params }) {
     variables: { slug: params.program },
   });
 
-  const program = data?.programs[0];
-  const location = program?.location;
+  const program = data?.programs.data[0]?.attributes;
+  const location = program?.location.data?.attributes;
 
   const windowLocation = useLocation();
 
   useEffect(() => {
     if (!loading && data && windowLocation.hash) {
       document
-        .querySelector(windowLocation.hash)
+        .querySelector(decodeURI(windowLocation.hash))
         ?.scrollIntoView({ behavior: "smooth" });
     }
   }, [loading, data, windowLocation.hash]);
@@ -146,11 +146,11 @@ function Program({ params }) {
               fullHeightHover={false}
               navButtonsWrapperProps={{ className: classes.carouselButton }}
             >
-              {program?.photos?.map((p) => (
+              {program?.photos.data?.map((p) => (
                 <img
-                  key={p.id}
-                  src={process.env.REACT_APP_IMAGE_URI + p.url}
-                  alt={p.alternativeText}
+                  key={p.attributes.hash}
+                  src={p.attributes.url}
+                  alt={p.attributes.alternativeText}
                   className={classes.img}
                 />
               ))}
@@ -161,19 +161,18 @@ function Program({ params }) {
           card.cards ? (
             <CardBlock
               key={card.id}
-              slug={card.slug}
               title={card.title}
               subtitle={card.subtitle}
+              variant={card.variant}
               cards={card.cards}
             />
           ) : (
             <ArticleSmall
               key={card.id}
-              slug={card.slug}
               title={card.title}
               subtitle={card.subtitle}
               content={card.content}
-              photos={card.photos}
+              photos={card.photos.data}
             />
           )
         )}

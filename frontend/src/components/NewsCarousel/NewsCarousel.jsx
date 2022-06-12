@@ -120,37 +120,37 @@ function NewsCarousel({ items }) {
       classNale={classes.container}
     >
       {items.map((item) => (
-        <Grid container>
+        <Grid container key={item.attributes.slug}>
           <Grid item xs={12} md={6}>
             <img
               src={
-                item?.photo?.url
-                  ? process.env.REACT_APP_IMAGE_URI + item?.photo?.url
+                item.attributes?.photo.data?.attributes.url
+                  ? item.attributes?.photo.data?.attributes.url
                   : defaultPostImg
               }
-              alt={item.title}
+              alt={item.attributes.title}
               className={classes.img}
             />
           </Grid>
           <Grid item xs={12} md={6} className={classes.textContainer}>
-            {item?.category && (
+            {item.attributes.category.data?.attributes && (
               <Button
                 className={classes.categoryButton}
                 component={RouterLink}
-                to={`/news/${item?.category?.slug}`}
+                to={`/news/${item.attributes.category.data?.attributes.slug}`}
               >
-                {item?.category?.name}
+                {item.attributes.category.data?.attributes.name}
               </Button>
             )}
             <Typography variant="h4" className={classes.title} gutterBottom>
-              {item.title}
+              {item.attributes.title}
             </Typography>
             <Typography variant="body1" className={classes.text} paragraph>
-              {item.description}
+              {item.attributes.description}
             </Typography>
             <Button
               component={RouterLink}
-              to={`/news/${item?.category?.slug}/${item.slug}`}
+              to={`/news/${item.attributes.category.data?.attributes.slug}/${item.attributes.slug}`}
               className={classes.readButton}
             >
               Читати

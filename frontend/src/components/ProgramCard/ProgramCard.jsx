@@ -78,16 +78,17 @@ function ProgramCard({
         <Link className={classes.link} href={program} target="_blank">
           # Освітня програма
         </Link>
-        {links.map((l) => (
-          <Link
-            key={l.id}
-            className={classes.link}
-            component={RouterLink}
-            to={`/entrant/${slug}#${l.slug}`}
-          >
-            # {l.title}
-          </Link>
-        ))}
+        {!!links.length &&
+          links.map((l) => (
+            <Link
+              key={l.title}
+              className={classes.link}
+              component={RouterLink}
+              to={`/entrant/${slug}#${l.title.split(" ").join("")}`}
+            >
+              # {l.title}
+            </Link>
+          ))}
       </div>
     </Paper>
   );
@@ -108,7 +109,6 @@ ProgramCard.propTypes = {
   links: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
     })
   ).isRequired,

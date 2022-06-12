@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_page_list_blocks",
+  "info": {
+    "displayName": "Список",
+    "icon": "th-list",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "list.item"
+    }
+  }
+}

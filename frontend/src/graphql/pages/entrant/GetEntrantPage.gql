@@ -1,40 +1,49 @@
 query GetEntrantPage {
-  entrant {
-    title
-    subtitle
-    programs {
-      id
-      slug
-      name
-      level
-      form
-      specialization
-      term
-      program
-      cards {
-        ... on ComponentCardCardBlock {
-          id
-          title
-          slug
-        }
-        ... on ComponentArticleArticle {
-          id
-          title
-          slug
-        }
-      }
-    }
-    location {
-      title
-      address
-      phone
-      email
-      list {
-        id
+  page(id: 7) {
+    data {
+      attributes {
         title
+        subtitle
+        programs {
+          data {
+            attributes {
+              slug
+              name
+              level
+              form
+              specialization
+              term
+              program
+              cards {
+                ... on ComponentPageCardBlock {
+                  id
+                  title
+                }
+                ... on ComponentPageArticle {
+                  id
+                  title
+                }
+              }
+            }
+          }
+        }
+        location {
+          data {
+            attributes {
+              title
+              address
+              phone
+              email
+              list {
+                id
+                title
+              }
+              latitude
+              longitude
+            }
+          }
+        }
       }
-      latitude
-      longitude
     }
   }
 }

@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_page_card_blocks",
+  "info": {
+    "displayName": "Картки",
+    "icon": "window-restore",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cards.card"
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": ["small", "middle", "big", "fullwidth"],
+      "default": "middle",
+      "required": true
+    }
+  }
+}

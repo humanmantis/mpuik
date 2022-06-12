@@ -13,13 +13,16 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   navItem: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(1),
     padding: "0.4rem 1rem",
     color: theme.palette.info.main,
     fontWeight: "bold",
     borderRadius: "0.875rem",
     "&:hover": {
       color: theme.palette.info.main,
+    },
+    "&:last-child": {
+      marginRight: 0,
     },
   },
   active: {
@@ -37,29 +40,31 @@ function DesktopHeader({ navigation }) {
           <Logo />
         </Grid>
         <Grid item>
-          {navigation.map((item) =>
-            item.items.length === 0 ? (
-              <Button
-                key={item.id}
-                component={NavLink}
-                to={item.path}
-                className={classes.navItem}
-                activeClassName={classes.active}
-                exact={item.path === "/"}
-              >
-                {item.title}
-              </Button>
-            ) : (
-              <DropdownMenu
-                key={item.id}
-                path={item.path}
-                title={item.title}
-                items={item.items}
-                buttonClassName={classes.navItem}
-                activeClassName={classes.active}
-              />
-            )
-          )}
+          {navigation
+            .sort((a, b) => a.order - b.order)
+            .map((item) =>
+              !item.children.length ? (
+                <Button
+                  key={item.id}
+                  component={NavLink}
+                  to={item.url}
+                  className={classes.navItem}
+                  activeClassName={classes.active}
+                  exact={item.url === "/"}
+                >
+                  {item.title}
+                </Button>
+              ) : (
+                <DropdownMenu
+                  key={item.id}
+                  url={item.url}
+                  title={item.title}
+                  children={item.children.sort((a, b) => a.order - b.order)}
+                  buttonClassName={classes.navItem}
+                  activeClassName={classes.active}
+                />
+              )
+            )}
         </Grid>
       </Grid>
     </Toolbar>
@@ -69,16 +74,20 @@ function DesktopHeader({ navigation }) {
 DesktopHeader.propTypes = {
   navigation: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
-      path: PropTypes.string.isRequired,
-      items: PropTypes.arrayOf(
+      order: PropTypes.number.isRequired,
+      target: PropTypes.string,
+      url: PropTypes.string.isRequired,
+      children: PropTypes.arrayOf(
         PropTypes.shape({
-          id: PropTypes.string,
+          id: PropTypes.number,
           title: PropTypes.string.isRequired,
-          path: PropTypes.string.isRequired,
+          order: PropTypes.number.isRequired,
+          target: PropTypes.string,
+          url: PropTypes.string.isRequired,
         })
-      ).isRequired,
+      ),
     })
   ).isRequired,
 };

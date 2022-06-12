@@ -1,0 +1,40 @@
+query GetEmployee($slug: String!) {
+  employees(filters: { slug: { eq: $slug } }) {
+    data {
+      attributes {
+        fullname
+        position
+        academiclevel
+        academicstatus
+        interests
+        sefleducation
+        awards
+        bio
+        email
+        googleScholarLink
+        publications {
+          id
+          title
+          link
+        }
+        photo {
+          data {
+            attributes {
+              hash
+              url
+              alternativeText
+            }
+          }
+        }
+        syllabi {
+          data {
+            attributes {
+              discipline
+              link
+            }
+          }
+        }
+      }
+    }
+  }
+}

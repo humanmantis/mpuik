@@ -1,41 +1,39 @@
 {
-    "name": "mpuik-backend",
-    "private": true,
-    "version": "1.0.0",
-    "description": "A Strapi application",
-    "scripts": {
-        "develop": "strapi develop",
-        "start": "strapi start",
-        "build": "strapi build",
-        "strapi": "strapi"
-    },
-    "devDependencies": {},
-    "dependencies": {
-        "graphql": "^15.5.0",
-        "slugify": "^1.4.7",
-        "strapi": "3.5.2",
-        "strapi-admin": "3.5.2",
-        "strapi-connector-mongoose": "3.5.2",
-        "strapi-plugin-content-manager": "3.5.2",
-        "strapi-plugin-content-type-builder": "3.5.2",
-        "strapi-plugin-email": "3.5.2",
-        "strapi-plugin-graphql": "3.5.2",
-        "strapi-plugin-upload": "3.5.2",
-        "strapi-plugin-users-permissions": "3.5.2",
-        "strapi-provider-email-sendgrid": "^3.5.3",
-        "strapi-provider-upload-cloudinary": "^3.5.2",
-        "strapi-provider-upload-local": "^3.5.2",
-        "strapi-utils": "3.5.2"
-    },
-    "author": {
-        "name": "Max Floreskul"
-    },
-    "strapi": {
-        "uuid": "4be4ca0a-e5e0-4bf3-87bf-3d23f3c65746"
-    },
-    "engines": {
-        "node": ">=10.16.0 <=14.x.x",
-        "npm": "^6.0.0"
-    },
-    "license": "MIT"
+  "name": "mpuik-backend",
+  "private": false,
+  "version": "2.0.0",
+  "description": "Backend for cafedra site",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi",
+    "postinstall": "patch-package"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@strapi/plugin-graphql": "^4.1.12",
+    "@strapi/plugin-i18n": "4.1.12",
+    "@strapi/plugin-users-permissions": "4.1.12",
+    "@strapi/provider-email-sendgrid": "^4.1.12",
+    "@strapi/provider-upload-cloudinary": "^4.1.12",
+    "@strapi/strapi": "4.1.12",
+    "patch-package": "^6.4.7",
+    "pg": "8.6.0",
+    "pg-connection-string": "^2.5.0",
+    "postinstall-postinstall": "^2.1.0",
+    "slugify": "^1.6.5",
+    "strapi-plugin-menus": "^0.3.0"
+  },
+  "author": {
+    "name": "Max Floreskul"
+  },
+  "strapi": {
+    "uuid": "c8da34f5-7105-401d-a4aa-8632f559d3db"
+  },
+  "engines": {
+    "node": ">=12.x.x <=16.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
 }

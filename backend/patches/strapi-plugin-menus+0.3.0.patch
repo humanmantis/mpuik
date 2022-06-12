@@ -1,0 +1,44 @@
+diff --git a/node_modules/strapi-plugin-menus/admin/src/translations/uk.json b/node_modules/strapi-plugin-menus/admin/src/translations/uk.json
+new file mode 100644
+index 0000000..1c30bf1
+--- /dev/null
++++ b/node_modules/strapi-plugin-menus/admin/src/translations/uk.json
+@@ -0,0 +1,38 @@
++{
++  "plugin.name": "Меню",
++
++  "ui.add.menuItem": "Додати пункт меню",
++  "ui.cancel": "Скасувати",
++  "ui.clone": "Дублювати",
++  "ui.create": "Створити",
++  "ui.create.menu": "Створити меню",
++  "ui.created": "Створено",
++  "ui.delete": "Видалити",
++  "ui.delete.menuItem": "Видалити пункт меню",
++  "ui.deleted.menu": "Меню видалено",
++  "ui.edit": "Редагувати",
++  "ui.error": "Сталася помилка",
++  "ui.goBack": "Назад",
++  "ui.loaded": "Дані завантажено",
++  "ui.move.menuItem.down": "Перемістити елемент вниз",
++  "ui.move.menuItem.up": "Перемістити елемент вгору",
++  "ui.save": "Зберегти",
++  "ui.saved": "Збережено",
++  "ui.untitled": "Без назви",
++
++  "clone.header.title": "Дублікат меню",
++  "create.header.title": "Створити нове меню",
++
++  "edit.header.title": "Редагування меню",
++  "edit.item.title": "Редагувати пункт меню",
++  "edit.state.empty": "Додати перший пункт меню",
++  "edit.tabs.title": "Налаштування пункту меню",
++  "edit.tabs.title.link": "Посилання",
++  "edit.tabs.title.advanced": "Додатково",
++
++  "index.header.title": "Менеджер меню",
++  "index.header.subtitle": "Налаштувати структуру меню та пунктів меню",
++  "form.label.slug": "Посилання",
++  "form.label.title": "Назва",
++  "form.placeholder.untitled": "Без назви"
++}

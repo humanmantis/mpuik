@@ -19,8 +19,9 @@ import Markdown from "../../components/common/Markdown";
 import TopWaves from "../../components/background/PageWaves";
 import defaultProfileImage from "../../assets/default-profile.jpg";
 import Loader from "../../components/common/Loader";
+import PageLink from "../../components/common/Link";
 
-const GetEmployee = loader("../../graphql/GetEmployee.gql");
+const GetEmployee = loader("../../graphql/pages/about/GetEmployee.gql");
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -41,9 +42,22 @@ const useStyles = makeStyles((theme) => ({
   subtitle: {
     marginBottom: "3rem",
   },
+  nomargin: {
+    marginBottom: "0",
+  },
   list: {
     paddingLeft: "0",
     listStylePosition: "inside",
+  },
+  listCompact: {
+    paddingLeft: "0",
+    marginTop: "0",
+    marginBottom: "2rem",
+    listStylePosition: "inside",
+  },
+  marginTop: {
+    marginTop: "1rem",
+    marginBottom: "0",
   },
   img: {
     width: "100%",
@@ -92,7 +106,7 @@ function Employee({ params }) {
     variables: { slug: params.slug },
   });
 
-  const employee = data?.employees[0];
+  const employee = data?.employees.data[0].attributes;
 
   if (loading) return <Loader />;
   if (error) return <Redirect to="/error" />;
@@ -116,14 +130,100 @@ function Employee({ params }) {
                 </Typography>
                 <Typography
                   variant="subtitle1"
-                  paragraph
                   align="center"
+                  paragraph
                   className={classes.subtitle}
                 >
                   {employee.position}
                 </Typography>
-                <Markdown content={employee.bio} />
+                {employee.academiclevel && (
+                  <Typography
+                    variant="subtitle1"
+                    paragraph
+                    className={classes.nomargin}
+                  >
+                    <b>Наукоів ступінь:</b> {employee.academiclevel}
+                  </Typography>
+                )}
+                {employee.academicstatus && (
+                  <Typography
+                    variant="subtitle1"
+                    paragraph
+                    className={classes.nomargin}
+                  >
+                    <b>Вчене звання:</b> {employee.academicstatus}
+                  </Typography>
+                )}
+                {employee.interests && (
+                  <Typography variant="subtitle1" paragraph>
+                    <b>Область наукових інтересів:</b> {employee.interests}
+                  </Typography>
+                )}
+                {employee.sefleducation && (
+                  <Typography
+                    variant="subtitle1"
+                    paragraph
+                    className={classes.marginTop}
+                  >
+                    <b>
+                      <PageLink
+                        title={
+                          "Стажування, підвищення кваліфікації, самоосвіта"
+                        }
+                        link={employee.sefleducation}
+                        target="_blank"
+                      />
+                    </b>
+                  </Typography>
+                )}
+                {employee.awards && (
+                  <Typography
+                    variant="subtitle1"
+                    paragraph
+                    className={classes.nomargin}
+                  >
+                    <b>
+                      <PageLink
+                        title={"Відзнаки, подяки"}
+                        link={employee.awards}
+                        target="_blank"
+                      />
+                    </b>
+                  </Typography>
+                )}
 
+                {!!employee.syllabi.data?.length && (
+                  <>
+                    <Typography
+                      variant="subtitle1"
+                      paragraph
+                      className={classes.marginTop}
+                    >
+                      <b>Дисципліни, які викладає:</b>
+                    </Typography>
+                    <ol className={classes.listCompact}>
+                      {employee.syllabi.data.map((syllabus) => (
+                        <Typography
+                          key={syllabus.attributes.discipline}
+                          variant="body1"
+                          align="justify"
+                          component="li"
+                        >
+                          {syllabus.attributes.link ? (
+                            <PageLink
+                              title={syllabus.attributes.discipline}
+                              link={syllabus.attributes.link}
+                            />
+                          ) : (
+                            syllabus.attributes.discipline
+                          )}
+                        </Typography>
+                      ))}
+                    </ol>
+                  </>
+                )}
+
+                {!!employee.bio && <Markdown content={employee.bio} />}
                 {employee.publications.length > 0 && (
                   <>
                     <Typography
@@ -141,7 +241,11 @@ function Employee({ params }) {
                           align="justify"
                           component="li"
                         >
-                          {p.title}
+                          {p.link ? (
+                            <PageLink title={p.title} link={p.link} />
+                          ) : (
+                            p.title
+                          )}
                         </Typography>
                       ))}
                     </ol>
@@ -153,11 +257,14 @@ function Employee({ params }) {
               <Grid item xs={12} md={4} lg={4}>
                 <img
                   src={
-                    employee.photo?.url
-                      ? process.env.REACT_APP_IMAGE_URI + employee.photo?.url
+                    employee.photo.data?.attributes.url
+                      ? employee.photo.data.attributes.url
                       : defaultProfileImage
                   }
-                  alt={employee.photo?.alternativeText ?? "Default Photo"}
+                  alt={
+                    employee.photo.data?.attributes.alternativeText ??
+                    "Default Photo"
+                  }
                   className={classes.img}
                 />
                 {employee.email && (

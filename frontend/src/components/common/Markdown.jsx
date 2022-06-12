@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactMarkdown from "markdown-to-jsx";
-import { Typography, Link, makeStyles } from "@material-ui/core";
+import { Typography, makeStyles } from "@material-ui/core";
+import Link from "./Link";
 
 const useStyles = makeStyles((theme) => ({
   blockquote: {
@@ -16,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Markdown({ content }) {
+function Markdown({ content, noMargin }) {
   const classes = useStyles();
   return (
     <ReactMarkdown
@@ -54,12 +55,7 @@ function Markdown({ content }) {
           },
           p: {
             component: (props) => (
-              <Typography
-                variant="body1"
-                paragraph
-                align="justify"
-                {...props}
-              />
+              <Typography paragraph={!noMargin} align="justify" {...props} />
             ),
           },
           li: {
@@ -78,15 +74,18 @@ function Markdown({ content }) {
             },
           },
           a: {
-            component: (props) => <Link {...props} />,
+            component: (props) => (
+              <Link
+                {...props}
+                title={props.children[0]}
+                link={props.href}
+                target={props.target || "_blank"}
+              />
+            ),
           },
           img: {
             component: (props) => (
-              <img
-                src={process.env.REACT_APP_IMAGE_URI + props.src}
-                alt={props.alt}
-                className={classes.img}
-              />
+              <img src={props.src} alt={props.alt} className={classes.img} />
             ),
           },
         },
@@ -99,6 +98,7 @@ function Markdown({ content }) {
 
 Markdown.propTypes = {
   content: PropTypes.string.isRequired,
+  noMargin: PropTypes.bool,
 };
 
 export default Markdown;

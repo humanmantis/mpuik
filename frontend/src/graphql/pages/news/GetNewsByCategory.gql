@@ -1,25 +1,37 @@
 query getNewsPage($start: Int = 0, $limit: Int = 9, $category: String!) {
-  postsConnection(where: { category: { slug: $category } }) {
-    aggregate {
-      count
-    }
-  }
   posts(
-    where: { category: { slug: $category } }
-    start: $start
-    limit: $limit
-    sort: "published_at:desc"
+    filters: { category: { slug: { eq: $category } } }
+    pagination: { start: $start, limit: $limit }
+    sort: "publishedAt:desc"
   ) {
-    id
-    title
-    description
-    slug
-    category {
-      name
-      slug
+    meta {
+      pagination {
+        total
+      }
     }
-    photo {
-      url
+    data {
+      attributes {
+        title
+        description
+        slug
+        category {
+          data {
+            attributes {
+              name
+              slug
+            }
+          }
+        }
+        photo {
+          data {
+            attributes {
+              hash
+              url
+              alternativeText
+            }
+          }
+        }
+      }
     }
   }
 }

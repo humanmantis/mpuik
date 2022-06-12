@@ -1,43 +1,43 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Grid, Typography, makeStyles, Container } from '@material-ui/core';
-import FacebookIcon from '@material-ui/icons/Facebook';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import TelegramIcon from '@material-ui/icons/Telegram';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import YoutubeIcon from '@material-ui/icons/YouTube';
-import Logo from '../common/Logo';
-import AddressComponent from '../common/AddressComponent';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Grid, Typography, makeStyles, Container } from "@material-ui/core";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import InstagramIcon from "@material-ui/icons/Instagram";
+import TelegramIcon from "@material-ui/icons/Telegram";
+import TwitterIcon from "@material-ui/icons/Twitter";
+import YoutubeIcon from "@material-ui/icons/YouTube";
+import Logo from "../common/Logo";
+import AddressComponent from "../common/AddressComponent";
 
 const useStyles = makeStyles((theme) => ({
   footerTop: {
     background: theme.palette.primary.light,
-    padding: '100px 20px',
+    padding: "100px 20px",
   },
   description: {
-    margin: '2rem 0',
-    maxWidth: '300px',
-    textAlign: 'justify',
-    [theme.breakpoints.down('sm')]: {
-      margin: '2rem auto',
-      textAlign: 'center',
+    margin: "2rem 0",
+    maxWidth: "300px",
+    textAlign: "justify",
+    [theme.breakpoints.down("sm")]: {
+      margin: "2rem auto",
+      textAlign: "center",
     },
   },
   socialNetworks: {
-    [theme.breakpoints.down('sm')]: {
-      justifyContent: 'center',
+    [theme.breakpoints.down("sm")]: {
+      justifyContent: "center",
     },
   },
   socialNetwork: {
-    borderRadius: '1rem',
+    borderRadius: "1rem",
     padding: 15,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     width: 50,
     height: 50,
-    transition: '.3s all ease',
-    '&:hover': {
+    transition: ".3s all ease",
+    "&:hover": {
       background: theme.palette.info.light,
     },
   },
@@ -47,84 +47,84 @@ const useStyles = makeStyles((theme) => ({
   categoryTitle: {
     fontWeight: 600,
     fontSize: 20,
-    lineHeight: '27px',
-    textTransform: 'uppercase',
-    color: '#730438',
+    lineHeight: "27px",
+    textTransform: "uppercase",
+    color: "#730438",
   },
   link: {
     fontSize: 16,
-    lineHeight: '22px',
-    color: '#730438',
-    margin: '26px 0',
-    display: 'block',
-    textDecoration: 'none',
-    '&:hover': {
-      textDecoration: 'underline',
+    lineHeight: "22px",
+    color: "#730438",
+    margin: "26px 0",
+    display: "block",
+    textDecoration: "none",
+    "&:hover": {
+      textDecoration: "underline",
     },
-    [theme.breakpoints.down('sm')]: {
-      margin: '13px 0',
+    [theme.breakpoints.down("sm")]: {
+      margin: "13px 0",
     },
   },
   textStyle: {
     fontSize: 16,
-    lineHeight: '22px',
-    color: '#730438',
+    lineHeight: "22px",
+    color: "#730438",
   },
   iconContainer: {
-    height: '2rem',
-    marginRight: '1rem',
+    height: "2rem",
+    marginRight: "1rem",
   },
   icon: {
-    height: '2rem',
+    height: "2rem",
     color: theme.palette.info.main,
   },
   bottomItemLeft: {
-    padding: '25px 0',
-    flex: '0 1 50%',
-    [theme.breakpoints.down('sm')]: {
-      flex: '0 1 100%',
-      textAlign: 'center',
-      padding: '15px 0',
+    padding: "25px 0",
+    flex: "0 1 50%",
+    [theme.breakpoints.down("sm")]: {
+      flex: "0 1 100%",
+      textAlign: "center",
+      padding: "15px 0",
     },
   },
   bottomItemRight: {
-    textAlign: 'right',
-    padding: '25px 0',
-    flex: '0 1 50%',
-    [theme.breakpoints.down('sm')]: {
-      flex: '0 1 100%',
-      textAlign: 'center',
-      padding: '15px 0',
+    textAlign: "right",
+    padding: "25px 0",
+    flex: "0 1 50%",
+    [theme.breakpoints.down("sm")]: {
+      flex: "0 1 100%",
+      textAlign: "center",
+      padding: "15px 0",
     },
   },
   bottomEnd: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    [theme.breakpoints.down('sm')]: {
-      display: 'block',
+    display: "flex",
+    justifyContent: "flex-end",
+    [theme.breakpoints.down("sm")]: {
+      display: "block",
     },
   },
 
   subitem: {
-    display: 'flex',
-    alignItems: 'center',
-    marginBottom: '1rem',
-    [theme.breakpoints.down('md')]: {
-      marginBottom: '.5rem',
+    display: "flex",
+    alignItems: "center",
+    marginBottom: "1rem",
+    [theme.breakpoints.down("md")]: {
+      marginBottom: ".5rem",
     },
   },
   flex: {
-    [theme.breakpoints.down('sm')]: {
-      display: 'flex',
-      justifyContent: 'center',
+    [theme.breakpoints.down("sm")]: {
+      display: "flex",
+      justifyContent: "center",
     },
   },
 }));
 
 function Footer({ footer }) {
   const styles = useStyles();
-  const sections = footer.sections;
-  const location = footer.location;
+  const sections = footer.data.attributes.sections;
+  const location = footer.data.attributes.location?.data?.attributes;
 
   return (
     <>
@@ -133,13 +133,13 @@ function Footer({ footer }) {
           <Grid container spacing={3} justify="center">
             <Grid item xs={12} md={5} lg={4}>
               <Logo mobileStyle={styles.flex} />
-              {footer.additionalText && (
+              {footer.data.attributes.additionalText && (
                 <Typography
                   variant="body1"
                   paragraph
                   className={styles.description}
                 >
-                  {footer.additionalText}
+                  {footer.data.attributesadditionalText}
                 </Typography>
               )}
               {location?.social && (
@@ -209,9 +209,9 @@ function Footer({ footer }) {
             </Grid>
             <Grid item xs={12} md={7} lg={8}>
               <Grid container spacing={3}>
-                {sections && (
+                {sections?.length && (
                   <Grid item xs={12} sm={8}>
-                    {sections && (
+                    {sections?.length && (
                       <Grid container justify="space-around" spacing={3}>
                         {sections.map((section) => (
                           <Grid
@@ -224,24 +224,24 @@ function Footer({ footer }) {
                             <Typography className={styles.categoryTitle}>
                               {section.title}
                             </Typography>
-                            {section.links.map((link) =>
-                              link.path.includes('http') ? (
+                            {section.links.map((item) =>
+                              item.link.includes("http") ? (
                                 <a
-                                  key={link.id}
-                                  href={link.path}
+                                  key={item.id}
+                                  href={item.link}
                                   target="_blank"
                                   rel="noreferrer"
                                   className={styles.link}
                                 >
-                                  {link.title}
+                                  {item.title}
                                 </a>
                               ) : (
                                 <Link
-                                  to={link.path}
-                                  key={link.id}
+                                  to={item.link}
+                                  key={item.id}
                                   className={styles.link}
                                 >
-                                  {link.title}
+                                  {item.title}
                                 </Link>
                               )
                             )}

@@ -1,24 +1,24 @@
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#0d6f93',
-      light: '#BCD8E4',
+      main: "#0d6f93",
+      light: "#BCD8E4",
     },
     secondary: {
-      main: '#06040A',
+      main: "#06040A",
     },
     info: {
-      main: '#730438',
-      light: '#FFDDED',
+      main: "#730438",
+      light: "#FFDDED",
     },
     background: {
-      default: '#F9F9FA',
+      default: "#F9F9FA",
     },
   },
   typography: {
-    fontFamily: ['Open Sans', 'sans-serif'].join(', '),
+    fontFamily: ["Open Sans", "sans-serif"].join(", "),
   },
 });
 

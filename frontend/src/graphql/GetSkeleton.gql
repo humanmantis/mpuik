@@ -1,35 +1,34 @@
 query GetSkeleton {
-  navigations {
-    id
-    title
-    path
-    items {
-      id
-      title
-      path
-    }
-  }
   footer {
-    additionalText
-    sections {
-      title
-      links {
-        id
-        title
-        path
-      }
-    }
-    location {
-      title
-      address
-      phone
-      email
-      social {
-        facebook
-        instagram
-        twitter
-        telegram
-        youtube
+    data {
+      attributes {
+        additionalText
+        sections {
+          id
+          title
+          links {
+            id
+            title
+            link
+          }
+        }
+        location {
+          data {
+            attributes {
+              title
+              address
+              phone
+              email
+              social {
+                facebook
+                instagram
+                twitter
+                telegram
+                youtube
+              }
+            }
+          }
+        }
       }
     }
   }
