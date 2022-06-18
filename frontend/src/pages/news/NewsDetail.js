@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   img: {
     height: "100%",
     maxHeight: "500px",
-    maxWidth: "400px",
+    maxWidth: "500px",
     float: "right",
     margin: "0 0 1.5rem 1.5rem",
     boxShadow: "0px 7px 22px rgb(143 134 196 / 30%)",
