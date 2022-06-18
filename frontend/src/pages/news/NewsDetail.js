@@ -12,19 +12,25 @@ const GetNews = loader("../../graphql/pages/news/GetNews.gql");
 
 const useStyles = makeStyles((theme) => ({
   img: {
-    marginTop: "5rem",
-    height: "500px",
-    background: theme.palette.grey[300],
-    width: "100%",
-    objectFit: "cover",
+    height: "100%",
+    maxHeight: "500px",
+    maxWidth: "400px",
+    float: "right",
+    margin: "0 0 1.5rem 1.5rem",
+    boxShadow: "0px 7px 22px rgb(143 134 196 / 30%)",
+    objectFit: "contain",
     [theme.breakpoints.only("md")]: {
-      height: "450px",
+      maxHeight: "450px",
     },
-    [theme.breakpoints.only("sm")]: {
-      height: "400px",
+    [theme.breakpoints.down("sm")]: {
+      maxHeight: "400px",
+      width: "100%",
+      maxWidth: "none",
+      float: "none",
+      margin: "0 0 1.5rem 0"
     },
     [theme.breakpoints.only("xs")]: {
-      height: "300px",
+      maxHeight: "300px",
     },
   },
   title: {
@@ -35,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   news: {
     background: theme.palette.common.white,
     padding: "3rem",
-    marginBottom: "5rem",
+    margin: "5rem 0",
     [theme.breakpoints.down("md")]: {
       padding: "2rem",
     },
@@ -63,16 +69,16 @@ const NewsDetail = ({ params }) => {
 
   return (
     <Container fixed className={styles.container}>
-      <img
-        src={
-          post?.attributes.photo.data?.attributes.url
-            ? post?.attributes.photo.data?.attributes.url
-            : defaultPostImg
-        }
-        alt={post.attributes.tile}
-        className={styles.img}
-      />
       <section className={styles.news}>
+        <img
+          src={
+            post?.attributes.photo.data?.attributes.url
+              ? post?.attributes.photo.data?.attributes.url
+              : defaultPostImg
+          }
+          alt={post.attributes.tile}
+          className={styles.img}
+        />
         <Typography variant="h3" className={styles.title} gutterBottom>
           {post.attributes.title}
         </Typography>

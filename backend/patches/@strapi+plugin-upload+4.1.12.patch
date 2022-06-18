@@ -1,5 +1,5 @@
 diff --git a/node_modules/@strapi/plugin-upload/admin/src/translations/uk.json b/node_modules/@strapi/plugin-upload/admin/src/translations/uk.json
-index 1b77bf1..beee3ab 100644
+index 1b77bf1..8831897 100644
 --- a/node_modules/@strapi/plugin-upload/admin/src/translations/uk.json
 +++ b/node_modules/@strapi/plugin-upload/admin/src/translations/uk.json
 @@ -9,6 +9,7 @@
@@ -10,6 +10,15 @@ index 1b77bf1..beee3ab 100644
    "filter.add": "Додати фільтр",
    "form.button.replace-media": "Замінити медіа",
    "form.input.decription.file-alt": "Цей текст буде показаний якщо файл не може бути показаний",
+@@ -39,7 +40,7 @@
+   "modal.header.file-detail": "Докладніше",
+   "modal.header.pending-assets": "Очикувані файли",
+   "modal.header.select-files": "Вибрані файли",
+-  "modal.nav.browse": "ереглянути",
++  "modal.nav.browse": "Переглянути",
+   "modal.nav.computer": "З комп'ютера",
+   "modal.nav.selected": "вібраний",
+   "modal.nav.url": "Через URL",
 @@ -67,5 +68,34 @@
    "sort.updated_at_asc": "Найдавніші оновлення",
    "sort.updated_at_desc": "Останні оновлення",

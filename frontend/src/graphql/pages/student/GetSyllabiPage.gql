@@ -6,6 +6,7 @@ query GetSyllabiPage {
         link
         year
         altemployee
+        altemployeelink
         isinternal
         employees {
           data {

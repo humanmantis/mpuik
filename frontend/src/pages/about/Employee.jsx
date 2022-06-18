@@ -142,7 +142,7 @@ function Employee({ params }) {
                     paragraph
                     className={classes.nomargin}
                   >
-                    <b>Наукоів ступінь:</b> {employee.academiclevel}
+                    <b>Науковий ступінь:</b> {employee.academiclevel}
                   </Typography>
                 )}
                 {employee.academicstatus && (

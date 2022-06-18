@@ -31,15 +31,18 @@
       "target": "api::employee.employee",
       "mappedBy": "syllabi"
     },
-    "altemployee": {
-      "type": "string"
-    },
     "credits": {
       "type": "integer"
     },
     "isexam": {
       "type": "boolean",
       "default": false
+    },
+    "altemployee": {
+      "type": "string"
+    },
+    "altemployeelink": {
+      "type": "string"
     }
   }
 }

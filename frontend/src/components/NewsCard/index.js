@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
   },
   media: {
-    height: "300px",
+    height: "220px",
     backgroundColor: theme.palette.grey[300],
     [theme.breakpoints.down("md")]: {
       height: "200px",

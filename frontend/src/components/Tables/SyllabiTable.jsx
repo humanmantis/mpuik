@@ -12,6 +12,7 @@ import {
   Typography,
   Link,
 } from "@material-ui/core";
+import PageLink from '../common/Link';
 
 const useStyles = makeStyles({
   root: {
@@ -90,7 +91,7 @@ function SyllabiTable({ syllabi }) {
                   ))
                 ) : (
                   <Typography variant="body1">
-                    {syllabus.attributes.altemployee}
+                    <PageLink title={syllabus.attributes.altemployee} link={syllabus.attributes.altemployeelink} />
                   </Typography>
                 )}
               </TableCell>

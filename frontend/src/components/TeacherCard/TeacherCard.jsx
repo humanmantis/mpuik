@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "0.5rem",
     borderRadius: "1rem",
     transition: "0.3s",
+    height: "100%",
     boxShadow: "0px 7px 25px rgba(143, 134, 196, 0.03)",
     "&:hover": {
       boxShadow: "0px 19px 33px rgba(143, 134, 196, 0.18)",
