@@ -1,2 +1,5 @@
 User-Agent: *
-Disallow: /
+Disallow: /dashboard
+Disallow: /api/*
+Allow: /graphql
+Allow: /api/menus?nested
