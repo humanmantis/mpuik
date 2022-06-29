@@ -25,12 +25,12 @@ code {
 }
 
 .main-container {
-  margin-top: 9rem;
+  margin-top: 7rem;
   margin-bottom: 4rem;
 }
 
 @media screen and (max-width: 1920px) {
   .index-container {
-    margin-top: 9rem;
+    margin-top: 7rem;
   }
 }

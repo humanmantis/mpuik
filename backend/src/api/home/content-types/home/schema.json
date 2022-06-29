@@ -30,9 +30,43 @@
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "videoLink": {
+      "type": "string"
+    },
+    "universityLogo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "instituteLogo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "institute": {
+      "type": "component",
+      "repeatable": false,
+      "component": "list.link"
+    },
+    "university": {
+      "type": "component",
+      "repeatable": false,
+      "component": "list.link"
+    },
+    "speciality": {
+      "type": "string"
+    },
+    "specialization": {
       "type": "string"
     }
   }

@@ -106,7 +106,7 @@ function Program({ params }) {
               className={classes.text}
               paragraph
             >
-              Спеціалізація:{" "}
+              Освітня програма:{" "}
               <span className={classes.boldText}>{program.specialization}</span>
             </Typography>
             <Typography
@@ -124,7 +124,7 @@ function Program({ params }) {
               className={classes.text}
               paragraph
             >
-              Варість навчання:{" "}
+              Вартість навчання:{" "}
               <span className={classes.boldText}>
                 {program.price} грн / рік
               </span>
@@ -136,7 +136,7 @@ function Program({ params }) {
               paragraph
             >
               <Link href={program.program} target="_blank">
-                Освітня програма
+                Освітньо-професійна програма
               </Link>
             </Typography>
           </Grid>

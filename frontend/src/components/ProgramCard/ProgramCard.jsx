@@ -68,7 +68,7 @@ function ProgramCard({
           {level} &mdash; {name} {form && `(${form})`}
         </Typography>
         <Typography variant="subtitle1" className={classes.boldText}>
-          Спеціалізація: <span className={classes.text}>{specialization}</span>
+          Освітня програма: <span className={classes.text}>{specialization}</span>
         </Typography>
         <Typography variant="subtitle1" className={classes.boldText}>
           Термін навчання: <span className={classes.text}>{term}</span>
@@ -76,7 +76,7 @@ function ProgramCard({
       </Link>
       <div className={classes.cardBody}>
         <Link className={classes.link} href={program} target="_blank">
-          # Освітня програма
+          # Освітньо-професійна програма
         </Link>
         {!!links.length &&
           links.map((l) => (

@@ -277,8 +277,7 @@ function Footer({ footer }) {
         <Grid container justify="space-between">
           <Grid item xs={12} className={styles.bottomItemLeft}>
             <Typography variant="body1">
-              Кафедра МПУіК &ndash; &copy; {new Date().getFullYear()} Всі права
-              захищено
+            ЧНУ ім. Ю. Федьковича. ННІФТКН. Кафедра МПУіК &ndash; &copy; {new Date().getFullYear()}
             </Typography>
           </Grid>
           <Grid item xs={12} className={styles.bottomItemRight}>

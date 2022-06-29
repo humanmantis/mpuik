@@ -8,6 +8,8 @@ query GetIndexPage {
           title
           link
         }
+        speciality
+        specialization
         videoLink
         partnershipText
         partnershipIcons {
@@ -18,6 +20,32 @@ query GetIndexPage {
               alternativeText
             }
           }
+        }
+        university {
+          title
+          link
+        }
+        universityLogo {
+          data {
+            attributes {
+              hash
+              url
+              alternativeText
+            }
+          }
+        }
+        instituteLogo {
+          data {
+            attributes {
+              hash
+              url
+              alternativeText
+            }
+          }
+        }
+        institute {
+          title
+          link
         }
       }
     }

@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { loader } from "graphql.macro";
 import { makeStyles } from "@material-ui/core";
-import { Container, Grid, Typography, Box } from "@material-ui/core";
+import { Container, Grid, Typography, Box, Link as MatLink } from "@material-ui/core";
 import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
 import ReactPlayer from "react-player/lazy";
 import ButtonLinkOutlined from "../components/common/ButtonLinkOutlined";
@@ -30,6 +30,10 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.info.main,
     },
   },
+  highlightedWords: {
+    fontWeight: "bold",
+    color: theme.palette.info.main,
+  },
   subtitle: {
     marginBottom: "3rem",
   },
@@ -43,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   circles: {
     position: "absolute",
     zIndex: -5,
-    top: "-30px",
+    top: "90px",
     left: "-40px",
   },
   mainMedia: {
@@ -55,13 +59,12 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "1rem",
     boxShadow: "0px 14px 36px rgba(0, 0, 0, 0.04)",
     backgroundColor: theme.palette.grey[300],
+    marginBottom: "2rem",
     [theme.breakpoints.only("xs")]: {
-      height: "200px",
-      marginBottom: "3rem",
+      height: "200px"
     },
     [theme.breakpoints.only("sm")]: {
       height: "300px",
-      marginBottom: "3rem",
     },
     [theme.breakpoints.only("md")]: {
       height: "260px",
@@ -85,14 +88,60 @@ const useStyles = makeStyles((theme) => ({
       left: "-70px",
     },
     [theme.breakpoints.only("md")]: {
-      top: "60px",
+      top: "70px",
     },
   },
+  parentLogos: {
+    display: "flex",
+    flexWrap: "nowrap",
+    flexDirection: "row",
+    height: "7.5rem",
+    alignItems: "center"
+  },
+  divider: {
+    height: "100%",
+    width: "1px",
+    background: theme.palette.primary.main,
+    margin: "0 1rem",
+    [theme.breakpoints.down("md")]: {
+     display: "none"
+    },
+  },
+  univerisutyLogo: {
+    height: "6rem",
+    objectFit: "contain",
+    [theme.breakpoints.down("md")]: {
+      display: "none"
+     },
+  },
+  insituteLogo: {
+    height: "6rem",
+    objectFit: "contain"
+  },
+  insituteLink: {
+    display: "flex",
+    flexWrap: "nowrap",
+    alignItems: "center"
+  },
+  insituteName: {
+    fontWeight: "bold",
+    color: theme.palette.primary.main,
+    textTransform: "uppercase",
+    marginLeft: "0.2rem"
+  },
+  partnershipIcons: {
+    [theme.breakpoints.down("md")]: {
+      marginBottom: "3rem"
+     },
+  }
 }));
 
 function Index() {
   const classes = useStyles();
   const { loading, error, data } = useQuery(GetIndex);
+
+  const home = data?.home?.data?.attributes;
+  console.log(home?.institute);
 
   if (loading) return <Loader />;
   if (error) return <Redirect to="/error" />;
@@ -100,11 +149,25 @@ function Index() {
   return (
     <Container className="index-container" fixed>
       <Grid container component="section">
-        <Box clone order={{ xs: 3, md: 1 }}>
+        <Box clone order={{ xs: 1, md: 1 }}>
           <Grid item xs={12} sm={8} md={6} lg={5} className={classes.container}>
+            <div className={classes.parentLogos}>
+              <MatLink href={home?.university.link} target="_blank">
+                <img src={home.universityLogo.data.attributes.url} alt={home.universityLogo.data.attributes.alternativeText} className={classes.univerisutyLogo} />
+              </MatLink>
+              <div className={classes.divider} />
+
+              
+              <MatLink href={home?.institute.link} target="_blank" className={classes.insituteLink}>
+              <img src={home.instituteLogo.data.attributes.url} alt={home.instituteLogo.data.attributes.alternativeText} className={classes.insituteLogo} />
+                <Typography variant="body1" className={classes.insituteName} align="center">
+                  {home?.institute.title}
+                </Typography>
+              </MatLink>
+            </div>
             <img src={circlesSvg} alt="circles" className={classes.circles} />
             <Typography variant="h2" className={classes.title} gutterBottom>
-              {data.home.data?.attributes?.title.split(" ").map((word) => (
+              {home?.title.split(" ").map((word) => (
                 <span key={word} className={classes.word}>
                   {word + " "}
                 </span>
@@ -115,11 +178,11 @@ function Index() {
               paragraph
               className={classes.subtitle}
             >
-              {data.home.data?.attributes?.subtitle}
+              {home?.subtitle}
             </Typography>
             <ButtonLinkOutlined
-              title={data.home.data?.attributes?.button.title}
-              path={data.home.data?.attributes?.button.link}
+              title={home?.button.title}
+              path={home?.button.link}
               icon={ArrowRightAltIcon}
             />
             <Typography
@@ -127,10 +190,10 @@ function Index() {
               className={classes.partnership}
               gutterBottom
             >
-              {data.home.data?.attributes?.partnershipText}
+              {home?.partnershipText}
             </Typography>
-            <Grid container alignItems="center" spacing={5}>
-              {data.home.data?.attributes?.partnershipIcons?.data.map(
+            <Grid container alignItems="center" className={classes.partnershipIcons} spacing={5}>
+              {home?.partnershipIcons?.data.map(
                 (icon) => (
                   <Grid item key={icon.attributes.hash} xs={4}>
                     <img
@@ -148,7 +211,7 @@ function Index() {
           <Grid item lg={1} />
         </Box>
 
-        <Box clone order={{ xs: 1, md: 3 }}>
+        <Box clone order={{ xs: 3, md: 3 }}>
           <Grid item xs={12} md={6} lg={6} className={classes.container}>
             <div className={classes.mainMedia}>
               <ReactPlayer
@@ -159,6 +222,18 @@ function Index() {
               />
             </div>
             <img src={wavesSvg} alt="waves" className={classes.waves} />
+            <Typography variant="h5" className={classes.title} align="center">
+              Спеціальність:
+            </Typography>
+            <Typography variant="h4" className={classes.highlightedWords} gutterBottom align="center">
+              {home?.speciality}
+            </Typography>
+            <Typography variant="h5" className={classes.title} align="center">
+              Освітня програма:
+            </Typography>
+            <Typography variant="h5" className={classes.highlightedWords} gutterBottom align="center">
+              {home?.specialization}
+            </Typography>
           </Grid>
         </Box>
       </Grid>
