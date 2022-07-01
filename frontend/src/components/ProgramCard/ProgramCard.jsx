@@ -1,69 +1,56 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Link as RouterLink } from "react-router-dom";
-import { makeStyles } from "@material-ui/core";
-import { Paper, Typography, Link } from "@material-ui/core";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link as RouterLink } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core';
+import { Paper, Typography, Link } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   card: {
-    height: "100%",
-    borderRadius: "1rem",
+    height: '100%',
+    borderRadius: '1rem',
     backgroundColor: theme.palette.common.white,
-    boxShadow: "0px 7px 25px rgba(143, 134, 196, 0.03)",
-    transition: "0.5s",
-    "&:hover": {
-      boxShadow: "0px 19px 33px rgba(143, 134, 196, 0.18)",
-    },
+    boxShadow: '0px 7px 25px rgba(143, 134, 196, 0.03)',
+    transition: '0.5s',
+    '&:hover': {
+      boxShadow: '0px 19px 33px rgba(143, 134, 196, 0.18)'
+    }
   },
   cardHeader: {
-    display: "block",
-    padding: "2rem",
-    borderRadius: "1rem",
+    display: 'block',
+    padding: '2rem',
+    borderRadius: '1rem',
     color: theme.palette.common.white,
     backgroundColor: theme.palette.primary.main,
-    transition: "0.5s",
-    "&:hover": {
+    transition: '0.5s',
+    '&:hover': {
       color: theme.palette.info.main,
       backgroundColor: theme.palette.primary.light,
-      textDecoration: "none",
-    },
+      textDecoration: 'none'
+    }
   },
   boldText: {
-    fontWeight: "bold",
+    fontWeight: 'bold'
   },
   text: {
-    fontWeight: "normal",
+    fontWeight: 'normal'
   },
   cardBody: {
-    padding: "2rem",
+    padding: '2rem'
   },
   link: {
-    display: "block",
-    fontWeight: "bold",
-    fontSize: "1rem",
-    lineHeight: "1.5rem",
-  },
+    display: 'block',
+    fontWeight: 'bold',
+    fontSize: '1rem',
+    lineHeight: '1.5rem'
+  }
 }));
 
-function ProgramCard({
-  slug,
-  name,
-  level,
-  form,
-  specialization,
-  term,
-  program,
-  links,
-}) {
+function ProgramCard({ slug, name, level, form, specialization, term, program, links }) {
   const classes = useStyles();
 
   return (
     <Paper className={classes.card}>
-      <Link
-        className={classes.cardHeader}
-        component={RouterLink}
-        to={`/entrant/${slug}`}
-      >
+      <Link className={classes.cardHeader} component={RouterLink} to={`/entrant/programs/${slug}`}>
         <Typography variant="h5" className={classes.boldText}>
           {level} &mdash; {name} {form && `(${form})`}
         </Typography>
@@ -84,7 +71,7 @@ function ProgramCard({
               key={l.title}
               className={classes.link}
               component={RouterLink}
-              to={`/entrant/${slug}#${l.title.split(" ").join("")}`}
+              to={`/entrant/programs/${slug}#${l.title.split(' ').join('')}`}
             >
               # {l.title}
             </Link>
@@ -95,7 +82,7 @@ function ProgramCard({
 }
 
 ProgramCard.defaultProps = {
-  form: "",
+  form: ''
 };
 
 ProgramCard.propTypes = {
@@ -109,9 +96,9 @@ ProgramCard.propTypes = {
   links: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired
     })
-  ).isRequired,
+  ).isRequired
 };
 
 export default ProgramCard;

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   makeStyles,
   Table,
@@ -8,22 +8,22 @@ import {
   TableHead,
   TableRow,
   Paper,
-  Typography,
-} from "@material-ui/core";
-import Link from "../common/Link";
+  Typography
+} from '@material-ui/core';
+import Link from '../common/Link';
 
 const useStyles = makeStyles({
   root: {
-    margin: "40px 0",
-    boxShadow: "0px 14px 36px rgb(0 0 0 / 4%)",
-    borderRadius: "1rem",
+    margin: '40px 0',
+    boxShadow: '0px 14px 36px rgb(0 0 0 / 4%)',
+    borderRadius: '1rem'
   },
   table: {
-    minWidth: 600,
+    minWidth: 600
   },
   tableHeaderText: {
-    fontWeight: 600,
-  },
+    fontWeight: 600
+  }
 });
 
 function EduScienceTable({ programs }) {
@@ -34,29 +34,17 @@ function EduScienceTable({ programs }) {
         <TableHead>
           <TableRow>
             <TableCell>
-              <Typography
-                variant="subtitle1"
-                align="center"
-                className={styles.tableHeaderText}
-              >
+              <Typography variant="subtitle1" align="center" className={styles.tableHeaderText}>
                 Освітньо-наукова прогрма
               </Typography>
             </TableCell>
             <TableCell>
-              <Typography
-                variant="subtitle1"
-                align="center"
-                className={styles.tableHeaderText}
-              >
+              <Typography variant="subtitle1" align="center" className={styles.tableHeaderText}>
                 Рецензії
               </Typography>
             </TableCell>
             <TableCell>
-              <Typography
-                variant="subtitle1"
-                align="center"
-                className={styles.tableHeaderText}
-              >
+              <Typography variant="subtitle1" align="center" className={styles.tableHeaderText}>
                 Зворотний зв’язок
               </Typography>
             </TableCell>
@@ -77,22 +65,14 @@ function EduScienceTable({ programs }) {
               <TableCell align="center">
                 {program.attributes.reviews?.map((review) => (
                   <Typography variant="body1" key={review.link}>
-                    <Link
-                      title={review.title}
-                      link={review.link}
-                      target="_blank"
-                    />
+                    <Link title={review.title} link={review.link} target="_blank" />
                   </Typography>
                 ))}
               </TableCell>
               <TableCell align="center">
                 {program.attributes.feedbacks?.map((feedback) => (
                   <Typography variant="body1" key={feedback.link}>
-                    <Link
-                      title={feedback.title}
-                      link={feedback.link}
-                      target="_blank"
-                    />
+                    <Link title={feedback.title} link={feedback.link} target="_blank" />
                   </Typography>
                 ))}
               </TableCell>

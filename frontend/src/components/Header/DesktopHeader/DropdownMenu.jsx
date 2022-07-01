@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect } from "react";
-import PropTypes from "prop-types";
-import { NavLink, useLocation } from "react-router-dom";
-import { makeStyles } from "@material-ui/core";
+import React, { useState, useRef, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { NavLink, useLocation } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core';
 import {
   Button,
   MenuList,
@@ -10,41 +10,35 @@ import {
   Grow,
   Paper,
   ClickAwayListener,
-  Link,
-} from "@material-ui/core";
-import ExpandLessIcon from "@material-ui/icons/ExpandLess";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import InnerMenu from "./InnerMenu";
+  Link
+} from '@material-ui/core';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import InnerMenu from './InnerMenu';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    backgroundColor: theme.palette.primary.light,
+    backgroundColor: theme.palette.primary.light
   },
   navSubItem: {
     color: theme.palette.info.main,
-    width: "100%",
-    fontWeight: "600",
-    fontSize: "0.875rem",
-    justifyContent: "space-between",
-    paddingLeft: "1rem",
-    paddingRight: "1rem",
-    "&:hover": {
-      color: theme.palette.info.main,
-    },
+    width: '100%',
+    fontWeight: '600',
+    fontSize: '0.875rem',
+    justifyContent: 'space-between',
+    paddingLeft: '1rem',
+    paddingRight: '1rem',
+    '&:hover': {
+      color: theme.palette.info.main
+    }
   },
   selected: {
     backgroundColor: theme.palette.info.main,
-    color: theme.palette.background.default,
-  },
+    color: theme.palette.background.default
+  }
 }));
 
-function DropdownMenu({
-  title,
-  url,
-  children,
-  buttonClassName,
-  activeClassName,
-}) {
+function DropdownMenu({ title, url, children, buttonClassName, activeClassName }) {
   const classes = useStyles();
   const location = useLocation();
   const [open, setOpen] = useState(false);
@@ -61,7 +55,7 @@ function DropdownMenu({
   };
 
   function handleListKeyDown(event) {
-    if (event.key === "Tab") {
+    if (event.key === 'Tab') {
       event.preventDefault();
       setOpen(false);
     }
@@ -79,7 +73,7 @@ function DropdownMenu({
   const checkActive = () => location.pathname.includes(url);
 
   const renderMenuItem = (item) => {
-    return item.url.includes("http") ? (
+    return item.url.includes('http') ? (
       <MenuItem
         key={item.id}
         onClick={handleClose}
@@ -120,19 +114,12 @@ function DropdownMenu({
       >
         {title}
       </Button>
-      <Popper
-        open={open}
-        anchorEl={anchorRef.current}
-        role={undefined}
-        transition
-        disablePortal
-      >
+      <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
         {({ TransitionProps, placement }) => (
           <Grow
             {...TransitionProps}
             style={{
-              transformOrigin:
-                placement === "bottom" ? "center top" : "center bottom",
+              transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom'
             }}
           >
             <Paper className={classes.paper}>
@@ -146,9 +133,7 @@ function DropdownMenu({
                         key={item.id}
                         url={url + item.url}
                         title={item.title}
-                        children={item.children.sort(
-                          (a, b) => a.order - b.order
-                        )}
+                        children={item.children.sort((a, b) => a.order - b.order)}
                         buttonClassName={classes.navSubItem}
                         activeClassName={classes.active}
                         closeParent={handleCloseParent}
@@ -174,11 +159,11 @@ DropdownMenu.propTypes = {
       title: PropTypes.string.isRequired,
       order: PropTypes.number.isRequired,
       target: PropTypes.string,
-      url: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired
     })
   ).isRequired,
   buttonClassName: PropTypes.string,
-  activeClassName: PropTypes.string,
+  activeClassName: PropTypes.string
 };
 
 export default DropdownMenu;

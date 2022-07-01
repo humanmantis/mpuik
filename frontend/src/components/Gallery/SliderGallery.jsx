@@ -1,40 +1,40 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { makeStyles } from "@material-ui/core";
-import { Container, Typography } from "@material-ui/core";
-import Carousel from "react-material-ui-carousel";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core';
+import { Container, Typography } from '@material-ui/core';
+import Carousel from 'react-material-ui-carousel';
 
 const useStyles = makeStyles((theme) => ({
   galleryContainer: {
-    marginTop: "3rem",
-    marginBottom: "3rem",
+    marginTop: '3rem',
+    marginBottom: '3rem'
   },
   gallery: {
-    display: "block",
+    display: 'block'
   },
   carouselImage: {
-    width: "100%",
-    height: "700px",
-    objectFit: "contain",
-    borderRadius: "0.5rem",
-    [theme.breakpoints.only("xs")]: {
-      height: "300px",
-    },
+    width: '100%',
+    height: '700px',
+    objectFit: 'contain',
+    borderRadius: '0.5rem',
+    [theme.breakpoints.only('xs')]: {
+      height: '300px'
+    }
   },
   carouselButton: {
     opacity: 0.1,
-    transition: "0.5s",
-    "&:hover": {
-      opacity: 1,
-    },
+    transition: '0.5s',
+    '&:hover': {
+      opacity: 1
+    }
   },
   title: {
-    fontWeight: "600",
-    color: theme.palette.primary.main,
+    fontWeight: '600',
+    color: theme.palette.primary.main
   },
   subtitle: {
-    maxWidth: "600px",
-  },
+    maxWidth: '600px'
+  }
 }));
 
 function SliderGallery({ title, subtitle, gallery }) {
@@ -66,7 +66,7 @@ function SliderGallery({ title, subtitle, gallery }) {
 }
 
 SliderGallery.defaultProps = {
-  gallery: [],
+  gallery: []
 };
 
 SliderGallery.propTypes = {
@@ -77,10 +77,10 @@ SliderGallery.propTypes = {
       attributes: PropTypes.shape({
         hash: PropTypes.string.isRequired,
         url: PropTypes.string.isRequired,
-        alternativeText: PropTypes.string.isRequired,
-      }),
+        alternativeText: PropTypes.string.isRequired
+      })
     })
-  ).isRequired,
+  ).isRequired
 };
 
 export default SliderGallery;

@@ -1,21 +1,21 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { makeStyles } from "@material-ui/core";
-import { Typography } from "@material-ui/core";
-import BlockTitle from "../common/BlockTitle";
-import Link from "../common/Link";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
+import BlockTitle from '../common/BlockTitle';
+import Link from '../common/Link';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   section: {
-    margin: "5rem 0",
+    margin: '5rem 0'
   },
   list: {
-    paddingLeft: "0",
-    listStylePosition: "inside",
+    paddingLeft: '0',
+    listStylePosition: 'inside'
   },
   listLink: {
-    fontWeight: 600,
-  },
+    fontWeight: 600
+  }
 }));
 
 function ListBlock({ title, subtitle, list }) {
@@ -47,9 +47,9 @@ ListBlock.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
-      link: PropTypes.string,
+      link: PropTypes.string
     })
-  ),
+  )
 };
 
 export default ListBlock;

@@ -1,26 +1,26 @@
-import React, { Suspense, lazy } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
-import ErrorBoundary from "./components/error/ErrorBoundary";
-import Loader from "./components/common/Loader";
+import React, { Suspense, lazy } from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import ErrorBoundary from './components/error/ErrorBoundary';
+import Loader from './components/common/Loader';
 
-const Index = lazy(() => import("./pages/Index"));
-const History = lazy(() => import("./pages/about/History"));
-const Staff = lazy(() => import("./pages/about/Staff"));
-const Employee = lazy(() => import("./pages/about/Employee"));
-const Entrant = lazy(() => import("./pages/entrant/Entrant"));
-const Program = lazy(() => import("./pages/entrant/Program"));
-const Contacts = lazy(() => import("./pages/Contacts"));
-const Syllabus = lazy(() => import("./pages/student/Syllabus"));
-const EduSciencePage = lazy(() => import("./pages/process/EduSciencePage"));
-const News = lazy(() => import("./pages/news"));
-const NewsDetail = lazy(() => import("./pages/news/NewsDetail"));
-const PageNotFound = lazy(() => import("./components/error/PageNotFound"));
-const ErrorPage = lazy(() => import("./components/error/ErrorPage"));
-const Page = lazy(() => import("./pages/Page"));
+const Index = lazy(() => import('./pages/Index'));
+const History = lazy(() => import('./pages/about/History'));
+const Staff = lazy(() => import('./pages/about/Staff'));
+const Employee = lazy(() => import('./pages/about/Employee'));
+const Entrant = lazy(() => import('./pages/entrant/Entrant'));
+const Program = lazy(() => import('./pages/entrant/Program'));
+const Contacts = lazy(() => import('./pages/Contacts'));
+const Syllabus = lazy(() => import('./pages/student/Syllabus'));
+const EduSciencePage = lazy(() => import('./pages/process/EduSciencePage'));
+const News = lazy(() => import('./pages/news'));
+const NewsDetail = lazy(() => import('./pages/news/NewsDetail'));
+const PageNotFound = lazy(() => import('./components/error/PageNotFound'));
+const ErrorPage = lazy(() => import('./components/error/ErrorPage'));
+const Page = lazy(() => import('./pages/Page'));
 
 function AppRouter() {
   return (
-    <div style={{ minHeight: "100vh" }}>
+    <div style={{ minHeight: '100vh' }}>
       <ErrorBoundary>
         <Suspense fallback={<Loader />}>
           <Switch>
@@ -35,27 +35,14 @@ function AppRouter() {
             <Route exact path="/entrant" render={() => <Entrant />} />
             <Route
               exact
-              path="/entrant/why-we"
-              render={() => <Page params={{ path: "why-we" }} />}
-            />
-            <Route
-              exact
-              path="/entrant/brochures"
-              render={() => <Page params={{ path: "brochures" }} />}
-            />
-            <Route
-              exact
-              path="/entrant/:program"
+              path="/entrant/programs/:program"
               render={(props) => <Program params={props.match.params} />}
             />
             <Route
               exact
               path="/news/:category?"
               render={(props) => (
-                <News
-                  search={props.location.search}
-                  params={props.match.params}
-                />
+                <News search={props.location.search} params={props.match.params} />
               )}
             />
             <Route

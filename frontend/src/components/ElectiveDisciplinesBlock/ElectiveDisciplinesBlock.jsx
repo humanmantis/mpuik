@@ -1,18 +1,18 @@
-import React from "react";
-import { makeStyles, Grid } from "@material-ui/core";
-import SemesterBlock from "../SemesterBlock";
-import BlockTitle from "../common/BlockTitle";
+import React from 'react';
+import { makeStyles, Grid } from '@material-ui/core';
+import SemesterBlock from '../SemesterBlock';
+import BlockTitle from '../common/BlockTitle';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   section: {
-    margin: "5rem 0",
-  },
+    margin: '5rem 0'
+  }
 }));
 
 function ElectiveDisciplinesBlock({ title, subtitle, semesters }) {
   const classes = useStyles();
   return (
-    <section id={title?.split(" ").join("")} className={classes.section}>
+    <section id={title?.split(' ').join('')} className={classes.section}>
       <BlockTitle title={title} subtitle={subtitle} />
       <Grid container spacing={3} justify="center">
         {semesters.map((semester) => (

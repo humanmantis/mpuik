@@ -1,8 +1,8 @@
-import React from "react";
-import { Container } from "@material-ui/core";
+import React from 'react';
+import { Container } from '@material-ui/core';
 
-import PageWawes from "../../components/background/PageWaves";
-import PageTitle from "./PageTitle";
+import PageWawes from '../../components/background/PageWaves';
+import PageTitle from './PageTitle';
 
 const Layout = ({ children, title, subtitle }) => {
   return (

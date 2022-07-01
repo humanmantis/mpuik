@@ -1,5 +1,5 @@
-import React from "react";
-import { Link as RouterLink } from "react-router-dom";
+import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import {
   makeStyles,
   Table,
@@ -10,22 +10,22 @@ import {
   TableRow,
   Paper,
   Typography,
-  Link,
-} from "@material-ui/core";
+  Link
+} from '@material-ui/core';
 import PageLink from '../common/Link';
 
 const useStyles = makeStyles({
   root: {
-    margin: "40px 0",
-    boxShadow: "0px 14px 36px rgb(0 0 0 / 4%)",
-    borderRadius: "1rem",
+    margin: '40px 0',
+    boxShadow: '0px 14px 36px rgb(0 0 0 / 4%)',
+    borderRadius: '1rem'
   },
   table: {
-    minWidth: 600,
+    minWidth: 600
   },
   tableHeaderText: {
-    fontWeight: 600,
-  },
+    fontWeight: 600
+  }
 });
 
 function SyllabiTable({ syllabi }) {
@@ -36,29 +36,17 @@ function SyllabiTable({ syllabi }) {
         <TableHead>
           <TableRow>
             <TableCell>
-              <Typography
-                variant="subtitle1"
-                align="center"
-                className={styles.tableHeaderText}
-              >
+              <Typography variant="subtitle1" align="center" className={styles.tableHeaderText}>
                 Дисципліна
               </Typography>
             </TableCell>
             <TableCell>
-              <Typography
-                variant="subtitle1"
-                align="center"
-                className={styles.tableHeaderText}
-              >
+              <Typography variant="subtitle1" align="center" className={styles.tableHeaderText}>
                 Викладач
               </Typography>
             </TableCell>
             <TableCell>
-              <Typography
-                variant="subtitle1"
-                align="center"
-                className={styles.tableHeaderText}
-              >
+              <Typography variant="subtitle1" align="center" className={styles.tableHeaderText}>
                 Курс
               </Typography>
             </TableCell>
@@ -81,24 +69,22 @@ function SyllabiTable({ syllabi }) {
                 {!!syllabus?.attributes.employees.data?.length ? (
                   syllabus.attributes.employees.data.map((employee) => (
                     <Typography variant="body1" key={employee.attributes.slug}>
-                      <Link
-                        component={RouterLink}
-                        to={`/about/staff/${employee.attributes.slug}`}
-                      >
+                      <Link component={RouterLink} to={`/about/staff/${employee.attributes.slug}`}>
                         {employee.attributes.fullname}
                       </Link>
                     </Typography>
                   ))
                 ) : (
                   <Typography variant="body1">
-                    <PageLink title={syllabus.attributes.altemployee} link={syllabus.attributes.altemployeelink} />
+                    <PageLink
+                      title={syllabus.attributes.altemployee}
+                      link={syllabus.attributes.altemployeelink}
+                    />
                   </Typography>
                 )}
               </TableCell>
               <TableCell align="center">
-                <Typography variant="body1">
-                  {syllabus?.attributes.year}
-                </Typography>
+                <Typography variant="body1">{syllabus?.attributes.year}</Typography>
               </TableCell>
             </TableRow>
           ))}

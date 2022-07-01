@@ -1,23 +1,23 @@
-import React from "react";
-import { useQuery } from "@apollo/client";
-import { loader } from "graphql.macro";
-import { Redirect } from "react-router-dom";
+import React from 'react';
+import { useQuery } from '@apollo/client';
+import { loader } from 'graphql.macro';
+import { Redirect } from 'react-router-dom';
 
-import Loader from "../components/common/Loader";
-import Layout from "../components/common/Layout";
-import constants from "../config/constants";
-import CardBlock from "../components/CardBlock/CardBlock";
-import Article from "../components/Article/Article";
-import Gallery from "../components/Gallery/Gallery";
-import PageLink from "../components/PageLink/PageLink";
-import ListBlock from "../components/ListBlock/ListBlock";
-import ElectiveDisciplinesBlock from "../components/ElectiveDisciplinesBlock/ElectiveDisciplinesBlock";
+import Loader from '../components/common/Loader';
+import Layout from '../components/common/Layout';
+import constants from '../config/constants';
+import CardBlock from '../components/CardBlock/CardBlock';
+import Article from '../components/Article/Article';
+import Gallery from '../components/Gallery/Gallery';
+import PageLink from '../components/PageLink/PageLink';
+import ListBlock from '../components/ListBlock/ListBlock';
+import ElectiveDisciplinesBlock from '../components/ElectiveDisciplinesBlock/ElectiveDisciplinesBlock';
 
-const GetPage = loader("../graphql/pages/GetPage.gql");
+const GetPage = loader('../graphql/pages/GetPage.gql');
 
 function Page({ params }) {
   const { loading, error, data } = useQuery(GetPage, {
-    variables: { slug: params.subpath || params.path || params.slug },
+    variables: { slug: params.subpath || params.path || params.slug }
   });
 
   const { contentType } = constants;
@@ -57,9 +57,7 @@ function Page({ params }) {
           />
         );
       case contentType.link:
-        return (
-          <PageLink key={item.title} title={item.title} link={item.link} />
-        );
+        return <PageLink key={item.title} title={item.title} link={item.link} />;
       case contentType.list:
         return (
           <ListBlock
@@ -89,8 +87,7 @@ function Page({ params }) {
 
   return (
     <Layout title={page.title} subtitle={page.subtitle}>
-      {!!page.content.length &&
-        page.content.map((item) => renderComponent(item))}
+      {!!page.content.length && page.content.map((item) => renderComponent(item))}
     </Layout>
   );
 }

@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect } from "react";
-import PropTypes from "prop-types";
-import { NavLink, useLocation } from "react-router-dom";
-import { makeStyles } from "@material-ui/core";
+import React, { useState, useRef, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { NavLink, useLocation } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core';
 import {
   Button,
   MenuList,
@@ -10,41 +10,34 @@ import {
   Grow,
   Paper,
   ClickAwayListener,
-  Link,
-} from "@material-ui/core";
-import ExpandLessIcon from "@material-ui/icons/ExpandLess";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+  Link
+} from '@material-ui/core';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    backgroundColor: theme.palette.primary.light,
+    backgroundColor: theme.palette.primary.light
   },
   navSubItem: {
     color: theme.palette.info.main,
-    fontWeight: "600",
-    fontSize: "0.875rem",
-    "&:hover": {
-      color: theme.palette.info.main,
-    },
+    fontWeight: '600',
+    fontSize: '0.875rem',
+    '&:hover': {
+      color: theme.palette.info.main
+    }
   },
   selected: {
     backgroundColor: theme.palette.info.main,
-    color: theme.palette.background.default,
+    color: theme.palette.background.default
   },
   popper: {
-    left: "85% !important",
-    zIndex: "10",
-  },
+    left: '85% !important',
+    zIndex: '10'
+  }
 }));
 
-function InnerMenu({
-  title,
-  url,
-  children,
-  buttonClassName,
-  activeClassName,
-  closeParent,
-}) {
+function InnerMenu({ title, url, children, buttonClassName, activeClassName, closeParent }) {
   const classes = useStyles();
   const location = useLocation();
   const [open, setOpen] = useState(false);
@@ -62,7 +55,7 @@ function InnerMenu({
   };
 
   function handleListKeyDown(event) {
-    if (event.key === "Tab") {
+    if (event.key === 'Tab') {
       event.preventDefault();
       setOpen(false);
     }
@@ -102,15 +95,14 @@ function InnerMenu({
           <Grow
             {...TransitionProps}
             style={{
-              transformOrigin:
-                placement === "bottom" ? "center top" : "center bottom",
+              transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom'
             }}
           >
             <Paper className={classes.paper}>
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList autoFocusItem={open} onKeyDown={handleListKeyDown}>
                   {children.map((item) =>
-                    item.url.includes("http") ? (
+                    item.url.includes('http') ? (
                       <MenuItem
                         key={item.id}
                         onClick={handleClose}
@@ -154,11 +146,11 @@ InnerMenu.propTypes = {
       title: PropTypes.string.isRequired,
       order: PropTypes.number.isRequired,
       target: PropTypes.string,
-      url: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired
     })
   ).isRequired,
   buttonClassName: PropTypes.string,
-  activeClassName: PropTypes.string,
+  activeClassName: PropTypes.string
 };
 
 export default InnerMenu;

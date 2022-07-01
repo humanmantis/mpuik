@@ -1,9 +1,9 @@
-import React from "react";
-import { Grid, Typography } from "@material-ui/core";
-import Markdown from "../common/Markdown";
-import clsx from "clsx";
+import React from 'react';
+import { Grid, Typography } from '@material-ui/core';
+import Markdown from '../common/Markdown';
+import clsx from 'clsx';
 
-import { useStyles } from "./arrangementBlock.styles";
+import { useStyles } from './arrangementBlock.styles';
 
 const ArrangementBlock = ({ icon, title, description }) => {
   const classes = useStyles();

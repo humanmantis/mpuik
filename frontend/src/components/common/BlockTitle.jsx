@@ -1,21 +1,21 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { makeStyles, Typography } from "@material-ui/core";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { makeStyles, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   sectionHeader: {
-    margin: "0 auto",
-    maxWidth: "800px",
+    margin: '0 auto',
+    maxWidth: '800px'
   },
   title: {
-    fontWeight: "bold",
-    color: theme.palette.info.main,
+    fontWeight: 'bold',
+    color: theme.palette.info.main
   },
   subtitle: {
-    marginBottom: "2rem",
-    fontWeight: "bold",
-    color: theme.palette.text.primary,
-  },
+    marginBottom: '2rem',
+    fontWeight: 'bold',
+    color: theme.palette.text.primary
+  }
 }));
 
 function BlockTitle({ title, subtitle }) {
@@ -23,12 +23,7 @@ function BlockTitle({ title, subtitle }) {
   return (
     <div className={classes.sectionHeader}>
       {title && (
-        <Typography
-          variant="h4"
-          className={classes.title}
-          align="center"
-          gutterBottom
-        >
+        <Typography variant="h4" className={classes.title} align="center" gutterBottom>
           {title}
         </Typography>
       )}
@@ -48,12 +43,12 @@ function BlockTitle({ title, subtitle }) {
 }
 
 BlockTitle.defaultProps = {
-  subtitle: "",
+  subtitle: ''
 };
 
 BlockTitle.propTypes = {
   title: PropTypes.string,
-  subtitle: PropTypes.string,
+  subtitle: PropTypes.string
 };
 
 export default BlockTitle;

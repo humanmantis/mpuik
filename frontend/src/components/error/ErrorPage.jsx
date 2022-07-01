@@ -1,24 +1,24 @@
-import React from "react";
-import { makeStyles, Container, Grid, Typography } from "@material-ui/core";
-import errorSvg from "../../assets/error.svg";
-import PageWaves from "../background/PageWaves";
+import React from 'react';
+import { makeStyles, Container, Grid, Typography } from '@material-ui/core';
+import errorSvg from '../../assets/error.svg';
+import PageWaves from '../background/PageWaves';
 
 const useStyles = makeStyles((theme) => ({
   img: {
-    width: "100%",
-    pointerEvents: "none",
-    zIndex: -1,
+    width: '100%',
+    pointerEvents: 'none',
+    zIndex: -1
   },
   title: {
-    fontWeight: "bold",
-    color: theme.palette.primary.main,
+    fontWeight: 'bold',
+    color: theme.palette.primary.main
   },
   textContainer: {
-    [theme.breakpoints.down("sm")]: {
-      width: "100%",
-      textAlign: "center",
-    },
-  },
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+      textAlign: 'center'
+    }
+  }
 }));
 
 function ErrorPage() {
@@ -29,11 +29,7 @@ function ErrorPage() {
       <Container fixed className="main-container">
         <Grid container spacing={6} alignItems="center">
           <Grid item md={6}>
-            <img
-              src={errorSvg}
-              alt="Щось пішло не так"
-              className={classes.img}
-            />
+            <img src={errorSvg} alt="Щось пішло не так" className={classes.img} />
           </Grid>
           <Grid item md={6} className={classes.textContainer}>
             <Typography variant="h2" className={classes.title}>

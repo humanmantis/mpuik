@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import GalleryV1 from "./GalleryV1";
-import GalleryV2 from "./GalleryV2";
-import SliderGallery from "./SliderGallery";
-import constants from "../../config/constants";
+import React from 'react';
+import PropTypes from 'prop-types';
+import GalleryV1 from './GalleryV1';
+import GalleryV2 from './GalleryV2';
+import SliderGallery from './SliderGallery';
+import constants from '../../config/constants';
 
 function Gallery({ title, subtitle, type, gallery }) {
   const { galleryType } = constants;
@@ -15,14 +15,12 @@ function Gallery({ title, subtitle, type, gallery }) {
       <GalleryV1 title={title} subtitle={subtitle} gallery={gallery} />
     );
   } else {
-    return (
-      <SliderGallery title={title} subtitle={subtitle} gallery={gallery} />
-    );
+    return <SliderGallery title={title} subtitle={subtitle} gallery={gallery} />;
   }
 }
 
 Gallery.defaultProps = {
-  gallery: [],
+  gallery: []
 };
 
 Gallery.propTypes = {
@@ -34,10 +32,10 @@ Gallery.propTypes = {
       attributes: PropTypes.shape({
         hash: PropTypes.string.isRequired,
         url: PropTypes.string.isRequired,
-        alternativeText: PropTypes.string.isRequired,
-      }),
+        alternativeText: PropTypes.string.isRequired
+      })
     })
-  ).isRequired,
+  ).isRequired
 };
 
 export default Gallery;

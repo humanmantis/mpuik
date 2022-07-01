@@ -1,34 +1,34 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
-import { makeStyles } from "@material-ui/core";
-import { Toolbar, Button, Grid } from "@material-ui/core";
-import DropdownMenu from "./DropdownMenu";
-import Logo from "../../common/Logo";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core';
+import { Toolbar, Button, Grid } from '@material-ui/core';
+import DropdownMenu from './DropdownMenu';
+import Logo from '../../common/Logo';
 
 const useStyles = makeStyles((theme) => ({
   nav: {
-    flexDirection: "row",
-    justifyContent: "space-beetwen",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-beetwen',
+    alignItems: 'center'
   },
   navItem: {
     marginRight: theme.spacing(1),
-    padding: "0.4rem 1rem",
+    padding: '0.4rem 1rem',
     color: theme.palette.info.main,
-    fontWeight: "bold",
-    borderRadius: "0.875rem",
-    "&:hover": {
-      color: theme.palette.info.main,
+    fontWeight: 'bold',
+    borderRadius: '0.875rem',
+    '&:hover': {
+      color: theme.palette.info.main
     },
-    "&:last-child": {
-      marginRight: 0,
-    },
+    '&:last-child': {
+      marginRight: 0
+    }
   },
   active: {
     backgroundColor: theme.palette.info.main,
-    color: theme.palette.background.default,
-  },
+    color: theme.palette.background.default
+  }
 }));
 
 function DesktopHeader({ navigation }) {
@@ -50,7 +50,7 @@ function DesktopHeader({ navigation }) {
                   to={item.url}
                   className={classes.navItem}
                   activeClassName={classes.active}
-                  exact={item.url === "/"}
+                  exact={item.url === '/'}
                 >
                   {item.title}
                 </Button>
@@ -85,11 +85,11 @@ DesktopHeader.propTypes = {
           title: PropTypes.string.isRequired,
           order: PropTypes.number.isRequired,
           target: PropTypes.string,
-          url: PropTypes.string.isRequired,
+          url: PropTypes.string.isRequired
         })
-      ),
+      )
     })
-  ).isRequired,
+  ).isRequired
 };
 
 export default DesktopHeader;

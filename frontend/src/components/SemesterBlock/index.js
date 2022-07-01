@@ -1,1 +1,1 @@
-export { default } from "./SemesterBlock";
+export { default } from './SemesterBlock';

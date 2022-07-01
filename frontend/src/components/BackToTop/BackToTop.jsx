@@ -1,7 +1,7 @@
-import React from "react";
-import Fab from "@material-ui/core/Fab";
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
-import ScrollTop from "./ScrollTop";
+import React from 'react';
+import Fab from '@material-ui/core/Fab';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import ScrollTop from './ScrollTop';
 
 function BackToTop() {
   return (

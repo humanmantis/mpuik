@@ -1,14 +1,14 @@
-import React from "react";
-import { makeStyles, LinearProgress } from "@material-ui/core";
-import PageWaves from "../background/PageWaves";
+import React from 'react';
+import { makeStyles, LinearProgress } from '@material-ui/core';
+import PageWaves from '../background/PageWaves';
 
 const useStyles = makeStyles({
   progress: {
-    zIndex: 5000,
+    zIndex: 5000
   },
   progressContainer: {
-    width: "100%",
-  },
+    width: '100%'
+  }
 });
 
 function Loader() {

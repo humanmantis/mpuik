@@ -1,42 +1,36 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { NavLink, useLocation } from "react-router-dom";
-import { makeStyles } from "@material-ui/core";
-import { List, ListItem, Collapse, Link } from "@material-ui/core";
-import ExpandLessIcon from "@material-ui/icons/ExpandLess";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import InnerCollapseItem from "./InnerCollapseItem";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { NavLink, useLocation } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core';
+import { List, ListItem, Collapse, Link } from '@material-ui/core';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import InnerCollapseItem from './InnerCollapseItem';
 
 const useStyles = makeStyles((theme) => ({
   navSubItem: {
     color: theme.palette.info.main,
-    fontWeight: "600",
-    fontSize: "0.875rem",
-    overflowWrap: "break-word",
-    "&:hover": {
+    fontWeight: '600',
+    fontSize: '0.875rem',
+    overflowWrap: 'break-word',
+    '&:hover': {
       backgroundColor: theme.palette.info.main,
-      color: theme.palette.background.default,
-    },
+      color: theme.palette.background.default
+    }
   },
   collapse: {
-    "&:hover": {
+    '&:hover': {
       backgroundColor: theme.palette.primary.light,
-      color: theme.palette.info.main,
-    },
+      color: theme.palette.info.main
+    }
   },
   selected: {
     backgroundColor: theme.palette.info.main,
-    color: theme.palette.background.default,
-  },
+    color: theme.palette.background.default
+  }
 }));
 
-function CollapseItem({
-  title,
-  url,
-  children,
-  buttonClassName,
-  activeClassName,
-}) {
+function CollapseItem({ title, url, children, buttonClassName, activeClassName }) {
   const classes = useStyles();
   const location = useLocation();
   const [open, setOpen] = useState(false);
@@ -46,7 +40,7 @@ function CollapseItem({
   const checkActive = () => location.pathname.includes(url);
 
   const renderMenuItem = (item) =>
-    item.url.includes("http") ? (
+    item.url.includes('http') ? (
       <ListItem
         key={item.id}
         component={Link}
@@ -76,9 +70,7 @@ function CollapseItem({
       <ListItem
         button
         onClick={handleClick}
-        className={`${buttonClassName} ${checkActive() && activeClassName} ${
-          classes.collapse
-        }`}
+        className={`${buttonClassName} ${checkActive() && activeClassName} ${classes.collapse}`}
       >
         {title.toUpperCase()}
         {open ? <ExpandLessIcon /> : <ExpandMoreIcon />}
@@ -114,11 +106,11 @@ CollapseItem.propTypes = {
       title: PropTypes.string.isRequired,
       order: PropTypes.number.isRequired,
       target: PropTypes.string,
-      url: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired
     })
   ).isRequired,
   buttonClassName: PropTypes.string,
-  activeClassName: PropTypes.string,
+  activeClassName: PropTypes.string
 };
 
 export default CollapseItem;

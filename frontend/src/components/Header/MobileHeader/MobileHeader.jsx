@@ -1,45 +1,39 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
-import { makeStyles } from "@material-ui/core";
-import {
-  Toolbar,
-  IconButton,
-  SwipeableDrawer,
-  List,
-  ListItem,
-} from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
-import Logo from "../../common/Logo";
-import CollapseItem from "./CollapseItem";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core';
+import { Toolbar, IconButton, SwipeableDrawer, List, ListItem } from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
+import Logo from '../../common/Logo';
+import CollapseItem from './CollapseItem';
 
 const useStyles = makeStyles((theme) => ({
   iconButton: {
     color: theme.palette.info.main,
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(2)
   },
   icon: {
-    width: "2rem",
-    height: "2rem",
+    width: '2rem',
+    height: '2rem'
   },
   paper: {
-    backgroundColor: theme.palette.primary.light,
+    backgroundColor: theme.palette.primary.light
   },
   nav: {
-    width: theme.breakpoints.values.sm / 3,
+    width: theme.breakpoints.values.sm / 3
   },
   navItem: {
     color: theme.palette.info.main,
-    fontWeight: "bold",
-    "&:hover": {
+    fontWeight: 'bold',
+    '&:hover': {
       backgroundColor: theme.palette.info.main,
-      color: theme.palette.background.default,
-    },
+      color: theme.palette.background.default
+    }
   },
   active: {
     backgroundColor: theme.palette.info.main,
-    color: theme.palette.background.default,
-  },
+    color: theme.palette.background.default
+  }
 }));
 
 function MobileHeader({ navigation }) {
@@ -90,7 +84,7 @@ function MobileHeader({ navigation }) {
                     to={item.url}
                     activeClassName={classes.active}
                     className={classes.navItem}
-                    exact={item.url === "/"}
+                    exact={item.url === '/'}
                     button
                   >
                     {item.title.toUpperCase()}
@@ -127,11 +121,11 @@ MobileHeader.propTypes = {
           title: PropTypes.string.isRequired,
           order: PropTypes.number.isRequired,
           target: PropTypes.string,
-          url: PropTypes.string.isRequired,
+          url: PropTypes.string.isRequired
         })
-      ),
+      )
     })
-  ).isRequired,
+  ).isRequired
 };
 
 export default MobileHeader;

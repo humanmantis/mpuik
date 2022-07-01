@@ -1,14 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import { Button, makeStyles } from "@material-ui/core";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { Button, makeStyles } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   button: {
-    padding: "0.5rem 2rem",
-    fontWeight: "bold",
-    borderRadius: "0.875rem",
-  },
+    padding: '0.5rem 2rem',
+    fontWeight: 'bold',
+    borderRadius: '0.875rem'
+  }
 }));
 
 function ButtonLinkOutlined({ title, path, icon }) {
@@ -31,7 +31,7 @@ function ButtonLinkOutlined({ title, path, icon }) {
 ButtonLinkOutlined.propTypes = {
   title: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
-  icon: PropTypes.object,
+  icon: PropTypes.object
 };
 
 export default ButtonLinkOutlined;

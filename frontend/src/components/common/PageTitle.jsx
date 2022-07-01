@@ -1,33 +1,32 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { makeStyles, Typography } from "@material-ui/core";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
+import { makeStyles, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   title: {
-    fontWeight: "bold",
-    color: theme.palette.primary.main,
+    fontWeight: 'bold',
+    color: theme.palette.primary.main
   },
   subtitle: {
-    fontWeight: "bold",
-    color: theme.palette.info.main,
+    fontWeight: 'bold',
+    color: theme.palette.info.main
   },
   pageHead: {
-    maxWidth: "800px",
-    margin: "0 auto",
-    marginBottom: "3rem",
-  },
+    maxWidth: '800px',
+    margin: '0 auto',
+    marginBottom: '3rem'
+  }
 }));
 
 function PageTitle({ title, subtitle }) {
   const classes = useStyles();
   return (
     <div className={classes.pageHead}>
-      <Typography
-        variant="h3"
-        align="center"
-        className={classes.title}
-        gutterBottom
-      >
+      <Helmet>
+        <title>{title} | МПУіК</title>
+      </Helmet>
+      <Typography variant="h3" align="center" className={classes.title} gutterBottom>
         {title}
       </Typography>
       {subtitle && (
@@ -46,12 +45,12 @@ function PageTitle({ title, subtitle }) {
 }
 
 PageTitle.defaultProps = {
-  subtitle: "",
+  subtitle: ''
 };
 
 PageTitle.propTypes = {
   title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string,
+  subtitle: PropTypes.string
 };
 
 export default PageTitle;
