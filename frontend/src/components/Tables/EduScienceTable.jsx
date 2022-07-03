@@ -35,7 +35,7 @@ function EduScienceTable({ programs }) {
           <TableRow>
             <TableCell>
               <Typography variant="subtitle1" align="center" className={styles.tableHeaderText}>
-                Освітньо-наукова прогрма
+                Освітньо-професійна програма
               </Typography>
             </TableCell>
             <TableCell>

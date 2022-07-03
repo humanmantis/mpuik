@@ -1,5 +1,5 @@
 query GetEduSciencePage {
-  eduSciencePrograms(sort: "program:desc") {
+  eduSciencePrograms(sort: "order:desc") {
     data {
       attributes {
         program

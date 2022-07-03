@@ -4,7 +4,7 @@
   "info": {
     "singularName": "edu-science-program",
     "pluralName": "edu-science-programs",
-    "displayName": "Освітньо-наукові програми",
+    "displayName": "Освітньо-професійні програми",
     "description": ""
   },
   "options": {
@@ -27,6 +27,10 @@
     },
     "programlink": {
       "type": "string"
+    },
+    "order": {
+      "type": "biginteger",
+      "default": "50"
     }
   }
 }

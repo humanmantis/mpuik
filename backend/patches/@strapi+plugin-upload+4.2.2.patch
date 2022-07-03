@@ -1,5 +1,5 @@
 diff --git a/node_modules/@strapi/plugin-upload/admin/src/translations/uk.json b/node_modules/@strapi/plugin-upload/admin/src/translations/uk.json
-index 1b77bf1..8831897 100644
+index 1b77bf1..2ca84b3 100644
 --- a/node_modules/@strapi/plugin-upload/admin/src/translations/uk.json
 +++ b/node_modules/@strapi/plugin-upload/admin/src/translations/uk.json
 @@ -9,6 +9,7 @@
@@ -55,4 +55,3 @@ index 1b77bf1..8831897 100644
 +  "settings.section.doc.label": "Документ",
 +  "tabs.title": "Як Ви хочете завантажити файли?"
  }
-\ No newline at end of file
