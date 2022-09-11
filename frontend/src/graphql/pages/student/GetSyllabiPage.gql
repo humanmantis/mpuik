@@ -1,5 +1,5 @@
 query GetSyllabiPage {
-  syllabi(sort: "year:asc") {
+  syllabi( sort: "order:desc") {
     data {
       attributes {
         discipline

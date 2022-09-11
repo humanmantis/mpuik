@@ -29,7 +29,9 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "content": {
       "type": "richtext"
@@ -40,6 +42,9 @@
     "pinned": {
       "type": "boolean",
       "default": false
+    },
+    "order": {
+      "type": "integer"
     }
   }
 }

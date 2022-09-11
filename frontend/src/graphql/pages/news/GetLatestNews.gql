@@ -1,7 +1,7 @@
 query getNewsPage($start: Int = 0, $limit: Int = 9) {
   posts(
     pagination: { start: $start, limit: $limit }
-    sort: "publishedAt:desc"
+    sort: "order:desc"
   ) {
     meta {
       pagination {

@@ -43,6 +43,9 @@
     },
     "altemployeelink": {
       "type": "string"
+    },
+    "order": {
+      "type": "integer"
     }
   }
 }
