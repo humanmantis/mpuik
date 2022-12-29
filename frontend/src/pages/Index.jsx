@@ -142,7 +142,6 @@ function Index() {
   const { loading, error, data } = useQuery(GetIndex);
 
   const home = data?.home?.data?.attributes;
-  console.log(home?.institute);
 
   if (loading) return <Loader />;
   if (error) return <Redirect to="/error" />;

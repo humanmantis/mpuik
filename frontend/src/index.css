@@ -32,3 +32,28 @@ code {
     margin-top: 7rem;
   }
 }
+
+/* Firefox */
+ * {
+  scrollbar-width: none;
+  scrollbar-color: #bcd8e4 #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #bcd8e4;
+  border-radius: 10px;
+  border: 2px solid #ffffff;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}

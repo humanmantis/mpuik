@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: '600',
     fontSize: '0.875rem',
     overflowWrap: 'break-word',
+    paddingLeft: '30px !important',
     '&:hover': {
       backgroundColor: theme.palette.info.main,
       color: theme.palette.background.default
@@ -30,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function CollapseItem({ title, url, children, buttonClassName, activeClassName }) {
+function CollapseItem({ title, url, children, buttonClassName, activeClassName, onClick }) {
   const classes = useStyles();
   const location = useLocation();
   const [open, setOpen] = useState(false);
@@ -48,6 +49,7 @@ function CollapseItem({ title, url, children, buttonClassName, activeClassName }
         href={item.url}
         target={item.target}
         button
+        onClick={onClick}
       >
         {item.title.toUpperCase()}
       </ListItem>
@@ -60,6 +62,7 @@ function CollapseItem({ title, url, children, buttonClassName, activeClassName }
         className={classes.navSubItem}
         to={url + item.url}
         button
+        onClick={onClick}
       >
         {item.title.toUpperCase()}
       </ListItem>
@@ -88,6 +91,7 @@ function CollapseItem({ title, url, children, buttonClassName, activeClassName }
                 children={item.children.sort((a, b) => a.order - b.order)}
                 buttonClassName={classes.navSubItem}
                 activeClassName={classes.active}
+                onClick={onClick}
               />
             )
           )}
@@ -110,7 +114,8 @@ CollapseItem.propTypes = {
     })
   ).isRequired,
   buttonClassName: PropTypes.string,
-  activeClassName: PropTypes.string
+  activeClassName: PropTypes.string,
+  onClick: PropTypes.func
 };
 
 export default CollapseItem;

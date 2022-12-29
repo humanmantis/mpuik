@@ -1,5 +1,4 @@
 import { React, useEffect, useState } from 'react';
-import { Redirect } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { loader } from 'graphql.macro';
 import AppRouter from './AppRouter';
@@ -20,20 +19,15 @@ function App() {
 
   useEffect(() => {
     setNavLoading(true);
-    fetch(`${process.env.REACT_APP_REST_API_URI || 'http://localhost:1337/api'}/menus?nested`)
+    fetch(`${process.env.REACT_APP_REST_API_URI}/menus?nested`)
       .then((res) => res.json())
-      .then((data) => {
-        setNavData(data);
-        setNavLoading(false);
-      })
-      .catch((err) => {
-        setNavError(err);
-        setNavLoading(false);
-      });
+      .then((data) => setNavData(data))
+      .catch((err) => setNavError(err))
+      .finally(() => setNavLoading(false));
   }, []);
 
   if (loading || navLoading) return <Loader />;
-  if (error || navError) return <Redirect to="/error" />;
+  if (error || navError) return <AppRouter />;
 
   return (
     <ErrorBoundary>

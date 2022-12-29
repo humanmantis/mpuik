@@ -1,7 +1,9 @@
 import React from 'react';
-import { makeStyles, Container, Grid, Typography } from '@material-ui/core';
+import { makeStyles, Container, Grid, Typography, Button } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 import errorSvg from '../../assets/error.svg';
 import PageWaves from '../background/PageWaves';
+import useBodyClass from '../../hooks/useBodyClass';
 
 const useStyles = makeStyles((theme) => ({
   img: {
@@ -11,18 +13,39 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     fontWeight: 'bold',
-    color: theme.palette.primary.main
+    color: theme.palette.primary.main,
+    '&:last-of-type': {
+      marginBottom: theme.spacing(2)
+    }
   },
   textContainer: {
     [theme.breakpoints.down('sm')]: {
       width: '100%',
       textAlign: 'center'
     }
+  },
+  button: {
+    marginRight: theme.spacing(2),
+    borderRadius: '0.875rem',
+    padding: '0.5rem 2rem',
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+      margin: theme.spacing(1)
+    }
   }
 }));
 
 function ErrorPage() {
   const classes = useStyles();
+  const history = useHistory();
+  useBodyClass('overflow-hidden');
+
+  const reloadPage = () => history.go(0);
+  const goHome = () => {
+    history.push('/');
+    history.go(0);
+  };
+
   return (
     <>
       <PageWaves />
@@ -41,6 +64,16 @@ function ErrorPage() {
             <Typography variant="body1" className={classes.title}>
               Спробуйте зайти пізніше.
             </Typography>
+            <Button
+              variant="contained"
+              color="primary"
+              className={classes.button}
+              onClick={reloadPage}>
+              Перезавантажити
+            </Button>
+            <Button variant="outlined" color="primary" className={classes.button} onClick={goHome}>
+              На головну
+            </Button>
           </Grid>
         </Grid>
       </Container>

@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core';
 import { Toolbar, IconButton, SwipeableDrawer, List, ListItem } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
 import Logo from '../../common/Logo';
 import CollapseItem from './CollapseItem';
 
@@ -12,15 +13,24 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.info.main,
     marginRight: theme.spacing(2)
   },
+  closeIconButton: {
+    color: theme.palette.info.main,
+    width: '56px',
+    margin: '12px',
+    marginLeft: '24px'
+  },
   icon: {
     width: '2rem',
     height: '2rem'
   },
   paper: {
-    backgroundColor: theme.palette.primary.light
+    backgroundColor: theme.palette.primary.light,
+    width: '100%',
+    maxWidth: theme.breakpoints.values.sm
   },
   nav: {
-    width: theme.breakpoints.values.sm / 3
+    width: '100%',
+    maxWidth: theme.breakpoints.values.sm
   },
   navItem: {
     color: theme.palette.info.main,
@@ -33,6 +43,11 @@ const useStyles = makeStyles((theme) => ({
   active: {
     backgroundColor: theme.palette.info.main,
     color: theme.palette.background.default
+  },
+  activeToolbar: {
+    padding: '0.5rem 16px',
+    borderBottom: '1px solid #98b8cd',
+    boxSizing: 'content-box'
   }
 }));
 
@@ -47,11 +62,9 @@ function MobileHeader({ navigation }) {
           className={classes.iconButton}
           onClick={() => {
             setDrawer(true);
-          }}
-        >
+          }}>
           <MenuIcon className={classes.icon} />
         </IconButton>
-
         <Logo />
       </Toolbar>
 
@@ -64,15 +77,23 @@ function MobileHeader({ navigation }) {
         }}
         onOpen={() => {
           setDrawer(true);
-        }}
-      >
+        }}>
+        <Toolbar className={classes.activeToolbar}>
+          <IconButton
+            className={classes.iconButton}
+            onClick={() => {
+              setDrawer(false);
+            }}>
+            <CloseIcon className={classes.icon} />
+          </IconButton>
+          <Logo />
+        </Toolbar>
         <div
           tabIndex={0}
           role="button"
           onKeyDown={() => {
             setDrawer(true);
-          }}
-        >
+          }}>
           <List component="nav" className={classes.nav}>
             {navigation
               .sort((a, b) => a.order - b.order)
@@ -86,7 +107,9 @@ function MobileHeader({ navigation }) {
                     className={classes.navItem}
                     exact={item.url === '/'}
                     button
-                  >
+                    onClick={() => {
+                      setDrawer(false);
+                    }}>
                     {item.title.toUpperCase()}
                   </ListItem>
                 ) : (
@@ -97,6 +120,9 @@ function MobileHeader({ navigation }) {
                     children={item.children.sort((a, b) => a.order - b.order)}
                     buttonClassName={classes.navItem}
                     activeClassName={classes.active}
+                    onClick={() => {
+                      setDrawer(false);
+                    }}
                   />
                 )
               )}

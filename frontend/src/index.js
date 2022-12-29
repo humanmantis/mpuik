@@ -8,6 +8,9 @@ import client from './graphql/client';
 import theme from './theme';
 import './index.css';
 import App from './App';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+
+serviceWorkerRegistration.register();
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,5 +23,5 @@ ReactDOM.render(
       </ApolloProvider>
     </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('app')
 );
