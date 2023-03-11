@@ -5,6 +5,9 @@ module.exports = ({ env }) => ({
       maxDepth: 3,
     },
   },
+  seo: {
+    enabled: true,
+  },
   email: {
     config: {
       provider: "sendgrid",

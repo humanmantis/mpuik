@@ -1,0 +1,106 @@
+diff --git a/node_modules/@strapi/admin/admin/src/pages/HomePage/ContentBlocks.js b/node_modules/@strapi/admin/admin/src/pages/HomePage/ContentBlocks.js
+index 17d63fe..612161a 100644
+--- a/node_modules/@strapi/admin/admin/src/pages/HomePage/ContentBlocks.js
++++ b/node_modules/@strapi/admin/admin/src/pages/HomePage/ContentBlocks.js
+@@ -3,7 +3,7 @@ import styled from 'styled-components';
+ import { useIntl } from 'react-intl';
+ import { ContentBox, useTracking } from '@strapi/helper-plugin';
+ import { Stack } from '@strapi/design-system';
+-import { InformationSquare, CodeSquare, PlaySquare, FeatherSquare } from '@strapi/icons';
++import { Pencil, Folder, Landscape } from '@strapi/icons';
+ import CloudBox from './CloudBox';
+ 
+ const BlockLink = styled.a`
+@@ -20,83 +20,54 @@ const ContentBlocks = () => {
+ 
+   return (
+     <Stack spacing={5}>
+-      <CloudBox />
+       <BlockLink
+-        href="https://strapi.io/resource-center"
+-        target="_blank"
+-        rel="noopener noreferrer nofollow"
+-        onClick={() => handleClick('didClickonReadTheDocumentationSection')}
++        href="/dashboard/content-manager/collectionType/api::post.post"
+       >
+         <ContentBox
+           title={formatMessage({
+             id: 'global.documentation',
+-            defaultMessage: 'Documentation',
++            defaultMessage: 'News',
+           })}
+           subtitle={formatMessage({
+             id: 'app.components.BlockLink.documentation.content',
+             defaultMessage: 'Discover the essential concepts, guides and instructions.',
+           })}
+-          icon={<InformationSquare />}
++          icon={<Pencil />}
+           iconBackground="primary100"
+         />
+       </BlockLink>
+       <BlockLink
+-        href="https://strapi.io/starters"
+-        target="_blank"
+-        rel="noopener noreferrer nofollow"
+-        onClick={() => handleClick('didClickonCodeExampleSection')}
++        href="/dashboard/content-manager/collectionType/api::page.page"
+       >
+         <ContentBox
+           title={formatMessage({
+             id: 'app.components.BlockLink.code',
+-            defaultMessage: 'Code example',
++            defaultMessage: 'Page',
+           })}
+           subtitle={formatMessage({
+             id: 'app.components.BlockLink.code.content',
+             defaultMessage: 'Learn by using ready-made starters for your projects.',
+           })}
+-          icon={<CodeSquare />}
++          icon={<Folder />}
+           iconBackground="warning100"
+         />
+       </BlockLink>
+       <BlockLink
+-        href="https://strapi.io/blog/categories/tutorials"
+-        target="_blank"
+-        rel="noopener noreferrer nofollow"
+-        onClick={() => handleClick('didClickonTutorialSection')}
++       href="/dashboard/plugins/upload"
+       >
+         <ContentBox
+           title={formatMessage({
+             id: 'app.components.BlockLink.tutorial',
+-            defaultMessage: 'Tutorials',
++            defaultMessage: 'Medialibrary',
+           })}
+           subtitle={formatMessage({
+             id: 'app.components.BlockLink.tutorial.content',
+             defaultMessage: 'Follow step-by-step instructions to use and customize Strapi.',
+           })}
+-          icon={<PlaySquare />}
++          icon={<Landscape />}
+           iconBackground="secondary100"
+         />
+       </BlockLink>
+-      <BlockLink
+-        href="https://strapi.io/blog"
+-        target="_blank"
+-        rel="noopener noreferrer nofollow"
+-        onClick={() => handleClick('didClickonBlogSection')}
+-      >
+-        <ContentBox
+-          title={formatMessage({
+-            id: 'app.components.BlockLink.blog',
+-            defaultMessage: 'Blog',
+-          })}
+-          subtitle={formatMessage({
+-            id: 'app.components.BlockLink.blog.content',
+-            defaultMessage: 'Read the latest news about Strapi and the ecosystem.',
+-          })}
+-          icon={<FeatherSquare />}
+-          iconBackground="alternative100"
+-        />
+-      </BlockLink>
+     </Stack>
+   );
+ };
