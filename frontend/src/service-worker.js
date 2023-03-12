@@ -17,6 +17,7 @@ const PRECACHE = [
   '/manifest.json',
   '/favicon.ico'
 ];
+const VERSION = 'v2';
 
 clientsClaim();
 
@@ -24,7 +25,18 @@ clientsClaim();
 // Their URLs are injected into the manifest variable below.
 // This variable must be present somewhere in your service worker file,
 // even if you decide not to use precaching. See https://cra.link/PWA
-precacheAndRoute([...self.__WB_MANIFEST, ...PRECACHE]);
+precacheAndRoute([...self.__WB_MANIFEST, ...PRECACHE], {
+   // Set the cache name to include the version number.
+   cacheName: `mpuik-${VERSION}`,
+   // When a new service worker is activated, remove any outdated caches.
+   cleanupOutdatedCaches: true,
+   // Update the cache name on version change.
+   cacheNames: {
+     prefix: `mpuik-${VERSION}`,
+     precache: `mpuik-${VERSION}-precache`,
+     runtime: `mpuik-${VERSION}-runtime`,
+   },
+});
 
 // Set up App Shell-style routing, so that all navigation requests
 // are fulfilled with your index.html shell. Learn more at
