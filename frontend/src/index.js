@@ -10,7 +10,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
-serviceWorkerRegistration.register();
+serviceWorkerRegistration.unregister();
 
 ReactDOM.render(
   <React.StrictMode>
