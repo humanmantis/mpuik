@@ -81,14 +81,14 @@ function CollapseItem({ title, url, children, buttonClassName, activeClassName, 
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           {children.map((item) =>
-            !item.children.length ? (
+            !item.children?.data.length ? (
               renderMenuItem(item)
             ) : (
               <InnerCollapseItem
                 key={item.id}
                 url={item.url}
                 title={item.title}
-                children={item.children.sort((a, b) => a.order - b.order)}
+                children={item.children?.data.map((item) => ({ ...item.attributes })).sort((a, b) => a.order - b.order)}
                 buttonClassName={classes.navSubItem}
                 activeClassName={classes.active}
                 onClick={onClick}

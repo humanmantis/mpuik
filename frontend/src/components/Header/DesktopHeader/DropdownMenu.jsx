@@ -126,14 +126,14 @@ function DropdownMenu({ title, url, children, buttonClassName, activeClassName }
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList autoFocusItem={open} onKeyDown={handleListKeyDown}>
                   {children.map((item) =>
-                    !item.children.length ? (
+                    !item.children?.data.length ? (
                       renderMenuItem(item)
                     ) : (
                       <InnerMenu
                         key={item.id}
                         url={url + item.url}
                         title={item.title}
-                        children={item.children.sort((a, b) => a.order - b.order)}
+                        children={item.children?.data.map((item) => ({ ...item.attributes })).sort((a, b) => a.order - b.order)}
                         buttonClassName={classes.navSubItem}
                         activeClassName={classes.active}
                         closeParent={handleCloseParent}

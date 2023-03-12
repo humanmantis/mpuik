@@ -41,21 +41,25 @@ function Header(props) {
 Header.propTypes = {
   navigation: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      order: PropTypes.number.isRequired,
-      target: PropTypes.string,
-      url: PropTypes.string.isRequired,
-      children: PropTypes.arrayOf(
-        PropTypes.shape({
-          id: PropTypes.number,
-          title: PropTypes.string.isRequired,
-          order: PropTypes.number.isRequired,
-          target: PropTypes.string,
-          url: PropTypes.string.isRequired
-        })
-      )
+      attributes: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        order: PropTypes.number.isRequired,
+        target: PropTypes.string,
+        url: PropTypes.string.isRequired,
+        children: PropTypes.arrayOf(
+          PropTypes.shape({
+            id: PropTypes.number,
+            title: PropTypes.string.isRequired,
+            order: PropTypes.number.isRequired,
+            target: PropTypes.string,
+            url: PropTypes.string.isRequired
+          })
+        )
+      }),
+      id: PropTypes.number
     })
+    
   ).isRequired
 };
 

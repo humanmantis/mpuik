@@ -96,6 +96,7 @@ function MobileHeader({ navigation }) {
           }}>
           <List component="nav" className={classes.nav}>
             {navigation
+              .map((item) => ({ ...item.attributes, children: [ ...item.attributes.children?.data || [] ] }))
               .sort((a, b) => a.order - b.order)
               .map((item) =>
                 item.children.length === 0 ? (
@@ -117,7 +118,7 @@ function MobileHeader({ navigation }) {
                     key={item.id}
                     url={item.url}
                     title={item.title}
-                    children={item.children.sort((a, b) => a.order - b.order)}
+                    children={item.children.map((item) => ({ ...item.attributes })).sort((a, b) => a.order - b.order)}
                     buttonClassName={classes.navItem}
                     activeClassName={classes.active}
                     onClick={() => {
@@ -136,20 +137,28 @@ function MobileHeader({ navigation }) {
 MobileHeader.propTypes = {
   navigation: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      order: PropTypes.number.isRequired,
-      target: PropTypes.string,
-      url: PropTypes.string.isRequired,
-      children: PropTypes.arrayOf(
-        PropTypes.shape({
-          id: PropTypes.number,
-          title: PropTypes.string.isRequired,
-          order: PropTypes.number.isRequired,
-          target: PropTypes.string,
-          url: PropTypes.string.isRequired
+      attributes: PropTypes.shape({
+        id: PropTypes.number,
+        title: PropTypes.string.isRequired,
+        order: PropTypes.number.isRequired,
+        target: PropTypes.string,
+        url: PropTypes.string.isRequired,
+        children: PropTypes.shape({
+          data: PropTypes.arrayOf(
+            PropTypes.shape({
+              id: PropTypes.number,
+              attributes: PropTypes.shape({
+                id: PropTypes.number,
+                title: PropTypes.string.isRequired,
+                order: PropTypes.number.isRequired,
+                target: PropTypes.string,
+                url: PropTypes.string.isRequired
+              })
+            })
+          )
         })
-      )
+      }),
+      id: PropTypes.number
     })
   ).isRequired
 };

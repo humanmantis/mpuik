@@ -41,6 +41,7 @@ function DesktopHeader({ navigation }) {
         </Grid>
         <Grid item>
           {navigation
+            .map((item) => ({ ...item.attributes, children: [ ...item.attributes.children?.data || [] ] }))
             .sort((a, b) => a.order - b.order)
             .map((item) =>
               !item.children.length ? (
@@ -50,8 +51,7 @@ function DesktopHeader({ navigation }) {
                   to={item.url}
                   className={classes.navItem}
                   activeClassName={classes.active}
-                  exact={item.url === '/'}
-                >
+                  exact={item.url === '/'}>
                   {item.title}
                 </Button>
               ) : (
@@ -59,7 +59,7 @@ function DesktopHeader({ navigation }) {
                   key={item.id}
                   url={item.url}
                   title={item.title}
-                  children={item.children.sort((a, b) => a.order - b.order)}
+                  children={item.children.map((item) => ({ ...item.attributes })).sort((a, b) => a.order - b.order)}
                   buttonClassName={classes.navItem}
                   activeClassName={classes.active}
                 />
@@ -74,20 +74,28 @@ function DesktopHeader({ navigation }) {
 DesktopHeader.propTypes = {
   navigation: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      order: PropTypes.number.isRequired,
-      target: PropTypes.string,
-      url: PropTypes.string.isRequired,
-      children: PropTypes.arrayOf(
-        PropTypes.shape({
-          id: PropTypes.number,
-          title: PropTypes.string.isRequired,
-          order: PropTypes.number.isRequired,
-          target: PropTypes.string,
-          url: PropTypes.string.isRequired
+      attributes: PropTypes.shape({
+        id: PropTypes.number,
+        title: PropTypes.string.isRequired,
+        order: PropTypes.number.isRequired,
+        target: PropTypes.string,
+        url: PropTypes.string.isRequired,
+        children: PropTypes.shape({
+          data: PropTypes.arrayOf(
+            PropTypes.shape({
+              id: PropTypes.number,
+              attributes: PropTypes.shape({
+                id: PropTypes.number,
+                title: PropTypes.string.isRequired,
+                order: PropTypes.number.isRequired,
+                target: PropTypes.string,
+                url: PropTypes.string.isRequired
+              })
+            })
+          )
         })
-      )
+      }),
+      id: PropTypes.number
     })
   ).isRequired
 };

@@ -19,7 +19,7 @@ function App() {
 
   useEffect(() => {
     setNavLoading(true);
-    fetch(`${process.env.REACT_APP_REST_API_URI}/menus?nested`)
+    fetch(`${process.env.REACT_APP_REST_API_URI}/menus/1?nested&populate=*`)
       .then((res) => res.json())
       .then((data) => setNavData(data))
       .catch((err) => setNavError(err))
@@ -32,7 +32,7 @@ function App() {
   return (
     <ErrorBoundary>
       <ScrollToTop />
-      {navData?.menus?.length && <Header navigation={navData.menus[0].items} />}
+      {navData?.data?.attributes && <Header navigation={navData.data.attributes.items.data} />}
       <AppRouter />
       <BackToTop />
       {data?.footer && <Footer footer={data.footer} />}
