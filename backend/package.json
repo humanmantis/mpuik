@@ -24,7 +24,8 @@
     "pg-connection-string": "^2.5.0",
     "postinstall-postinstall": "^2.1.0",
     "slugify": "^1.6.5",
-    "strapi-plugin-menus": "1.3.1"
+    "strapi-plugin-menus": "1.3.1",
+    "strapi-plugin-populate-deep": "^2.0.0"
   },
   "author": {
     "name": "Max Floreskul"
@@ -33,7 +34,7 @@
     "uuid": "c8da34f5-7105-401d-a4aa-8632f559d3db"
   },
   "engines": {
-    "node": ">=12.x.x <=16.x.x",
+    "node": ">=14.x.x <=18.x.x",
     "npm": ">=6.0.0"
   },
   "license": "MIT"

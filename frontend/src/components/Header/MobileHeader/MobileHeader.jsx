@@ -26,11 +26,17 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     backgroundColor: theme.palette.primary.light,
     width: '100%',
-    maxWidth: theme.breakpoints.values.sm
+    maxWidth: '280px',
+    [theme.breakpoints.down('xs')]: {
+      maxWidth: theme.breakpoints.values.sm
+    }
   },
   nav: {
     width: '100%',
-    maxWidth: theme.breakpoints.values.sm
+    maxWidth: '280px',
+    [theme.breakpoints.down('xs')]: {
+      maxWidth: theme.breakpoints.values.sm
+    }
   },
   navItem: {
     color: theme.palette.info.main,
