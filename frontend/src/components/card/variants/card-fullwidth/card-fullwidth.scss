@@ -1,0 +1,44 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+
+.card.card-fullwidth {
+  width: 100%;
+  padding: 20px;
+  height: 100%;
+  background-color: $white;
+  border-radius: 1rem;
+  box-shadow: 0px 7px 25px rgba(143, 134, 196, 0.03);
+  transition: 0.3s;
+
+  &:hover {
+    box-shadow: 0px 19px 33px rgba(143, 134, 196, 0.18);
+  }
+
+  .card-fullwidth-img {
+    max-width: 240px;
+    width: 100%;
+  }
+
+  .card-fullwidth-title {
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 1.5rem;
+    color: $info-main;
+  }
+
+  .card-fullwidth-description {
+    margin-top: 20px;
+  }
+
+  .card-fullwidth-img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 40px;
+
+    @include media-breakpoint-down('sm') {
+      padding-bottom: 40px;
+      padding-top: 0;
+    }
+  }
+}
