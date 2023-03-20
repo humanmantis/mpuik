@@ -1,0 +1,25 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.news-page {
+  margin-top: 7rem;
+  margin-bottom: 4rem;
+
+  &.mt-0 {
+    margin-top: 0 !important;
+  }
+
+  &-title {
+    margin: 0;
+    font-weight: 600;
+    color: $primary-main;
+  }
+
+  &-category-title {
+    color: $info-main;
+  }
+
+  &-select {
+    background-color: $background-default;
+  }
+}

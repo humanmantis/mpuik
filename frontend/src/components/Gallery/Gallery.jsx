@@ -1,41 +1,22 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import GalleryV1 from './GalleryV1';
-import GalleryV2 from './GalleryV2';
-import SliderGallery from './SliderGallery';
+
 import constants from '../../config/constants';
+import SliderGallery from './variants/gallery-slider/gallery-slider';
+import GalleryV1 from './variants/gallery-v1/gallery-v1';
+import GalleryV2 from './variants/gallery-v2/gallery-v2';
 
-function Gallery({ title, subtitle, type, gallery }) {
-  const { galleryType } = constants;
+const { galleryType } = constants;
 
-  if (type === galleryType.default) {
-    return gallery.length > 6 ? (
-      <GalleryV2 title={title} subtitle={subtitle} gallery={gallery} />
+function Gallery({ variant = galleryType.default, gallery = [], ...props }) {
+  if (variant === galleryType.default) {
+    return gallery?.length > 6 ? (
+      <GalleryV2 gallery={gallery} {...props} />
     ) : (
-      <GalleryV1 title={title} subtitle={subtitle} gallery={gallery} />
+      <GalleryV1 gallery={gallery} {...props} />
     );
   } else {
-    return <SliderGallery title={title} subtitle={subtitle} gallery={gallery} />;
+    return <SliderGallery gallery={gallery} {...props} />;
   }
 }
-
-Gallery.defaultProps = {
-  gallery: []
-};
-
-Gallery.propTypes = {
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
-  type: PropTypes.string.isRequired,
-  gallery: PropTypes.arrayOf(
-    PropTypes.shape({
-      attributes: PropTypes.shape({
-        hash: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired,
-        alternativeText: PropTypes.string.isRequired
-      })
-    })
-  ).isRequired
-};
 
 export default Gallery;

@@ -1,0 +1,17 @@
+@import '../../../styles/variables.scss';
+
+.page-head {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+
+  .title {
+    font-weight: bold !important;
+    color: $primary-main !important;
+  }
+  
+  .subtitle {
+    font-weight: bold !important;
+    color: $info-main !important;
+  }
+}

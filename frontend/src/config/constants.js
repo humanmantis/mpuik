@@ -1,29 +1,30 @@
 const galleryType = {
   default: 'default',
-  slider: 'slider'
+  slider: 'slider',
 };
 
 const cardType = {
   small: 'small',
   middle: 'middle',
   big: 'big',
-  fullwidth: 'fullwidth'
+  fullwidth: 'fullwidth',
 };
 
 const contentType = {
-  article: 'ComponentPageArticle',
-  cardBlock: 'ComponentPageCardBlock',
-  gallery: 'ComponentPageGallery',
-  link: 'ComponentListLink',
-  list: 'ComponentPageListBlock',
-  electiveDisciplines: 'ComponentPageElectiveDisciplinesCardBlock'
+  article: 'page.article',
+  cardBlock: 'page.card-block',
+  gallery: 'page.gallery',
+  link: 'list.link',
+  list: 'page.list-block',
+  electiveDisciplines: 'page.elective-disciplines-card-block',
 };
 
 const constants = {
-  itemsPerPage: 9,
+  itemsPerPage: 15,
+  itemsPerFirstPage: 9,
   galleryType,
   cardType,
-  contentType
+  contentType,
 };
 
 export default constants;

@@ -1,44 +1,25 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import CardSmall from './CardSmall';
-import CardMiddle from './CardMiddle';
-import CardBig from './CardBig';
-import ArrangementBlock from '../ArrangementBlock';
 import constants from '../../config/constants';
+import CardBig from './variants/card-big/card-big';
+import CardFullwidth from './variants/card-fullwidth/card-fullwidth';
+import CardMiddle from './variants/card-middle/card-middle';
+import CardSmall from './variants/card-small/card-small';
 
-function Card({ variant, title, description, icon }) {
-  const { cardType } = constants;
+const { cardType } = constants;
 
+function Card({ variant = cardType.middle, ...props }) {
   switch (variant) {
     case cardType.small:
-      return <CardSmall title={title} description={description} icon={icon} />;
+      return <CardSmall {...props} />;
     case cardType.middle:
-      return <CardMiddle title={title} description={description} icon={icon} />;
+      return <CardMiddle {...props} />;
     case cardType.big:
-      return <CardBig title={title} description={description} icon={icon} />;
+      return <CardBig {...props} />;
     case cardType.fullwidth:
-      return <ArrangementBlock title={title} description={description} icon={icon} />;
+      return <CardFullwidth {...props} />;
     default:
-      return <CardMiddle title={title} description={description} icon={icon} />;
+      return <CardMiddle {...props} />;
   }
 }
-
-Card.defaultProps = {
-  variant: 'middle',
-  description: ''
-};
-
-Card.propTypes = {
-  variant: PropTypes.oneOf(['small', 'middle', 'big']),
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string,
-  icon: PropTypes.shape({
-    attributes: PropTypes.shape({
-      hash: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-      alternativeText: PropTypes.string.isRequired
-    })
-  }).isRequired
-};
 
 export default Card;

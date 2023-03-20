@@ -1,8 +1,9 @@
 const config = {
-  zoom: 13,
+  zoom: 15,
+  subdomains: ['', '0', '1', '2', '3'],
   attribution:
-    "<a href='https://www.maptiler.com/copyright/' target='_blank'>&copy; MapTiler</a> <a href='https://www.openstreetmap.org/copyright' target='_blank' >&copy; OpenStreetMap contributors</a>",
-  position: [48.2678825, 25.9137722]
+    "Дані карт © АТ «<a href='https://api.visicom.ua/'>Візіком</a>»",
+  position: [48.2680333, 25.9135232],
 };
 
 export default config;

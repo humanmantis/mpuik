@@ -1,0 +1,26 @@
+$primary-main: #0d6f93;
+$primary-light: #bcd8e4;
+$secondary-main: #06040a;
+$info-main: #730438;
+$info-light: #ffdded;
+$background-default: #f9f9fa;
+$header-border: #98b8cd;
+$white: #fff;
+$dark-text: #06040a;
+$success-main: #4caf50;
+
+$font-family: 'Open Sans', sans-serif;
+
+$breakpoint-xs: 0;
+$breakpoint-sm: 600px;
+$breakpoint-md: 960px;
+$breakpoint-lg: 1280px;
+$breakpoint-xl: 1920px;
+
+$grid-breakpoints: (
+  xs: $breakpoint-xs,
+  sm: $breakpoint-sm,
+  md: $breakpoint-md,
+  lg: $breakpoint-lg,
+  xl: $breakpoint-xl,
+);

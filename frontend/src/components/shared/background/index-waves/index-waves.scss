@@ -1,0 +1,36 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+
+.index-waves {
+  position: absolute;
+  width: 2389px;
+  height: 2020px;
+  filter: blur(2px) opacity(0.5);
+  background-image: url('/icons/waveElement.svg');
+  background-repeat: no-repeat;
+  transform: scale(0.8);
+  z-index: -10;
+  overflow-x: hidden;
+  @include media-breakpoint-only('xl') {
+    top: -700px;
+    left: 300px;
+  }
+  @include media-breakpoint-only('lg') {
+    top: -800px;
+    left: -300px;
+  }
+  @include media-breakpoint-only('md') {
+    top: -800px;
+    left: -300px;
+  }
+  @include media-breakpoint-only('sm') {
+    height: 2461px;
+    top: -900px;
+    left: -200px;
+  }
+  @include media-breakpoint-only('xs') {
+    height: 2461px;
+    top: -1000px;
+    left: -400px;
+  }
+}

@@ -41,11 +41,17 @@
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": ["images", "videos"]
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
     },
     "cards": {
       "type": "dynamiczone",
-      "components": ["page.article", "page.card-block"]
+      "components": [
+        "page.article",
+        "page.card-block"
+      ]
     },
     "page": {
       "type": "relation",
@@ -57,6 +63,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::location.location"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
     }
   }
 }

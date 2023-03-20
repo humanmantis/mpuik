@@ -1,0 +1,14 @@
+@import '../../../styles/variables.scss';
+
+.link {
+  color: $primary-main;
+  text-decoration: none;
+  background-position-y: -0%;
+  background-image: linear-gradient(transparent 50%, $primary-light 50%);
+  transition: 300ms ease;
+  background-size: auto 190%;
+  &:hover {
+    background-position-y: 100%;
+    color: $info-main;
+  }
+}

@@ -1,0 +1,31 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.page-program {
+  &-title {
+    font-weight: bold;
+    color: $primary-main;
+  }
+
+  &-circles {
+    position: relative;
+    z-index: -5;
+    top: '-23px';
+    left: '-42px';
+    transform: 'scale(0.8)';
+  }
+
+  &-text-block {
+    position: relative;
+  }
+
+  .page-program-image {
+    height: 400px;
+    width: 100%;
+    border-radius: 0.5rem;
+
+    @include media-breakpoint-down('sm') {
+      height: 300px;
+    }
+  }
+}

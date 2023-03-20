@@ -1,0 +1,127 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.footer-top {
+  background: $primary-light;
+  padding: 100px 20px;
+
+  .description {
+    margin: 2rem 0;
+    max-width: 300px;
+    text-align: justify;
+    @include media-breakpoint-down('md') {
+      margin: 2rem auto;
+      text-align: center;
+    }
+  }
+
+  .social-networks {
+    @include media-breakpoint-down('md') {
+      justify-content: center;
+    }
+  }
+
+  .social-network-img {
+    color: $info-main;
+  }
+
+  .social-network {
+    border-radius: 1rem;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    transition: 0.3s all ease;
+    &:hover {
+      background: $info-light;
+    }
+  }
+
+  .category-title {
+    font-weight: 600;
+    font-size: 1.2rem;
+    line-height: 1.7rem;
+    text-transform: uppercase;
+    color: $info-main;
+  }
+
+  .link {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: $info-main;
+    margin: 26px 0;
+    display: block;
+    text-decoration: none;
+    font-weight: normal;
+    &:hover {
+      text-decoration: underline;
+    }
+    @include media-breakpoint-down('md') {
+      margin: 1.5rem 0;
+    }
+  }
+
+  .text {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: normal;
+    color: $info-main;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .icon-container {
+    height: 2rem;
+    width: auto;
+    margin-right: 1rem;
+    padding: 0;
+    background: transparent;
+  }
+
+  .icon {
+    height: 2rem;
+    color: $info-main;
+    font-size: 20px;
+  }
+
+  .sub-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    @include media-breakpoint-down('lg') {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .flex {
+    @include media-breakpoint-down('md') {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+.bottom-item-left {
+  padding: 25px 0;
+  flex: 0 1 50%;
+  @include media-breakpoint-down('md') {
+    flex: 0 1 100%;
+    text-align: center;
+    padding: 15px 0;
+  }
+}
+
+.bottom-item-right {
+  text-align: right;
+  padding: 25px 0;
+  flex: 0 1 50%;
+  @include media-breakpoint-down('md') {
+    flex: 0 1 100%;
+    text-align: center;
+    padding: 15px 0;
+  }
+}
