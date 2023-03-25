@@ -86,7 +86,7 @@ function CollapseItem({ title, url, children, buttonClassName, activeClassName, 
             ) : (
               <InnerCollapseItem
                 key={item.id}
-                url={item.url}
+                url={url + item.url}
                 title={item.title}
                 children={item.children?.data.map((item) => ({ ...item.attributes })).sort((a, b) => a.order - b.order)}
                 buttonClassName={classes.navSubItem}
