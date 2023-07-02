@@ -1,7 +1,7 @@
 import React from 'react';
 import Leaflet from 'leaflet';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
-// import 'leaflet/dist/leaflet.css';
+import 'leaflet/dist/leaflet.css';
 import config from '../../../config/map.config';
 
 function Map({ position = config.position }) {
