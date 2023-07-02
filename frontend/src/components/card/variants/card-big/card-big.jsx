@@ -29,7 +29,7 @@ function CardBig({ title, description, icon }) {
         <Markdown content={markdown} />
       </Grid>
       <Grid item xs={9} lg={10} className="card-big-desktop-text">
-        <Typography variant="h6" className="title">
+        <Typography variant="h6" className="card-big-title">
           {title}
         </Typography>
         <Markdown content={markdown} />

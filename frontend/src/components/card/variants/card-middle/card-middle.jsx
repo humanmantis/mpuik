@@ -21,7 +21,7 @@ function CardMiddle({ title, description, icon }) {
           </div>
         </Grid>
         <Grid item xs={9} sm={8} lg={9}>
-          <Typography variant="h6" className="title">
+          <Typography variant="h6" className="card-middle-title">
             {title}
           </Typography>
         </Grid>

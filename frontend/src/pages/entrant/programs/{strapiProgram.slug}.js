@@ -3,7 +3,6 @@ import { graphql } from 'gatsby';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { StaticImage } from 'gatsby-plugin-image';
 import constants from '../../../config/constants';
 import PageWaves from '../../../components/shared/background/page-waves/page-waves';
 import Link from '../../../components/shared/link/link';
@@ -34,8 +33,8 @@ function Program({ data, location }) {
       <Container className="main-container page-program" fixed>
         <Grid container justifyContent="space-between" spacing={3}>
           <Grid item xs={12} md={6} lg={5} className="page-program-text-block">
-            <StaticImage
-              src="../../../../static/icons/circles.svg"
+            <img
+              src="/icons/circles.svg"
               alt="circles"
               className="page-program-circles"
             />
@@ -53,9 +52,9 @@ function Program({ data, location }) {
               paragraph
             >
               Освітній рівень:{' '}
-              <span fontWeight="bold">
+              <strong>
                 {program.level} {program.form && `(${program.form})`}
-              </span>
+              </strong>
             </Typography>
             <Typography
               variant="h6"
@@ -64,7 +63,7 @@ function Program({ data, location }) {
               paragraph
             >
               Освітня програма:{' '}
-              <span fontWeight="bold">{program.specialization}</span>
+              <strong>{program.specialization}</strong>
             </Typography>
             <Typography
               variant="h6"
@@ -72,7 +71,7 @@ function Program({ data, location }) {
               fontWeight="normal"
               paragraph
             >
-              Термін навчання: <span fontWeight="bold">{program.term}</span>
+              Термін навчання: <strong>{program.term}</strong>
             </Typography>
             <Typography
               variant="h6"
@@ -81,7 +80,7 @@ function Program({ data, location }) {
               paragraph
             >
               Вартість навчання:{' '}
-              <span fontWeight="bold">{program.price} грн / рік</span>
+              <strong>{program.price} грн / рік</strong>
             </Typography>
             <Typography variant="h6" component="p" fontWeight="bold" paragraph>
               <Link to={program.program} target="_blank">

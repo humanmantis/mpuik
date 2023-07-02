@@ -4,14 +4,14 @@
 .page-program {
   &-title {
     font-weight: bold;
-    color: $primary-main;
+    color: $info-main;
   }
 
   &-circles {
-    position: relative;
+    position: absolute;
     z-index: -5;
-    top: '-23px';
-    left: '-42px';
+    top: -23px;
+    left: -36px;
     transform: 'scale(0.8)';
   }
 
