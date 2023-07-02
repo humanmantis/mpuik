@@ -1,9 +1,0 @@
-mutation createMessage($email: String!, $sender: String!, $message: String!) {
-  createMessage(data: { sender: $sender, email: $email, message: $message }) {
-    data {
-      attributes {
-        createdAt
-      }
-    }
-  }
-}

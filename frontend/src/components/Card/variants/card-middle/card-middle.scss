@@ -1,0 +1,67 @@
+@import '../../../../styles/variables.scss';
+@import '../../../..//styles/mixins.scss';
+
+$icon-violet: #1b1365;
+$icon-red: #eb5757;
+
+.card.card-middle {
+  padding: 1rem;
+  height: 100%;
+  align-items: flex-start;
+  align-content: flex-start;
+  background-color: $white;
+  border-radius: 1rem;
+  box-shadow: 0px 7px 25px rgba(143, 134, 196, 0.03);
+  transition: 0.3s;
+
+  &:hover {
+    box-shadow: 0px 19px 33px rgba(143, 134, 196, 0.18);
+  }
+
+  .card-middle-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 0.5rem;
+
+    &:nth-child(1n) {
+      background-color: $primary-main;
+    }
+
+    &:nth-child(2n) {
+      background-color: $info-main;
+    }
+
+    &:nth-child(3n) {
+      background-color: $icon-violet;
+    }
+
+    &:nth-child(4n) {
+      background-color: $icon-red;
+    }
+
+    .card-middle-icon-wrapper {
+      width: 100%;
+    }
+    
+    .card-middle-icon {
+      margin: auto;
+      width: 100%;
+      color: $white;
+      filter: invert(1);
+      pointer-events: none;
+    }
+  }
+
+  .card-middle-title {
+    font-weight: bold;
+    color: $info-main;
+
+    @include media-breakpoint-only('xs') {
+      margin-left: 0.3rem;
+    }
+  }
+}

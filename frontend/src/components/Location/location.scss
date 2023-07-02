@@ -1,0 +1,58 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.location-block {
+  margin-top: 6rem;
+  margin-bottom: 3rem;
+
+  @include media-breakpoint-down('lg') {
+    margin-top: 3rem;
+  }
+
+  .location-container {
+    margin-bottom: 3rem;
+
+    @include media-breakpoint-down('md') {
+      margin-bottom: 1.5rem;
+    }
+
+    .location-title {
+      font-weight: 600;
+      color: $primary-main;
+    }
+
+    .location-list-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+
+      @include media-breakpoint-down('lg') {
+        margin-bottom: 1.5rem;
+      }
+
+      .location-done-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        color: $success-main;
+        margin-right: 1rem;
+      }
+
+      .location-semibold-text {
+        font-weight: 600;
+      }
+
+      .location-link {
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .location-map-container {
+    height: 500px;
+
+    @include media-breakpoint-down('lg') {
+      height: 300px;
+    }
+  }
+}

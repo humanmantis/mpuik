@@ -1,0 +1,33 @@
+@import '../styles/variables.scss';
+@import '../styles/mixins.scss';
+
+.not-found {
+  .img {
+    width: 100%;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .title {
+    margin-bottom: 3rem;
+    font-weight: bold;
+    color: $primary-main;
+  }
+
+  .button {
+    padding: 0.5rem 3rem;
+    font-weight: bold;
+    border-radius: 1rem;
+
+    &:hover {
+      color: $info-main;
+      background-color: $primary-light;
+    }
+  }
+
+  .text-container {
+    @include media-breakpoint-down('md') {
+      text-align: center;
+    }
+  }
+}

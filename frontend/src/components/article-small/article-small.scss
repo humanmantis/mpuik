@@ -1,0 +1,35 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.article-small-container {
+  margin: 5rem 0;
+
+  .article-small {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: $white;
+    border-radius: 1rem;
+    box-shadow: 0px 14px 36px rgba(0, 0, 0, 0.04);
+
+    @include media-breakpoint-down('lg') {
+      padding: 2rem 1rem;
+    }
+
+    &-image {
+      margin-bottom: 1rem;
+      width: 100%;
+      max-height: 300px;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      background-color: $background-default;
+      overflow: hidden;
+      box-shadow: 2px 2px 15px 6px rgba(0,0,0,0.05);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

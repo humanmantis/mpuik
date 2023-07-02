@@ -1,279 +1,179 @@
-import React from 'react';
-import { Redirect } from 'react-router-dom';
-import { useQuery, useMutation } from '@apollo/client';
-import { loader } from 'graphql.macro';
+import React, { useState } from 'react';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Alert from '@mui/material/Alert';
+import Facebook from '@mui/icons-material/Facebook';
+import Instagram from '@mui/icons-material/Instagram';
+import Twitter from '@mui/icons-material/Twitter';
+import YouTube from '@mui/icons-material/YouTube';
+import Telegram from '@mui/icons-material/Telegram';
+
+import { graphql } from 'gatsby';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Grid, Typography, TextField, Button } from '@material-ui/core';
-import { Alert } from '@material-ui/lab';
-import { makeStyles } from '@material-ui/core';
-import FacebookIcon from '@material-ui/icons/Facebook';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import TelegramIcon from '@material-ui/icons/Telegram';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import YoutubeIcon from '@material-ui/icons/YouTube';
-import Layout from '../components/common/Layout';
-import Map from '../components/Location/Map';
-import AddressComponent from '../components/common/AddressComponent';
+import axios from 'axios';
 import { contactFromSchema } from '../utils/validation';
-import Loader from '../components/common/Loader';
+import Layout from '../components/layout';
+import Map from '../components/shared/map/map';
+import Address from '../components/shared/address/address';
+import Link from '../components/shared/link/link';
+import './contacts.scss';
+import Seo from '../components/seo';
+import { mapSeo } from '../utils/map-seo';
 
-const GetContactPage = loader('../graphql/pages/GetContactPage.gql');
-const CreateMessage = loader('../graphql/mutations/CreateMessage.gql');
-
-const useStyles = makeStyles((theme) => ({
-  addressItem: {
-    flexBasis: 'auto'
-  },
-  typography: {
-    fontWeight: 600
-  },
-  relativeContainer: {
-    position: 'relative',
-    margin: '3rem 0'
-  },
-  mapContainer: {
-    maxWidth: '80%',
-    height: '600px',
-    [theme.breakpoints.only('md')]: {
-      maxWidth: '60%'
-    },
-    [theme.breakpoints.down('sm')]: {
-      maxWidth: '100%',
-      height: '300px'
-    }
-  },
-  inputContainer: {
-    width: '50%',
-    [theme.breakpoints.down('xs')]: {
-      width: '100%'
-    }
-  },
-  input: {
-    width: '100%'
-  },
-
-  form: {
-    background: 'white',
-    borderRadius: '1rem',
-    maxWidth: 600,
-    width: '100%',
-    padding: '60px 40px',
-    position: 'absolute',
-    top: '50%',
-    right: 0,
-    transform: 'translateY(-50%)',
-    zIndex: 500,
-    boxShadow: '0px 13px 25px rgba(0, 0, 0, 0.26)',
-    [theme.breakpoints.down('sm')]: {
-      position: 'initial',
-      transform: 'translateY(0%)',
-      marginTop: 40
-    }
-  },
-  mt30: {
-    marginTop: 30
-  },
-  textarea: {
-    width: '100%'
-  },
-  title: {
-    fontWeight: 600,
-    fontSize: 34,
-    lineHeight: '46px',
-    color: '#06040A',
-    [theme.breakpoints.down('xs')]: {
-      fontSize: 30
-    }
-  },
-  button: {
-    display: 'flex',
-    justifyContent: 'flex-end'
-  },
-  buttonInner: {
-    padding: '10px 40px',
-    borderRadius: '0.5rem',
-    fontWeight: 600
-  },
-  alert: {
-    margin: '1rem 0'
-  },
-  socialNetworks: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    [theme.breakpoints.down('sm')]: {
-      justifyContent: 'flex-start'
-    }
-  },
-  socialNetwork: {
-    borderRadius: '1rem',
-    padding: 15,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '4rem',
-    height: '4rem',
-    transition: '.3s all ease',
-    '&:hover': {
-      background: theme.palette.primary.light
-    }
-  },
-  socialNetworkImg: {
-    width: '2rem',
-    height: '2rem',
-    color: theme.palette.primary.main
-  },
-  subtitle: {
-    marginTop: '2rem',
-    fontWeight: 'bold',
-    color: theme.palette.primary.main,
-    textAlign: 'center',
-    [theme.breakpoints.down('sm')]: {
-      textAlign: 'left'
-    }
-  }
-}));
-
-function Contacts() {
-  const classes = useStyles();
-  const [createMessage, { data: mutationData, loading: mutationLoading, error: mutationError }] =
-    useMutation(CreateMessage);
-  const { loading, error, data } = useQuery(GetContactPage);
-  const contact = data?.page.data?.attributes;
-  const location = contact?.location?.data?.attributes;
-
-  const { register, handleSubmit, formState, errors, reset, getValues } = useForm({
-    resolver: yupResolver(contactFromSchema)
+function Contacts({ data }) {
+  const pageData = data.allStrapiPage.nodes[0];
+  const location = pageData.location || {};
+  const { register, handleSubmit, formState, reset, getValues } = useForm({
+    resolver: yupResolver(contactFromSchema),
   });
-  const { isDirty } = formState;
+  const { isDirty, errors } = formState;
+
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isFail, setIsFail] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const sendMessage = (form) => {
-    createMessage({ variables: form });
+    sendRequest(form);
     reset(getValues());
   };
 
-  if (loading) return <Loader />;
-  if (error) return <Redirect to="/error" />;
+  const sendRequest = (data) => {
+    setIsLoading(true);
+    axios
+      .post(
+        `${process.env.STRAPI_API_URL}/api/messages`,
+        { data },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + process.env.STRAPI_TOKEN,
+          },
+        }
+      )
+      .then((res) => res && setIsSuccess(true))
+      .catch((err) => err && setIsFail(true))
+      .finally(() => setIsLoading(false));
+  };
 
   return (
-    <Layout title={contact.title} subtitle={contact.subtitle}>
-      <AddressComponent
+    <Layout
+      title={pageData.title}
+      subtitle={pageData.subtitle}
+      className="contacts"
+    >
+      <Address
         direction="row"
+        justifyContent="space-between"
         address={location.address}
         phone={location.phone}
         email={location.email}
       />
 
       {location?.social && (
-        <Grid container spacing={1} className={classes.socialNetworks}>
+        <Grid container spacing={1} className="social-networks">
           <Grid item xs={12}>
-            <Typography variant="h5" className={classes.subtitle}>
+            <Typography variant="h5" className="subtitle">
               Соціальні мережі
             </Typography>
           </Grid>
           {location.social?.facebook && (
             <Grid item>
-              <a
-                href={location.social?.facebook}
+              <Link
+                to={location.social?.facebook}
                 target="_blank"
                 rel="noreferrer"
-                className={classes.socialNetwork}
+                className="social-network"
               >
-                <FacebookIcon className={classes.socialNetworkImg} />
-              </a>
+                <Facebook className="social-network-img" />
+              </Link>
             </Grid>
           )}
           {location.social?.instagram && (
             <Grid item>
-              <a
-                href={location.social?.instagram}
+              <Link
+                to={location.social?.instagram}
                 target="_blank"
                 rel="noreferrer"
-                className={classes.socialNetwork}
+                className="social-network"
               >
-                <InstagramIcon className={classes.socialNetworkImg} />
-              </a>
+                <Instagram className="social-network-img" />
+              </Link>
             </Grid>
           )}
           {location.social?.telegram && (
             <Grid item>
-              <a
-                href={location.social?.telegram}
+              <Link
+                to={location.social?.telegram}
                 target="_blank"
                 rel="noreferrer"
-                className={classes.socialNetwork}
+                className="social-network"
               >
-                <TelegramIcon className={classes.socialNetworkImg} />
-              </a>
+                <Telegram className="social-network-img" />
+              </Link>
             </Grid>
           )}
           {location.social?.twitter && (
             <Grid item>
-              <a
-                href={location.social?.twitter}
+              <Link
+                to={location.social?.twitter}
                 target="_blank"
                 rel="noreferrer"
-                className={classes.socialNetwork}
+                className="social-network"
               >
-                <TwitterIcon className={classes.socialNetworkImg} />
-              </a>
+                <Twitter className="social-network-img" />
+              </Link>
             </Grid>
           )}
           {location.social?.youtube && (
             <Grid item>
-              <a
-                href={location.social?.youtube}
+              <Link
+                to={location.social?.youtube}
                 target="_blank"
                 rel="noreferrer"
-                className={classes.socialNetwork}
+                className="social-network"
               >
-                <YoutubeIcon className={classes.socialNetworkImg} />
-              </a>
+                <YouTube className="social-network-img" />
+              </Link>
             </Grid>
           )}
         </Grid>
       )}
 
-      <div className={classes.relativeContainer}>
-        <div className={classes.mapContainer}>
+      <div className="relative-container">
+        <div className="map-container">
           <Map position={[location.latitude, location.longitude]} />
         </div>
         <form
-          className={classes.form}
+          className="form"
           onSubmit={handleSubmit(sendMessage)}
           noValidate
           autoComplete="off"
         >
-          <Typography className={classes.title}>Напишіть нам</Typography>
-          <Grid container justify="space-between" spacing={2}>
-            <Grid
-              item
-              xs={12}
-              className={`${classes.addressItem} ${classes.inputContainer} ${classes.mt30}`}
-            >
+          <Typography className="title">Напишіть нам</Typography>
+          <Grid container justifyContent="space-between" spacing={2}>
+            <Grid item xs={12} className="address-item input-container mt30">
               <TextField
                 id="sender"
                 name="sender"
                 label="Прізвище та ім’я"
-                placeholder="Ілон Маск"
-                className={classes.input}
-                inputRef={register}
+                placeholder="Микола Парасюк"
+                className="input"
+                {...register('sender')}
                 error={!!errors.sender}
                 helperText={errors.sender?.message ?? ''}
               />
             </Grid>
-            <Grid
-              item
-              xs={12}
-              className={`${classes.addressItem} ${classes.inputContainer} ${classes.mt30}`}
-            >
+            <Grid item xs={12} className="address-item input-container mt30">
               <TextField
                 id="email"
                 name="email"
                 label="Електронна пошта"
                 placeholder="email@example.com"
-                className={classes.input}
-                inputRef={register}
+                className="input"
+                {...register('email')}
                 error={!!errors.email}
                 helperText={errors.email?.message ?? ''}
               />
@@ -285,30 +185,30 @@ function Contacts() {
             label="Повідомлення"
             multiline
             rows={4}
-            className={`${classes.mt30} ${classes.textarea}`}
+            className="textarea mt30"
             placeholder="Доброго дня, "
             variant="outlined"
-            inputRef={register}
+            {...register('message')}
             error={!!errors.message}
             helperText={errors.message?.message ?? ''}
           />
-          {mutationData && (
-            <Alert severity="success" className={classes.alert}>
+          {isSuccess && (
+            <Alert severity="success" className="alert">
               Повідомлення надіслано
             </Alert>
           )}
-          {mutationError && (
-            <Alert severity="error" className={classes.alert}>
+          {isFail && (
+            <Alert severity="error" className="alert">
               Сталася помилка, спробуйте пізніше
             </Alert>
           )}
-          <div className={`${classes.button} ${classes.mt30}`}>
+          <div className="button mt30">
             <Button
               type="submit"
               variant="contained"
               color="primary"
-              className={classes.buttonInner}
-              disabled={mutationLoading || !isDirty}
+              className="button-inner"
+              disabled={isLoading || !isDirty}
             >
               Надіслати
             </Button>
@@ -320,3 +220,69 @@ function Contacts() {
 }
 
 export default Contacts;
+
+export const Head = ({ data, location }) => {
+  return (
+    <Seo
+      pageSeo={mapSeo(data.allStrapiPage?.nodes[0]?.seo, { title: data.allStrapiPage?.nodes[0]?.title })}
+      location={location}
+    />
+  );
+};
+
+
+export const query = graphql`
+  query GetContacts {
+    allStrapiPage(filter: { slug: { eq: "contacts" } }) {
+      nodes {
+        title
+        subtitle
+        location {
+          address
+          email
+          phone
+          latitude
+          longitude
+          list {
+            title
+            id
+          }
+          social {
+            facebook
+            instagram
+            telegram
+            twitter
+            youtube
+          }
+        }
+        seo {
+          title: metaTitle
+          description: metaDescription
+          keywords
+          robots: metaRobots
+          canonical: canonicalURL
+          image: metaImage {
+            localFile {
+              publicURL
+            }
+          }
+          social: metaSocial {
+            socialNetwork
+            title
+            description
+            image {
+              localFile {
+                publicURL
+              }
+            }
+          }
+          structuredData {
+            internal {
+              content
+            }
+          }
+        }
+      }
+    }
+  }
+`;

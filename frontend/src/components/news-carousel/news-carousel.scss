@@ -1,0 +1,136 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.news-carousel-container {
+  position: relative;
+  height: 500px;
+
+  @include media-breakpoint-down('md') {
+    height: auto;
+  }
+
+  .news-carousel-image {
+    display: block;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+
+    @include media-breakpoint-only('sm') {
+      height: 400px;
+    }
+
+    @include media-breakpoint-only('xs') {
+      height: 300px;
+    }
+  }
+
+  .news-carousel-text-container {
+    position: relative;
+    background-color: $primary-main;
+    padding: 2rem;
+
+    .news-carousel-category-button {
+      padding: 0.5rem 2rem;
+      margin-bottom: 1rem;
+      color: $white;
+      background-color: rgba($white, 0.2);
+      border-radius: 1rem;
+      font-weight: 600;
+
+      &:hover {
+        color: $info-main;
+        background-color: $primary-light;
+      }
+    }
+
+    .news-carousel-title {
+      color: $white;
+      font-weight: 600;
+      max-width: 700px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+
+      text-decoration: none;
+      background: linear-gradient(to left, transparent 50%, $info-main 50%)
+        right;
+      transition: 300ms ease;
+      background-size: 190% auto;
+
+      &:hover {
+        background-position: left;
+      }
+    }
+
+    .news-carousel-text {
+      color: $white;
+      max-width: 700px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+
+      @include media-breakpoint-only('xs') {
+        -webkit-line-clamp: 2;
+      }
+    }
+
+    .news-carousel-read-button {
+      position: absolute;
+      bottom: 2rem;
+      left: 2rem;
+      padding: 0.7rem 3rem;
+      color: $dark-text;
+      background-color: $white;
+      border-radius: 1rem;
+      font-weight: bold;
+      z-index: 7;
+
+      &:hover {
+        color: $info-main;
+        background-color: $primary-light;
+      }
+
+      @include media-breakpoint-down('md') {
+        margin-top: 1rem;
+        position: unset;
+      }
+    }
+  }
+
+  .news-carousel-indicators {
+    position: absolute;
+    right: 3rem;
+    bottom: 3rem;
+    text-align: right;
+    z-index: 1;
+    width: 200px;
+
+    @include media-breakpoint-down('md') {
+      position: unset;
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  .news-carousel-indicator-button {
+    color: $white;
+
+    &:hover {
+      color: $info-light;
+    }
+
+    @include media-breakpoint-down('md') {
+      color: $primary-light;
+      margin: 0.3rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  .news-carousel-active-indicator-button {
+    color: $info-main;
+  }
+}

@@ -1,0 +1,23 @@
+@import '../../../styles/variables.scss';
+
+.logo-link {
+  text-decoration: none;
+  &:hover {
+    color: $info-main;
+  }
+}
+
+.logo-title {
+  font-size: 1.7rem;
+  font-weight: bold;
+  line-height: 1.7rem;
+  color: $info-main;
+  margin: 0;
+}
+
+.logo-subtitle {
+  font-size: 0.6rem;
+  font-weight: bolder;
+  color: $info-main;
+  margin: 0;
+}
