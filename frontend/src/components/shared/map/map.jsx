@@ -25,7 +25,7 @@ function Map({ position = config.position }) {
     >
       <TileLayer
         attribution={config.attribution}
-        url={process.env.MAP_API_URI}
+        url={config.url}
       />
       <Marker position={position} icon={icon}></Marker>
     </MapContainer>
