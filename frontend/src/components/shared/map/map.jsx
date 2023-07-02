@@ -25,7 +25,7 @@ function Map({ position = config.position }) {
     >
       <TileLayer
         attribution={config.attribution}
-        url={process.env.MAP_API_URI}
+        url='https://tms.visicom.ua/2.0.0/planet3/base/{z}/{x}/{y}.png?origin=nw&key=d362ae3b665339b0c5f28931001fed39'
       />
       <Marker position={position} icon={icon}></Marker>
     </MapContainer>
