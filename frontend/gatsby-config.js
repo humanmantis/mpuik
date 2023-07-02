@@ -72,8 +72,8 @@ module.exports = {
       resolve: 'gatsby-plugin-sharp',
       options: {
         defaults: {
-          placeholder: 'blurred',
-          backgroundColor: 'transparent',
+          placeholder: 'none',
+          backgroundColor: '#e0e0e0',
           breakpoints: [600, 960, 1280, 1920],
         },
       },

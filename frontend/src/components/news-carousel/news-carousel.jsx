@@ -12,7 +12,7 @@ import './news-carousel.scss';
 function NewsCarousel({ items }) {
   return (
     <Carousel
-      navButtonsAlwaysInvisible={true}
+      navButtonsAlwaysInvisible={false}
       animation="slide"
       interval={5000}
       IndicatorIcon={<SquareRounded fontSize="small" />}
@@ -21,7 +21,7 @@ function NewsCarousel({ items }) {
       activeIndicatorIconButtonProps={{
         className: 'news-carousel-active-indicator-button',
       }}
-      autoPlay={false}
+      autoPlay={true}
       swipe={true}
       className="news-carousel-container"
     >

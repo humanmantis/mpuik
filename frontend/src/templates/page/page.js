@@ -166,6 +166,7 @@ export const query = graphql`
             semesters {
               id
               semester
+              form
               silabusis {
                 id
                 discipline

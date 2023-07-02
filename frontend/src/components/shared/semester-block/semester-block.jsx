@@ -10,7 +10,7 @@ const SemesterBlock = ({ semester, silabusis, form }) => {
     <Box className="semester-block">
       <Typography className="semester-block-title">{semester}</Typography>
       <Box className="semester-block-grid-wrapper">
-        {silabusis?.length &&
+        {silabusis?.length > 0 &&
           silabusis.map((silabus, index) => (
             <Grid container alignItems="center" key={silabus.discipline}>
               <Grid xs={6} sm={8} item>

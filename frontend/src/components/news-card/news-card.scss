@@ -10,26 +10,23 @@
   &:hover {
     box-shadow: 0px 19px 35px rgba(62, 53, 120, 0.07);
 
+   
+
     .news-card-title {
       color: $info-main;
       background-position: left;
     }
 
     .news-card-media {
-      height: 150px;
-      filter: blur(1px) brightness(90%);
-    }
-
-    .news-card-description {
-      max-height: 9rem;
-      margin-bottom: 0;
-      color: $primary-main;
-      -webkit-line-clamp: 6;
+      filter: blur(1px) brightness(99%);
+      scale: 0.99;
+      z-index: 0;
     }
   }
 
   &-content {
     height: 100%;
+    z-index: 10;
   }
 
   &-media {
