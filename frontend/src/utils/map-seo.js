@@ -21,7 +21,7 @@ export const mapSeo = (pageSeo, defaultSeo) => {
   };
 
   if (seo.image && !seo.image.includes('http')) {
-    seo.image = 'https://mpuik.vercel.app/' + seo.image;
+    seo.image = 'https://mpuik.vercel.app' + seo.image;
   }
 
   if (!seo.social) {
