@@ -44,7 +44,7 @@ module.exports = {
             options: {
               tracedSVG: true,
               backgroundColor: 'transparent',
-              quality: 50,
+              quality: 85,
               createMarkup: ({
                 presentationWidth,
                 presentationHeight,
@@ -75,6 +75,7 @@ module.exports = {
           placeholder: 'none',
           backgroundColor: '#e0e0e0',
           breakpoints: [600, 960, 1280, 1920],
+          quality: 85,
         },
       },
     },
