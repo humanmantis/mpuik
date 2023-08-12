@@ -20,6 +20,10 @@ export const mapSeo = (pageSeo, defaultSeo) => {
     structuredData: pageSeo.structuredData?.internal?.content,
   };
 
+  if (seo.image && !seo.image.includes('http')) {
+    seo.image = 'https://mpuik.vercel.app/' + seo.image;
+  }
+
   if (!seo.social) {
     seo.social = [
       {
