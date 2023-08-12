@@ -1,0 +1,44 @@
+{
+  "redirects": [
+    {
+      "source": "/educational-process/educational-scientific-programs/ak-1",
+      "destination": "/educational-process/educational-scientific-programs/akreditacziya",
+      "permanent": true
+    },
+    {
+      "source": "/educational-process/a-1",
+      "destination": "/educational-process/infrastruktura-ta-materialna-baz",
+      "permanent": true
+    },
+    {
+      "source": "/educational-process/dip",
+      "destination": "/educational-process/diplomni-proyekti",
+      "permanent": true
+    },
+    {
+      "source": "/entrant/p-1",
+      "destination": "/entrant/pravila-prijomu",
+      "permanent": true
+    },
+    {
+      "source": "/educational-process/re-1",
+      "destination": "/educational-process/repozitorij",
+      "permanent": true
+    },
+    {
+      "source": "/student/siste",
+      "destination": "/student/sistema-elektronnogo-navchannya",
+      "permanent": true
+    },
+    {
+      "source": "/news/no-category",
+      "destination": "/news",
+      "permanent": true
+    },
+    {
+      "source": "/news/page",
+      "destination": "/news",
+      "permanent": true
+    }
+  ]
+}

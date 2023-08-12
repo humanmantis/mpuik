@@ -99,14 +99,14 @@ const createRedirects = async ({ actions }) => {
   createRedirect({
     fromPath: `/news/no-category`,
     toPath: `/news/page`,
-    isPermanent: true,
+    isPermanent: true
   });
 
 
   createRedirect({
     fromPath: `/news/page`,
     toPath: `/news`,
-    isPermanent: true,
+    isPermanent: true
   });
 
   const redirects = require('./redirects.json')
@@ -115,6 +115,7 @@ const createRedirects = async ({ actions }) => {
     createRedirect({
       fromPath: redirect.fromPath,
       toPath: redirect.toPath,
+      isPermanent: true
     })
   )
 };
