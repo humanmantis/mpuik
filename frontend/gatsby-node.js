@@ -108,6 +108,15 @@ const createRedirects = async ({ actions }) => {
     toPath: `/news`,
     isPermanent: true,
   });
+
+  const redirects = require('./redirects.json')
+
+  redirects.forEach(redirect =>
+    createRedirect({
+      fromPath: redirect.fromPath,
+      toPath: redirect.toPath,
+    })
+  )
 };
 
 const createNewsPages = async ({ graphql, actions, reporter }) => {

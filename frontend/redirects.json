@@ -1,0 +1,26 @@
+[
+  {
+    "fromPath": "/educational-process/educational-scientific-programs/ak-1",
+    "toPath": "/educational-process/educational-scientific-programs/akreditacziya"
+  },
+  {
+    "fromPath": "/educational-process/a-1",
+    "toPath": "/educational-process/infrastruktura-ta-materialna-baza"
+  },
+  {
+    "fromPath": "/educational-process/dip",
+    "toPath": "/educational-process/diplomni-proyekti"
+  },
+  {
+    "fromPath": "/entrant/p-1",
+    "toPath": "/entrant/pravila-prijomu"
+  },
+  {
+    "fromPath": "/educational-process/re-1",
+    "toPath": "/educational-process/repozitorij"
+  },
+  {
+    "fromPath": "/student/siste",
+    "toPath": "/student/sistema-elektronnogo-navchannya"
+  }
+]
