@@ -9,7 +9,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: `Кафедра МПУіК`,
-    siteUrl: `https://www.mpuik.vercel.app`,
+    siteUrl: `https://mpuik.vercel.app/`,
     description:
       "Кафедра МПУіК навчає студентів з 1972 року. Спеціальність: 122 - Комп'ютерні науки. Алгоритмічне та програмне забезпечення комп'ютерних систем",
     image: './static/images/logo.png',
