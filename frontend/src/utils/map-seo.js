@@ -3,9 +3,7 @@ export const mapSeo = (pageSeo, defaultSeo) => {
   const seo = {
     title: pageSeo.title || defaultSeo.title,
     description: pageSeo.description || defaultSeo.description,
-    image: pageSeo.image?.localFile
-      ? pageSeo.image.localFile.publicURL
-      : pageSeo.image || defaultSeo.image,
+    image: getImageLink(pageSeo.image),
     keywords: pageSeo.keywords,
     robots: pageSeo.robits,
     canonical: pageSeo.canonical || defaultSeo.url,
@@ -13,18 +11,12 @@ export const mapSeo = (pageSeo, defaultSeo) => {
       socialNetwork: social.socialNetwork,
       title: social.title || defaultSeo.title,
       description: social.description || defaultSeo.description,
-      image: social.image?.localFile
-        ? social.image.localFile.publicURL
-        : social.image || defaultSeo.image,
+      image: getImageLink(social.image)
     })),
     structuredData: pageSeo.structuredData?.internal?.content,
   };
 
-  if (seo.image && !seo.image.includes('http')) {
-    seo.image = 'https://mpuik.vercel.app' + seo.image;
-  }
-
-  if (!seo.social) {
+  if (!seo.social.length) {
     seo.social = [
       {
         socialNetwork: 'Facebook',
@@ -42,4 +34,18 @@ export const mapSeo = (pageSeo, defaultSeo) => {
   }
 
   return seo;
+
+  function getImageLink(image) {
+    const resultImage = image?.localFile
+      ? image.localFile.publicURL
+      : image || defaultSeo.image;
+
+    if (!resultImage) {
+      return null;
+    }
+
+    return resultImage.includes('http')
+      ? resultImage
+      : 'https://mpuik.vercel.app' + resultImage;
+  }
 };

@@ -21,6 +21,8 @@ function MobileHeader({ navigation, location }) {
       <Toolbar className="mobile-header">
         <IconButton
           className="icon-button"
+          aria-label="Відкрити меню"
+          title="Відкрити меню"
           onClick={() => {
             setDrawer(true);
           }}
@@ -45,6 +47,8 @@ function MobileHeader({ navigation, location }) {
         <Toolbar className="active-toolbar">
           <IconButton
             className="icon-button"
+            aria-label="Закрити меню"
+            title="Закрити меню"
             onClick={() => {
               setDrawer(false);
             }}

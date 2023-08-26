@@ -6,10 +6,12 @@ import Image from '../image/image';
 import './article.scss';
 
 function Article({ title, subtitle, content, photos }) {
+  const hasArticle = Boolean(content?.data?.childMarkdownRemark?.html);
+
   return (
-    <section id={title} className="article-container">
+    <section id={title} className={`article-container ${hasArticle ? '' : 'mb-2'}`}>
       <BlockTitle title={title} subtitle={subtitle} />
-      {content && (
+      {hasArticle && (
         <Grid
           container
           component="article"

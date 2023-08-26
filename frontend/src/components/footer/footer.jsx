@@ -34,6 +34,7 @@ function Footer({ sections, location, additionalText }) {
                         target="_blank"
                         rel="noreferrer"
                         className="social-network"
+                        aria-label="Facebook"
                       >
                         <Facebook className="social-network-img" />
                       </Link>
@@ -46,6 +47,7 @@ function Footer({ sections, location, additionalText }) {
                         target="_blank"
                         rel="noreferrer"
                         className="social-network"
+                        aria-label="Instagram"
                       >
                         <Instagram className="social-network-img" />
                       </Link>
@@ -58,6 +60,7 @@ function Footer({ sections, location, additionalText }) {
                         target="_blank"
                         rel="noreferrer"
                         className="social-network"
+                        aria-label="Telegram"
                       >
                         <Telegram className="social-network-img" />
                       </Link>
@@ -70,6 +73,7 @@ function Footer({ sections, location, additionalText }) {
                         target="_blank"
                         rel="noreferrer"
                         className="social-network"
+                        aria-label="Twitter"
                       >
                         <Twitter className="social-network-img" />
                       </Link>
@@ -82,6 +86,7 @@ function Footer({ sections, location, additionalText }) {
                         target="_blank"
                         rel="noreferrer"
                         className="social-network"
+                        aria-label="YouTube"
                       >
                         <YouTube className="social-network-img" />
                       </Link>

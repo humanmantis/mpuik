@@ -5,6 +5,7 @@ import '@fontsource/open-sans/400.css';
 import '@fontsource/open-sans/500.css';
 import '@fontsource/open-sans/600.css';
 import '@fontsource/open-sans/700.css';
+import browserHydrateFunction from './src/utils/browser-hydrate';
 import TopLayout from './src/components/top-layout';
 import theme from './theme';
 import './src/styles/global.scss';
@@ -20,3 +21,5 @@ export function wrapPageElement({ element, props }) {
     </>
   );
 }
+
+export const replaceHydrateFunction = browserHydrateFunction;

@@ -38,7 +38,7 @@ function Seo({ pageSeo, location, children }) {
             <meta name="twitter:title" content={social.title} />
             <meta name="twitter:description" content={social.description} />
             <meta name="twitter:image" content={social.image} />
-            <meta name="twitter:site" content={defaultSeo.url} />
+            <meta name="twitter:site" content={seo.canonical} />
           </>
         )
       )}

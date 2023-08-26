@@ -138,5 +138,11 @@ module.exports = {
         menuID: '1',
       },
     },
+    {
+      resolve: 'gatsby-plugin-html-attributes',
+      options: {
+        lang: 'uk'
+      }
+    }
   ],
 };
