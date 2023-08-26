@@ -11,9 +11,9 @@ export const mapSeo = (pageSeo, defaultSeo) => {
       socialNetwork: social.socialNetwork,
       title: social.title || defaultSeo.title,
       description: social.description || defaultSeo.description,
-      image: getImageLink(social.image)
+      image: getImageLink(social.image),
     })),
-    structuredData: pageSeo.structuredData?.internal?.content,
+    structuredData: pageSeo.structuredData
   };
 
   if (!seo.social.length) {
