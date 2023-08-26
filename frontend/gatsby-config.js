@@ -22,6 +22,7 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-leaflet',
     'gatsby-awesome-pagination',
+    'gatsby-plugin-robots-txt',
     {
       resolve: 'gatsby-plugin-google-gtag',
       options: {
@@ -143,6 +144,6 @@ module.exports = {
       options: {
         lang: 'uk'
       }
-    }
+    },
   ],
 };
