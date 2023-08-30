@@ -16,7 +16,7 @@ export const mapSeo = (pageSeo, defaultSeo) => {
     structuredData: pageSeo.structuredData
   };
 
-  if (!seo.social.length) {
+  if (!seo.social?.length) {
     seo.social = [
       {
         socialNetwork: 'Facebook',
