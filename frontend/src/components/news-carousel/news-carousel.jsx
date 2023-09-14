@@ -22,7 +22,7 @@ function NewsCarousel({ items }) {
         className: 'news-carousel-active-indicator-button',
       }}
       autoPlay={true}
-      swipe={true}
+      swipe={false}
       className="news-carousel-container"
     >
       {items.map((item) => (

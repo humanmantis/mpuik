@@ -44,7 +44,7 @@ function GalleryV2({ title, subtitle, gallery = [] }) {
         animation="slide"
         navButtonsAlwaysInvisible={true}
         stopAutoPlayOnHover={true}
-        swipe={true}
+        swipe={false}
         className="mobile-gallery-v2"
       >
         {gallery?.map((item) => (

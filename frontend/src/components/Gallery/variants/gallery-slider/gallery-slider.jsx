@@ -23,7 +23,7 @@ function SliderGallery({ title, subtitle, gallery = [] }) {
         className="gallery-slider-carousel"
         stopAutoPlayOnHover={true}
         cycleNavigation={true}
-        swipe={true}
+        swipe={false}
         navButtonsAlwaysVisible={true}
         navButtonsWrapperProps={{ className: 'gallery-slider-button' }}
       >
