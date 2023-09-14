@@ -23,12 +23,13 @@ module.exports = {
     'gatsby-plugin-react-leaflet',
     'gatsby-awesome-pagination',
     'gatsby-plugin-robots-txt',
+    'gatsby-plugin-purgecss',
     {
       resolve: 'gatsby-plugin-google-gtag',
       options: {
         trackingIds: [process.env.GATSBY_GOOGLE_ANALYTICS_ID],
         pluginConfig: {
-          head: true,
+          head: false,
         }
       },
     },
