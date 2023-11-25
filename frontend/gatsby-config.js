@@ -29,7 +29,7 @@ module.exports = {
       options: {
         trackingIds: [process.env.GATSBY_GOOGLE_ANALYTICS_ID],
         pluginConfig: {
-          head: false,
+          head: true,
         }
       },
     },
