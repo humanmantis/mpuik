@@ -9,17 +9,6 @@ module.exports = ({ env }) => ({
       roles: ["strapi-super-admin", "strapi-editor"],
     },
   },
-  "rest-cache": {
-    config: {
-      provider: {
-        name: "memory",
-        options: {
-          max: 32767,
-          maxAge: 3600,
-        },
-      },
-    }
-  },
   menus: {
     enabled: true,
     config: {
