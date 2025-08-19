@@ -1,6 +1,5 @@
 {
   "redirects": [
-    // Existing internal redirects - keep these for backward compatibility
     {
       "source": "/educational-process/educational-scientific-programs/ak-1",
       "destination": "/educational-process/educational-scientific-programs/akreditacziya",
@@ -42,9 +41,6 @@
       "permanent": true
     },
 
-    // SPECIFIC PAGE MAPPINGS based on sitemap analysis
-    
-    // About/Pro Nas section mappings
     {
       "source": "/about/scientific-work",
       "destination": "https://mpuik.chnu.edu.ua/pro-nas/naukova-robota/",
@@ -81,7 +77,6 @@
       "permanent": true
     },
 
-    // Educational Process / Osvitnii Protses section mappings
     {
       "source": "/educational-process/normativno-pravove-zabezpechennya",
       "destination": "https://mpuik.chnu.edu.ua/osvitnii-protses/normatyvno-pravove-zabezpechennia/",
@@ -133,7 +128,6 @@
       "permanent": true
     },
 
-    // Entrant / Abituriientu section mappings
     {
       "source": "/entrant/pravila-prijomu",
       "destination": "https://mpuik.chnu.edu.ua/abituriientu/vstup-na-bakalavrat/",
@@ -165,7 +159,6 @@
       "permanent": true
     },
 
-    // Student / Studentu section mappings
     {
       "source": "/student/rating",
       "destination": "https://mpuik.chnu.edu.ua/studentu/",
@@ -217,7 +210,6 @@
       "permanent": true
     },
 
-    // Academic Integrity mappings
     {
       "source": "/academic-integrity/regulations",
       "destination": "https://mpuik.chnu.edu.ua/akademichna-dobrochesnist/normatyvni-dokumenty/",
@@ -229,7 +221,6 @@
       "permanent": true
     },
 
-    // News section mappings with category handling
     {
       "source": "/news/podiya/:path*",
       "destination": "https://mpuik.chnu.edu.ua/novyny/:path*",
@@ -266,14 +257,11 @@
       "permanent": true
     },
 
-    // Contacts mapping
     {
       "source": "/contacts",
       "destination": "https://mpuik.chnu.edu.ua/",
       "permanent": true
     },
-
-    // GENERAL SECTION MAPPINGS (catch broader patterns)
     
     {
       "source": "/about/:path*",
@@ -301,14 +289,12 @@
       "permanent": true
     },
 
-    // Home page redirect
     {
       "source": "/",
       "destination": "https://mpuik.chnu.edu.ua/",
       "permanent": true
     },
 
-    // Catch-all fallback - redirect any unmatched path to main domain
     {
       "source": "/:path*",
       "destination": "https://mpuik.chnu.edu.ua/",
