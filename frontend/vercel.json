@@ -1,5 +1,6 @@
 {
   "redirects": [
+    // Existing internal redirects - keep these for backward compatibility
     {
       "source": "/educational-process/educational-scientific-programs/ak-1",
       "destination": "/educational-process/educational-scientific-programs/akreditacziya",
@@ -7,7 +8,7 @@
     },
     {
       "source": "/educational-process/a-1",
-      "destination": "/educational-process/infrastruktura-ta-materialna-baz",
+      "destination": "/educational-process/infrastruktura-ta-materialna-baza",
       "permanent": true
     },
     {
@@ -38,6 +39,279 @@
     {
       "source": "/news/page",
       "destination": "/news",
+      "permanent": true
+    },
+
+    // SPECIFIC PAGE MAPPINGS based on sitemap analysis
+    
+    // About/Pro Nas section mappings
+    {
+      "source": "/about/scientific-work",
+      "destination": "https://mpuik.chnu.edu.ua/pro-nas/naukova-robota/",
+      "permanent": true
+    },
+    {
+      "source": "/about/cooperation",
+      "destination": "https://mpuik.chnu.edu.ua/pro-nas/spivpratsia-zi-steikkholderamy/",
+      "permanent": true
+    },
+    {
+      "source": "/about/conference",
+      "destination": "https://mpuik.chnu.edu.ua/pro-nas/konferentsiia/",
+      "permanent": true
+    },
+    {
+      "source": "/about/graduates",
+      "destination": "https://mpuik.chnu.edu.ua/pro-nas/vypusknyky/",
+      "permanent": true
+    },
+    {
+      "source": "/about/stakeholders",
+      "destination": "https://mpuik.chnu.edu.ua/pro-nas/spivpratsia-zi-steikkholderamy/",
+      "permanent": true
+    },
+    {
+      "source": "/about/history",
+      "destination": "https://mpuik.chnu.edu.ua/pro-nas/istoriia/",
+      "permanent": true
+    },
+    {
+      "source": "/about/staff/:path*",
+      "destination": "https://mpuik.chnu.edu.ua/pro-nas/spivrobitnyky/:path*",
+      "permanent": true
+    },
+
+    // Educational Process / Osvitnii Protses section mappings
+    {
+      "source": "/educational-process/normativno-pravove-zabezpechennya",
+      "destination": "https://mpuik.chnu.edu.ua/osvitnii-protses/normatyvno-pravove-zabezpechennia/",
+      "permanent": true
+    },
+    {
+      "source": "/educational-process/industry-standards",
+      "destination": "https://mpuik.chnu.edu.ua/osvitnii-protses/haluzevi-standarty/",
+      "permanent": true
+    },
+    {
+      "source": "/educational-process/educational-scientific-programs/rezultati-opituvannya",
+      "destination": "https://mpuik.chnu.edu.ua/osvitnii-protses/osvitno-profesiini-prohramy/rezultaty-opytuvannia/",
+      "permanent": true
+    },
+    {
+      "source": "/educational-process/educational-scientific-programs/akreditacziya",
+      "destination": "https://mpuik.chnu.edu.ua/osvitnii-protses/osvitno-profesiini-prohramy/akredytatsiia/",
+      "permanent": true
+    },
+    {
+      "source": "/educational-process/educational-scientific-programs/:path*",
+      "destination": "https://mpuik.chnu.edu.ua/osvitnii-protses/osvitno-profesiini-prohramy/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/educational-process/curricula",
+      "destination": "https://mpuik.chnu.edu.ua/osvitnii-protses/navchalni-plany/",
+      "permanent": true
+    },
+    {
+      "source": "/educational-process/elective-disciplines",
+      "destination": "https://mpuik.chnu.edu.ua/studentu/vybir-dystsyplin/",
+      "permanent": true
+    },
+    {
+      "source": "/educational-process/repozitorij",
+      "destination": "https://mpuik.chnu.edu.ua/osvitnii-protses/repozytorii/",
+      "permanent": true
+    },
+    {
+      "source": "/educational-process/diplomni-proyekti",
+      "destination": "https://mpuik.chnu.edu.ua/osvitnii-protses/dyplomni-proiekty/",
+      "permanent": true
+    },
+    {
+      "source": "/educational-process/infrastruktura-ta-materialna-baza",
+      "destination": "https://mpuik.chnu.edu.ua/osvitnii-protses/materialno-tekhnichna-baza/",
+      "permanent": true
+    },
+
+    // Entrant / Abituriientu section mappings
+    {
+      "source": "/entrant/pravila-prijomu",
+      "destination": "https://mpuik.chnu.edu.ua/abituriientu/vstup-na-bakalavrat/",
+      "permanent": true
+    },
+    {
+      "source": "/entrant/why-we",
+      "destination": "https://mpuik.chnu.edu.ua/abituriientu/",
+      "permanent": true
+    },
+    {
+      "source": "/entrant/brochures",
+      "destination": "https://mpuik.chnu.edu.ua/abituriientu/",
+      "permanent": true
+    },
+    {
+      "source": "/entrant/programs/kompyuterni-nauki-magistr",
+      "destination": "https://mpuik.chnu.edu.ua/abituriientu/vstup-u-mahistraturu/",
+      "permanent": true
+    },
+    {
+      "source": "/entrant/programs/kompyuterni-nauki",
+      "destination": "https://mpuik.chnu.edu.ua/abituriientu/vstup-na-bakalavrat/na-bazi-pzso-11-klasiv/",
+      "permanent": true
+    },
+    {
+      "source": "/entrant/programs/kompyuterni-nauki-skorochena",
+      "destination": "https://mpuik.chnu.edu.ua/abituriientu/vstup-na-bakalavrat/na-bazi-nrk-5-na-skorochenu-formu-pislia-koledzhu/",
+      "permanent": true
+    },
+
+    // Student / Studentu section mappings
+    {
+      "source": "/student/rating",
+      "destination": "https://mpuik.chnu.edu.ua/studentu/",
+      "permanent": true
+    },
+    {
+      "source": "/student/sistema-elektronnogo-navchannya",
+      "destination": "https://mpuik.chnu.edu.ua/studentu/systema-elektronnoho-navchannia-chnu/",
+      "permanent": true
+    },
+    {
+      "source": "/student/educational-programs",
+      "destination": "https://mpuik.chnu.edu.ua/studentu/navchalni-plany/",
+      "permanent": true
+    },
+    {
+      "source": "/student/competitions",
+      "destination": "https://mpuik.chnu.edu.ua/studentu/olimpiady-ta-konkursy/",
+      "permanent": true
+    },
+    {
+      "source": "/student/students-scientific-work/conf",
+      "destination": "https://mpuik.chnu.edu.ua/studentu/naukova-robota/studentska-naukova-konferentsiia/",
+      "permanent": true
+    },
+    {
+      "source": "/student/students-scientific-work/clubs-and-societies",
+      "destination": "https://mpuik.chnu.edu.ua/studentu/naukova-robota/studentski-hurtky/",
+      "permanent": true
+    },
+    {
+      "source": "/student/mobility",
+      "destination": "https://mpuik.chnu.edu.ua/studentu/akademichna-mobilnist/",
+      "permanent": true
+    },
+    {
+      "source": "/student/student-government",
+      "destination": "https://mpuik.chnu.edu.ua/studentu/studentske-samovriaduvannia/",
+      "permanent": true
+    },
+    {
+      "source": "/student/offers",
+      "destination": "https://mpuik.chnu.edu.ua/studentu/",
+      "permanent": true
+    },
+    {
+      "source": "/student/syllabi",
+      "destination": "https://mpuik.chnu.edu.ua/osvitnii-protses/navchalni-dystsypliny/",
+      "permanent": true
+    },
+
+    // Academic Integrity mappings
+    {
+      "source": "/academic-integrity/regulations",
+      "destination": "https://mpuik.chnu.edu.ua/akademichna-dobrochesnist/normatyvni-dokumenty/",
+      "permanent": true
+    },
+    {
+      "source": "/academic-integrity/:path*",
+      "destination": "https://mpuik.chnu.edu.ua/akademichna-dobrochesnist/:path*",
+      "permanent": true
+    },
+
+    // News section mappings with category handling
+    {
+      "source": "/news/podiya/:path*",
+      "destination": "https://mpuik.chnu.edu.ua/novyny/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/news/dosyagnennya/:path*",
+      "destination": "https://mpuik.chnu.edu.ua/novyny/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/news/ogoloshennya/:path*",
+      "destination": "https://mpuik.chnu.edu.ua/novyny/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/news/vazhlive/:path*",
+      "destination": "https://mpuik.chnu.edu.ua/novyny/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/news/inshe/:path*",
+      "destination": "https://mpuik.chnu.edu.ua/novyny/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/news/vst/:path*",
+      "destination": "https://mpuik.chnu.edu.ua/novyny/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/news/page/:number",
+      "destination": "https://mpuik.chnu.edu.ua/novyny/",
+      "permanent": true
+    },
+
+    // Contacts mapping
+    {
+      "source": "/contacts",
+      "destination": "https://mpuik.chnu.edu.ua/",
+      "permanent": true
+    },
+
+    // GENERAL SECTION MAPPINGS (catch broader patterns)
+    
+    {
+      "source": "/about/:path*",
+      "destination": "https://mpuik.chnu.edu.ua/pro-nas/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/educational-process/:path*",
+      "destination": "https://mpuik.chnu.edu.ua/osvitnii-protses/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/student/:path*",
+      "destination": "https://mpuik.chnu.edu.ua/studentu/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/entrant/:path*",
+      "destination": "https://mpuik.chnu.edu.ua/abituriientu/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/news/:path*",
+      "destination": "https://mpuik.chnu.edu.ua/novyny/:path*",
+      "permanent": true
+    },
+
+    // Home page redirect
+    {
+      "source": "/",
+      "destination": "https://mpuik.chnu.edu.ua/",
+      "permanent": true
+    },
+
+    // Catch-all fallback - redirect any unmatched path to main domain
+    {
+      "source": "/:path*",
+      "destination": "https://mpuik.chnu.edu.ua/",
       "permanent": true
     }
   ]
